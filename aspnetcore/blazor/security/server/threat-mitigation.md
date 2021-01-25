@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/security/server/threat-mitigation
-ms.openlocfilehash: d0ed36731d78d3e98aa294aca50492f0a3ac8174
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.openlocfilehash: 4256e90ca5f185992a73d1e43460ca5d27159d6f
+ms.sourcegitcommit: d4836f9b7c508f51c6c4ee6d0cc719b38c1729c4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97506695"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98758284"
 ---
 # <a name="threat-mitigation-guidance-for-aspnet-core-no-locblazor-server"></a>Linee guida per la mitigazione delle minacce per ASP.NET Core Blazor Server
 
@@ -79,7 +79,7 @@ Si consideri lo scenario seguente per la gestione e la visualizzazione di un ele
   * Visualizza solo i primi 100 e 1.000 elementi e richiede all'utente di immettere i criteri di ricerca per trovare gli elementi oltre gli elementi visualizzati.
   * Per uno scenario di rendering più avanzato, implementare elenchi o griglie che supportano la *virtualizzazione*. Con la virtualizzazione, gli elenchi eseguono solo il rendering di un subset di elementi attualmente visibili all'utente. Quando l'utente interagisce con la barra di scorrimento nell'interfaccia utente, il componente esegue il rendering solo degli elementi necessari per la visualizzazione. Gli elementi che non sono attualmente necessari per la visualizzazione possono essere conservati nell'archiviazione secondaria, che è l'approccio ideale. Gli elementi non visualizzati possono anche essere mantenuti in memoria, il che è meno ideale.
 
-Blazor Server le app offrono un modello di programmazione simile ad altri Framework dell'interfaccia utente per le app con stato, ad esempio WPF, Windows Forms o Blazor WebAssembly . La differenza principale consiste nel fatto che in diversi framework dell'interfaccia utente la memoria utilizzata dall'app appartiene al client e ha effetto solo su tale client. Ad esempio, un' Blazor WebAssembly app viene eseguita interamente nel client e usa solo le risorse di memoria del client. Nello Blazor Server scenario, la memoria usata dall'app appartiene al server e viene condivisa tra i client nell'istanza del server.
+Blazor Server le app offrono un modello di programmazione simile ad altri Framework dell'interfaccia utente per le app con stato, ad esempio WPF, Windows Form o Blazor WebAssembly . La differenza principale consiste nel fatto che in diversi framework dell'interfaccia utente la memoria utilizzata dall'app appartiene al client e ha effetto solo su tale client. Ad esempio, un' Blazor WebAssembly app viene eseguita interamente nel client e usa solo le risorse di memoria del client. Nello Blazor Server scenario, la memoria usata dall'app appartiene al server e viene condivisa tra i client nell'istanza del server.
 
 Le richieste di memoria sul lato server sono una considerazione per tutte le Blazor Server app. Tuttavia, la maggior parte delle app Web sono senza stato e la memoria usata durante l'elaborazione di una richiesta viene rilasciata quando viene restituita la risposta. Come raccomandazione generale, non consentire ai client di allocare una quantità di memoria non associata come in qualsiasi altra app sul lato server che rende permanente le connessioni client. La memoria utilizzata da un' Blazor Server applicazione viene mantenute per un periodo di tempo più lungo rispetto a una singola richiesta.
 
@@ -306,12 +306,7 @@ Le interazioni di interoperabilità JS tra il client e il server vengono registr
 
 Quando si verifica un errore nel server, il framework invia una notifica al client e rimuove la sessione. Per impostazione predefinita, il client riceve un messaggio di errore generico che può essere visualizzato negli strumenti di sviluppo del browser.
 
-L'errore sul lato client non include il stack e non fornisce dettagli sulla ragione dell'errore, ma i log del server contengono tali informazioni. A scopo di sviluppo, le informazioni sensibili sugli errori possono essere rese disponibili al client abilitando errori dettagliati.
-
-Abilitare errori dettagliati in JavaScript con:
-
-* <xref:Microsoft.AspNetCore.Components.Server.CircuitOptions.DetailedErrors?displayProperty=nameWithType>.
-* `DetailedErrors`Chiave di configurazione impostata su `true` , che può essere impostata nel file di impostazioni dell'app ( `appsettings.json` ). La chiave può essere impostata anche usando la `ASPNETCORE_DETAILEDERRORS` variabile di ambiente con un valore `true` .
+L'errore sul lato client non include il stack e non fornisce dettagli sulla ragione dell'errore, ma i log del server contengono tali informazioni. A scopo di sviluppo, le informazioni sensibili sugli errori possono essere rese disponibili al client [abilitando errori dettagliati](xref:blazor/fundamentals/handle-errors#blazor-server-detailed-circuit-errors).
 
 > [!WARNING]
 > L'esposizione delle informazioni sugli errori ai client su Internet costituisce un rischio per la sicurezza che deve essere sempre evitata.
