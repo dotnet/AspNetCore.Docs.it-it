@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/security/index
-ms.openlocfilehash: f8b31c617ef71003042d31690de49d48946ac3d5
-ms.sourcegitcommit: da5a5bed5718a9f8db59356ef8890b4b60ced6e9
+ms.openlocfilehash: 35620299b1138ca45a6ebf1d789a9f4aa9b29518
+ms.sourcegitcommit: 610936e4d3507f7f3d467ed7859ab9354ec158ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98710646"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98751610"
 ---
 # <a name="aspnet-core-no-locblazor-authentication-and-authorization"></a>BlazorAutenticazione e autorizzazione ASP.NET Core
 
@@ -44,7 +44,7 @@ Le [ Razor convenzioni di autorizzazione pagine](xref:security/authorization/raz
 > [!NOTE]
 > <xref:Microsoft.AspNetCore.Identity.SignInManager%601> e <xref:Microsoft.AspNetCore.Identity.UserManager%601> non sono supportati nei Razor componenti di.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 Blazor USA i meccanismi di autenticazione ASP.NET Core esistenti per stabilire l'identità dell'utente. Il meccanismo esatto dipende dalla modalità di Blazor hosting dell'app o da Blazor WebAssembly Blazor Server .
 
@@ -299,7 +299,7 @@ Se non sono specificate condizioni di autorizzazione, <xref:Microsoft.AspNetCore
 * Gli utenti autenticati (che hanno eseguito l'accesso) come autorizzati.
 * Gli utenti non autenticati (disconnessi) come non autorizzati.
 
-Il <xref:Microsoft.AspNetCore.Components.Authorization.AuthorizeView> componente può essere utilizzato nel `NavMenu` componente () `Shared/NavMenu.razor` per visualizzare un elemento elenco ( `<li>...</li>` ) per un [ `NavLink` componente](xref:blazor/fundamentals/routing#navlink-component) ( <xref:Microsoft.AspNetCore.Components.Routing.NavLink> ), ma si noti che questo approccio rimuove solo l'elemento dell'elenco dall'output di cui è stato eseguito il rendering. Non impedisce all'utente di spostarsi nel componente.
+Il <xref:Microsoft.AspNetCore.Components.Authorization.AuthorizeView> componente può essere utilizzato nel `NavMenu` componente () `Shared/NavMenu.razor` per visualizzare un elemento elenco ( `<li>...</li>` ) per un [ `NavLink` componente](xref:blazor/fundamentals/routing#navlink-and-navmenu-components) ( <xref:Microsoft.AspNetCore.Components.Routing.NavLink> ), ma si noti che questo approccio rimuove solo l'elemento dell'elenco dall'output di cui è stato eseguito il rendering. Non impedisce all'utente di spostarsi nel componente.
 
 ### <a name="role-based-and-policy-based-authorization"></a>Autorizzazione basata sui ruoli e basata sui criteri
 

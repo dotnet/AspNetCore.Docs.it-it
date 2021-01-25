@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/project-structure
-ms.openlocfilehash: ae41d096c50d350b7fcde52da59382614e62c109
-ms.sourcegitcommit: cc405f20537484744423ddaf87bd1e7d82b6bdf0
+ms.openlocfilehash: 958fa23a1befac3696d850d5409d4021dd109c22
+ms.sourcegitcommit: 610936e4d3507f7f3d467ed7859ab9354ec158ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98658625"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98751542"
 ---
 # <a name="aspnet-core-no-locblazor-project-structure"></a>BlazorStruttura del progetto ASP.NET Core
 
@@ -48,7 +48,7 @@ Il Blazor WebAssembly modello ( `blazorwasm` ) crea i file e la struttura di dir
 * `Shared` cartella: contiene i componenti e i fogli di stile condivisi seguenti:
   * `MainLayout` Component ( `MainLayout.razor` ): [componente del layout](xref:blazor/layouts)dell'app.
   * `MainLayout.razor.css`: Foglio di stile per il layout principale dell'app.
-  * `NavMenu` Component ( `NavMenu.razor` ): implementa la navigazione nell'intestazione laterale. Include il [ `NavLink` componente](xref:blazor/fundamentals/routing#navlink-component) ( <xref:Microsoft.AspNetCore.Components.Routing.NavLink> ) che esegue il rendering dei collegamenti di navigazione ad altri Razor componenti. Il <xref:Microsoft.AspNetCore.Components.Routing.NavLink> componente indica automaticamente uno stato selezionato quando viene caricato il componente, che consente all'utente di comprendere il componente attualmente visualizzato.
+  * `NavMenu` Component ( `NavMenu.razor` ): implementa la navigazione nell'intestazione laterale. Include il [ `NavLink` componente](xref:blazor/fundamentals/routing#navlink-and-navmenu-components) ( <xref:Microsoft.AspNetCore.Components.Routing.NavLink> ) che esegue il rendering dei collegamenti di navigazione ad altri Razor componenti. Il <xref:Microsoft.AspNetCore.Components.Routing.NavLink> componente indica automaticamente uno stato selezionato quando viene caricato il componente, che consente all'utente di comprendere il componente attualmente visualizzato.
   * `NavMenu.razor.css`: Foglio di stile per il menu di navigazione dell'app.
   * `SurveyPrompt` Component ( `SurveyPrompt.razor` ): Blazor componente Survey.
 
@@ -58,7 +58,7 @@ Il Blazor WebAssembly modello ( `blazorwasm` ) crea i file e la struttura di dir
 
 * `Shared` cartella: contiene i componenti condivisi seguenti:
   * `MainLayout` Component ( `MainLayout.razor` ): [componente del layout](xref:blazor/layouts)dell'app.
-  * `NavMenu` Component ( `NavMenu.razor` ): implementa la navigazione nell'intestazione laterale. Include il [ `NavLink` componente](xref:blazor/fundamentals/routing#navlink-component) ( <xref:Microsoft.AspNetCore.Components.Routing.NavLink> ) che esegue il rendering dei collegamenti di navigazione ad altri Razor componenti. Il <xref:Microsoft.AspNetCore.Components.Routing.NavLink> componente indica automaticamente uno stato selezionato quando viene caricato il componente, che consente all'utente di comprendere il componente attualmente visualizzato.
+  * `NavMenu` Component ( `NavMenu.razor` ): implementa la navigazione nell'intestazione laterale. Include il [ `NavLink` componente](xref:blazor/fundamentals/routing#navlink-and-navmenu-components) ( <xref:Microsoft.AspNetCore.Components.Routing.NavLink> ) che esegue il rendering dei collegamenti di navigazione ad altri Razor componenti. Il <xref:Microsoft.AspNetCore.Components.Routing.NavLink> componente indica automaticamente uno stato selezionato quando viene caricato il componente, che consente all'utente di comprendere il componente attualmente visualizzato.
   * `SurveyPrompt` Component ( `SurveyPrompt.razor` ): Blazor componente Survey.
   
 ::: moniker-end
@@ -78,6 +78,9 @@ Il Blazor WebAssembly modello ( `blazorwasm` ) crea i file e la struttura di dir
   * La pagina specifica la posizione in cui `App` viene eseguito il rendering del componente radice. Il rendering del componente viene eseguito in corrispondenza della posizione dell' `app` elemento DOM ( `<app>Loading...</app>` ).
 
 ::: moniker-end
+
+> [!NOTE]
+> I file JavaScript (JS) aggiunti al `wwwroot/index.html` file devono essere visualizzati prima del `</body>` tag di chiusura. L'ordine con cui il codice JS personalizzato viene caricato dai file JS è importante in alcuni scenari. Ad esempio, assicurarsi che i file JS con metodi di interoperabilità siano inclusi prima dei Blazor file di framework JS.
 
 * `_Imports.razor`: Include Razor direttive comuni da includere nei componenti dell'app ( `.razor` ), ad esempio le [`@using`](xref:mvc/views/razor#using) direttive per gli spazi dei nomi.
 
@@ -115,7 +118,10 @@ Il Blazor Server modello ( `blazorserver` ) crea i file e la struttura di direct
   * `Error` Component ( `Error.razor` ): viene eseguito il rendering quando si verifica un'eccezione non gestita nell'app.
   * `FetchData` Component ( `FetchData.razor` ): implementa la pagina Recupera dati.
   * `Index` Component ( `Index.razor` ): implementa la Home page.
-  
+
+> [!NOTE]
+> I file JavaScript (JS) aggiunti al `Pages/_Host.cshtml` file devono essere visualizzati prima del `</body>` tag di chiusura. L'ordine con cui il codice JS personalizzato viene caricato dai file JS è importante in alcuni scenari. Ad esempio, assicurarsi che i file JS con metodi di interoperabilità siano inclusi prima dei Blazor file di framework JS.
+
 * `Properties/launchSettings.json`: Include la [configurazione dell'ambiente di sviluppo](xref:fundamentals/environments#development-and-launchsettingsjson).
 
 ::: moniker range=">= aspnetcore-5.0"
@@ -123,7 +129,7 @@ Il Blazor Server modello ( `blazorserver` ) crea i file e la struttura di direct
 * `Shared` cartella: contiene i componenti e i fogli di stile condivisi seguenti:
   * `MainLayout` Component ( `MainLayout.razor` ): [componente del layout](xref:blazor/layouts)dell'app.
   * `MainLayout.razor.css`: Foglio di stile per il layout principale dell'app.
-  * `NavMenu` Component ( `NavMenu.razor` ): implementa la navigazione nell'intestazione laterale. Include il [ `NavLink` componente](xref:blazor/fundamentals/routing#navlink-component) ( <xref:Microsoft.AspNetCore.Components.Routing.NavLink> ) che esegue il rendering dei collegamenti di navigazione ad altri Razor componenti. Il <xref:Microsoft.AspNetCore.Components.Routing.NavLink> componente indica automaticamente uno stato selezionato quando viene caricato il componente, che consente all'utente di comprendere il componente attualmente visualizzato.
+  * `NavMenu` Component ( `NavMenu.razor` ): implementa la navigazione nell'intestazione laterale. Include il [ `NavLink` componente](xref:blazor/fundamentals/routing#navlink-and-navmenu-components) ( <xref:Microsoft.AspNetCore.Components.Routing.NavLink> ) che esegue il rendering dei collegamenti di navigazione ad altri Razor componenti. Il <xref:Microsoft.AspNetCore.Components.Routing.NavLink> componente indica automaticamente uno stato selezionato quando viene caricato il componente, che consente all'utente di comprendere il componente attualmente visualizzato.
   * `NavMenu.razor.css`: Foglio di stile per il menu di navigazione dell'app.
   * `SurveyPrompt` Component ( `SurveyPrompt.razor` ): Blazor componente Survey.
 
@@ -133,7 +139,7 @@ Il Blazor Server modello ( `blazorserver` ) crea i file e la struttura di direct
 
 * `Shared` cartella: contiene i componenti condivisi seguenti:
   * `MainLayout` Component ( `MainLayout.razor` ): [componente del layout](xref:blazor/layouts)dell'app.
-  * `NavMenu` Component ( `NavMenu.razor` ): implementa la navigazione nell'intestazione laterale. Include il [ `NavLink` componente](xref:blazor/fundamentals/routing#navlink-component) ( <xref:Microsoft.AspNetCore.Components.Routing.NavLink> ) che esegue il rendering dei collegamenti di navigazione ad altri Razor componenti. Il <xref:Microsoft.AspNetCore.Components.Routing.NavLink> componente indica automaticamente uno stato selezionato quando viene caricato il componente, che consente all'utente di comprendere il componente attualmente visualizzato.
+  * `NavMenu` Component ( `NavMenu.razor` ): implementa la navigazione nell'intestazione laterale. Include il [ `NavLink` componente](xref:blazor/fundamentals/routing#navlink-and-navmenu-components) ( <xref:Microsoft.AspNetCore.Components.Routing.NavLink> ) che esegue il rendering dei collegamenti di navigazione ad altri Razor componenti. Il <xref:Microsoft.AspNetCore.Components.Routing.NavLink> componente indica automaticamente uno stato selezionato quando viene caricato il componente, che consente all'utente di comprendere il componente attualmente visualizzato.
   * `SurveyPrompt` Component ( `SurveyPrompt.razor` ): Blazor componente Survey.
   
 ::: moniker-end

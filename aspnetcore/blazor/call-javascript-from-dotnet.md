@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/call-javascript-from-dotnet
-ms.openlocfilehash: 2502f43f4eaf245996827f704462ec340bbb8e07
-ms.sourcegitcommit: 063a06b644d3ade3c15ce00e72a758ec1187dd06
+ms.openlocfilehash: 53b702cddca778e06e617df3798bffb21677d36b
+ms.sourcegitcommit: 610936e4d3507f7f3d467ed7859ab9354ec158ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98252539"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98751645"
 ---
 # <a name="call-javascript-functions-from-net-methods-in-aspnet-core-no-locblazor"></a>Chiamare funzioni JavaScript da metodi .NET in ASP.NET Core Blazor
 
@@ -35,6 +35,9 @@ Un' Blazor app può richiamare funzioni JavaScript da metodi .NET e metodi .NET 
 Questo articolo illustra come richiamare funzioni JavaScript da .NET. Per informazioni su come chiamare i metodi .NET da JavaScript, vedere <xref:blazor/call-dotnet-from-javascript> .
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
+
+> [!NOTE]
+> Aggiungere i file JS ( `<script>` tag) prima del `</body>` tag di chiusura nel `wwwroot/index.html` file ( Blazor WebAssembly ) o nel `Pages/_Host.cshtml` file ( Blazor Server ). Assicurarsi che i file JS con i metodi di interoperabilità JS siano inclusi prima dei Blazor file di framework JS.
 
 Per chiamare JavaScript da .NET, usare l' <xref:Microsoft.JSInterop.IJSRuntime> astrazione. Per rilasciare chiamate di interoperabilità JS, inserire l' <xref:Microsoft.JSInterop.IJSRuntime> astrazione nel componente. <xref:Microsoft.JSInterop.IJSRuntime.InvokeAsync%2A> accetta un identificatore per la funzione JavaScript che si vuole richiamare insieme a un numero qualsiasi di argomenti serializzabili in JSON. L'identificatore della funzione è relativo all'ambito globale ( `window` ). Se si desidera chiamare `window.someScope.someFunction` , l'identificatore è `someScope.someFunction` . Non è necessario registrare la funzione prima che venga chiamata. Il tipo restituito `T` deve anche essere serializzabile in JSON. `T` deve corrispondere al tipo .NET che meglio esegue il mapping al tipo JSON restituito.
 

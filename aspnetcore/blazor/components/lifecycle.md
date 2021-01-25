@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/components/lifecycle
-ms.openlocfilehash: 7152f45cd799128b668ec5002fb20b4f30e69585
-ms.sourcegitcommit: da5a5bed5718a9f8db59356ef8890b4b60ced6e9
+ms.openlocfilehash: 3591ba18351b89e2d5dfaef796777273c97ce98b
+ms.sourcegitcommit: 610936e4d3507f7f3d467ed7859ab9354ec158ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98710659"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98751619"
 ---
 # <a name="aspnet-core-no-locblazor-lifecycle"></a>Ciclo di vita ASP.NET Core Blazor
 
@@ -68,14 +68,38 @@ Lo sviluppatore chiama per [`StateHasChanged`](#state-changes) generare un rende
 
 ### <a name="before-parameters-are-set"></a>Prima dell'impostazione dei parametri
 
-<xref:Microsoft.AspNetCore.Components.ComponentBase.SetParametersAsync%2A> Imposta i parametri forniti dall'elemento padre del componente nell'albero di rendering:
+<xref:Microsoft.AspNetCore.Components.ComponentBase.SetParametersAsync%2A> Imposta i parametri forniti dall'elemento padre del componente nell'albero di rendering o dai parametri di route. Eseguendo l'override del metodo, il codice dello sviluppatore può interagire direttamente con i <xref:Microsoft.AspNetCore.Components.ParameterView> parametri di.
 
-```csharp
-public override async Task SetParametersAsync(ParameterView parameters)
-{
-    await ...
+Nell'esempio seguente, <xref:Microsoft.AspNetCore.Components.ParameterView.TryGetValue%2A?displayProperty=nameWithType> assegna il valore del `Param` parametro a se l' `value` analisi di un parametro di route per `Param` ha esito positivo. Quando `value` non è `null` , il valore viene visualizzato dal `SetParametersAsyncExample` componente.
 
-    await base.SetParametersAsync(parameters);
+`Pages/SetParametersAsyncExample.razor`:
+
+```razor
+@page "/setparametersasync-example/{Param?}"
+
+<h1>SetParametersAsync Example</h1>
+
+<p>@message</p>
+
+@code {
+    private string message;
+
+    [Parameter]
+    public string Param { get; set; }
+
+    public override async Task SetParametersAsync(ParameterView parameters)
+    {
+        if (parameters.TryGetValue<string>(nameof(Param), out var value))
+        {
+            message = $"The value of 'Param' is {value}.";
+        }
+        else 
+        {
+            message = "The value of 'Param' is null.";
+        }
+
+        await base.SetParametersAsync(parameters);
+    }
 }
 ```
 

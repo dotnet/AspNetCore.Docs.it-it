@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/fundamentals/routing
-ms.openlocfilehash: ec183f4aadc6bafd8e77f9d97291ba3d47bd92f5
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.openlocfilehash: 74886eae7431045e56de535b5221040bd56cdc2d
+ms.sourcegitcommit: 610936e4d3507f7f3d467ed7859ab9354ec158ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97506929"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98751568"
 ---
 # <a name="aspnet-core-no-locblazor-routing"></a>BlazorRouting ASP.NET Core
 
@@ -326,11 +326,11 @@ Per ulteriori informazioni sull'eliminazione dei componenti, vedere <xref:blazor
 La stringa di query di una richiesta viene ottenuta dalla <xref:Microsoft.AspNetCore.Components.NavigationManager.Uri?displayProperty=nameWithType> proprietà:
 
 ```razor
-@inject NavigationManager Navigation
+@inject NavigationManager NavigationManager
 
 ...
 
-var query = new Uri(Navigation.Uri).Query;
+var query = new Uri(NavigationManager.Uri).Query;
 ```
 
 Per analizzare i parametri della stringa di query:
@@ -354,7 +354,7 @@ Nell' `ParseQueryString` esempio di componente seguente viene analizzata una chi
 
 ::: moniker-end
 
-## <a name="navlink-component"></a>Componente `NavLink`
+## <a name="navlink-and-navmenu-components"></a>`NavLink``NavMenu`componenti e
 
 Usare un <xref:Microsoft.AspNetCore.Components.Routing.NavLink> componente al posto di elementi collegamento ipertestuale HTML ( `<a>` ) durante la creazione di collegamenti di navigazione. Un <xref:Microsoft.AspNetCore.Components.Routing.NavLink> componente si comporta come un `<a>` elemento, con la differenza che viene attivata o disattivata una `active` classe CSS a seconda che `href` corrisponda all'URL corrente. La `active` classe consente a un utente di comprendere quale pagina è la pagina attiva tra i collegamenti di navigazione visualizzati. Facoltativamente, assegnare un nome di classe CSS a <xref:Microsoft.AspNetCore.Components.Routing.NavLink.ActiveClass?displayProperty=nameWithType> per applicare una classe CSS personalizzata al collegamento di cui è stato eseguito il rendering quando la route corrente corrisponde a `href` .
 

@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/call-dotnet-from-javascript
-ms.openlocfilehash: 5a00bfb87b8cfe0fb3e2a832a553b8a4cd45ee6d
-ms.sourcegitcommit: 063a06b644d3ade3c15ce00e72a758ec1187dd06
+ms.openlocfilehash: e602f29e6932280f4625ade64201ff232e02150d
+ms.sourcegitcommit: 610936e4d3507f7f3d467ed7859ab9354ec158ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98252500"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98751631"
 ---
 # <a name="call-net-methods-from-javascript-functions-in-aspnet-core-no-locblazor"></a>Chiamare i metodi .NET da funzioni JavaScript in ASP.NET Core Blazor
 
@@ -35,6 +35,9 @@ Un' Blazor app può richiamare funzioni JavaScript da metodi .NET e metodi .NET 
 Questo articolo descrive come richiamare i metodi .NET da JavaScript. Per informazioni su come chiamare funzioni JavaScript da .NET, vedere <xref:blazor/call-javascript-from-dotnet> .
 
 [Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
+
+> [!NOTE]
+> Aggiungere i file JS ( `<script>` tag) prima del `</body>` tag di chiusura nel `wwwroot/index.html` file ( Blazor WebAssembly ) o nel `Pages/_Host.cshtml` file ( Blazor Server ). Assicurarsi che i file JS con i metodi di interoperabilità JS siano inclusi prima dei Blazor file di framework JS.
 
 ## <a name="static-net-method-call"></a>Chiamata al metodo .NET statico
 

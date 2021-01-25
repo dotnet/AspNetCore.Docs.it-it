@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: fundamentals/error-handling
-ms.openlocfilehash: ad9920ccd830b93d083f3c5ede03702164842b6e
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.openlocfilehash: e65983fb1a440057283111ea5a79a79b765607b7
+ms.sourcegitcommit: 610936e4d3507f7f3d467ed7859ab9354ec158ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97753114"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98751679"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Gestire gli errori in ASP.NET Core
 
@@ -68,7 +68,14 @@ Nell'esempio seguente, <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtens
 
 Il Razor modello di app pagine fornisce una pagina di errore (*cshtml*) e una <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> classe ( `ErrorModel` ) nella cartella *pagine* . Per un'app MVC, il modello di progetto include un `Error` metodo di azione e una visualizzazione degli errori per il controller Home.
 
-Non contrassegnare il metodo di azione del gestore errori con attributi di metodo HTTP, ad esempio `HttpGet` . I verbi espliciti impediscono che alcune richieste raggiungano il metodo di azione. Consentire l'accesso anonimo al metodo se gli utenti non autenticati dovrebbero visualizzare la visualizzazione degli errori.
+Il middleware di gestione delle eccezioni esegue nuovamente la richiesta usando il metodo HTTP *originale* . Se un endpoint del gestore errori è limitato a un set specifico di metodi HTTP, viene eseguito solo per i metodi HTTP. Ad esempio, un'azione del controller MVC che usa l' `[HttpGet]` attributo viene eseguita solo per le richieste Get. Per assicurarsi che *tutte* le richieste raggiungano la pagina di gestione degli errori personalizzata, non limitarle a un set specifico di metodi HTTP.
+
+Per gestire le eccezioni in modo diverso in base al metodo HTTP originale:
+
+* Per le Razor pagine, creare più metodi del gestore. Utilizzare, ad esempio, `OnGet` per gestire le eccezioni Get e utilizzare `OnPost` per gestire le eccezioni post.
+* Per MVC, applicare attributi di verbi HTTP a più azioni. Utilizzare, ad esempio, `[HttpGet]` per gestire le eccezioni Get e utilizzare `[HttpPost]` per gestire le eccezioni post.
+
+Per consentire agli utenti non autenticati di visualizzare la pagina di gestione degli errori personalizzata, assicurarsi che supporti l'accesso anonimo.
 
 ### <a name="access-the-exception"></a>Accedere all'eccezione
 
