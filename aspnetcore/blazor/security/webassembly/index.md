@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/security/webassembly/index
-ms.openlocfilehash: 2df938f3ace47472536020f9848e954fc4446f15
-ms.sourcegitcommit: cc405f20537484744423ddaf87bd1e7d82b6bdf0
+ms.openlocfilehash: 0b555ad7befe882c4ffd06e2505a9edc1263eee2
+ms.sourcegitcommit: 83524f739dd25fbfa95ee34e95342afb383b49fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98658586"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99057083"
 ---
 # <a name="secure-aspnet-core-no-locblazor-webassembly"></a>ASP.NET Core protetto Blazor WebAssembly
 
@@ -110,6 +110,14 @@ Le app richiedono spesso attestazioni per gli utenti in base a una chiamata API 
 ## <a name="azure-app-service-on-linux-with-no-locidentity-server"></a>Servizio app Azure in Linux con Identity Server
 
 Specificare l'autorità emittente in modo esplicito quando si distribuisce in app Azure servizio in Linux con Identity Server. Per altre informazioni, vedere <xref:security/authentication/identity/spa#azure-app-service-on-linux>.
+
+## <a name="windows-authentication"></a>Autenticazione di Windows
+
+Non è consigliabile usare l'autenticazione di Windows con Blazor webassembly o con altri Framework di applicazione a singola pagina. È consigliabile usare protocolli basati su token anziché l'autenticazione di Windows, ad esempio OIDC con Active Directory Federation Services (ADFS).
+
+Se l'autenticazione di Windows viene usata con Blazor webassembly o con qualsiasi altro framework di applicazione a singola pagina, sono necessarie misure aggiuntive per proteggere l'app dai token CSRF (cross-site request false). Le stesse considerazioni che si applicano a cookie s si applicano all'autenticazione di Windows con l'aggiunta che l'autenticazione di Windows non offre alcun meccanismo per impedire la condivisione del contesto di autenticazione tra le origini. Le app che usano l'autenticazione di Windows senza protezione aggiuntiva da CSRF devono essere limitate almeno alla Intranet di un'organizzazione e non possono essere usate in Internet.
+
+Per informazioni, vedere <xref:security/anti-request-forgery> .
 
 ## <a name="implementation-guidance"></a>Indicazioni relative all'implementazione
 

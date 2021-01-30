@@ -18,18 +18,20 @@ no-loc:
 - Razor
 - SignalR
 uid: security/authorization/limitingidentitybyscheme
-ms.openlocfilehash: a5f2dff7b0e0d4f209ba445b2efb6fb261cbaab1
-ms.sourcegitcommit: fbd5427293d9ecccc388bd5fd305c2eb8ada7281
+ms.openlocfilehash: c4cbec1b829fb8fd47f7b6924b6870bd5dd7097d
+ms.sourcegitcommit: 83524f739dd25fbfa95ee34e95342afb383b49fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94464016"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99057304"
 ---
 # <a name="authorize-with-a-specific-scheme-in-aspnet-core"></a>Autorizzare con uno schema specifico in ASP.NET Core
 
+Per un'introduzione agli schemi di autenticazione in ASP.NET Core, vedere [schema di autenticazione](xref:security/authentication/index#authentication-scheme).
+
 In alcuni scenari, ad esempio le applicazioni a pagina singola (Spa), è comune usare più metodi di autenticazione. Ad esempio, l'app può usare l' cookie autenticazione basata su per accedere e l'autenticazione di connessione JWT per le richieste JavaScript. In alcuni casi, l'app può avere più istanze di un gestore di autenticazione. Ad esempio, due cookie gestori dove uno contiene un'identità di base e uno viene creato quando viene attivata un'autenticazione a più fattori (multi-factor authentication). L'autenticazione a più fattori può essere attivata perché l'utente ha richiesto un'operazione che richiede una maggiore sicurezza. Per altre informazioni sull'applicazione dell'autenticazione a più fattori quando un utente richiede una risorsa che richiede l'autenticazione a più fattori, vedere la [sezione relativa alla protezione](https://github.com/dotnet/AspNetCore.Docs/issues/15791#issuecomment-580464195)dei problemi di GitHub con l'autenticazione a
 
-Uno schema di autenticazione viene denominato quando il servizio di autenticazione viene configurato durante l'autenticazione. Esempio:
+Uno schema di autenticazione viene denominato quando il servizio di autenticazione viene configurato durante l'autenticazione. Ad esempio:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -54,7 +56,7 @@ Nel codice precedente sono stati aggiunti due gestori di autenticazione: uno per
 
 ## <a name="selecting-the-scheme-with-the-authorize-attribute"></a>Selezione dello schema con l'attributo autorizzi
 
-Al momento dell'autorizzazione, l'app indica il gestore da usare. Selezionare il gestore con cui l'app autorizzerà il passaggio di un elenco delimitato da virgole di schemi di autenticazione a `[Authorize]` . L' `[Authorize]` attributo specifica lo schema o gli schemi di autenticazione da utilizzare, indipendentemente dal fatto che sia configurato un valore predefinito. Esempio:
+Al momento dell'autorizzazione, l'app indica il gestore da usare. Selezionare il gestore con cui l'app autorizzerà il passaggio di un elenco delimitato da virgole di schemi di autenticazione a `[Authorize]` . L' `[Authorize]` attributo specifica lo schema o gli schemi di autenticazione da utilizzare, indipendentemente dal fatto che sia configurato un valore predefinito. Ad esempio:
 
 ```csharp
 [Authorize(AuthenticationSchemes = AuthSchemes)]
@@ -130,7 +132,7 @@ public void ConfigureServices(IServiceCollection services)
 > [!NOTE]
 > Con lo schema di autenticazione predefinito viene registrata una sola autenticazione JWT Bearer `JwtBearerDefaults.AuthenticationScheme` . È necessario registrare un'autenticazione aggiuntiva con uno schema di autenticazione univoco.
 
-Il passaggio successivo consiste nell'aggiornare i criteri di autorizzazione predefiniti affinché accettino entrambi gli schemi di autenticazione. Esempio:
+Il passaggio successivo consiste nell'aggiornare i criteri di autorizzazione predefiniti affinché accettino entrambi gli schemi di autenticazione. Ad esempio:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)

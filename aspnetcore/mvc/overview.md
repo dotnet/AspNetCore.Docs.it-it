@@ -17,12 +17,12 @@ no-loc:
 - Razor
 - SignalR
 uid: mvc/overview
-ms.openlocfilehash: 4f0e98057c03769a672ef350cc3ec724a4f7e721
-ms.sourcegitcommit: fe5a287fa6b9477b130aa39728f82cdad57611ee
+ms.openlocfilehash: 642a7b26a3ba0a79a35437a5c19ee0be63a367af
+ms.sourcegitcommit: 83524f739dd25fbfa95ee34e95342afb383b49fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94431059"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99057317"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Panoramica di ASP.NET MVC
 
@@ -74,7 +74,7 @@ ASP.NET Core MVC include:
 * [Routing](#routing)
 * [Associazione di modelli](#model-binding)
 * [Convalida modello](#model-validation)
-* [Inserimento di dipendenze](../fundamentals/dependency-injection.md)
+* [Inserimento delle dipendenze](../fundamentals/dependency-injection.md)
 * [Filtri](#filters)
 * [Aree](#areas)
 * [API Web](#web-apis)
@@ -88,7 +88,7 @@ ASP.NET Core MVC include:
 
 ASP.NET Core MVC si basa sul [routing di ASP.NET Core](../fundamentals/routing.md), un potente componente per il mapping di URL che consente di compilare applicazioni con URL comprensibili che supportano la ricerca. Ciò consente di definire criteri di denominazione dell'URL dell'applicazione che funzionano perfettamente per l'ottimizzazione dei motori di ricerca (SEO) e la generazione di collegamenti, indipendentemente da come sono organizzati i file nel server Web. È possibile definire le route usando una pratica sintassi del modello di route che supporta i vincoli di valore delle route, i valori predefiniti e quelli facoltativi.
 
-Il *routing basato sulle convenzioni* consente di definire in modo globale i formati di URL accettati dall'applicazione e come ognuno di questi formati viene mappato a un metodo di azione specifico in un determinato controller. Alla ricezione di una richiesta in ingresso, il motore di routing analizza l'URL e lo confronta con uno dei formati di URL definiti, quindi chiama il metodo di azione del controller associato.
+Il *routing basato su convenzioni* consente di definire a livello globale i formati URL accettati dall'applicazione e il modo in cui ognuno di questi formati viene mappato a un metodo di azione specifico su un determinato controller. Alla ricezione di una richiesta in ingresso, il motore di routing analizza l'URL e lo confronta con uno dei formati di URL definiti, quindi chiama il metodo di azione del controller associato.
 
 ```csharp
 routes.MapRoute(name: "Default", template: "{controller=Home}/{action=Index}/{id?}");
@@ -269,5 +269,5 @@ Per altre informazioni, vedere <xref:mvc/compatibility-version>.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Tested. AspNetCore. Mvc-libreria di test Fluent per ASP.NET Core MVC](https://github.com/ivaylokenov/MyTested.AspNetCore.Mvc): libreria di unit test fortemente tipizzata, che fornisce un'interfaccia Fluent per il test di app per le API Web e MVC. ( *Non mantenuto o supportato da Microsoft).*
+* [Tested. AspNetCore. Mvc-libreria di test Fluent per ASP.NET Core MVC](https://github.com/ivaylokenov/MyTested.AspNetCore.Mvc): libreria di unit test fortemente tipizzata, che fornisce un'interfaccia Fluent per il test di app per le API Web e MVC. (*Non mantenuto o supportato da Microsoft).*
 * <xref:blazor/components/prerendering-and-integration>

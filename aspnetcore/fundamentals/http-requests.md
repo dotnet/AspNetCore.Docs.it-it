@@ -5,7 +5,7 @@ description: Informazioni sull'uso dell'interfaccia IHttpClientFactory per gesti
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 02/09/2020
+ms.date: 1/21/2021
 no-loc:
 - appsettings.json
 - ASP.NET Core Identity
@@ -19,18 +19,18 @@ no-loc:
 - Razor
 - SignalR
 uid: fundamentals/http-requests
-ms.openlocfilehash: 34c35daac3da845bac9156fe96078df7902a4cd0
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.openlocfilehash: 1cf3029452f87a396847f969f0f3136a75874752
+ms.sourcegitcommit: 83524f739dd25fbfa95ee34e95342afb383b49fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "93059494"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99057330"
 ---
 # <a name="make-http-requests-using-ihttpclientfactory-in-aspnet-core"></a>Effettuare richieste HTTP usando IHttpClientFactory in ASP.NET Core
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Di [Glenn Condron](https://github.com/glennc), [Ryan Nowak](https://github.com/rynowak),  [Steve Gordon](https://github.com/stevejgordon), [Rick Anderson](https://twitter.com/RickAndMSFT)e [Kirk Larkin](https://github.com/serpent5)
+Di [Kirk Larkin](https://github.com/serpent5), [Steve Gordon](https://github.com/stevejgordon), [Glenn Condron](https://github.com/glennc)e [Ryan Nowak](https://github.com/rynowak).
 
 È possibile registrare e usare un'interfaccia <xref:System.Net.Http.IHttpClientFactory> per configurare e creare istanze di <xref:System.Net.Http.HttpClient> in un'app. `IHttpClientFactory` offre i vantaggi seguenti:
 
@@ -58,7 +58,7 @@ L'approccio migliore dipende dai requisiti dell'app.
 
 `IHttpClientFactory` può essere registrato chiamando `AddHttpClient` :
 
-[!code-csharp[](http-requests/samples/3.x/HttpClientFactorySample/Startup.cs?name=snippet1)]
+[!code-csharp[](http-requests/samples/3.x/HttpClientFactorySample/Startup.cs?name=snippet1&highlight=13)]
 
 `IHttpClientFactory`È possibile richiedere un oggetto usando l' [inserimento di dipendenze](xref:fundamentals/dependency-injection). Il codice seguente usa `IHttpClientFactory` per creare un' `HttpClient` istanza:
 
@@ -238,16 +238,15 @@ Per ulteriori informazioni sull'utilizzo di verbi HTTP diversi con `HttpClient` 
 
 `HttpClient` ha il concetto di delegare i gestori che possono essere collegati insieme per le richieste HTTP in uscita. `IHttpClientFactory`:
 
-* Semplifica la definizione dei gestori da applicare per ogni client denominato.
-* Supporta la registrazione e il concatenamento di più gestori per compilare una pipeline middleware per le richieste in uscita. Ognuno di questi gestori è in grado di eseguire operazioni prima e dopo la richiesta in uscita. Questo modello:
-
-  * È simile alla pipeline del middleware in ingresso in ASP.NET Core.
-  * Fornisce un meccanismo per gestire le problematiche trasversali relative alle richieste HTTP, ad esempio:
-
-    * caching
-    * gestione degli errori
-    * serializzazione
-    * registrazione
+  * Semplifica la definizione dei gestori da applicare per ogni client denominato.
+  * Supporta la registrazione e il concatenamento di più gestori per compilare una pipeline middleware per le richieste in uscita. Ognuno di questi gestori è in grado di eseguire operazioni prima e dopo la richiesta in uscita. Questo modello:
+  
+    * È simile alla pipeline del middleware in ingresso in ASP.NET Core.
+    * Fornisce un meccanismo per gestire le problematiche trasversali relative alle richieste HTTP, ad esempio:
+      * caching
+      * gestione degli errori
+      * serializzazione
+      * registrazione
 
 Per creare un gestore di delega:
 
@@ -262,13 +261,31 @@ Il codice precedente controlla se l' `X-API-KEY` intestazione è presente nella 
 
 [!code-csharp[](http-requests/samples/3.x/HttpClientFactorySample/Startup2.cs?name=snippet1)]
 
-Nel codice precedente `ValidateHeaderHandler` viene registrato nell'inserimento di dipendenze. L'interfaccia `IHttpClientFactory` crea un ambito di inserimento delle dipendenze separato per ogni gestore. I gestori possono dipendere da servizi di qualsiasi ambito. I servizi da cui dipendono i gestori vengono eliminati al momento dell'eliminazione del gestore.
-
-Dopo la registrazione è possibile chiamare <xref:Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions.AddHttpMessageHandler*>, passando il tipo di gestore.
+Nel codice precedente `ValidateHeaderHandler` viene registrato nell'inserimento di dipendenze. Dopo la registrazione è possibile chiamare <xref:Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions.AddHttpMessageHandler*>, passando il tipo di gestore.
 
 È possibile registrare più gestori nell'ordine di esecuzione. Ogni gestore esegue il wrapping del gestore successivo fino a quando l'elemento `HttpClientHandler` finale non esegue la richiesta:
 
 [!code-csharp[](http-requests/samples/3.x/HttpClientFactorySample/Startup.cs?name=snippet6)]
+
+### <a name="use-di-in-outgoing-request-middleware"></a>Usa il middleware DI richiesta in uscita
+
+Quando `IHttpClientFactory` Crea un nuovo gestore di delega, USA di per soddisfare i parametri del costruttore del gestore. `IHttpClientFactory` consente di creare un ambito **separato** per ogni gestore, che può causare un comportamento sorprendente quando un gestore utilizza un servizio con *ambito* .
+
+Si consideri, ad esempio, l'interfaccia seguente e la relativa implementazione, che rappresenta un'attività come operazione con un identificatore `OperationId` :
+
+[!code-csharp[](http-requests/samples/3.x/HttpRequestsSample/Models/OperationScoped.cs?name=snippet_Types)]
+
+Come suggerisce il nome, `IOperationScoped` viene registrato con l'uso di una durata con *ambito* :
+
+[!code-csharp[](http-requests/samples/3.x/HttpRequestsSample/Startup.cs?name=snippet_IOperationScoped&highlight=18,26)]
+
+Il gestore delegato seguente utilizza e USA `IOperationScoped` per impostare l' `X-OPERATION-ID` intestazione per la richiesta in uscita:
+
+[!code-csharp[](http-requests/samples/3.x/HttpRequestsSample/Handlers/OperationHandler.cs?name=snippet_Class&highlight=13)]
+
+Nel [ `HttpRequestsSample` download](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/http-requests/samples/3.x/HttpRequestsSample)] passare a `/Operation` e aggiornare la pagina. Il valore dell'ambito della richiesta cambia per ogni richiesta, ma il valore dell'ambito del gestore cambia solo ogni 5 secondi.
+
+I gestori possono dipendere da servizi di qualsiasi ambito. I servizi da cui dipendono i gestori vengono eliminati al momento dell'eliminazione del gestore.
 
 Usare uno degli approcci seguenti per condividere lo stato in base alla richiesta con i gestori di messaggi:
 

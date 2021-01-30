@@ -1,10 +1,10 @@
 ---
 title: Formattare i dati di risposta nell'API Web ASP.NET Core
-author: ardalis
+author: rick-anderson
 description: Informazioni su come formattare i dati di risposta nell'API Web ASP.NET Core.
 ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.date: 04/17/2020
+ms.date: 1/28/2021
 no-loc:
 - appsettings.json
 - ASP.NET Core Identity
@@ -18,12 +18,12 @@ no-loc:
 - Razor
 - SignalR
 uid: web-api/advanced/formatting
-ms.openlocfilehash: 89e3e51373db5f7cff974b7a8c69d06bedf856ca
-ms.sourcegitcommit: ca34c1ac578e7d3daa0febf1810ba5fc74f60bbf
+ms.openlocfilehash: 5d228af00ee34e7f8ca60a5085872fdb93842367
+ms.sourcegitcommit: 83524f739dd25fbfa95ee34e95342afb383b49fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93052513"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99057499"
 ---
 # <a name="format-response-data-in-aspnet-core-web-api"></a>Formattare i dati di risposta nell'API Web ASP.NET Core
 
@@ -88,7 +88,7 @@ La *negoziazione* del contenuto si verifica quando `Accept` viene visualizzata u
 
 Se non viene trovato alcun formattatore in grado di soddisfare la richiesta del client, ASP.NET Core:
 
-* Restituisce `406 Not Acceptable` se <xref:Microsoft.AspNetCore.Mvc.MvcOptions> è stato impostato oppure-
+* Restituisce `406 Not Acceptable` se <xref:Microsoft.AspNetCore.Mvc.MvcOptions.ReturnHttpNotAcceptable?displayProperty=nameWithType> è impostato su `true` , o-
 * Tenta di trovare il primo formattatore in grado di generare una risposta.
 
 Se non è configurato alcun formattatore per il formato richiesto, viene utilizzato il primo formattatore in grado di formattare l'oggetto. Se `Accept` nella richiesta non è presente alcuna intestazione:
@@ -132,9 +132,22 @@ Il codice precedente serializza i risultati usando `XmlSerializer` .
 
 Quando si usa il codice precedente, i metodi del controller restituiscono il formato appropriato in base all'intestazione della richiesta `Accept` .
 
-### <a name="configure-systemtextjson-based-formatters"></a>Configurare i formattatori basati su System.Text.Json
+### <a name="configure-systemtextjson-based-formatters"></a>Configurare System.Text.Jssui formattatori basati
 
-Le funzionalità per i formattatori basati su `System.Text.Json` possono essere configurate tramite `Microsoft.AspNetCore.Mvc.JsonOptions.SerializerOptions`.
+È possibile configurare le funzionalità per i `System.Text.Json` formattatori basati usando <xref:Microsoft.AspNetCore.Mvc.JsonOptions.JsonSerializerOptions?displayProperty=fullName> . La formattazione predefinita è camelCase. Il codice evidenziato seguente imposta la formattazione PascalCase:
+
+[!code-csharp[](./formatting/5.0samples/WebAPI5PascalCase/Startup.cs?name=snippet&highlight=4-5)]
+
+Il metodo di azione seguente chiama [ControllerBase. problem](xref:Microsoft.AspNetCore.Mvc.ControllerBase.Problem%2A) per creare una <xref:Microsoft.AspNetCore.Mvc.ProblemDetails> risposta:
+
+[!code-csharp[](formatting/5.0samples/WebAPI5PascalCase/Controllers/WeatherForecastController.cs?name=snippet&highlight=4)]
+
+Con il codice precedente:
+
+  * `https://localhost:5001/WeatherForecast/temperature` Restituisce PascalCase.
+  * `https://localhost:5001/WeatherForecast/error` Restituisce camelCase. La risposta di errore è sempre camelCase, anche quando l'app imposta il formato su PascalCase. `ProblemDetails` segue la [RFC 7807](https://tools.ietf.org/html/rfc7807#appendix-A), che specifica il minuscolo
+
+Il codice seguente imposta PascalCase e aggiunge un convertitore personalizzato:
 
 ```csharp
 services.AddControllers().AddJsonOptions(options =>
@@ -239,7 +252,7 @@ Per ulteriori informazioni, vedere [filtri](xref:mvc/controllers/filters).
 
 ### <a name="special-case-formatters"></a>Formattatori case speciali
 
-Alcuni casi speciali vengono implementati tramite formattatori predefiniti. Per impostazione predefinita, `string` i tipi restituiti vengono formattati come *testo/normale* ( *testo/HTML* se richiesto tramite l' `Accept` intestazione). Questo comportamento può essere eliminato rimuovendo <xref:Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter> . I formattatori vengono rimossi nel `ConfigureServices` metodo. Le azioni con un tipo restituito dall'oggetto modello restituiscono quando viene restituito `204 No Content` `null` . Questo comportamento può essere eliminato rimuovendo <xref:Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter> . Il codice seguente rimuove `StringOutputFormatter` e `HttpNoContentOutputFormatter`.
+Alcuni casi speciali vengono implementati tramite formattatori predefiniti. Per impostazione predefinita, `string` i tipi restituiti vengono formattati come *testo/normale* (*testo/HTML* se richiesto tramite l' `Accept` intestazione). Questo comportamento può essere eliminato rimuovendo <xref:Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter> . I formattatori vengono rimossi nel `ConfigureServices` metodo. Le azioni con un tipo restituito dall'oggetto modello restituiscono quando viene restituito `204 No Content` `null` . Questo comportamento può essere eliminato rimuovendo <xref:Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter> . Il codice seguente rimuove `StringOutputFormatter` e `HttpNoContentOutputFormatter`.
 
 ::: moniker range=">= aspnetcore-3.0"
 [!code-csharp[](./formatting/3.0sample/StartupStringOutputFormatter.cs?name=snippet)]

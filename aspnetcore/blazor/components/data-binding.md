@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/components/data-binding
-ms.openlocfilehash: e873fdd201cf0cdc809030fde30c6a8da2899861
-ms.sourcegitcommit: 610936e4d3507f7f3d467ed7859ab9354ec158ba
+ms.openlocfilehash: 67a63f1b4f705a4857dea2e6d1a942d4f21469f5
+ms.sourcegitcommit: 83524f739dd25fbfa95ee34e95342afb383b49fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98751555"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99057096"
 ---
 # <a name="aspnet-core-no-locblazor-data-binding"></a>ASP.NET Core Blazor Data Binding
 
@@ -146,7 +146,7 @@ Non è consigliabile specificare un formato per il `date` tipo di campo perché 
 
 Uno scenario comune è l'associazione di una proprietà in un componente figlio a una proprietà nell'elemento padre. Questo scenario è denominato *Binding concatenato* perché si verificano simultaneamente più livelli di associazione.
 
-I [parametri del componente](xref:blazor/components/index#component-parameters) consentono di associare proprietà e campi di un componente padre con la `@bind-{PROPERTY OR FIELD}` sintassi.
+I [parametri del componente](xref:blazor/components/index#component-parameters) consentono di associare le proprietà di un componente padre con la `@bind-{PROPERTY}` sintassi.
 
 Le associazioni concatenate non possono essere implementate con [`@bind`](xref:mvc/views/razor#bind) la sintassi nel componente figlio. Un gestore eventi e un valore devono essere specificati separatamente per supportare l'aggiornamento della proprietà nell'elemento padre dal componente figlio.
 

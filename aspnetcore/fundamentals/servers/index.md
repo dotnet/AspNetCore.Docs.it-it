@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: fundamentals/servers/index
-ms.openlocfilehash: 49e299ed00ea0e5d54c1ba795971da379cd5b695
-ms.sourcegitcommit: 063a06b644d3ade3c15ce00e72a758ec1187dd06
+ms.openlocfilehash: 91d1373d764644820d1fac6064ee503e1ef4455c
+ms.sourcegitcommit: 83524f739dd25fbfa95ee34e95342afb383b49fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253137"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99057343"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Implementazioni di server Web in ASP.NET Core
 
@@ -32,31 +32,13 @@ Di [Tom Dykstra](https://github.com/tdykstra), [Steve Smith](https://ardalis.com
 
 Un'app ASP.NET Core viene eseguita con un'implementazione del server HTTP in-process. L'implementazione del server attende le richieste HTTP e le rende visibili all'app come un set di [funzionalità di richiesta](xref:fundamentals/request-features) combinate in un <xref:Microsoft.AspNetCore.Http.HttpContext>.
 
-## <a name="kestrel"></a>Kestrel
-
-Gheppio è il server Web predefinito specificato dai modelli di progetto ASP.NET Core.
-
-Usare Kestrel:
-
-* Da solo come server perimetrale che elabora le richieste direttamente da una rete, inclusa Internet.
-
-  ![Kestrel comunica direttamente con Internet senza un server proxy inverso](kestrel/_static/kestrel-to-internet2.png)
-
-* Con un *server proxy inverso*, ad esempio [Internet Information Services (IIS)](https://www.iis.net/), [Nginx](https://nginx.org) o [Apache](https://httpd.apache.org/). Il server proxy inverso riceve le richieste HTTP da Internet e le inoltra a Kestrel.
-
-  ![Kestrel comunica indirettamente con Internet attraverso un server proxy inverso, ad esempio IIS, Nginx o Apache](kestrel/_static/kestrel-to-internet.png)
-
-È supportata una configurazione host &mdash; con o senza un server proxy inverso &mdash; .
-
-Per indicazioni per la configurazione di Kestrel e per informazioni su quando usare Kestrel in una configurazione con proxy inverso, vedere <xref:fundamentals/servers/kestrel>.
-
 ::: moniker range=">= aspnetcore-2.2"
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
 ASP.NET Core include quanto segue:
 
-* Il [server Kestrel](xref:fundamentals/servers/kestrel) è l'implementazione di server HTTP multipiattaforma predefinita.
+* Il [server Kestrel](xref:fundamentals/servers/kestrel) è l'implementazione di server HTTP multipiattaforma predefinita. Gheppio fornisce le prestazioni migliori e l'utilizzo della memoria, ma non alcune delle funzionalità avanzate di, `Http.Sys` ad esempio la condivisione delle porte.
 * Il server HTTP IIS è un [server in-process](#hosting-models) per IIS.
 * Il [server HTTP.sys](xref:fundamentals/servers/httpsys) è un server HTTP solo per Windows basato sul [driver del kernel HTTP.sys e l'API HTTP Server](/windows/desktop/Http/http-api-start-page).
 
@@ -89,6 +71,24 @@ ASP.NET Core viene fornito con il [server Kestrel](xref:fundamentals/servers/kes
 ---
 
 ::: moniker-end
+
+## <a name="kestrel"></a>Kestrel
+
+ Il [server Kestrel](xref:fundamentals/servers/kestrel) è l'implementazione di server HTTP multipiattaforma predefinita. Gheppio fornisce le prestazioni migliori e l'utilizzo della memoria, ma non alcune delle funzionalità avanzate di, `Http.Sys` ad esempio la condivisione delle porte.
+ 
+Usare Kestrel:
+
+* Da solo come server perimetrale che elabora le richieste direttamente da una rete, inclusa Internet.
+
+  ![Kestrel comunica direttamente con Internet senza un server proxy inverso](kestrel/_static/kestrel-to-internet2.png)
+
+* Con un *server proxy inverso*, ad esempio [Internet Information Services (IIS)](https://www.iis.net/), [Nginx](https://nginx.org) o [Apache](https://httpd.apache.org/). Il server proxy inverso riceve le richieste HTTP da Internet e le inoltra a Kestrel.
+
+  ![Kestrel comunica indirettamente con Internet attraverso un server proxy inverso, ad esempio IIS, Nginx o Apache](kestrel/_static/kestrel-to-internet.png)
+
+È supportata una configurazione host &mdash; con o senza un server proxy inverso &mdash; .
+
+Per indicazioni per la configurazione di Kestrel e per informazioni su quando usare Kestrel in una configurazione con proxy inverso, vedere <xref:fundamentals/servers/kestrel>.
 
 ::: moniker range="< aspnetcore-2.2"
 
@@ -140,7 +140,7 @@ Per informazioni su come usare Apache in Linux come server proxy inverso per Kes
 
 ## <a name="httpsys"></a>HTTP.sys
 
-Se si eseguono app ASP.NET Core in Windows, HTTP.sys è un'alternativa a Kestrel. Kestrel è in genere consigliato per ottenere prestazioni ottimali. HTTP.sys è utilizzabile negli scenari in cui l'app viene esposta a Internet e le funzionalità necessarie sono supportate da HTTP.sys, ma non da Kestrel. Per altre informazioni, vedere <xref:fundamentals/servers/httpsys>.
+Se si eseguono app ASP.NET Core in Windows, HTTP.sys è un'alternativa a Kestrel. È consigliabile usare gheppio su HTTP.sys, a meno che l'app non richieda funzionalità non disponibili in gheppio. Per altre informazioni, vedere <xref:fundamentals/servers/httpsys>.
 
 ![HTTP.sys comunica direttamente con Internet](httpsys/_static/httpsys-to-internet.png)
 

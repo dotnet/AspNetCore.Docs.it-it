@@ -4,7 +4,7 @@ author: mjrousos
 description: Informazioni sull'autenticazione in ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/03/2020
+ms.date: 1/24/2021
 no-loc:
 - appsettings.json
 - ASP.NET Core Identity
@@ -18,12 +18,12 @@ no-loc:
 - Razor
 - SignalR
 uid: security/authentication/index
-ms.openlocfilehash: e9e4ca11d20557666c75b84e56af825d002df0f1
-ms.sourcegitcommit: fbd5427293d9ecccc388bd5fd305c2eb8ada7281
+ms.openlocfilehash: 72036e9c4c92ee5dd82ac4a67e766fb0e5c8f924
+ms.sourcegitcommit: 83524f739dd25fbfa95ee34e95342afb383b49fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94464003"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99057291"
 ---
 # <a name="overview-of-aspnet-core-authentication"></a>Panoramica dell'autenticazione ASP.NET Core
 
@@ -62,7 +62,19 @@ Il middleware di autenticazione viene aggiunto in chiamando `Startup.Configure` 
 
 ## <a name="authentication-concepts"></a>Concetti di autenticazione
 
+L'autenticazione è responsabile della concessione dell'autorizzazione per l' <xref:System.Security.Claims.ClaimsPrincipal> autorizzazione a prendere decisioni di autorizzazione. Sono disponibili più approcci dello schema di autenticazione per selezionare il gestore di autenticazione responsabile della generazione del set di attestazioni corretto:
+
+  * [Schema di autenticazione](xref:security/authorization/limitingidentitybyscheme), anche illustrato nella sezione successiva.
+  * Schema di autenticazione predefinito, illustrato nella sezione successiva.
+  * Impostare direttamente [HttpContext. User](xref:Microsoft.AspNetCore.Http.HttpContext.User).
+
+Nessun sondaggio automatico degli schemi. Se non si specifica lo schema predefinito, è necessario specificare lo schema nell'attributo autorizzo. in caso contrario, viene generato l'errore seguente:
+
+  InvalidOperationException: non è stato specificato alcun authenticationScheme e non è stato trovato alcun DefaultAuthenticateScheme. Gli schemi predefiniti possono essere impostati utilizzando AddAuthentication (String defaultScheme) o AddAuthentication (Action &lt; AuthenticationOptions &gt; configureOptions).
+
 ### <a name="authentication-scheme"></a>Schema di autenticazione
+
+Lo [schema di autenticazione](xref:security/authorization/limitingidentitybyscheme) può selezionare il gestore di autenticazione responsabile della generazione del set di attestazioni corretto. Per altre informazioni, vedere [autorizzare con uno schema specifico](xref:security/authorization/limitingidentitybyscheme).
 
 Uno schema di autenticazione è un nome che corrisponde a:
 

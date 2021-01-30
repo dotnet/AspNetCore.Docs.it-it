@@ -18,12 +18,12 @@ no-loc:
 - Razor
 - SignalR
 uid: data/ef-rp/intro
-ms.openlocfilehash: 86b57a9cad27673b72ad174a18741f5528f9f78a
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.openlocfilehash: 2f6299511b568a70c638dd5d4c735bf22adb5e95
+ms.sourcegitcommit: 83524f739dd25fbfa95ee34e95342afb383b49fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97011858"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99057427"
 ---
 # <a name="no-locrazor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Razor Pagine con Entity Framework Core in ASP.NET Core-esercitazione 1 di 8
 
@@ -127,7 +127,7 @@ To run the app after downloading the completed project:
     1. **.NET Core** e **ASP.NET Core 5,0** negli elenchi a discesa.
     1. **App Web ASP.NET Core**.
     1.  
-       Crea ![ Finestra di dialogo nuovo progetto ASP.NET Core](~/data/ef-mvc/intro/_static/new-aspnet5.png)
+       Crea ![ Finestra di dialogo nuovo progetto ASP.NET Core](~/data/ef-rp/intro/_static/new-aspnet5.png)
     
 # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 

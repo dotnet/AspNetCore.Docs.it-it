@@ -1,2 +1,2 @@
 > [!WARNING]
-> [ASP.NET Core gRPC](xref:grpc/index) non è attualmente supportato nel servizio app Azure o in IIS. L'implementazione HTTP/2 di Http.Sys non supporta le intestazioni finali della risposta HTTP su cui si basa gRPC. Per altre informazioni, vedere [questo problema di GitHub](https://github.com/dotnet/AspNetCore/issues/9020).
+> [ASP.NET Core gRPC](xref:grpc/index) prevede requisiti aggiuntivi per l'uso con app Azure servizio o IIS. Per ulteriori informazioni sulla posizione in cui è possibile utilizzare gRPC, vedere <xref:grpc/supported-platforms> .
