@@ -18,12 +18,12 @@ no-loc:
 - Razor
 - SignalR
 uid: grpc/httpapi
-ms.openlocfilehash: cb2855f0293a6bc800bb5758cd1a8400d4434a24
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.openlocfilehash: 78247a9b775ec8c9a3bc4a58209f09e5b714c07d
+ms.sourcegitcommit: 7e394a8527c9818caebb940f692ae4fcf2f1b277
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "96855462"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99217518"
 ---
 # <a name="create-json-web-apis-from-grpc"></a>Create API Web JSON da gRPC
 
@@ -60,29 +60,7 @@ gRPC può comunque essere usato per chiamare i servizi.
 1. Aggiungere i file [Google/API/HTTP. proto](https://github.com/aspnet/AspLabs/blob/c1e59cacf7b9606650d6ec38e54fa3a82377f360/src/GrpcHttpApi/sample/Proto/google/api/http.proto) e [Google/API/Annotations. proto](https://github.com/aspnet/AspLabs/blob/c1e59cacf7b9606650d6ec38e54fa3a82377f360/src/GrpcHttpApi/sample/Proto/google/api/annotations.proto) al progetto.
 1. Annotare i metodi gRPC nei file *. proto* con binding e route http:
 
-```protobuf
-syntax = "proto3";
-
-import "google/api/annotations.proto";
-
-package greet;
-
-service Greeter {
-  rpc SayHello (HelloRequest) returns (HelloReply) {
-    option (google.api.http) = {
-      get: "/v1/greeter/{name}"
-    };
-  }
-}
-
-message HelloRequest {
-  string name = 1;
-}
-
-message HelloReply {
-  string message = 1;
-}
-```
+[!code-protobuf[](~/grpc/httpapi/greet.proto?highlight=3,9-11)]
 
 Il `SayHello` Metodo gRPC può ora essere richiamato come gRPC + protobuf e come API http:
 

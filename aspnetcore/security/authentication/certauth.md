@@ -18,12 +18,12 @@ no-loc:
 - Razor
 - SignalR
 uid: security/authentication/certauth
-ms.openlocfilehash: 71f05163c075a2ef88d5c606814925cdcef879d2
-ms.sourcegitcommit: 063a06b644d3ade3c15ce00e72a758ec1187dd06
+ms.openlocfilehash: c862bc8bff6c4cc80696d92067e814889d6e7782
+ms.sourcegitcommit: 7e394a8527c9818caebb940f692ae4fcf2f1b277
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253046"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99217531"
 ---
 # <a name="configure-certificate-authentication-in-aspnet-core"></a>Configurare l'autenticazione del certificato in ASP.NET Core
 
@@ -618,7 +618,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-L'implementazione della memorizzazione nella cache predefinita archivia i risultati in memoria. È possibile fornire la propria cache implementando `ICertificateValidationCache` e registrando l'inserimento delle dipendenze. Ad esempio, `services.AddSingleton<ICertificateValidationCache, YourCache>()`.
+L'implementazione della memorizzazione nella cache predefinita archivia i risultati in memoria. È possibile fornire la propria cache implementando `ICertificateValidationCache` e registrando l'inserimento delle dipendenze. Ad esempio: `services.AddSingleton<ICertificateValidationCache, YourCache>()`.
 
 ::: moniker-end
 
@@ -650,7 +650,7 @@ L'approccio seguente supporta i certificati client facoltativi:
     * IIS
       * [Hosting di IIS](xref:host-and-deploy/iis/index#create-the-iis-site)
       * [Configurare la sicurezza in IIS](/iis/manage/configuring-security/how-to-set-up-ssl-on-iis#configure-ssl-settings-2)
-    * Http.Sys: [configurare Windows Server](xref:fundamentals/servers/httpsys#configure-windows-server)
+    * HTTP.sys: [configurare Windows Server](xref:fundamentals/servers/httpsys#configure-windows-server)
 
 ::: moniker-end
 
@@ -666,7 +666,7 @@ L'approccio seguente supporta i certificati client facoltativi:
     * IIS
       * [Hosting di IIS](xref:host-and-deploy/iis/index#create-the-iis-site)
       * [Configurare la sicurezza in IIS](/iis/manage/configuring-security/how-to-set-up-ssl-on-iis#configure-ssl-settings-2)
-    * Http.Sys: [configurare Windows Server](xref:fundamentals/servers/httpsys#configure-windows-server)
+    * HTTP.sys: [configurare Windows Server](xref:fundamentals/servers/httpsys#configure-windows-server)
 
 ::: moniker-end
 

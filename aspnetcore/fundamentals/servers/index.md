@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: fundamentals/servers/index
-ms.openlocfilehash: 91d1373d764644820d1fac6064ee503e1ef4455c
-ms.sourcegitcommit: 83524f739dd25fbfa95ee34e95342afb383b49fe
+ms.openlocfilehash: 2acddd212639ac0a82b3c46f2225ff66d0999dd0
+ms.sourcegitcommit: 7e394a8527c9818caebb940f692ae4fcf2f1b277
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99057343"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99217557"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Implementazioni di server Web in ASP.NET Core
 
@@ -38,7 +38,7 @@ Un'app ASP.NET Core viene eseguita con un'implementazione del server HTTP in-pro
 
 ASP.NET Core include quanto segue:
 
-* Il [server Kestrel](xref:fundamentals/servers/kestrel) è l'implementazione di server HTTP multipiattaforma predefinita. Gheppio fornisce le prestazioni migliori e l'utilizzo della memoria, ma non alcune delle funzionalità avanzate di, `Http.Sys` ad esempio la condivisione delle porte.
+* Il [server Kestrel](xref:fundamentals/servers/kestrel) è l'implementazione di server HTTP multipiattaforma predefinita. Gheppio fornisce le prestazioni migliori e l'utilizzo della memoria, ma non alcune delle funzionalità avanzate di HTTP.sys. Per ulteriori informazioni, vedere [gheppio rispetto a HTTP.sys](#korh) in questo documento.
 * Il server HTTP IIS è un [server in-process](#hosting-models) per IIS.
 * Il [server HTTP.sys](xref:fundamentals/servers/httpsys) è un server HTTP solo per Windows basato sul [driver del kernel HTTP.sys e l'API HTTP Server](/windows/desktop/Http/http-api-start-page).
 
@@ -48,6 +48,26 @@ Quando si usa [IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-arc
 * In un processo separato dal processo di lavoro IIS ([modello di hosting out-of-process](#hosting-models)) con il [server Kestrel](#kestrel).
 
 Il [modulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module) è un modulo IIS nativo che gestisce le richieste IIS native tra IIS e il server HTTP IIS in-process o il server Kestrel. Per altre informazioni, vedere <xref:host-and-deploy/aspnet-core-module>.
+
+<a name="korh"></a>
+
+## <a name="kestrel-vs-httpsys"></a>Gheppio rispetto a HTTP.sys
+
+Il gheppio presenta i vantaggi seguenti rispetto a HTTP.sys:
+
+  * Miglioramento delle prestazioni e dell'utilizzo della memoria.
+  * Multipiattaforma
+  * Agilità, sviluppato e con patch indipendente dal sistema operativo.
+  * Configurazione di porta e TLS a livello di codice
+  * Estensibilità che consente protocolli quali [PPv2](https://github.com/aspnet/AspLabs/blob/master/src/ProxyProtocol/ProxyProtocol.Sample/ProxyProtocol.cs) e trasporti alternativi.
+
+Http.Sys funziona come un componente in modalità kernel condiviso con le seguenti funzionalità non disponibili in gheppio:
+
+  * Condivisione delle porte
+  * Autenticazione di Windows in modalità kernel. [Gheppio supporta solo l'autenticazione in modalità utente](xref:security/authentication/windowsauth#kestrel).
+  * Inoltro rapido tramite trasferimenti di coda
+  * Trasmissione diretta dei file
+  * Memorizzazione nella cache delle risposte
 
 ## <a name="hosting-models"></a>Modelli di hosting
 
@@ -74,8 +94,8 @@ ASP.NET Core viene fornito con il [server Kestrel](xref:fundamentals/servers/kes
 
 ## <a name="kestrel"></a>Kestrel
 
- Il [server Kestrel](xref:fundamentals/servers/kestrel) è l'implementazione di server HTTP multipiattaforma predefinita. Gheppio fornisce le prestazioni migliori e l'utilizzo della memoria, ma non alcune delle funzionalità avanzate di, `Http.Sys` ad esempio la condivisione delle porte.
- 
+ Il [server Kestrel](xref:fundamentals/servers/kestrel) è l'implementazione di server HTTP multipiattaforma predefinita. Gheppio fornisce le prestazioni migliori e l'utilizzo della memoria, ma non alcune delle funzionalità avanzate di HTTP.sys. Per ulteriori informazioni, vedere [gheppio rispetto a HTTP.sys](#korh) in questo documento.
+
 Usare Kestrel:
 
 * Da solo come server perimetrale che elabora le richieste direttamente da una rete, inclusa Internet.

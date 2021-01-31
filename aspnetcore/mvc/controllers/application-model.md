@@ -17,12 +17,12 @@ no-loc:
 - Razor
 - SignalR
 uid: mvc/controllers/application-model
-ms.openlocfilehash: a7a654eb43c0dbf375af911d8d5353ac4c04a825
-ms.sourcegitcommit: ca34c1ac578e7d3daa0febf1810ba5fc74f60bbf
+ms.openlocfilehash: cf16536284ee9c88913257607df837ad6e50ea2c
+ms.sourcegitcommit: 7e394a8527c9818caebb940f692ae4fcf2f1b277
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93060937"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99217375"
 ---
 # <a name="work-with-the-application-model-in-aspnet-core"></a>Usare il modello applicativo in ASP.NET Core
 
@@ -32,7 +32,7 @@ ASP.NET Core MVC definisce un *modello applicativo* che rappresenta i componenti
 
 ## <a name="models-and-providers"></a>Modelli e provider
 
-Il modello applicativo ASP.NET Core MVC include sia interfacce astratte sia classi di implementazione concrete che descrivono un'applicazione MVC. Questo modello è il risultato del rilevamento da parte di MVC di controller, azioni, parametri di azione, route e filtri dell'app in base alle convenzioni predefinite. Mediante il modello applicativo è possibile modificare l'app in modo che segua convenzioni diverse dal comportamento predefinito di MVC. I parametri, i nomi, le route e i filtri vengono usati come dati di configurazione per le azioni e controller.
+Il modello di applicazione MVC ASP.NET Core include interfacce astratte e classi di implementazione concrete che descrivono un'applicazione MVC. Questo modello è il risultato del rilevamento da parte di MVC di controller, azioni, parametri di azione, route e filtri dell'app in base alle convenzioni predefinite. Mediante il modello applicativo è possibile modificare l'app in modo che segua convenzioni diverse dal comportamento predefinito di MVC. I parametri, i nomi, le route e i filtri vengono usati come dati di configurazione per le azioni e controller.
 
 Il modello applicativo ASP.NET Core MVC presenta la struttura seguente:
 

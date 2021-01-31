@@ -6,12 +6,12 @@ ms.author: masoucou
 ms.custom: devx-track-csharp, mvc
 ms.date: 11/22/2020
 uid: tutorials/publish-to-azure-api-management-using-vs
-ms.openlocfilehash: 395b5981a3018486235c38f032893f985ab71383
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.openlocfilehash: ddff54bbd146c98cf83a865910401df26e7ac4ec
+ms.sourcegitcommit: 7e394a8527c9818caebb940f692ae4fcf2f1b277
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "96332219"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99217583"
 ---
 # <a name="publish-an-aspnet-core-web-api-to-azure-api-management-with-visual-studio"></a>Pubblicare un'API Web di ASP.NET Core in gestione API di Azure con Visual Studio
 
@@ -175,9 +175,9 @@ Si noti che il nome dell'API è diverso da quello specificato. L'API pubblicata 
     ```csharp
     services.AddSwaggerGen(config =>
     {
-        config.SwaggerDoc("WeatherForecasts", new Microsoft.OpenApi.Models.OpenApiInfo
+        config.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
         {
-            Title = "Weather Forecasts",
+            Title = "WeatherForecasts",
             Version = "v1"
         });
     });
@@ -202,7 +202,7 @@ Si noti che il nome dell'API è diverso da quello specificato. L'API pubblicata 
 
 1. Aprire la scheda **Test**.
 1. Selezionare **/** o l'operazione **Get** .
-1. Selezionare **Send** (Invia).
+1. Selezionare **Invia**.
 
     ![Screenshot del portale prima del test](publish-to-azure-api-management-using-vs/_static/portal_pre_test.png)
 

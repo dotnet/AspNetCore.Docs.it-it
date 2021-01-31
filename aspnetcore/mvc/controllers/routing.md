@@ -17,12 +17,12 @@ no-loc:
 - Razor
 - SignalR
 uid: mvc/controllers/routing
-ms.openlocfilehash: 04ece9628265135efd0dd92d29c8b14fc897329e
-ms.sourcegitcommit: 83524f739dd25fbfa95ee34e95342afb383b49fe
+ms.openlocfilehash: 0863b5758f33b720636f3b927fcb9014cd106c21
+ms.sourcegitcommit: 7e394a8527c9818caebb940f692ae4fcf2f1b277
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99057356"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99217544"
 ---
 # <a name="routing-to-controller-actions-in-aspnet-core"></a>Routing ad azioni del controller in ASP.NET Core
 
@@ -826,7 +826,7 @@ L'attributo [[area]](xref:Microsoft.AspNetCore.Mvc.AreaAttribute) è quello che 
 
 [!code-csharp[](routing/samples/3.x/AreasRouting/Controllers/UsersController.cs)]
 
-Lo spazio dei nomi di ogni controller viene visualizzato qui per completezza. Se il controller precedente usa lo stesso spazio dei nomi, verrà generato un errore del compilatore. Gli spazi dei nomi delle classi non hanno effetto sul routing di MVC.
+Lo spazio dei nomi di ogni controller viene visualizzato qui per completezza. Se il controller precedente usava lo stesso spazio dei nomi, verrebbe generato un errore del compilatore. Gli spazi dei nomi delle classi non hanno effetto sul routing di MVC.
 
 I primi due controller sono membri di aree e corrispondono solo quando viene specificato il relativo nome di area dal valore di route `area`. Il terzo controller non è un membro di un'area e può corrispondere solo quando non vengono specificati valori per `area` dal routing.
 

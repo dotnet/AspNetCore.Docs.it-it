@@ -18,12 +18,12 @@ no-loc:
 - Razor
 - SignalR
 uid: grpc/interprocess
-ms.openlocfilehash: d806a340d8540fce8af6ccc6ff68325e4b733922
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.openlocfilehash: 8c0f8fb1468e61d5aa2e7f42cb5da33c01819124
+ms.sourcegitcommit: 7e394a8527c9818caebb940f692ae4fcf2f1b277
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "93059884"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99217466"
 ---
 # <a name="inter-process-communication-with-grpc"></a>Comunicazione tra processi con gRPC
 
@@ -64,9 +64,6 @@ Gheppio dispone del supporto incorporato per gli endpoint UDS. I domini di aggio
 ## <a name="client-configuration"></a>Configurazione del client
 
 `GrpcChannel` supporta l'esecuzione di chiamate gRPC su trasporti personalizzati. Quando viene creato, un canale può essere configurato con un oggetto con `SocketsHttpHandler` un oggetto personalizzato `ConnectCallback` . Il callback consente al client di stabilire connessioni su trasporti personalizzati, quindi di inviare richieste HTTP tramite il trasporto.
-
-> [!IMPORTANT]
-> `SocketsHttpHandler.ConnectCallback` è una nuova API in .NET 5 Release Candidate 2.
 
 Esempio di Factory di connessione socket di dominio UNIX:
 

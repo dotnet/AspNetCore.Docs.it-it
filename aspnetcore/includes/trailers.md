@@ -1,4 +1,4 @@
-I trailer HTTP sono simili alle intestazioni HTTP, con la differenza che vengono inviati dopo l'invio del corpo della risposta. Per IIS e HTTP.SYS sono supportati solo i trailer di risposta HTTP/2.
+I trailer HTTP sono simili alle intestazioni HTTP, con la differenza che vengono inviati dopo l'invio del corpo della risposta. Per IIS e HTTP.sys sono supportati solo i trailer di risposta HTTP/2.
 
 ```csharp
 if (httpContext.Response.SupportsTrailers())
