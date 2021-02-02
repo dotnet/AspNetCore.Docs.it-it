@@ -18,12 +18,12 @@ no-loc:
 - Razor
 - SignalR
 uid: mvc/controllers/filters
-ms.openlocfilehash: 72ee8f5dfdf8ffd6cfcb74b13fa0738893d8e214
-ms.sourcegitcommit: 6299f08aed5b7f0496001d093aae617559d73240
+ms.openlocfilehash: ee30ef89c5d7aeae83f23a81eb02235397c89ac2
+ms.sourcegitcommit: 75db2f684a9302b0be7925eab586aa091c6bd19f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97486135"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99238314"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtri in ASP.NET Core
 
@@ -565,7 +565,8 @@ Il runtime di ASP.NET Core non garantisce:
 _ Che verrà creata una singola istanza del filtro.
 * Che il filtro non verrà richiesto di nuovo dal contenitore di inserimento delle dipendenze in un momento successivo.
 
-[!WARNING] Configurare `IFilterFactory.IsReusable` per restituire solo `true` se l'origine dei filtri non è ambigua, i filtri sono senza stato e possono essere utilizzati in modo sicuro tra più richieste HTTP. Ad esempio, non restituire i filtri da DI DI cui è stata eseguita la registrazione come ambito o temporaneo se `IFilterFactory.IsReusable` restituisce `true`
+> [!WARNING] 
+> Configurare <xref:Microsoft.AspNetCore.Mvc.Filters.IFilterFactory.IsReusable?displayProperty=nameWithType> per restituire solo `true` se l'origine dei filtri non è ambigua, i filtri sono senza stato e i filtri sono sicuri per l'uso in più richieste HTTP. Ad esempio, non restituire i filtri da DI DI cui è stata eseguita la registrazione come ambito o temporaneo se `IFilterFactory.IsReusable` restituisce `true` .
 
 Un altro approccio alla creazione di filtri consiste nell'implementare `IFilterFactory` usando implementazioni dell'attributo personalizzate:
 
