@@ -18,14 +18,14 @@ no-loc:
 - Razor
 - SignalR
 uid: mvc/models/validation
-ms.openlocfilehash: 77d49710b9d69f6fbbe92970f1c455de32489444
-ms.sourcegitcommit: ca34c1ac578e7d3daa0febf1810ba5fc74f60bbf
+ms.openlocfilehash: d6fa7e4524a8afdc23d4ad46354d9d8b395656a3
+ms.sourcegitcommit: e311cfb77f26a0a23681019bd334929d1aaeda20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93056959"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99530190"
 ---
-# <a name="model-validation-in-aspnet-core-mvc-and-no-locrazor-pages"></a>Convalida di modelli in ASP.NET Core MVC e Razor pagine
+# <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>Convalida di modelli in ASP.NET Core MVC e Razor pagine
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -92,9 +92,27 @@ Quando applicato a una proprietà `Name`, il messaggio di errore creato con il c
 
 Per scoprire i parametri passati a `String.Format` per un messaggio di errore dell'attributo specifico, vedere il [codice sorgente DataAnnotations](https://github.com/dotnet/runtime/tree/master/src/libraries/System.ComponentModel.Annotations/src/System/ComponentModel/DataAnnotations).
 
-## <a name="required-attribute"></a>Attributo [Required]
+## <a name="non-nullable-reference-types-and-required-attribute"></a>Tipi di riferimento non nullable e attributo [Required]
 
-Il sistema di convalida in .NET Core 3,0 e versioni successive considera i parametri non nullable o le proprietà associata come se disponesse di un `[Required]` attributo. I [tipi di valore](/dotnet/csharp/language-reference/keywords/value-types)`decimal` e `int` sono parametri non nullable. Questo comportamento può essere disabilitato configurando <xref:Microsoft.AspNetCore.Mvc.MvcOptions.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes> in `Startup.ConfigureServices` :
+Il sistema di convalida considera i parametri non nullable o le proprietà associata come se disponesse di un `[Required]` attributo. Se si [abilitano i `Nullable` contesti](/dotnet/csharp/nullable-references#nullable-contexts), MVC avvia in modo implicito la convalida di proprietà o parametri non nullable come se fossero stati attribuiti con l' `[Required]` attributo. Osservare il codice seguente:
+
+```csharp
+public class Person
+{
+    public string Name { get; set; }
+}
+```
+
+Se l'app è stata compilata con `<Nullable>enable</Nullable>` , un valore mancante per `Name` in JSON o post del modulo genera un errore di convalida. Usare un tipo di riferimento Nullable per consentire la specifica di valori null o mancanti per la `Name` proprietà:
+
+```csharp
+public class Person
+{
+    public string? Name { get; set; }
+}
+```
+
+. Questo comportamento può essere disabilitato configurando <xref:Microsoft.AspNetCore.Mvc.MvcOptions.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes> in `Startup.ConfigureServices` :
 
 ```csharp
 services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
@@ -176,7 +194,7 @@ Se si vuole usare un tipo di convalida non definita da attributi predefiniti, è
 
 Per gli scenari non gestiti dagli attributi di convalida predefiniti, è possibile creare attributi di convalida personalizzati. Creare una classe che eredita da <xref:System.ComponentModel.DataAnnotations.ValidationAttribute> ed eseguire l'override del metodo <xref:System.ComponentModel.DataAnnotations.ValidationAttribute.IsValid*>.
 
-Il metodo `IsValid` accetta un oggetto denominato *value* , ovvero l'input da convalidare. Un overload accetta anche un oggetto `ValidationContext`, che contiene informazioni aggiuntive, ad esempio l'istanza del modello creato dall'associazione di modelli.
+Il metodo `IsValid` accetta un oggetto denominato *value*, ovvero l'input da convalidare. Un overload accetta anche un oggetto `ValidationContext`, che contiene informazioni aggiuntive, ad esempio l'istanza del modello creato dall'associazione di modelli.
 
 Nell'esempio seguente si convalida che la data di uscita di un film di genere *Classic* non sia successiva a un anno specifico. `[ClassicMovie]`Attributo:
 
@@ -210,7 +228,7 @@ I nodi di primo livello possono usare <xref:Microsoft.AspNetCore.Mvc.ModelBindin
 
 [!code-csharp[](validation/samples/3.x/ValidationSample/Controllers/UsersController.cs?name=snippet_CheckAgeSignature)]
 
-La pagina Check Age ( *CheckAge.cshtml* ), include due moduli. Il primo form invia un `Age` valore di `99` come parametro della stringa di query: `https://localhost:5001/Users/CheckAge?Age=99` .
+La pagina Check Age (*CheckAge.cshtml*), include due moduli. Il primo form invia un `Age` valore di `99` come parametro della stringa di query: `https://localhost:5001/Users/CheckAge?Age=99` .
 
 Quando viene inviato un parametro correttamente formattato `age` dalla stringa di query, il modulo viene convalidato.
 
@@ -357,7 +375,7 @@ Come già accennato in precedenza, gli [helper tag](xref:mvc/views/tag-helpers/i
 
 Questo metodo di rendering degli attributi `data-` in HTML viene usato dall'attributo `ClassicMovie` nell'app di esempio. Per aggiungere la convalida lato client usando questo metodo:
 
-1. Creare una classe di adapter dell'attributo per l'attributo di convalida personalizzata. Derivare la classe [da \<T> AttributeAdapterBase](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.attributeadapterbase-1?view=aspnetcore-2.2). Creare un metodo `AddValidation` che aggiunge gli attributi `data-` all'output sottoposto a rendering, come illustrato in questo esempio:
+1. Creare una classe di adapter dell'attributo per l'attributo di convalida personalizzata. Derivare la classe da <xref:Microsoft.AspNetCore.Mvc.DataAnnotations.AttributeAdapterBase%601>. Creare un metodo `AddValidation` che aggiunge gli attributi `data-` all'output sottoposto a rendering, come illustrato in questo esempio:
 
    [!code-csharp[](validation/samples/3.x/ValidationSample/Validation/ClassicMovieAttributeAdapter.cs?name=snippet_Class)]
 
@@ -542,9 +560,9 @@ Se si vuole usare un tipo di convalida non definita da attributi predefiniti, è
 
 Per gli scenari non gestiti dagli attributi di convalida predefiniti, è possibile creare attributi di convalida personalizzati. Creare una classe che eredita da <xref:System.ComponentModel.DataAnnotations.ValidationAttribute> ed eseguire l'override del metodo <xref:System.ComponentModel.DataAnnotations.ValidationAttribute.IsValid*>.
 
-Il metodo `IsValid` accetta un oggetto denominato *value* , ovvero l'input da convalidare. Un overload accetta anche un oggetto `ValidationContext`, che contiene informazioni aggiuntive, ad esempio l'istanza del modello creato dall'associazione di modelli.
+Il metodo `IsValid` accetta un oggetto denominato *value*, ovvero l'input da convalidare. Un overload accetta anche un oggetto `ValidationContext`, che contiene informazioni aggiuntive, ad esempio l'istanza del modello creato dall'associazione di modelli.
 
-Nell'esempio seguente si convalida che la data di uscita di un film di genere *Classic* non sia successiva a un anno specifico. L'attributo `[ClassicMovie2]` prima controlla il genere, poi prosegue solo se il genere è *Classic* . Per i film identificati come classici, controlla la data di uscita per verificare che non sia successiva al limite passato al costruttore dell'attributo.
+Nell'esempio seguente si convalida che la data di uscita di un film di genere *Classic* non sia successiva a un anno specifico. L'attributo `[ClassicMovie2]` prima controlla il genere, poi prosegue solo se il genere è *Classic*. Per i film identificati come classici, controlla la data di uscita per verificare che non sia successiva al limite passato al costruttore dell'attributo.
 
 [!code-csharp[](validation/samples/2.x/ValidationSample/Attributes/ClassicMovieAttribute.cs?name=snippet_ClassicMovieAttribute)]
 
@@ -573,7 +591,7 @@ I nodi di primo livello possono usare <xref:Microsoft.AspNetCore.Mvc.ModelBindin
 
 [!code-csharp[](validation/samples/2.x/ValidationSample/Controllers/UsersController.cs?name=snippet_CheckAge)]
 
-La pagina Check Age ( *CheckAge.cshtml* ), include due moduli. Il primo modulo invia un valore `Age``99` come stringa di query: `https://localhost:5001/Users/CheckAge?Age=99`.
+La pagina Check Age (*CheckAge.cshtml*), include due moduli. Il primo modulo invia un valore `Age``99` come stringa di query: `https://localhost:5001/Users/CheckAge?Age=99`.
 
 Quando viene inviato un parametro correttamente formattato `age` dalla stringa di query, il modulo viene convalidato.
 
@@ -728,7 +746,7 @@ Come già accennato in precedenza, gli [helper tag](xref:mvc/views/tag-helpers/i
 
 Questo metodo di rendering degli attributi `data-` in HTML viene usato dall'attributo `ClassicMovie` nell'app di esempio. Per aggiungere la convalida lato client usando questo metodo:
 
-1. Creare una classe di adapter dell'attributo per l'attributo di convalida personalizzata. Derivare la classe [da \<T> AttributeAdapterBase](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.attributeadapterbase-1?view=aspnetcore-2.2). Creare un metodo `AddValidation` che aggiunge gli attributi `data-` all'output sottoposto a rendering, come illustrato in questo esempio:
+1. Creare una classe di adapter dell'attributo per l'attributo di convalida personalizzata. Derivare la classe da <xref:Microsoft.AspNetCore.Mvc.DataAnnotations.AttributeAdapterBase%601>. Creare un metodo `AddValidation` che aggiunge gli attributi `data-` all'output sottoposto a rendering, come illustrato in questo esempio:
 
    [!code-csharp[](validation/samples/2.x/ValidationSample/Attributes/ClassicMovieAttributeAdapter.cs?name=snippet_ClassicMovieAttributeAdapter)]
 
@@ -758,7 +776,7 @@ E nelle Razor pagine:
 
 [!code-csharp[](validation/samples_snapshot/2.x/Startup3.cs?name=snippet_DisableClientValidation)]
 
-Un'altra opzione per disabilitare la convalida lato client consiste nell'impostare come commento il riferimento a `_ValidationScriptsPartial` nel file *.cshtml* .
+Un'altra opzione per disabilitare la convalida lato client consiste nell'impostare come commento il riferimento a `_ValidationScriptsPartial` nel file *.cshtml*.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

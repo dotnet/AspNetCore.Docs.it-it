@@ -17,12 +17,12 @@ no-loc:
 - Razor
 - SignalR
 uid: mobile/native-mobile-backend
-ms.openlocfilehash: 0bbf740cb49b77b476e7e015afee311110bbe5ea
-ms.sourcegitcommit: ca34c1ac578e7d3daa0febf1810ba5fc74f60bbf
+ms.openlocfilehash: 4e86241771e884ba9079bcdf9a09eebc6acd62c8
+ms.sourcegitcommit: e311cfb77f26a0a23681019bd334929d1aaeda20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93060989"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99530216"
 ---
 # <a name="create-backend-services-for-native-mobile-apps-with-aspnet-core"></a>Creare servizi back-end per app native per dispositivi mobili con ASP.NET Core
 
@@ -38,7 +38,7 @@ Questa esercitazione illustra come creare servizi back-end mediante ASP.NET Core
 
 ![Applicazione ToDoRest in esecuzione su uno smartphone Android](native-mobile-backend/_static/todo-android.png)
 
-### <a name="features"></a>Caratteristiche
+### <a name="features"></a>Funzionalità
 
 L'app ToDoRest supporta l'aggiunta, l'eliminazione, l'aggiornamento e l'aggiunta a elenco di elementi attività. Ogni elemento include un ID, un nome, delle note e una proprietà che indica se è stato eseguito.
 
@@ -52,7 +52,7 @@ Se si tocca un elemento sulla schermata dell'elenco principale viene visualizzat
 
 ![Finestra di dialogo di modifica dell'elemento](native-mobile-backend/_static/todo-android-edit-item.png)
 
-Questo esempio è configurato per impostazione predefinita per l'uso dei servizi back-end ospitati in developer.xamarin.com, che consentono operazioni di sola lettura. Per eseguire direttamente il test nel proprio computer con l'app ASP.NET Core creata nella sezione successiva, è necessario modificare la costante `RestUrl` dell'app. Passare al progetto `ToDoREST` e aprire il file *Constants.cs* . Sostituire `RestUrl` con un URL che include l'indirizzo IP del computer (non localhost o 127.0.0.1, poiché questo indirizzo viene usato dall'emulatore di dispositivo e non dal computer in uso). Includere anche il numero di porta (5000). Per verificare che i servizi funzionino con un dispositivo, assicurarsi che l'accesso a questa porta non sia bloccato da un firewall attivo.
+Questo esempio è configurato per impostazione predefinita per l'uso dei servizi back-end ospitati in developer.xamarin.com, che consentono operazioni di sola lettura. Per eseguire direttamente il test nel proprio computer con l'app ASP.NET Core creata nella sezione successiva, è necessario modificare la costante `RestUrl` dell'app. Passare al progetto `ToDoREST` e aprire il file *Constants.cs*. Sostituire `RestUrl` con un URL che include l'indirizzo IP del computer (non localhost o 127.0.0.1, poiché questo indirizzo viene usato dall'emulatore di dispositivo e non dal computer in uso). Includere anche il numero di porta (5000). Per verificare che i servizi funzionino con un dispositivo, assicurarsi che l'accesso a questa porta non sia bloccato da un firewall attivo.
 
 ```csharp
 // URL of REST service (Xamarin ReadOnly Service)
@@ -64,7 +64,7 @@ public static string RestUrl = "http://192.168.1.207:5000/api/todoitems/{0}";
 
 ## <a name="creating-the-aspnet-core-project"></a>Creazione del progetto ASP.NET Core
 
-Creare una nuova applicazione Web ASP.NET Core in Visual Studio. Scegliere il modello API Web e Nessuna autenticazione. Denominare il progetto *ToDoApi* .
+Creare una nuova applicazione Web ASP.NET Core in Visual Studio. Scegliere il modello API Web e Nessuna autenticazione. Denominare il progetto *ToDoApi*.
 
 ![Finestra di dialogo Nuova applicazione Web ASP.NET Core con il modello di progetto API Web selezionato](native-mobile-backend/_static/web-api-template.png)
 
@@ -87,18 +87,18 @@ Per questo esempio, l'implementazione usa solo una raccolta privata di elementi:
 
 [!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Services/ToDoRepository.cs)]
 
-Configurare l'implementazione in *Startup.cs* :
+Configurare l'implementazione in *Startup.cs*:
 
 [!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Startup.cs?highlight=6&range=29-35)]
 
-A questo punto si è pronti per creare *ToDoItemsController* .
+A questo punto si è pronti per creare *ToDoItemsController*.
 
 > [!TIP]
 > Per altre informazioni sulla creazione di API Web, vedere [Sviluppare la prima API Web con ASP.NET Core MVC e Visual Studio](../tutorials/first-web-api.md).
 
 ## <a name="creating-the-controller"></a>Creazione del controller
 
-Aggiungere al progetto un nuovo controller, *ToDoItemsController* . Il controller deve ereditare da Microsoft.AspNetCore.Mvc.Controller. Aggiungere un attributo `Route` per indicare che il controller gestirà le richieste inoltrate ai percorsi che iniziano con `api/todoitems`. Il token `[controller]` nella route viene sostituito dal nome del controller (omettendo il suffisso `Controller`) ed è particolarmente utile per le route globali. Altre informazioni sul [routing](../fundamentals/routing.md).
+Aggiungere al progetto un nuovo controller, *ToDoItemsController*. Il controller deve ereditare da Microsoft.AspNetCore.Mvc.Controller. Aggiungere un attributo `Route` per indicare che il controller gestirà le richieste inoltrate ai percorsi che iniziano con `api/todoitems`. Il token `[controller]` nella route viene sostituito dal nome del controller (omettendo il suffisso `Controller`) ed è particolarmente utile per le route globali. Altre informazioni sul [routing](../fundamentals/routing.md).
 
 Per funzionare, il controller richiede un `IToDoRepository`. Richiedere un'istanza di questo tipo tramite il costruttore del controller. In fase di esecuzione, questa istanza viene resa disponibile tramite il supporto dell'[inserimento di dipendenze](../fundamentals/dependency-injection.md) specificato dal framework.
 
@@ -166,4 +166,7 @@ Dopo aver identificato criteri comuni per le API è in genere possibile incapsul
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Autenticazione e autorizzazione](/xamarin/xamarin-forms/enterprise-application-patterns/authentication-and-authorization)
+- [Novell. Forms: autenticazione del servizio Web](/xamarin/xamarin-forms/data-cloud/authentication/)
+- [Novell. Forms: utilizzo di un servizio Web RESTful](/xamarin/xamarin-forms/data-cloud/web-services/rest)
+- [Microsoft Learn: utilizzo di servizi Web REST nelle app Novell](/learn/modules/consume-rest-services/)
+- [Microsoft Learn: creare un'API Web con ASP.NET Core](/learn/modules/build-web-api-aspnet-core/)

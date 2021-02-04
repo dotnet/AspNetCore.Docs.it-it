@@ -19,14 +19,14 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/components/virtualization
-ms.openlocfilehash: c2b16f4bc8e69265b1d59082c3f029541f277d8b
-ms.sourcegitcommit: 063a06b644d3ade3c15ce00e72a758ec1187dd06
+ms.openlocfilehash: 72b33bc3c2861380551915b1e8caab49122e8fab
+ms.sourcegitcommit: e311cfb77f26a0a23681019bd334929d1aaeda20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98252289"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99529917"
 ---
-# <a name="aspnet-core-no-locblazor-component-virtualization"></a>BlazorVirtualizzazione componenti ASP.NET Core
+# <a name="aspnet-core-blazor-component-virtualization"></a>BlazorVirtualizzazione componenti ASP.NET Core
 
 Di [Daniel Roth](https://github.com/danroth27)
 
@@ -149,7 +149,7 @@ Poiché la richiesta di elementi da un'origine dati remota potrebbe richiedere d
 
 ## <a name="item-size"></a>Dimensioni dell'elemento
 
-È possibile impostare le dimensioni di ogni elemento in pixel <xref:Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize%601.ItemSize%2A?displayProperty=nameWithType> (impostazione predefinita: 50):
+L'altezza di ogni elemento in pixel può essere impostata con <xref:Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize%601.ItemSize%2A?displayProperty=nameWithType> (impostazione predefinita: 50):
 
 ```razor
 <Virtualize Context="employee" Items="@employees" ItemSize="25">

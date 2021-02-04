@@ -19,14 +19,14 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/webassembly-performance-best-practices
-ms.openlocfilehash: 0753ef0f1cde7bbb45ecc09b97fecb5ce364811c
-ms.sourcegitcommit: 8b0e9a72c1599ce21830c843558a661ba908ce32
+ms.openlocfilehash: 58a87bc5413523fdf052a9e1c41196bb8b0ab457
+ms.sourcegitcommit: e311cfb77f26a0a23681019bd334929d1aaeda20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98024652"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99529969"
 ---
-# <a name="aspnet-core-no-locblazor-webassembly-performance-best-practices"></a>Blazor WebAssemblyProcedure consigliate per le prestazioni ASP.NET Core
+# <a name="aspnet-core-blazor-webassembly-performance-best-practices"></a>Blazor WebAssemblyProcedure consigliate per le prestazioni ASP.NET Core
 
 Di [](https://github.com/pranavkm) [Manuel e Steve Sanderson](https://github.com/SteveSandersonMS)
 
@@ -191,7 +191,7 @@ In questo modo si evita l'overhead per componente per il rendering di un numero 
 @RenderWelcomeInfo
 
 @code {
-    RenderFragment RenderWelcomeInfo = __builder =>
+    private RenderFragment RenderWelcomeInfo = __builder =>
     {
         <div>
             <p>Welcome to your new app!</p>
@@ -221,12 +221,12 @@ Questo ora può essere richiamato da un componente non correlato. Questa tecnica
 <div class="chat">
     @foreach (var message in messages)
     {
-        @DisplayChatMessage(message)
+        @ChatMessageDisplay(message)
     }
 </div>
 
 @code {
-    RenderFragment<ChatMessage> DisplayChatMessage = message => __builder =>
+    private RenderFragment<ChatMessage> ChatMessageDisplay = message => __builder =>
     {
         <div class="chat-message">
             <span class="author">@message.Author</span>
@@ -237,6 +237,17 @@ Questo ora può essere richiamato da un componente non correlato. Questa tecnica
 ```
 
 Questo approccio offre il vantaggio di riutilizzare la logica di rendering senza overhead per componente. Tuttavia, non è in grado di aggiornare il sottoalbero dell'interfaccia utente in modo indipendente, né di ignorare il rendering del sottoalbero dell'interfaccia utente quando viene eseguito il rendering dell'elemento padre, dal momento che non esiste alcun limite per i componenti.
+
+Per un campo, un metodo o una proprietà non statica a cui non è possibile fare riferimento da un inizializzatore di campo, ad esempio `TitleTemplate` nell'esempio seguente, usare una proprietà anziché un campo per <xref:Microsoft.AspNetCore.Components.RenderFragment> :
+
+```csharp
+protected RenderFragment DisplayTitle => __builder =>
+{
+    <div>
+        @TitleTemplate
+    </div>   
+};
+```
 
 #### <a name="dont-receive-too-many-parameters"></a>Non ricevere troppi parametri
 

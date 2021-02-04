@@ -18,14 +18,14 @@ no-loc:
 - Razor
 - SignalR
 uid: data/ef-rp/intro
-ms.openlocfilehash: 2f6299511b568a70c638dd5d4c735bf22adb5e95
-ms.sourcegitcommit: 83524f739dd25fbfa95ee34e95342afb383b49fe
+ms.openlocfilehash: e797228d498ec9b269e718c099a0532bbb4504d3
+ms.sourcegitcommit: e311cfb77f26a0a23681019bd334929d1aaeda20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99057427"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99530242"
 ---
-# <a name="no-locrazor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Razor Pagine con Entity Framework Core in ASP.NET Core-esercitazione 1 di 8
+# <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Razor Pagine con Entity Framework Core in ASP.NET Core-esercitazione 1 di 8
 
 Di [Tom Dykstra](https://github.com/tdykstra) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -384,7 +384,7 @@ Aggiungere il pacchetto NuGet [Microsoft. AspNetCore. Diagnostics. EntityFramewo
 In PMC immettere quanto segue per aggiungere il pacchetto NuGet:
 
 ```powershell
-Install-Package Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore -Version 5.0.0-rc.2.20475.17
+Install-Package Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore
 ```
 
 # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
@@ -999,7 +999,7 @@ Gli utenti possono visualizzare e aggiornare le informazioni che riguardano stud
 
 Lo stile dell'interfaccia utente del sito è simile a quanto è stato generato tramite i modelli predefiniti. Lo stato attivo dell'esercitazione è EF Core con le Razor pagine, non con l'interfaccia utente.
 
-## <a name="create-the-contosouniversity-no-locrazor-pages-web-app"></a>Creare l' Razor app Web ContosoUniversity Pages
+## <a name="create-the-contosouniversity-razor-pages-web-app"></a>Creare l' Razor app Web ContosoUniversity Pages
 
 # <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 

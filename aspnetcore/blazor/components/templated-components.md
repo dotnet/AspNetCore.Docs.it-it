@@ -19,14 +19,14 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/components/templated-components
-ms.openlocfilehash: f818a0b7f1ba6d4dd6affeeba785c5e288568dd8
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.openlocfilehash: 28f98596046877672b2935cb1f0feb508548398d
+ms.sourcegitcommit: e311cfb77f26a0a23681019bd334929d1aaeda20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "94507954"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99529930"
 ---
-# <a name="aspnet-core-no-locblazor-templated-components"></a>ASP.NET Core Blazor componenti basati su modelli
+# <a name="aspnet-core-blazor-templated-components"></a>ASP.NET Core Blazor componenti basati su modelli
 
 Di [Luke Latham](https://github.com/guardrex) e [Daniel Roth](https://github.com/danroth27)
 
@@ -161,3 +161,7 @@ In caso contrario, il parametro di tipo deve essere specificato in modo esplicit
     ...
 }
 ```
+
+## <a name="additional-resources"></a>Risorse aggiuntive
+
+* <xref:blazor/webassembly-performance-best-practices#define-reusable-renderfragments-in-code>

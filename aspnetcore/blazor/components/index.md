@@ -19,14 +19,14 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/components/index
-ms.openlocfilehash: fe30c3b3be92c30dea6d0cb97e642eec1da6328b
-ms.sourcegitcommit: 72c8ada9b9644ee4751ed6869e892a8558dd8e66
+ms.openlocfilehash: efc73022d0bd8c29595f9bed1c06fe07002eb54a
+ms.sourcegitcommit: e311cfb77f26a0a23681019bd334929d1aaeda20
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98723512"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99530099"
 ---
-# <a name="create-and-use-aspnet-core-no-locrazor-components"></a>Creazione e utilizzo di Razor componenti ASP.NET Core
+# <a name="create-and-use-aspnet-core-razor-components"></a>Creazione e utilizzo di Razor componenti ASP.NET Core
 
 Di [Luke Latham](https://github.com/guardrex), [Daniel Roth](https://github.com/danroth27), [Scott Addie](https://github.com/scottaddie)e [Tobias Bartsch](https://www.aveo-solutions.com/)
 
@@ -38,7 +38,7 @@ Blazor le app vengono compilate usando i *componenti*. Un componente è un blocc
 
 I componenti sono implementati in [Razor](xref:mvc/views/razor) file componente ( `.razor` ) utilizzando una combinazione di markup C# e HTML. Un componente in Blazor viene definito formalmente come *Razor componente*.
 
-### <a name="no-locrazor-syntax"></a>Sintassi Razor
+### <a name="razor-syntax"></a>Sintassi Razor
 
 Razor i componenti nelle Blazor app utilizzano ampiamente la Razor sintassi. Se non si ha familiarità con il Razor linguaggio di markup, è consigliabile leggere il [ Razor riferimento alla sintassi per ASP.NET Core prima di](xref:mvc/views/razor) procedere.
 
@@ -339,6 +339,11 @@ A causa del modo in cui Blazor viene eseguito il rendering del contenuto figlio,
 >     </ChildComponent>
 > }
 > ```
+
+Per informazioni sul modo in <xref:Microsoft.AspNetCore.Components.RenderFragment> cui è possibile usare un modello per Razor l'interfaccia utente del componente, vedere gli articoli seguenti:
+
+* <xref:blazor/components/templated-components>
+* <xref:blazor/webassembly-performance-best-practices#define-reusable-renderfragments-in-code>
 
 ## <a name="attribute-splatting-and-arbitrary-parameters"></a>Attributo splatting e parametri arbitrari
 
@@ -824,7 +829,7 @@ Nell'esempio seguente viene illustrato l'utilizzo del `MarkupString` tipo per ag
 }
 ```
 
-## <a name="no-locrazor-templates"></a>Razor modelli
+## <a name="razor-templates"></a>Razor modelli
 
 I frammenti di rendering possono essere definiti usando la Razor sintassi del modello. Razor i modelli sono un modo per definire un frammento di interfaccia utente e presupporre il formato seguente:
 
