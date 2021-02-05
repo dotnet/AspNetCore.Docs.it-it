@@ -19,10 +19,10 @@ no-loc:
 - SignalR
 uid: fundamentals/target-aspnetcore
 ms.openlocfilehash: c012658a6f48247af60c8bfd56a7d987f6aa8a68
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.sourcegitcommit: c1839f2992b003c92cd958244a2e0771ae928786
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
+ms.lasthandoff: 02/05/2021
 ms.locfileid: "93061509"
 ---
 # <a name="use-aspnet-core-apis-in-a-class-library"></a>Usare API di ASP.NET Core in una libreria di classi
@@ -52,7 +52,7 @@ Per fare riferimento ASP.NET Core, aggiungere il seguente `<FrameworkReference>`
 
 Il riferimento ASP.NET Core in questo modo è supportato solo per i progetti destinati a .NET Core 3. x.
 
-## <a name="include-no-locblazor-extensibility"></a>Includi Blazor estendibilità
+## <a name="include-blazor-extensibility"></a>Includi Blazor estendibilità
 
 Blazor supporta i [modelli di hosting](xref:blazor/hosting-models)webassembly (WASM) e server. A meno che non esista un motivo specifico per non farlo, una libreria di [ Razor componenti](xref:blazor/components/index) deve supportare entrambi i modelli di hosting. Una Razor libreria di componenti deve usare [Microsoft. NET. Sdk. Razor SDK](xref:razor-pages/sdk).
 
@@ -113,7 +113,7 @@ Questa sezione descrive le raccomandazioni per le librerie che includono:
 
 Questa sezione non illustra la funzionalità multitargeting per supportare più versioni di MVC. Per informazioni sul supporto di più versioni di ASP.NET Core, vedere [supportare più versioni di ASP.NET Core](#support-multiple-aspnet-core-versions).
 
-### <a name="no-locrazor-views-or-no-locrazor-pages"></a>Razor viste o Razor pagine
+### <a name="razor-views-or-razor-pages"></a>Razor viste o Razor pagine
 
 Un progetto che include [ Razor viste](xref:mvc/views/overview) o [ Razor pagine](xref:razor-pages/index) deve utilizzare [Microsoft. NET. Sdk. Razor SDK](xref:razor-pages/sdk).
 

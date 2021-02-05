@@ -20,13 +20,13 @@ no-loc:
 - SignalR
 uid: blazor/globalization-localization
 ms.openlocfilehash: f8f261f25d854a9bf36ad3299f4af392d5c4fafd
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.sourcegitcommit: c1839f2992b003c92cd958244a2e0771ae928786
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
+ms.lasthandoff: 02/05/2021
 ms.locfileid: "93055880"
 ---
-# <a name="aspnet-core-no-locblazor-globalization-and-localization"></a>BlazorGlobalizzazione e localizzazione ASP.NET Core
+# <a name="aspnet-core-blazor-globalization-and-localization"></a>BlazorGlobalizzazione e localizzazione ASP.NET Core
 
 Di [Luke Latham](https://github.com/guardrex) e [Daniel Roth](https://github.com/danroth27)
 
@@ -127,7 +127,7 @@ Le impostazioni cultura possono essere impostate utilizzando uno degli approcci 
 
 Per altre informazioni ed esempi, vedere <xref:fundamentals/localization>.
 
-#### <a name="no-loccookies"></a>Cookies
+#### <a name="cookies"></a>Cookies
 
 Le impostazioni cultura cookie della localizzazione possono salvare in maniera permanente le impostazioni cultura dell'utente. Il middleware di localizzazione legge l'oggetto cookie sulle richieste successive per impostare le impostazioni cultura dell'utente. 
 

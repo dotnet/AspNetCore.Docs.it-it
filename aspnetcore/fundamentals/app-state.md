@@ -19,10 +19,10 @@ no-loc:
 - SignalR
 uid: fundamentals/app-state
 ms.openlocfilehash: c11b748f9d79235b14c9541019da6e1fb3428af6
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.sourcegitcommit: c1839f2992b003c92cd958244a2e0771ae928786
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
+ms.lasthandoff: 02/05/2021
 ms.locfileid: "93051408"
 ---
 # <a name="session-and-state-management-in-aspnet-core"></a>Gestione di sessioni e stato in ASP.NET Core
@@ -49,7 +49,7 @@ Lo stato può essere archiviato usando diversi approcci. Ogni approccio è descr
 | [HttpContext.Items](#httpcontextitems) | Codice app lato server |
 | [Cache](#cache) | Codice app lato server |
 
-## <a name="no-loccookies"></a>Cookies
+## <a name="cookies"></a>Cookies
 
 CookieArchivia i dati tra le richieste. Poiché cookie le istanze di vengono inviate con ogni richiesta, la loro dimensione deve essere mantenuta al minimo. Idealmente, solo un identificatore deve essere archiviato in un cookie con i dati archiviati dall'app. La maggior parte dei browser limita le cookie dimensioni a 4096 byte. cookiePer ogni dominio sono disponibili solo un numero limitato di s.
 
@@ -288,7 +288,7 @@ Il middleware della sessione può non riuscire a salvare in modo permanente una 
 
 L'approccio consigliato per verificare la presenza di errori consiste nel chiamare `await feature.Session.CommitAsync` quando l'app esegue la scrittura nella sessione. <xref:Microsoft.AspNetCore.Http.ISession.CommitAsync*> genera un'eccezione se l'archivio di backup non è disponibile. Se `CommitAsync` ha esito negativo, l'app è in grado di elaborare l'eccezione. <xref:Microsoft.AspNetCore.Http.ISession.LoadAsync*> genera un'eccezione quando l'archivio dati non è disponibile.
   
-## <a name="no-locsignalr-and-session-state"></a>SignalR e stato sessione
+## <a name="signalr-and-session-state"></a>SignalR e stato sessione
 
 SignalR le app non devono usare lo stato della sessione per archiviare le informazioni. SignalR le app possono archiviare lo stato per connessione in `Context.Items` nell'hub. <!-- https://github.com/aspnet/SignalR/issues/2139 -->
 
@@ -320,7 +320,7 @@ Lo stato può essere archiviato usando diversi approcci. Ogni approccio è descr
 | [Cache](#cache) | Codice app lato server |
 | [Inserimento delle dipendenze](#dependency-injection) | Codice app lato server |
 
-## <a name="no-loccookies"></a>Cookies
+## <a name="cookies"></a>Cookies
 
 CookieArchivia i dati tra le richieste. Poiché cookie le istanze di vengono inviate con ogni richiesta, la loro dimensione deve essere mantenuta al minimo. Idealmente, solo un identificatore deve essere archiviato in un cookie con i dati archiviati dall'app. La maggior parte dei browser limita le cookie dimensioni a 4096 byte. cookiePer ogni dominio sono disponibili solo un numero limitato di s.
 
@@ -599,7 +599,7 @@ Usare [Dependency Injection](xref:fundamentals/dependency-injection) (Inseriment
 
   L'approccio consigliato per verificare la presenza di errori è chiamare `await feature.Session.CommitAsync();` dal codice dell'app quando l'app termina di scrivere nella sessione. `CommitAsync` genera un'eccezione se l'archivio di backup non è disponibile. Se `CommitAsync` ha esito negativo, l'app è in grado di elaborare l'eccezione. `LoadAsync` viene generata nelle stesse condizioni in cui l'archivio dati non è disponibile.
   
-## <a name="no-locsignalr-and-session-state"></a>SignalR e stato sessione
+## <a name="signalr-and-session-state"></a>SignalR e stato sessione
 
 SignalR le app non devono usare lo stato della sessione per archiviare le informazioni. SignalR le app possono archiviare lo stato per connessione in `Context.Items` nell'hub. <!-- https://github.com/aspnet/SignalR/issues/2139 -->
 

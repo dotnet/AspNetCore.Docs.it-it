@@ -20,13 +20,13 @@ no-loc:
 - SignalR
 uid: blazor/host-and-deploy/server
 ms.openlocfilehash: a209109210ef5e335734a974ceb0c2af7cb8e1a1
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.sourcegitcommit: c1839f2992b003c92cd958244a2e0771ae928786
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
+ms.lasthandoff: 02/05/2021
 ms.locfileid: "94595441"
 ---
-# <a name="host-and-deploy-no-locblazor-server"></a>Ospitare e distribuire Blazor Server
+# <a name="host-and-deploy-blazor-server"></a>Ospitare e distribuire Blazor Server
 
 Di [Luke Latham](https://github.com/guardrex), [Rainer Stropek](https://www.timecockpit.com) e [Daniel Roth](https://github.com/danroth27)
 
@@ -58,13 +58,13 @@ Per istruzioni sulla creazione di app Server sicure e scalabili Blazor , vedere 
 
 Ogni circuito utilizza circa 250 KB di memoria per un'app di tipo *Hello World* minima. La dimensione di un circuito dipende dal codice dell'app e dai requisiti di manutenzione dello stato associati a ogni componente. Si consiglia di misurare le richieste di risorse durante lo sviluppo dell'applicazione e dell'infrastruttura, ma la linea di base seguente può essere un punto di partenza per la pianificazione della destinazione di distribuzione: se si prevede che l'app supporti 5.000 utenti simultanei, valutare la possibilità di prevedere almeno 1,3 GB di memoria del server per l'app (o ~ 273 KB per utente).
 
-### <a name="no-locsignalr-configuration"></a>SignalR configurazione
+### <a name="signalr-configuration"></a>SignalR configurazione
 
 Blazor Server le app usano ASP.NET Core SignalR per comunicare con il browser. [ SignalR le condizioni di hosting e scalabilità sono](xref:signalr/publish-to-azure-web-app) valide per le Blazor Server app.
 
 Blazor funziona meglio quando si usano WebSocket come il SignalR trasporto a causa di una latenza, affidabilità e [sicurezza](xref:signalr/security)più bassa. Il polling prolungato viene usato da SignalR quando i WebSocket non sono disponibili o quando l'app è configurata in modo esplicito per l'uso del polling prolungato. Quando si esegue la distribuzione nel servizio app Azure, configurare l'app per l'uso di WebSocket nelle impostazioni portale di Azure per il servizio. Per informazioni dettagliate sulla configurazione dell'app per il servizio app Azure, vedere le [ SignalR linee guida](xref:signalr/publish-to-azure-web-app)per la pubblicazione.
 
-#### <a name="azure-no-locsignalr-service"></a>Servizio di Azure SignalR
+#### <a name="azure-signalr-service"></a>Servizio di Azure SignalR
 
 È consigliabile usare il [ SignalR servizio Azure](xref:signalr/scale#azure-signalr-service) per le Blazor Server app. Il servizio consente di ridimensionare un' Blazor Server app a un numero elevato di connessioni simultanee SignalR . Inoltre, la SignalR portata globale del servizio e i Data Center a prestazioni elevate facilitano significativamente la riduzione della latenza dovuta all'area geografica.
 
@@ -102,7 +102,7 @@ Per configurare un'app per il servizio di Azure SignalR , l'app deve supportare 
 
      * Impostazioni dell'applicazione di **configurazione** del servizio app  >   nel portale di Azure (**nome**: `Azure__SignalR__StickyServerMode` , **valore**: `Required` ). Questo approccio viene adottato automaticamente per l'app se si esegue [il provisioning del SignalR servizio di Azure](#provision-the-azure-signalr-service).
 
-### <a name="provision-the-azure-no-locsignalr-service"></a>Effettuare il provisioning del SignalR servizio Azure
+### <a name="provision-the-azure-signalr-service"></a>Effettuare il provisioning del SignalR servizio Azure
 
 Per eseguire il provisioning del SignalR servizio Azure per un'app in Visual Studio:
 
