@@ -19,14 +19,14 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/hosting-models
-ms.openlocfilehash: a6f1c88b8e93c0d8ccfebca482895ebab8d18a81
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.openlocfilehash: c60191cc8822dd875db613fb70516beb08a659d8
+ms.sourcegitcommit: 20a41c8e40a2e69e99291e2fe18caa04c02e7109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97506916"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99578282"
 ---
-# <a name="aspnet-core-no-locblazor-hosting-models"></a>BlazorModelli di hosting ASP.NET Core
+# <a name="aspnet-core-blazor-hosting-models"></a>BlazorModelli di hosting ASP.NET Core
 
 Di [Daniel Roth](https://github.com/danroth27)
 
@@ -38,7 +38,7 @@ Il Blazor modello di hosting primario è in esecuzione sul lato client nel brows
 
 ![::: NO-LOC (webassembly Blaze):::: l'oggetto::: NO-LOC (Blazer)::: app viene eseguito su un thread dell'interfaccia utente all'interno del browser.](hosting-models/_static/blazor-webassembly.png)
 
-Quando l' Blazor WebAssembly app viene creata per la distribuzione senza un'app ASP.NET Core back-end per gestire i file, l'app viene chiamata app *autonoma* Blazor WebAssembly . Quando l'app viene creata per la distribuzione con un'app back-end per gestire i file, l'app viene chiamata app *ospitata* Blazor WebAssembly . Un'app ospitata Blazor WebAssembly in genere interagisce con il server tramite la rete mediante chiamate API Web o [SignalR](xref:signalr/introduction) ( <xref:tutorials/signalr-blazor-webassembly> ).
+Quando l' Blazor WebAssembly app viene creata per la distribuzione senza un'app ASP.NET Core back-end per gestire i file, l'app viene chiamata app *autonoma* Blazor WebAssembly . Quando l'app viene creata per la distribuzione con un'app back-end per gestire i file, l'app viene chiamata app *ospitata* Blazor WebAssembly . Un'app ospitata Blazor WebAssembly in genere interagisce con il server tramite la rete mediante chiamate API Web o [SignalR](xref:signalr/introduction) ( <xref:tutorials/signalr-blazor> ).
 
 Lo `blazor.webassembly.js` script viene fornito dal Framework e gestisce:
 
@@ -161,4 +161,4 @@ Quando si usa IIS, le sessioni permanenti sono abilitate con il *routing delle r
 * <xref:blazor/tooling>
 * <xref:signalr/introduction>
 * <xref:blazor/fundamentals/additional-scenarios>
-* <xref:tutorials/signalr-blazor-webassembly>
+* <xref:tutorials/signalr-blazor>

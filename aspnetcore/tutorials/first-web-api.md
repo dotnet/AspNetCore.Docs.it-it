@@ -4,7 +4,7 @@ author: rick-anderson
 description: Informazioni su come creare un'API Web con ASP.NET Core.
 ms.author: riande
 ms.custom: mvc, devx-track-js
-ms.date: 08/13/2020
+ms.date: 02/04/2021
 no-loc:
 - appsettings.json
 - ASP.NET Core Identity
@@ -19,12 +19,12 @@ no-loc:
 - SignalR
 - Models
 uid: tutorials/first-web-api
-ms.openlocfilehash: ccbfc27eb89e23938a69f0ab4cb306d6a4136889
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.openlocfilehash: bef6efab3e5e84908a36c2c70f019cdd3b3e059e
+ms.sourcegitcommit: 20a41c8e40a2e69e99291e2fe18caa04c02e7109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "96175052"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99578406"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Esercitazione: Creare un'API Web con ASP.NET Core
 
@@ -51,11 +51,11 @@ Questa esercitazione consente di creare l'API seguente:
 
 |API | Descrizione | Testo della richiesta | Corpo della risposta |
 |--- | ---- | ---- | ---- |
-|`GET /api/TodoItems` | Ottiene tutti gli elementi attività | Nessuno | Matrice di elementi attività|
-|`GET /api/TodoItems/{id}` | Ottiene un elemento in base all'ID | Nessuno | Elemento attività|
+|`GET /api/TodoItems` | Ottiene tutti gli elementi attività | nessuno | Matrice di elementi attività|
+|`GET /api/TodoItems/{id}` | Ottiene un elemento in base all'ID | nessuno | Elemento attività|
 |`POST /api/TodoItems` | Aggiunge un nuovo elemento | Elemento attività | Elemento attività |
-|`PUT /api/TodoItems/{id}` | Aggiorna un elemento esistente &nbsp; | Elemento attività | Nessuno |
-|`DELETE /api/TodoItems/{id}` &nbsp; &nbsp; | Elimina un elemento &nbsp;&nbsp; | Nessuno | Nessuno|
+|`PUT /api/TodoItems/{id}` | Aggiorna un elemento esistente &nbsp; | Elemento attività | nessuno |
+|`DELETE /api/TodoItems/{id}` &nbsp; &nbsp; | Elimina un elemento &nbsp;&nbsp; | nessuno | nessuno|
 
 Il diagramma seguente visualizza la struttura dell'app.
 
@@ -97,7 +97,6 @@ Il diagramma seguente visualizza la struttura dell'app.
    ```dotnetcli
    dotnet new webapi -o TodoApi
    cd TodoApi
-   dotnet add package Microsoft.EntityFrameworkCore.SqlServer
    dotnet add package Microsoft.EntityFrameworkCore.InMemory
    code -r ../TodoApi
    ```
@@ -127,10 +126,9 @@ Il diagramma seguente visualizza la struttura dell'app.
 
 [!INCLUDE[](~/includes/mac-terminal-access.md)]
 
-Aprire un terminale di comando nella cartella di progetto ed eseguire i comandi seguenti:
+Aprire un terminale di comando nella cartella del progetto ed eseguire il comando seguente:
 
    ```dotnetcli
-   dotnet add package Microsoft.EntityFrameworkCore.SqlServer
    dotnet add package Microsoft.EntityFrameworkCore.InMemory
    ```
 
@@ -270,13 +268,10 @@ Il *contesto di database* è la classe principale che coordina le funzionalità 
 ### <a name="add-nuget-packages"></a>Aggiungere pacchetti NuGet
 
 * Dal menu **Strumenti** selezionare **Gestione pacchetti NuGet > Gestisci pacchetti NuGet per la soluzione**.
-* Selezionare la scheda **Esplora** e quindi immettere **Microsoft.EntityFrameworkCore.SqlServer** nella casella di ricerca.
-<!-- https://github.com/dotnet/AspNetCore.Docs/issues/19782 Delete this line at RTM -->
-* Nel riquadro sinistro selezionare **Microsoft. EntityFrameworkCore. SqlServer** .
+* Selezionare la scheda **Sfoglia** e quindi immettere **Microsoft. EntityFrameworkCore. InMemory** nella casella di ricerca.
+* Selezionare **Microsoft. EntityFrameworkCore. InMemory** nel riquadro sinistro.
 * Selezionare la casella di controllo **Progetto** nel riquadro di destra e quindi selezionare **Installa**.
-* Usare le istruzioni precedenti per aggiungere il pacchetto NuGet **Microsoft. EntityFrameworkCore. InMemory** .
 
-<!-- https://github.com/dotnet/AspNetCore.Docs/issues/19782 Update this image at RTM -->
 ![Gestione pacchetti NuGet](first-web-api/_static/5/vsNuGet.png)
 
 ## <a name="add-the-todocontext-database-context"></a>Aggiungere il contesto del database TodoContext
@@ -400,7 +395,7 @@ Questa esercitazione usa Postman per testare l'API Web.
     }
     ```
 
-* Selezionare **Send** (Invia).
+* Selezionare **Invia**.
 
   ![Postman con richiesta di creazione](first-web-api/_static/3/create.png)
 
@@ -417,7 +412,7 @@ Per eseguire il test in un post:
 
 * Impostare il metodo HTTP su `GET`.
 * Impostare l'URI su `https://localhost:<port>/api/TodoItems/1` . Ad esempio: `https://localhost:5001/api/TodoItems/1`.
-* Selezionare **Send** (Invia).
+* Selezionare **Invia**.
 
 ## <a name="examine-the-get-methods"></a>Esaminare i metodi GET
 
@@ -449,7 +444,7 @@ Una risposta simile alla seguente viene generata dalla chiamata a `GetTodoItems`
 * Impostare il metodo HTTP su **GET**.
 * Impostare l'URI della richiesta su `https://localhost:<port>/api/TodoItems` . Ad esempio: `https://localhost:5001/api/TodoItems`.
 * Impostare **Two pane view** (Visualizzazione in due riquadri) in Postman.
-* Selezionare **Send** (Invia).
+* Selezionare **Invia**.
 
 Questa app usa un database in memoria. Se l'app viene arrestata e avviata, la richiesta GET precedente non restituirà alcun dato. Se non vengono restituiti dati, eseguire [POST](#post) per pubblicare i dati nell'app.
 
@@ -517,7 +512,7 @@ Usare Postman per eliminare un elemento attività:
 
 * Impostare il metodo su `DELETE`.
 * Impostare l'URI dell'oggetto da eliminare (ad esempio `https://localhost:5001/api/TodoItems/1` ).
-* Selezionare **Send** (Invia).
+* Selezionare **Invia**.
 
 <a name="over-post-v5"></a>
 
@@ -575,11 +570,11 @@ Questa esercitazione consente di creare l'API seguente:
 
 |API | Descrizione | Testo della richiesta | Corpo della risposta |
 |--- | ---- | ---- | ---- |
-|`GET /api/TodoItems` | Ottiene tutti gli elementi attività | Nessuno | Matrice di elementi attività|
-|`GET /api/TodoItems/{id}` | Ottiene un elemento in base all'ID | Nessuno | Elemento attività|
+|`GET /api/TodoItems` | Ottiene tutti gli elementi attività | nessuno | Matrice di elementi attività|
+|`GET /api/TodoItems/{id}` | Ottiene un elemento in base all'ID | nessuno | Elemento attività|
 |`POST /api/TodoItems` | Aggiunge un nuovo elemento | Elemento attività | Elemento attività |
-|`PUT /api/TodoItems/{id}` | Aggiorna un elemento esistente &nbsp; | Elemento attività | Nessuno |
-|`DELETE /api/TodoItems/{id}` &nbsp; &nbsp; | Elimina un elemento &nbsp;&nbsp; | Nessuno | Nessuno|
+|`PUT /api/TodoItems/{id}` | Aggiorna un elemento esistente &nbsp; | Elemento attività | nessuno |
+|`DELETE /api/TodoItems/{id}` &nbsp; &nbsp; | Elimina un elemento &nbsp;&nbsp; | nessuno | nessuno|
 
 Il diagramma seguente visualizza la struttura dell'app.
 
@@ -621,7 +616,6 @@ Il diagramma seguente visualizza la struttura dell'app.
    ```dotnetcli
    dotnet new webapi -o TodoApi
    cd TodoApi
-   dotnet add package Microsoft.EntityFrameworkCore.SqlServer
    dotnet add package Microsoft.EntityFrameworkCore.InMemory
    code -r ../TodoApi
    ```
@@ -651,10 +645,9 @@ Il diagramma seguente visualizza la struttura dell'app.
 
 [!INCLUDE[](~/includes/mac-terminal-access.md)]
 
-Aprire un terminale di comando nella cartella di progetto ed eseguire i comandi seguenti:
+Aprire un terminale di comando nella cartella del progetto ed eseguire il comando seguente:
 
    ```dotnetcli
-   dotnet add package Microsoft.EntityFrameworkCore.SqlServer
    dotnet add package Microsoft.EntityFrameworkCore.InMemory
    ```
 
@@ -764,10 +757,9 @@ Il *contesto di database* è la classe principale che coordina le funzionalità 
 ### <a name="add-nuget-packages"></a>Aggiungere pacchetti NuGet
 
 * Dal menu **Strumenti** selezionare **Gestione pacchetti NuGet > Gestisci pacchetti NuGet per la soluzione**.
-* Selezionare la scheda **Esplora** e quindi immettere **Microsoft.EntityFrameworkCore.SqlServer** nella casella di ricerca.
-* Nel riquadro sinistro selezionare **Microsoft. EntityFrameworkCore. SqlServer** .
+* Selezionare la scheda **Sfoglia** e quindi immettere **Microsoft. EntityFrameworkCore. InMemory** nella casella di ricerca.
+* Selezionare **Microsoft. EntityFrameworkCore. InMemory** nel riquadro sinistro.
 * Selezionare la casella di controllo **Progetto** nel riquadro di destra e quindi selezionare **Installa**.
-* Usare le istruzioni precedenti per aggiungere il pacchetto NuGet **Microsoft. EntityFrameworkCore. InMemory** .
 
 ![Gestione pacchetti NuGet](first-web-api/_static/vs3NuGet.png)
 
@@ -891,7 +883,7 @@ Questa esercitazione usa Postman per testare l'API Web.
     }
     ```
 
-* Selezionare **Send** (Invia).
+* Selezionare **Invia**.
 
   ![Postman con richiesta di creazione](first-web-api/_static/3/create.png)
 
@@ -904,7 +896,7 @@ Questa esercitazione usa Postman per testare l'API Web.
 
 * Impostare il metodo HTTP su `GET`.
 * Impostare l'URI su `https://localhost:<port>/api/TodoItems/1` . Ad esempio: `https://localhost:5001/api/TodoItems/1`.
-* Selezionare **Send** (Invia).
+* Selezionare **Invia**.
 
 ## <a name="examine-the-get-methods"></a>Esaminare i metodi GET
 
@@ -936,7 +928,7 @@ Una risposta simile alla seguente viene generata dalla chiamata a `GetTodoItems`
 * Impostare il metodo HTTP su **GET**.
 * Impostare l'URI della richiesta su `https://localhost:<port>/api/TodoItems` . Ad esempio: `https://localhost:5001/api/TodoItems`.
 * Impostare **Two pane view** (Visualizzazione in due riquadri) in Postman.
-* Selezionare **Send** (Invia).
+* Selezionare **Invia**.
 
 Questa app usa un database in memoria. Se l'app viene arrestata e avviata, la richiesta GET precedente non restituirà alcun dato. Se non vengono restituiti dati, eseguire [POST](#post) per pubblicare i dati nell'app.
 
@@ -1004,7 +996,7 @@ Usare Postman per eliminare un elemento attività:
 
 * Impostare il metodo su `DELETE`.
 * Impostare l'URI dell'oggetto da eliminare (ad esempio `https://localhost:5001/api/TodoItems/1` ).
-* Selezionare **Send** (Invia).
+* Selezionare **Invia**.
 
 <a name="over-post"></a>
 <a name="over-post-v3"></a>
@@ -1066,11 +1058,11 @@ Questa esercitazione consente di creare l'API seguente:
 
 |API | Descrizione | Testo della richiesta | Corpo della risposta |
 |--- | ---- | ---- | ---- |
-|GET /api/TodoItems | Ottiene tutti gli elementi attività | Nessuno | Matrice di elementi attività|
-|GET /api/TodoItems/{id} | Ottiene un elemento in base all'ID | Nessuno | Elemento attività|
+|GET /api/TodoItems | Ottiene tutti gli elementi attività | nessuno | Matrice di elementi attività|
+|GET /api/TodoItems/{id} | Ottiene un elemento in base all'ID | nessuno | Elemento attività|
 |POST /api/TodoItems | Aggiunge un nuovo elemento | Elemento attività | Elemento attività |
-|PUT /api/TodoItems/{id} | Aggiorna un elemento esistente &nbsp; | Elemento attività | Nessuno |
-|Elimina/api/TodoItems/{id} &nbsp;&nbsp; | Elimina un elemento &nbsp;&nbsp; | Nessuno | Nessuno|
+|PUT /api/TodoItems/{id} | Aggiorna un elemento esistente &nbsp; | Elemento attività | nessuno |
+|Elimina/api/TodoItems/{id} &nbsp;&nbsp; | Elimina un elemento &nbsp;&nbsp; | nessuno | nessuno|
 
 Il diagramma seguente visualizza la struttura dell'app.
 
@@ -1338,7 +1330,7 @@ Questa esercitazione usa Postman per testare l'API Web.
   * Impostare il metodo HTTP su **GET**.
   * Impostare l'URI della richiesta su `https://localhost:<port>/api/todo` . Ad esempio: `https://localhost:5001/api/todo`.
 * Impostare **Two pane view** (Visualizzazione in due riquadri) in Postman.
-* Selezionare **Send** (Invia).
+* Selezionare **Invia**.
 
 ![Postman con richiesta GET](first-web-api/_static/2pv.png)
 
@@ -1375,7 +1367,7 @@ Il metodo `CreatedAtAction`:
     }
     ```
 
-* Selezionare **Send** (Invia).
+* Selezionare **Invia**.
 
   ![Postman con richiesta di creazione](first-web-api/_static/create.png)
 
@@ -1390,7 +1382,7 @@ Il metodo `CreatedAtAction`:
 
 * Impostare il metodo su GET.
 * Impostare l'URI su `https://localhost:<port>/api/TodoItems/2` . Ad esempio: `https://localhost:5001/api/TodoItems/2`.
-* Selezionare **Send** (Invia).
+* Selezionare **Invia**.
 
 ## <a name="add-a-puttodoitem-method-21"></a>Aggiungere un metodo PutTodoItem 2,1
 
@@ -1434,7 +1426,7 @@ Usare Postman per eliminare un elemento attività:
 
 * Impostare il metodo su `DELETE`.
 * Impostare l'URI dell'oggetto da eliminare (ad esempio, `https://localhost:5001/api/todo/1` ).
-* Selezionare **Send** (Invia).
+* Selezionare **Invia**.
 
 L'app di esempio consente di eliminare tutti gli elementi. Quando viene eliminato l'ultimo elemento, tuttavia, ne viene creato uno nuovo dal costruttore della classe modello alla successiva chiamata dell'API.
 

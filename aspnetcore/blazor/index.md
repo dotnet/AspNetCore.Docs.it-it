@@ -19,14 +19,14 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/index
-ms.openlocfilehash: 840cc87103447db2b4686994701a0e4543d11fde
-ms.sourcegitcommit: 063a06b644d3ade3c15ce00e72a758ec1187dd06
+ms.openlocfilehash: bd42ba41c6f599d7c0308febbbde71e0d060cc84
+ms.sourcegitcommit: 20a41c8e40a2e69e99291e2fe18caa04c02e7109
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98252461"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99578295"
 ---
-# <a name="introduction-to-aspnet-core-no-locblazor"></a>Introduzione a ASP.NET Core Blazor
+# <a name="introduction-to-aspnet-core-blazor"></a>Introduzione a ASP.NET Core Blazor
 
 Di [Daniel Roth](https://github.com/danroth27) e [Luke Latham](https://github.com/guardrex)
 
@@ -171,7 +171,7 @@ Le API non valide all'interno di un Web browser (ad esempio per l'accesso al fil
 
 * [WebAssembly](https://webassembly.org)
 * <xref:blazor/hosting-models>
-* <xref:tutorials/signalr-blazor-webassembly>
+* <xref:tutorials/signalr-blazor>
 * <xref:blazor/call-javascript-from-dotnet>
 * <xref:blazor/call-dotnet-from-javascript>
 * [Guida a C#](/dotnet/csharp/)
