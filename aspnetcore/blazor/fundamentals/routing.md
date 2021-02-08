@@ -19,14 +19,14 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/fundamentals/routing
-ms.openlocfilehash: 74886eae7431045e56de535b5221040bd56cdc2d
-ms.sourcegitcommit: 610936e4d3507f7f3d467ed7859ab9354ec158ba
+ms.openlocfilehash: c53263ea48bc2900fd811f6e159aca97cdff26f7
+ms.sourcegitcommit: 50d3e939a90c5480df480f651dda032901468dd5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98751568"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99819029"
 ---
-# <a name="aspnet-core-no-locblazor-routing"></a>BlazorRouting ASP.NET Core
+# <a name="aspnet-core-blazor-routing"></a>BlazorRouting ASP.NET Core
 
 Di [Luke Latham](https://github.com/guardrex)
 
@@ -164,7 +164,7 @@ I parametri facoltativi non sono supportati. Nell'esempio seguente vengono appli
 
 ::: moniker-end
 
-Usare on [`OnParametersSet`](xref:blazor/components/lifecycle#after-parameters-are-set) anziché [`OnInitialized`](xref:blazor/components/lifecycle#component-initialization-methods) per consentire l'esplorazione delle app allo stesso componente con un valore di parametro facoltativo diverso. In base all'esempio precedente, usare `OnParametersSet` quando l'utente deve essere in grado di spostarsi da `/RouteParameter` a `/RouteParameter/amazing` o da `/RouteParameter/amazing` a `/RouteParameter` :
+Usare [`OnParametersSet`](xref:blazor/components/lifecycle#after-parameters-are-set) anziché [`OnInitialized`](xref:blazor/components/lifecycle#component-initialization-methods) per consentire l'esplorazione delle app allo stesso componente con un valore di parametro facoltativo diverso. In base all'esempio precedente, usare `OnParametersSet` quando l'utente deve essere in grado di spostarsi da `/RouteParameter` a `/RouteParameter/amazing` o da `/RouteParameter/amazing` a `/RouteParameter` :
 
 ```csharp
 protected override void OnParametersSet()

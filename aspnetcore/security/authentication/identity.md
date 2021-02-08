@@ -17,14 +17,14 @@ no-loc:
 - Razor
 - SignalR
 uid: security/authentication/identity
-ms.openlocfilehash: ad4184fce494ba06acf7e583a42a54d04d37ea20
-ms.sourcegitcommit: 92439194682dc788b8b5b3a08bd2184dc00e200b
+ms.openlocfilehash: 266781d0abc564952e124bc6eca3805c07592251
+ms.sourcegitcommit: 50d3e939a90c5480df480f651dda032901468dd5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96556645"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99819055"
 ---
-# <a name="introduction-to-no-locidentity-on-aspnet-core"></a>Introduzione a Identity on ASP.NET Core
+# <a name="introduction-to-identity-on-aspnet-core"></a>Introduzione a Identity on ASP.NET Core
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -39,7 +39,7 @@ Gli utenti possono creare un account con le informazioni di accesso archiviate i
 
 [!INCLUDE[](~/includes/requireAuth.md)]
 
-Il [ Identity codice sorgente](https://github.com/dotnet/AspNetCore/tree/master/src/Identity) è disponibile in GitHub. [Impalcatura Identity ](xref:security/authentication/scaffold-identity) e visualizzare i file generati per esaminare l'interazione del modello con Identity .
+Il [ Identity codice sorgente](https://github.com/dotnet/AspNetCore/tree/main/src/Identity) è disponibile in GitHub. [Impalcatura Identity ](xref:security/authentication/scaffold-identity) e visualizzare i file generati per esaminare l'interazione del modello con Identity .
 
 Identity viene in genere configurato utilizzando un database di SQL Server per archiviare i nomi utente, le password e i dati di profilo. In alternativa, è possibile usare un altro archivio permanente, ad esempio archiviazione tabelle di Azure.
 
@@ -119,7 +119,7 @@ Eseguire l'app e registrare un utente. A seconda delle dimensioni dello schermo,
 
 <a name="pw"></a>
 
-### <a name="configure-no-locidentity-services"></a>Configurare i Identity Servizi
+### <a name="configure-identity-services"></a>Configurare i Identity Servizi
 
 I servizi vengono aggiunti in `ConfigureServices` . Il modello tipico consiste nel chiamare tutti i metodi `Add{Service}` e quindi chiamare tutti i metodi `services.Configure{Service}`.
 
@@ -214,7 +214,7 @@ Post viene specificato nelle *pagine/Shared/_LoginPartial. cshtml*:
 
 [!code-cshtml[](identity/sample/WebApp3/Pages/Shared/_LoginPartial.cshtml?highlight=15)]
 
-## <a name="test-no-locidentity"></a>Test Identity
+## <a name="test-identity"></a>Test Identity
 
 I modelli di progetto Web predefiniti consentono l'accesso anonimo alle Home page. Per eseguire il test Identity , aggiungere [`[Authorize]`](xref:Microsoft.AspNetCore.Authorization.AuthorizeAttribute) :
 
@@ -222,20 +222,20 @@ I modelli di progetto Web predefiniti consentono l'accesso anonimo alle Home pag
 
 Se è stato eseguito l'accesso, disconnettersi. Eseguire l'app e selezionare il collegamento per la **privacy** . Si verrà reindirizzati alla pagina di accesso.
 
-### <a name="explore-no-locidentity"></a>Esplorare Identity
+### <a name="explore-identity"></a>Esplorare Identity
 
 Per esplorare Identity in modo più dettagliato:
 
 * [Crea origine interfaccia utente con identità completa](xref:security/authentication/scaffold-identity#create-full-identity-ui-source)
 * Esaminare l'origine di ogni pagina ed eseguire un'istruzione alla volta nel debugger.
 
-## <a name="no-locidentity-components"></a>Identity Componenti
+## <a name="identity-components"></a>Identity Componenti
 
 Tutti i Identity pacchetti NuGet dipendenti da sono inclusi nel [framework condiviso ASP.NET Core](xref:aspnetcore-3.0#use-the-aspnet-core-shared-framework).
 
 Il pacchetto primario per Identity è [Microsoft. AspNetCore. Identity ](https://www.nuget.org/packages/Microsoft.AspNetCore.Identity/) Questo pacchetto contiene il set principale di interfacce per ASP.NET Core Identity ed è incluso in `Microsoft.AspNetCore.Identity.EntityFrameworkCore` .
 
-## <a name="migrating-to-no-locaspnet-core-identity"></a>Migrazione a ASP.NET Core Identity
+## <a name="migrating-to-aspnet-core-identity"></a>Migrazione a ASP.NET Core Identity
 
 Per ulteriori informazioni e istruzioni sulla migrazione dell' Identity archivio esistente, vedere [eseguire la migrazione Identity dell'autenticazione e ](xref:migration/identity).
 
@@ -243,7 +243,7 @@ Per ulteriori informazioni e istruzioni sulla migrazione dell' Identity archivio
 
 Vedere [configurazione](#pw) per un esempio che consente di impostare i requisiti minimi per le password.
 
-## <a name="adddefaultno-locidentity-and-addno-locidentity"></a>AddDefault Identity e AggiungiIdentity
+## <a name="adddefaultidentity-and-addidentity"></a>AddDefault Identity e AggiungiIdentity
 
 <xref:Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionUIExtensions.AddDefaultIdentity*> è stato introdotto in ASP.NET Core 2,1. `AddDefaultIdentity`La chiamata a è simile alla chiamata a quanto segue:
 
@@ -253,7 +253,7 @@ Vedere [configurazione](#pw) per un esempio che consente di impostare i requisit
 
 Per altre informazioni, vedere [ Identity origine AddDefault](https://github.com/dotnet/AspNetCore/blob/release/3.1/src/Identity/UI/src/IdentityServiceCollectionUIExtensions.cs#L47-L63) .
 
-## <a name="prevent-publish-of-static-no-locidentity-assets"></a>Impedisci la pubblicazione di Identity Asset statici
+## <a name="prevent-publish-of-static-identity-assets"></a>Impedisci la pubblicazione di Identity Asset statici
 
 Per evitare la pubblicazione Identity di risorse statiche (fogli di stile e file JavaScript per Identity l'interfaccia utente) nella radice Web, aggiungere la `ResolveStaticWebAssetsInputsDependsOn` proprietà e la `RemoveIdentityAssets` destinazione seguenti al file di progetto dell'app:
 
@@ -300,7 +300,7 @@ In questo argomento si apprenderà come usare Identity per registrare, accedere 
 
 <a name="adi"></a>
 
-## <a name="adddefaultno-locidentity-and-addno-locidentity"></a>AddDefault Identity e AggiungiIdentity
+## <a name="adddefaultidentity-and-addidentity"></a>AddDefault Identity e AggiungiIdentity
 
 <xref:Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionUIExtensions.AddDefaultIdentity*> è stato introdotto in ASP.NET Core 2,1. `AddDefaultIdentity`La chiamata a è simile alla chiamata a quanto segue:
 
@@ -363,7 +363,7 @@ Eseguire l'app e registrare un utente. A seconda delle dimensioni dello schermo,
 
 <a name="pw"></a>
 
-### <a name="configure-no-locidentity-services"></a>Configurare i Identity Servizi
+### <a name="configure-identity-services"></a>Configurare i Identity Servizi
 
 I servizi vengono aggiunti in `ConfigureServices` . Il modello tipico consiste nel chiamare tutti i metodi `Add{Service}` e quindi chiamare tutti i metodi `services.Configure{Service}`.
 
@@ -431,7 +431,7 @@ Post viene specificato nelle *pagine/Shared/_LoginPartial. cshtml*:
 
 [!code-cshtml[](identity/sample/WebApp1/Pages/Shared/_LoginPartial.cshtml?highlight=16)]
 
-## <a name="test-no-locidentity"></a>Test Identity
+## <a name="test-identity"></a>Test Identity
 
 I modelli di progetto Web predefiniti consentono l'accesso anonimo alle Home page. Per eseguire Identity il test, aggiungere [`[Authorize]`](/dotnet/api/microsoft.aspnetcore.authorization.authorizeattribute) alla pagina privacy.
 
@@ -439,20 +439,20 @@ I modelli di progetto Web predefiniti consentono l'accesso anonimo alle Home pag
 
 Se è stato eseguito l'accesso, disconnettersi. Eseguire l'app e selezionare il collegamento per la **privacy** . Si verrà reindirizzati alla pagina di accesso.
 
-### <a name="explore-no-locidentity"></a>Esplorare Identity
+### <a name="explore-identity"></a>Esplorare Identity
 
 Per esplorare Identity in modo più dettagliato:
 
 * [Crea origine interfaccia utente con identità completa](xref:security/authentication/scaffold-identity#create-full-identity-ui-source)
 * Esaminare l'origine di ogni pagina ed eseguire un'istruzione alla volta nel debugger.
 
-## <a name="no-locidentity-components"></a>Identity Componenti
+## <a name="identity-components"></a>Identity Componenti
 
 Tutti i Identity pacchetti NuGet dipendenti sono inclusi nel [metapacchetto Microsoft. AspNetCore. app](xref:fundamentals/metapackage-app).
 
 Il pacchetto primario per Identity è [Microsoft. AspNetCore. Identity ](https://www.nuget.org/packages/Microsoft.AspNetCore.Identity/) Questo pacchetto contiene il set principale di interfacce per ASP.NET Core Identity ed è incluso in `Microsoft.AspNetCore.Identity.EntityFrameworkCore` .
 
-## <a name="migrating-to-no-locaspnet-core-identity"></a>Migrazione a ASP.NET Core Identity
+## <a name="migrating-to-aspnet-core-identity"></a>Migrazione a ASP.NET Core Identity
 
 Per ulteriori informazioni e istruzioni sulla migrazione dell' Identity archivio esistente, vedere [eseguire la migrazione Identity dell'autenticazione e ](xref:migration/identity).
 
