@@ -105,9 +105,9 @@
         - name: SignalR con TypeScript
           displayName: tutorial
           uid: tutorials/signalr-typescript-webpack
-        - name: SignalR con WebAssembly Blazor
+        - name: SignalR con blazer
           displayName: tutorial
-          uid: tutorials/signalr-blazor-webassembly
+          uid: tutorials/signalr-blazor
     - name: App RPC
       items:
         - name: Introduzione all'uso di un servizio gRPC
@@ -189,7 +189,7 @@
         - name: Sicurezza delle app Web >>
           displayName: 'tutorial, identity'
           href: /learn/modules/secure-aspnet-core-identity/
-- name: Nozioni fondamentali
+- name: Concetti fondamentali
   items:
     - name: Panoramica
       uid: fundamentals/index
@@ -308,8 +308,8 @@
           items:
             - name: Creare un'app di elenco attività Blazer
               uid: tutorials/build-a-blazor-app
-            - name: SignalR con WebAssembly Blazor
-              uid: tutorials/signalr-blazor-webassembly
+            - name: SignalR con blazer
+              uid: tutorials/signalr-blazor
         - name: Struttura del progetto
           uid: blazor/project-structure
         - name: Concetti fondamentali
@@ -625,8 +625,8 @@
           uid: tutorials/signalr
         - name: SignalR con TypeScript
           uid: tutorials/signalr-typescript-webpack
-        - name: SignalR con WebAssembly Blazor
-          uid: tutorials/signalr-blazor-webassembly
+        - name: SignalR con blazer
+          uid: tutorials/signalr-blazor
     - name: Esempi
       href: 'https://github.com/aspnet/SignalR-samples'
       displayName: signalr
