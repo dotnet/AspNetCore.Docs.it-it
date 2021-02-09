@@ -5,7 +5,7 @@ description: Informazioni su come controllare il linker linguaggio intermedio (I
 monikerRange: '>= aspnetcore-5.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/14/2020
+ms.date: 02/08/2021
 no-loc:
 - appsettings.json
 - ASP.NET Core Identity
@@ -19,31 +19,28 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/host-and-deploy/configure-trimmer
-ms.openlocfilehash: 337b188d3c0aeac9c5c635ebca265b9a35c6904d
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.openlocfilehash: 41887638f13a08d375075e8377da19d1d0098c4b
+ms.sourcegitcommit: ef8d8c79993a6608bf597ad036edcf30b231843f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "93055802"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975215"
 ---
-# <a name="configure-the-trimmer-for-aspnet-core-no-locblazor"></a>Configurare il trimmer per ASP.NET Core Blazor
+# <a name="configure-the-trimmer-for-aspnet-core-blazor"></a>Configurare il trimmer per ASP.NET Core Blazor
 
-Di [il](https://github.com/pranavkm) suo
+Blazor WebAssembly esegue il taglio del [linguaggio intermedio (il)](/dotnet/standard/managed-code#intermediate-language--execution) per ridurre le dimensioni dell'output pubblicato. Per impostazione predefinita, il trimming si verifica quando si pubblica un'app.
 
-Blazor WebAssembly esegue il taglio del [linguaggio intermedio (il)](/dotnet/standard/managed-code#intermediate-language--execution) per ridurre le dimensioni dell'output pubblicato.
+Il trimming può avere effetti negativi. Nelle app che usano la reflection il trimmer spesso non può determinare i tipi richiesti per la reflection in fase di esecuzione. Per tagliare le app che usano la reflection, il trimmer deve essere informato sui tipi necessari per la reflection nel codice dell'app e nei pacchetti o nei Framework da cui dipende l'app. Il trimmer non è inoltre in grado di reagire al comportamento dinamico di un'app in fase di esecuzione. Per assicurarsi che l'app tagliata funzioni correttamente una volta distribuita, testare spesso l'output pubblicato durante lo sviluppo.
 
-Il taglio di un'app ottimizza le dimensioni, ma può avere effetti negativi. Le app che usano la reflection o le funzionalità dinamiche correlate potrebbero interrompersi quando vengono tagliate, perché il trimmer non è a conoscenza del comportamento dinamico e non può determinare in generale quali tipi sono necessari per la reflection in fase di esecuzione. Per tagliare tali app, è necessario che il trimmer sia informato sui tipi necessari per la reflection nel codice e nei pacchetti o Framework da cui dipende l'app.
+Per configurare il trimmer, vedere l'articolo relativo alle [Opzioni di taglio](/dotnet/core/deploying/trimming-options) nella documentazione dei concetti di base di .NET, che include indicazioni sugli argomenti seguenti:
 
-Per assicurarsi che l'app tagliata funzioni correttamente una volta distribuita, è importante testare spesso l'output pubblicato durante lo sviluppo.
-
-Il trimming per le app .NET può essere disabilitato impostando la `PublishTrimmed` Proprietà MSBuild su `false` nel file di progetto dell'app:
-
-```xml
-<PropertyGroup>
-  <PublishTrimmed>false</PublishTrimmed>
-</PropertyGroup>
-```
-Opzioni aggiuntive per la configurazione del trimmer sono disponibili in [Opzioni di taglio](/dotnet/core/deploying/trimming-options).
+* Disabilitare il trimming per l'intera app con la `<PublishTrimmed>` proprietà nel file di progetto.
+* Consente di controllare il modo in cui il ritaglio inutilizzato viene ignorato dal trimmer.
+* Arrestare il trimmer tagliando assembly specifici.
+* Assembly "radice" per il trimming.
+* Avvisi di superficie per i tipi riflessi impostando la `<SuppressTrimAnalysisWarnings>` proprietà su `false` nel file di progetto.
+* Controllare il taglio del simbolo e il supporto di degugger.
+* Impostare le funzionalità trimmer per la rimozione delle funzionalità della libreria del Framework.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

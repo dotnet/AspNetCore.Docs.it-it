@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/webassembly-performance-best-practices
-ms.openlocfilehash: 28fe6a114f767246f49ac275d02c28f4572ce4e4
-ms.sourcegitcommit: 19a004ff2be73876a9ef0f1ac44d0331849ad159
+ms.openlocfilehash: 64eb69ba597b1e48489733275ac3bed96c6c3241
+ms.sourcegitcommit: ef8d8c79993a6608bf597ad036edcf30b231843f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99804513"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975235"
 ---
 # <a name="aspnet-core-blazor-webassembly-performance-best-practices"></a>Blazor WebAssemblyProcedure consigliate per le prestazioni ASP.NET Core
 
@@ -545,7 +545,7 @@ function jsInteropCall() {
 
 ### <a name="intermediate-language-il-trimming"></a>Troncamento del linguaggio intermedio (IL)
 
-Il [trimming degli assembly inutilizzati da un' Blazor WebAssembly app](xref:blazor/host-and-deploy/configure-trimmer) consente di ridurre le dimensioni dell'app rimuovendo il codice inutilizzato nei file binari dell'app. Per impostazione predefinita, il trimmer viene eseguito durante la pubblicazione di un'applicazione. Per trarre vantaggio dal taglio, pubblicare l'app per la distribuzione usando il [`dotnet publish`](/dotnet/core/tools/dotnet-publish) comando con l'opzione [-c |--Configuration](/dotnet/core/tools/dotnet-publish#options) impostata su `Release` :
+Il trimming degli assembly inutilizzati da un' Blazor WebAssembly app consente di ridurre le dimensioni dell'app rimuovendo il codice inutilizzato nei file binari dell'app. Per altre informazioni, vedere <xref:blazor/host-and-deploy/configure-trimmer>.
 
 ::: moniker-end
 
@@ -555,11 +555,11 @@ Il [trimming degli assembly inutilizzati da un' Blazor WebAssembly app](xref:bla
 
 Il [collegamento di un' Blazor WebAssembly app](xref:blazor/host-and-deploy/configure-linker) consente di ridurre le dimensioni dell'app, ritagliando il codice inutilizzato nei file binari dell'app. Per impostazione predefinita, il linker linguaggio intermedio (IL) viene abilitato solo quando si compila nella `Release` configurazione. Per trarre vantaggio da questo problema, pubblicare l'app per la distribuzione usando il [`dotnet publish`](/dotnet/core/tools/dotnet-publish) comando con l'opzione [-c |--Configuration](/dotnet/core/tools/dotnet-publish#options) impostata su `Release` :
 
-::: moniker-end
-
 ```dotnetcli
 dotnet publish -c Release
 ```
+
+::: moniker-end
 
 ### <a name="use-systemtextjson"></a>USA System.Text.Js
 

@@ -18,12 +18,12 @@ no-loc:
 - SignalR
 uid: tutorials/first-mvc-app/adding-controller
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 1f8291cca1923d42eeb1ce689b268a23b60537ba
-ms.sourcegitcommit: 19a004ff2be73876a9ef0f1ac44d0331849ad159
+ms.openlocfilehash: 47bb9b96bd5565a3a67f3cbdf9a4b6bc1f987447
+ms.sourcegitcommit: ef8d8c79993a6608bf597ad036edcf30b231843f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99804662"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975261"
 ---
 # <a name="part-2-add-a-controller-to-an-aspnet-core-mvc-app"></a>Parte 2, aggiungere un controller a un'app MVC ASP.NET Core
 
@@ -49,7 +49,7 @@ In un'app MVC, la vista Visualizza solo le informazioni. Il controller gestisce 
 
 I dati della route vengono spiegati in seguito nell'esercitazione.
 
-il modello architetturale MVC separa un'app in tre gruppi principali di componenti, ovvero modelli, visualizzazioni e controller. Questo modello consente di ottenere la separazione dei problemi: la logica dell'interfaccia utente appartiene alla visualizzazione. La logica di input risiede nel controller. La logica di business risiede nel modello. Questa separazione consente di gestire la complessità quando si compila un'applicazione, perché consente di lavorare su un aspetto dell'implementazione alla volta senza influisca sul codice di un altro. Ad esempio, è possibile usare il codice della vista senza dipendere dal codice della logica di business.
+Il modello architetturale MVC separa un'app in tre gruppi principali di componenti, ovvero modelli, visualizzazioni e controller. Questo modello consente di ottenere la separazione dei problemi: la logica dell'interfaccia utente appartiene alla visualizzazione. La logica di input risiede nel controller. La logica di business risiede nel modello. Questa separazione consente di gestire la complessità quando si compila un'applicazione, perché consente di lavorare su un aspetto dell'implementazione alla volta senza influisca sul codice di un altro. Ad esempio, è possibile usare il codice della vista senza dipendere dal codice della logica di business.
 
 Questi concetti sono introdotti e illustrati in questa serie di esercitazioni durante la compilazione di un'app di film. Il progetto MVC contiene le cartelle per i *controller* e le *viste*.
 

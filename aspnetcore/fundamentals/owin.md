@@ -4,7 +4,7 @@ author: ardalis
 description: Informazioni su come ASP.NET Core supporta Open Web Interface for .NET (OWIN) che consente ai server Web di disaccoppiare le app Web.
 ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.date: 12/18/2018
+ms.date: 2/8/2021
 no-loc:
 - appsettings.json
 - ASP.NET Core Identity
@@ -18,18 +18,23 @@ no-loc:
 - Razor
 - SignalR
 uid: fundamentals/owin
-ms.openlocfilehash: 6085abc45137223d7a676107cf06dc2cf97a5c19
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.openlocfilehash: c44803c6f67d8e03759a01f7aa71d82088be9a11
+ms.sourcegitcommit: ef8d8c79993a6608bf597ad036edcf30b231843f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "93060677"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975274"
 ---
 # <a name="open-web-interface-for-net-owin-with-aspnet-core"></a>Open Web Interface for .NET (OWIN) con ASP.NET Core
 
 Di [Steve Smith](https://ardalis.com/) e [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-ASP.NET Core supporta Open Web Interface for .NET (OWIN). OWIN consente alle app Web di essere disaccoppiate dai server Web. Definisce un modo standard per usare il middleware in una pipeline per gestire le richieste e le risposte associate. Le applicazioni ASP.NET Core e il middleware possono interagire con middleware, server e applicazioni basati su OWIN.
+ASP.NET Core:
+
+* Supporta Open Web Interface for .NET (OWIN).
+* Prevede sostituzioni compatibili con .NET Core per le `Microsoft.Owin.*` librerie ([Katana](/aspnet/aspnet/overview/owin-and-katana/)).
+
+OWIN consente alle app Web di essere disaccoppiate dai server Web. Definisce un modo standard per usare il middleware in una pipeline per gestire le richieste e le risposte associate. Le applicazioni ASP.NET Core e il middleware possono interagire con middleware, server e applicazioni basati su OWIN.
 
 OWIN specifica un livello di disaccoppiamento che consente di usare contemporaneamente due framework con modelli a oggetti diversi. Il pacchetto `Microsoft.AspNetCore.Owin` offre due implementazioni dell'adattatore:
 
