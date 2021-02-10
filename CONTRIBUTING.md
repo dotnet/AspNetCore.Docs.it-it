@@ -16,7 +16,7 @@ Sono necessarie conoscenze di base di [Git e GitHub.com](https://guides.github.c
 * Se alla richiesta pull viene assegnata l'etichetta 'cla-required', [sottoscrivere il contratto di licenza per contributi](https://cla.dotnetfoundation.org/).
 * Rispondere ai commenti e suggerimenti per la richiesta pull.
 
-Per un esempio di come questo processo abbia portato alla pubblicazione di un nuovo articolo, vedere il [problema &num;67](https://github.com/dotnet/docs/issues/67) e la [richiesta pull &num;798](https://github.com/dotnet/docs/pull/798) nel repository di .NET Docs. Il nuovo articolo è [Documentazione del codice](https://docs.microsoft.com/dotnet/articles/csharp/codedoc).
+Per un esempio in cui questo processo ha portato alla pubblicazione di un nuovo articolo, vedere il [problema 1477](https://github.com/dotnet/docs/issues/1477) e la [richiesta pull 18955](https://github.com/dotnet/docs/pull/18955) nel repository di documentazione .NET. Il nuovo articolo [usa code coverage per gli unit test](/dotnet/core/testing/unit-testing-code-coverage).
 
 ## <a name="docs-authoring-pack-extension-in-visual-studio-code"></a>Estensione Docs Authoring Pack in Visual Studio Code
 

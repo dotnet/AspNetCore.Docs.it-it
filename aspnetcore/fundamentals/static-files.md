@@ -16,12 +16,12 @@ no-loc:
 - Razor
 - SignalR
 uid: fundamentals/static-files
-ms.openlocfilehash: d97caeffc6e8beebddb01a5bd126d61ba988de65
-ms.sourcegitcommit: ebc5beccba5f3f7619de20baa58ad727d2a3d18c
+ms.openlocfilehash: fad569ab06735600299d8051a258651e329db8ce
+ms.sourcegitcommit: 04ad9cd26fcaa8bd11e261d3661f375f5f343cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98689292"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100107181"
 ---
 # <a name="static-files-in-aspnet-core"></a>File statici in ASP.NET Core
 
@@ -119,11 +119,11 @@ Per gestire i file statici in base all'autorizzazione:
   
   [!code-csharp[](static-files/samples/3.x/StaticFileAuth/Startup.cs?name=snippet1&highlight=20-25)]
 
-  Nel codice precedente, i criteri di autorizzazione di fallback richiedono che **tutti** gli utenti siano autenticati. Gli endpoint, ad esempio i controller, le Razor pagine e così via, che specificano i propri requisiti di autorizzazione, non usano i criteri di autorizzazione di fallback. Ad esempio, Razor le pagine, i controller o i metodi di azione con `[AllowAnonymous]` o `[Authorize(PolicyName="MyPolicy")]` utilizzano l'attributo di autorizzazione applicato anziché i criteri di autorizzazione di fallback.
+  Nel codice precedente, i criteri di autorizzazione di fallback richiedono che ***tutti*** gli utenti siano autenticati. Gli endpoint, ad esempio i controller, le Razor pagine e così via, che specificano i propri requisiti di autorizzazione, non usano i criteri di autorizzazione di fallback. Ad esempio, Razor le pagine, i controller o i metodi di azione con `[AllowAnonymous]` o `[Authorize(PolicyName="MyPolicy")]` utilizzano l'attributo di autorizzazione applicato anziché i criteri di autorizzazione di fallback.
 
   <xref:Microsoft.AspNetCore.Authorization.AuthorizationPolicyBuilder.RequireAuthenticatedUser%2A> aggiunge <xref:Microsoft.AspNetCore.Authorization.Infrastructure.DenyAnonymousAuthorizationRequirement> all'istanza corrente che impone che l'utente corrente sia autenticato.
 
-  Gli asset statici in `wwwroot` sono accessibili pubblicamente, perché il middleware del file statico predefinito ( `app.UseStaticFiles();` ) viene chiamato prima `UseAuthentication` . Per gli asset statici nella cartella _MyStaticFiles * è richiesta l'autenticazione. Il [codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/static-files/samples) illustra questa operazione.
+  Gli asset statici in `wwwroot` sono accessibili pubblicamente, perché il middleware del file statico predefinito ( `app.UseStaticFiles();` ) viene chiamato prima `UseAuthentication` . Per gli asset statici nella cartella *MyStaticFiles* è richiesta l'autenticazione. Il [codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/static-files/samples) illustra questa operazione.
 
 Un approccio alternativo per gestire i file in base all'autorizzazione è:
 
@@ -469,7 +469,7 @@ La <xref:Microsoft.AspNetCore.StaticFiles.FileExtensionContentTypeProvider> clas
 
 Vedere [Tipi di contenuto MIME](https://www.iana.org/assignments/media-types/media-types.xhtml).
 
-Per informazioni sull'utilizzo di un oggetto personalizzato <xref:Microsoft.AspNetCore.StaticFiles.FileExtensionContentTypeProvider> o per la configurazione di altri <xref:Microsoft.AspNetCore.Builder.StaticFileOptions> in Blazor app Server, vedere <xref:blazor/fundamentals/additional-scenarios#static-files> .
+Per informazioni sull'utilizzo di un oggetto personalizzato <xref:Microsoft.AspNetCore.StaticFiles.FileExtensionContentTypeProvider> o per la configurazione di altri <xref:Microsoft.AspNetCore.Builder.StaticFileOptions> in Blazor app Server, vedere <xref:blazor/fundamentals/static-files> .
 
 ## <a name="non-standard-content-types"></a>Tipi di contenuto non standard
 

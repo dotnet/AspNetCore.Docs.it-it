@@ -326,8 +326,10 @@
               uid: blazor/fundamentals/logging
             - name: Gestire gli errori
               uid: blazor/fundamentals/handle-errors
-            - name: Scenari aggiuntivi
-              uid: blazor/fundamentals/additional-scenarios
+            - name: SignalR
+              uid: blazor/fundamentals/signalr
+            - name: File statici
+              uid: blazor/fundamentals/static-files
         - name: Componenti
           items:
             - name: Panoramica
@@ -440,6 +442,8 @@
               href: blazor/security/webassembly/index.md#authentication-component
             - name: AuthorizeView
               href: blazor/security/index.md#authorizeview-component
+            - name: CascadingValue
+              href: blazor/components/cascading-values-and-parameters.md#cascadingvalue-component
             - name: InputCheckbox
               href: blazor/forms-validation.md#built-in-forms-components
             - name: InputDate

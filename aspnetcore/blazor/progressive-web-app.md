@@ -19,14 +19,14 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/progressive-web-app
-ms.openlocfilehash: fcf06295deb41f304b92caa82535a1197c909898
-ms.sourcegitcommit: 75db2f684a9302b0be7925eab586aa091c6bd19f
+ms.openlocfilehash: 63e6fc49283aec567f6a9d5bc05b7445fb38c33c
+ms.sourcegitcommit: 04ad9cd26fcaa8bd11e261d3661f375f5f343cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99238235"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100106843"
 ---
-# <a name="build-progressive-web-applications-with-aspnet-core-no-locblazor-webassembly"></a>Creazione di applicazioni Web progressive con ASP.NET Core Blazor WebAssembly
+# <a name="build-progressive-web-applications-with-aspnet-core-blazor-webassembly"></a>Creazione di applicazioni Web progressive con ASP.NET Core Blazor WebAssembly
 
 Di [Steve Sanderson](https://github.com/SteveSandersonMS)
 
@@ -71,7 +71,7 @@ Nel comando precedente, l' `-o|--output` opzione Crea una nuova cartella per l'a
 
 Facoltativamente, è possibile configurare PWA per un'app creata dal modello di ASP.NET Core Hosted. Lo scenario PWA è indipendente dal modello di hosting.
 
-## <a name="convert-an-existing-no-locblazor-webassembly-app-into-a-pwa"></a>Convertire un' Blazor WebAssembly app esistente in un PWA
+## <a name="convert-an-existing-blazor-webassembly-app-into-a-pwa"></a>Convertire un' Blazor WebAssembly app esistente in un PWA
 
 Convertire un' Blazor WebAssembly app esistente in un PWA seguendo le istruzioni riportate in questa sezione.
 
@@ -406,4 +406,4 @@ L' [`CarChecker`](https://github.com/SteveSandersonMS/CarChecker) app di esempio
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Risolvere i problemi dello script di PowerShell di integrità](xref:blazor/host-and-deploy/webassembly#troubleshoot-integrity-powershell-script)
-* [SignalR negoziazione tra le origini per l'autenticazione](xref:blazor/fundamentals/additional-scenarios#signalr-cross-origin-negotiation-for-authentication)
+* [SignalR negoziazione tra le origini per l'autenticazione](xref:blazor/fundamentals/signalr#signalr-cross-origin-negotiation-for-authentication)

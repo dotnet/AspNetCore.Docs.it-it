@@ -18,12 +18,12 @@ no-loc:
 - Razor
 - SignalR
 uid: mvc/controllers/filters
-ms.openlocfilehash: ee30ef89c5d7aeae83f23a81eb02235397c89ac2
-ms.sourcegitcommit: 75db2f684a9302b0be7925eab586aa091c6bd19f
+ms.openlocfilehash: 79457d55e0dcda342bc0017bb386c23525666657
+ms.sourcegitcommit: 04ad9cd26fcaa8bd11e261d3661f375f5f343cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99238314"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100107194"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtri in ASP.NET Core
 
@@ -403,7 +403,7 @@ I filtri di risorse sono utili per causare il corto circuito della maggior parte
 Esempi di filtri di risorse:
 
 * Il [filtro di risorse di corto circuito](#short-circuiting-resource-filter) illustrato in precedenza.
-* [DisableFormValueModelBindingAttribute](https://github.com/aspnet/Entropy/blob/rel/2.0.0-preview2/samples/Mvc.FileUpload/Filters/DisableFormValueModelBindingAttribute.cs):
+* [DisableFormValueModelBindingAttribute](https://github.com/aspnet/Entropy/blob/master/samples/Mvc.FileUpload/Filters/DisableFormValueModelBindingAttribute.cs):
 
   * Impedisce all'associazione di modelli di accedere ai dati del modulo.
   * Viene usato quando si caricano file di grandi dimensioni per impedire la lettura dei dati del modulo in memoria.
@@ -558,11 +558,11 @@ Ad esempio, il filtro seguente viene eseguito sempre e imposta un risultato dell
 `IFilterFactory.IsReusable`:
 
 * È un suggerimento della factory che l'istanza di filtro creata dalla factory può essere riutilizzata all'esterno dell'ambito della richiesta in cui è stata creata.
-* ***Not** _ deve essere utilizzato con un filtro che dipende da servizi con una durata diversa da singleton.
+* ***Non*** deve essere usato con un filtro che dipende da servizi con una durata diversa da singleton.
 
 Il runtime di ASP.NET Core non garantisce:
 
-_ Che verrà creata una singola istanza del filtro.
+* Che venga creata una singola istanza del filtro.
 * Che il filtro non verrà richiesto di nuovo dal contenitore di inserimento delle dipendenze in un momento successivo.
 
 > [!WARNING] 
@@ -763,7 +763,7 @@ Questa sequenza mostra che:
 * Il filtro del metodo è annidato all'interno del filtro del controller.
 * Il filtro del controller è annidato all'interno del filtro globale.
 
-### <a name="controller-and-no-locrazor-page-level-filters"></a>Filtri a Razor livello di pagina e controller
+### <a name="controller-and-razor-page-level-filters"></a>Filtri a Razor livello di pagina e controller
 
 Ogni controller che eredita dalla classe di base <xref:Microsoft.AspNetCore.Mvc.Controller> include i metodi [Controller.OnActionExecuting](xref:Microsoft.AspNetCore.Mvc.Controller.OnActionExecuting*), [Controller.OnActionExecutionAsync](xref:Microsoft.AspNetCore.Mvc.Controller.OnActionExecutionAsync*) e [Controller.OnActionExecuted](xref:Microsoft.AspNetCore.Mvc.Controller.OnActionExecuted*)
 `OnActionExecuted`. Questi metodi:

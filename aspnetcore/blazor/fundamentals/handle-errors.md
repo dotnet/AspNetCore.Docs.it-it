@@ -19,14 +19,14 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/fundamentals/handle-errors
-ms.openlocfilehash: 5a255c2d3535311cecd6b7219447e80d1ae78877
-ms.sourcegitcommit: d4836f9b7c508f51c6c4ee6d0cc719b38c1729c4
+ms.openlocfilehash: cb3c64ab7340a67a6730d98af8a91c4e9837acf1
+ms.sourcegitcommit: 04ad9cd26fcaa8bd11e261d3661f375f5f343cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98758247"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100106947"
 ---
-# <a name="handle-errors-in-aspnet-core-no-locblazor-apps"></a>Gestione degli errori nelle Blazor app ASP.NET Core
+# <a name="handle-errors-in-aspnet-core-blazor-apps"></a>Gestione degli errori nelle Blazor app ASP.NET Core
 
 Di [Steve Sanderson](https://github.com/SteveSandersonMS)
 
@@ -89,7 +89,7 @@ L' `blazor-error-ui` elemento è nascosto dagli stili inclusi nei Blazor modelli
 }
 ```
 
-## <a name="no-locblazor-server-detailed-circuit-errors"></a>Blazor Server errori dettagliati del circuito
+## <a name="blazor-server-detailed-circuit-errors"></a>Blazor Server errori dettagliati del circuito
 
 Gli errori sul lato client non includono il stack e non forniscono dettagli sulla ragione dell'errore, ma i log del server contengono tali informazioni. Ai fini dello sviluppo, le informazioni sugli errori dei circuiti sensibili possono essere rese disponibili per il client abilitando errori dettagliati.
 
@@ -118,7 +118,7 @@ Per abilitare Blazor Server errori dettagliati, usare gli approcci seguenti:
 > [!WARNING]
 > L'esposizione delle informazioni sugli errori ai client su Internet costituisce un rischio per la sicurezza che deve essere sempre evitata.
 
-## <a name="how-a-no-locblazor-server-app-reacts-to-unhandled-exceptions"></a>Blazor ServerReazione di un'app alle eccezioni non gestite
+## <a name="how-a-blazor-server-app-reacts-to-unhandled-exceptions"></a>Blazor ServerReazione di un'app alle eccezioni non gestite
 
 Blazor Server è un Framework con stato. Mentre gli utenti interagiscono con un'app, mantengono una connessione al server noto come *circuito*. Il circuito include istanze di componenti attive, oltre a molti altri aspetti dello stato, ad esempio:
 
@@ -173,7 +173,7 @@ Le eccezioni non gestite precedenti sono descritte nelle sezioni seguenti di que
 Quando Blazor Crea un'istanza di un componente:
 
 * Il costruttore del componente viene richiamato.
-* Vengono richiamati i costruttori di tutti i servizi non singleton forniti al costruttore del componente tramite la [`@inject`](xref:mvc/views/razor#inject) direttiva o l' [`[Inject]`](xref:blazor/fundamentals/dependency-injection#request-a-service-in-a-component) attributo.
+* Vengono richiamati i costruttori di tutti i servizi non singleton forniti al costruttore del componente tramite la [`@inject`](xref:mvc/views/razor#inject) direttiva o l' [ `[Inject]` attributo](xref:blazor/fundamentals/dependency-injection#request-a-service-in-a-component) .
 
 Un Blazor Server circuito ha esito negativo quando un costruttore eseguito o un setter per qualsiasi `[Inject]` proprietà genera un'eccezione non gestita. L'eccezione è irreversibile perché il Framework non è in grado di creare un'istanza del componente. Se la logica del costruttore può generare eccezioni, l'app deve intercettare le eccezioni usando un' [`try-catch`](/dotnet/csharp/language-reference/keywords/try-catch) istruzione con gestione e registrazione degli errori.
 
@@ -242,7 +242,7 @@ Le condizioni seguenti si applicano alla gestione degli errori con <xref:Microso
 * Se una chiamata a ha <xref:Microsoft.JSInterop.IJSRuntime.InvokeAsync%2A> esito negativo in modo asincrono, .NET ha <xref:System.Threading.Tasks.Task> esito negativo. Una chiamata a <xref:Microsoft.JSInterop.IJSRuntime.InvokeAsync%2A> potrebbe non riuscire, ad esempio perché il codice sul lato JavaScript genera un'eccezione o restituisce un oggetto `Promise` completato come `rejected` . Il codice dello sviluppatore deve intercettare l'eccezione. Se si utilizza l' [`await`](/dotnet/csharp/language-reference/keywords/await) operatore, è consigliabile eseguire il wrapping della chiamata al metodo in un' [`try-catch`](/dotnet/csharp/language-reference/keywords/try-catch) istruzione con gestione e registrazione degli errori. In caso contrario, il codice in errore genera un'eccezione non gestita che è irreversibile per un Blazor Server circuito.
 * Per impostazione predefinita, le chiamate a <xref:Microsoft.JSInterop.IJSRuntime.InvokeAsync%2A> devono essere completate entro un determinato periodo oppure si verifica il timeout della chiamata. Il periodo di timeout predefinito è di un minuto. Il timeout protegge il codice da una perdita di connettività di rete o codice JavaScript che non restituisce mai un messaggio di completamento. Se si verifica il timeout della chiamata, l'oggetto risultante ha <xref:System.Threading.Tasks> esito negativo con un oggetto <xref:System.OperationCanceledException> . Intercettare ed elaborare l'eccezione con la registrazione.
 
-Analogamente, il codice JavaScript può avviare chiamate a metodi .NET indicati dall' [`[JSInvokable]`](xref:blazor/call-dotnet-from-javascript) attributo. Se questi metodi .NET generano un'eccezione non gestita:
+Analogamente, il codice JavaScript può avviare chiamate a metodi .NET indicati dall' [ `[JSInvokable]` attributo](xref:blazor/call-dotnet-from-javascript). Se questi metodi .NET generano un'eccezione non gestita:
 
 * L'eccezione non viene trattata come irreversibile per un Blazor Server circuito.
 * Il lato JavaScript `Promise` viene rifiutato.
@@ -254,7 +254,7 @@ Per altre informazioni, vedere gli articoli seguenti:
 * <xref:blazor/call-javascript-from-dotnet>
 * <xref:blazor/call-dotnet-from-javascript>
 
-### <a name="no-locblazor-server-prerendering"></a>Blazor Server tempistiche
+### <a name="blazor-server-prerendering"></a>Blazor Server tempistiche
 
 Blazor è possibile eseguire il prerendering dei componenti usando l' [Helper Tag Component](xref:mvc/views/tag-helpers/builtin-th/component-tag-helper) , in modo che il markup HTML sottoposto a rendering venga restituito come parte della richiesta HTTP iniziale dell'utente. Funziona per:
 

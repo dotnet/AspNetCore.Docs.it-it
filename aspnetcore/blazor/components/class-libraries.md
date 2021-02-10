@@ -19,14 +19,14 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/components/class-libraries
-ms.openlocfilehash: 14370f9bbf45079fd3654d3e55af4178691cf4f5
-ms.sourcegitcommit: 063a06b644d3ade3c15ce00e72a758ec1187dd06
+ms.openlocfilehash: 9562d06cbb8c60cd5a3b01f7c382b70c50038363
+ms.sourcegitcommit: 04ad9cd26fcaa8bd11e261d3661f375f5f343cdc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98252552"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100107064"
 ---
-# <a name="aspnet-core-no-locrazor-components-class-libraries"></a>RazorLibrerie di classi dei componenti ASP.NET Core
+# <a name="aspnet-core-razor-components-class-libraries"></a>RazorLibrerie di classi dei componenti ASP.NET Core
 
 Di [Simon Timms](https://github.com/stimms)
 
@@ -127,7 +127,7 @@ Per i componenti di libreria che usano l' [isolamento CSS](xref:blazor/component
 
 <!-- REACTIVATE WHEN HEAD COMPONENTS COME BACK AT 6.0
 
-To provide additional library component styles from stylesheets in the library's `wwwroot` folder, link the stylesheets using the framework's [`Link` component](xref:blazor/fundamentals/additional-scenarios#influence-html-head-tag-elements) in `Component1.razor`:
+To provide additional library component styles from stylesheets in the library's `wwwroot` folder, link the stylesheets using the framework's [`Link` component](xref:blazor/fundamentals/signalr#influence-html-head-tag-elements) in `Component1.razor`:
 
 ```razor
 <div class="my-component">
@@ -176,17 +176,17 @@ Per specificare `Component1` la `my-component` classe CSS, collegarsi al foglio 
 
 ::: moniker-end
 
-## <a name="create-a-no-locrazor-components-class-library-with-static-assets"></a>Creare una Razor libreria di classi di componenti con asset statici
+## <a name="create-a-razor-components-class-library-with-static-assets"></a>Creare una Razor libreria di classi di componenti con asset statici
 
 Un RCL può includere asset statici. Gli asset statici sono disponibili per qualsiasi app che usa la libreria. Per altre informazioni, vedere <xref:razor-pages/ui-class#create-an-rcl-with-static-assets>.
 
-## <a name="supply-components-and-static-assets-to-multiple-hosted-no-locblazor-apps"></a>Fornire componenti e risorse statiche a più app ospitate Blazor
+## <a name="supply-components-and-static-assets-to-multiple-hosted-blazor-apps"></a>Fornire componenti e risorse statiche a più app ospitate Blazor
 
 Per altre informazioni, vedere <xref:blazor/host-and-deploy/webassembly#static-assets-and-class-libraries>.
 
 ::: moniker range=">= aspnetcore-5.0"
 
-## <a name="browser-compatibility-analyzer-for-no-locblazor-webassembly"></a>Analizzatore compatibilità browser per Blazor WebAssembly
+## <a name="browser-compatibility-analyzer-for-blazor-webassembly"></a>Analizzatore compatibilità browser per Blazor WebAssembly
 
 Blazor WebAssembly le app sono destinate alla superficie di attacco dell'API .NET completa, ma non tutte le API .NET sono supportate nel webassembly a causa dei vincoli del sandbox del browser. Le API non supportate vengono generate <xref:System.PlatformNotSupportedException> durante l'esecuzione su webassembly. Un analizzatore della compatibilità della piattaforma avvisa lo sviluppatore quando l'app usa API non supportate dalle piattaforme di destinazione dell'app. Per le Blazor WebAssembly app, questo significa verificare che le API siano supportate nei browser. L'annotazione delle API di .NET Framework per Compatibility Analyzer è un processo in corso, quindi non tutte le API .NET Framework sono attualmente annotate.
 
@@ -210,7 +210,7 @@ private static string GetLoggingDirectory()
 
 Per altre informazioni, vedere [annotazione delle API come non supportate in piattaforme specifiche (archivio GitHub DotNet/Designs](https://github.com/dotnet/designs/blob/main/accepted/2020/platform-exclusion/platform-exclusion.md#build-configuration-for-platforms).
 
-## <a name="no-locblazor-javascript-isolation-and-object-references"></a>Blazor Isolamento JavaScript e riferimenti a oggetti
+## <a name="blazor-javascript-isolation-and-object-references"></a>Blazor Isolamento JavaScript e riferimenti a oggetti
 
 Blazor Abilita l'isolamento JavaScript nei [moduli JavaScript](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Modules)standard. L'isolamento JavaScript offre i vantaggi seguenti:
 
