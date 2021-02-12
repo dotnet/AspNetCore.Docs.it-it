@@ -16,7 +16,7 @@
   Per risolvere l'errore:
 
   1. Nel portale di Azure accedere al manifesto dell' [app](/azure/active-directory/develop/reference-app-manifest).
-  1. Impostare l' [`allowPublicClient`](/azure/active-directory/develop/reference-app-manifest#allowpublicclient-attribute) attributo su `null` o su `true` .
+  1. Impostare l' [ `allowPublicClient` attributo](/azure/active-directory/develop/reference-app-manifest#allowpublicclient-attribute) su `null` o su `true` .
 
 ::: moniker-end
 
