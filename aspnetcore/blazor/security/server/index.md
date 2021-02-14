@@ -19,20 +19,18 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/security/server/index
-ms.openlocfilehash: 5031273c3395be4365b3a6d239ebce7aaf9b66ac
-ms.sourcegitcommit: cc405f20537484744423ddaf87bd1e7d82b6bdf0
+ms.openlocfilehash: 5a3d3c6e06653de7f0d01565444d37013f347a5b
+ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98658638"
+ms.lasthandoff: 02/12/2021
+ms.locfileid: "100280311"
 ---
-# <a name="secure-aspnet-core-no-locblazor-server-apps"></a>Proteggere le Blazor Server app ASP.NET Core
-
-Di [Luke Latham](https://github.com/guardrex)
+# <a name="secure-aspnet-core-blazor-server-apps"></a>Proteggere le Blazor Server app ASP.NET Core
 
 Blazor Server le app sono configurate per la sicurezza in modo analogo alle app ASP.NET Core. Per ulteriori informazioni, vedere gli articoli in <xref:security/index> . Gli argomenti di questa panoramica si applicano in modo specifico a Blazor Server .
 
-## <a name="no-locblazor-server-project-template"></a>Blazor Server modello di progetto
+## <a name="blazor-server-project-template"></a>Blazor Server modello di progetto
 
 Il Blazor Server modello di progetto può essere configurato per l'autenticazione quando viene creato il progetto.
 
@@ -120,14 +118,14 @@ Per altre informazioni:
 
 ---
 
-## <a name="scaffold-no-locidentity"></a>Scaffold Identity
+## <a name="scaffold-identity"></a>Scaffold Identity
 
 Impalcatura Identity in un Blazor Server progetto:
 
 * [Senza autorizzazione esistente](xref:security/authentication/scaffold-identity#scaffold-identity-into-a-blazor-server-project-without-existing-authorization).
 * [Con autorizzazione](xref:security/authentication/scaffold-identity#scaffold-identity-into-a-blazor-server-project-with-authorization).
 
-## <a name="azure-app-service-on-linux-with-no-locidentity-server"></a>Servizio app Azure in Linux con Identity Server
+## <a name="azure-app-service-on-linux-with-identity-server"></a>Servizio app Azure in Linux con Identity Server
 
 Specificare l'autorità emittente in modo esplicito quando si distribuisce in app Azure servizio in Linux con Identity Server. Per altre informazioni, vedere <xref:security/authentication/identity/spa#azure-app-service-on-linux>.
 

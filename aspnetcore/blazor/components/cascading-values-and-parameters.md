@@ -19,16 +19,14 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/components/cascading-values-and-parameters
-ms.openlocfilehash: 9b667ff83bf6dd9b400805eff403c8c3f5c7b82a
-ms.sourcegitcommit: 04ad9cd26fcaa8bd11e261d3661f375f5f343cdc
+ms.openlocfilehash: 1fb9d75ca1613a7098840efd3ecb86ee90f4064c
+ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100107090"
+ms.lasthandoff: 02/12/2021
+ms.locfileid: "100280236"
 ---
 # <a name="aspnet-core-blazor-cascading-values-and-parameters"></a>BlazorParametri e valori di propagazione ASP.NET Core
-
-Di [Luke Latham](https://github.com/guardrex) e [Daniel Roth](https://github.com/danroth27)
 
 *I valori e i parametri* di propagazione forniscono un metodo convienent per il flusso dei dati in una gerarchia di componenti da un componente predecessore a un numero qualsiasi di componenti decendent. A differenza dei [parametri del componente](xref:blazor/components/index#component-parameters), i parametri e i valori di propagazione non richiedono l'assegnazione di attributi per ogni componente discendente in cui vengono utilizzati i dati. I parametri e i valori di propagazione consentono inoltre ai componenti di coordinarsi tra loro in una gerarchia di componenti.
 

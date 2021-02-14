@@ -19,16 +19,14 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/security/webassembly/hosted-with-azure-active-directory-b2c
-ms.openlocfilehash: 1c87330dec069e05f274206d2d35f50f489f9623
-ms.sourcegitcommit: da5a5bed5718a9f8db59356ef8890b4b60ced6e9
+ms.openlocfilehash: c67f8e8d81fbdbd8a1f103dd1bd258212efe014f
+ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98710620"
+ms.lasthandoff: 02/12/2021
+ms.locfileid: "100280959"
 ---
-# <a name="secure-an-aspnet-core-no-locblazor-webassembly-hosted-app-with-azure-active-directory-b2c"></a>Proteggere un' Blazor WebAssembly app ospitata ASP.NET Core con Azure Active Directory B2C
-
-Di [Javier Calvarro Nelson](https://github.com/javiercn) e [Luke Latham](https://github.com/guardrex)
+# <a name="secure-an-aspnet-core-blazor-webassembly-hosted-app-with-azure-active-directory-b2c"></a>Proteggere un' Blazor WebAssembly app ospitata ASP.NET Core con Azure Active Directory B2C
 
 Questo articolo descrive come creare un' [ Blazor WebAssembly app ospitata](xref:blazor/hosting-models#blazor-webassembly) che usa [Azure Active Directory (AAD) B2C](/azure/active-directory-b2c/overview) per l'autenticazione.
 
@@ -234,7 +232,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 ```
 
-### <a name="userno-locidentityname"></a>Utente. Identity . Nome
+### <a name="useridentityname"></a>Utente. Identity . Nome
 
 Per impostazione predefinita, `User.Identity.Name` non viene popolato.
 
@@ -304,10 +302,10 @@ Esempio:
 
 ### <a name="weatherforecast-controller"></a>Controller WeatherForecast
 
-Il controller WeatherForecast (*Controllers/WeatherForecastController. cs*) espone un'API protetta con l' [`[Authorize]`](xref:Microsoft.AspNetCore.Authorization.AuthorizeAttribute) attributo applicato al controller. È **importante** comprendere che:
+Il controller WeatherForecast (*Controllers/WeatherForecastController. cs*) espone un'API protetta con l' [ `[Authorize]` attributo](xref:Microsoft.AspNetCore.Authorization.AuthorizeAttribute) applicato al controller. È **importante** comprendere che:
 
-* L' [`[Authorize]`](xref:Microsoft.AspNetCore.Authorization.AuthorizeAttribute) attributo in questo controller API è l'unico elemento che protegge questa API da accessi non autorizzati.
-* L' [`[Authorize]`](xref:Microsoft.AspNetCore.Authorization.AuthorizeAttribute) attributo usato nell' Blazor WebAssembly app funge solo da hint per l'app che l'utente deve essere autorizzato affinché l'app funzioni correttamente.
+* L' [ `[Authorize]` attributo](xref:Microsoft.AspNetCore.Authorization.AuthorizeAttribute) in questo controller API è l'unico elemento che protegge questa API da accessi non autorizzati.
+* L' [ `[Authorize]` attributo](xref:Microsoft.AspNetCore.Authorization.AuthorizeAttribute) usato nell' Blazor WebAssembly app funge solo da hint per l'app che l'utente deve essere autorizzato affinché l'app funzioni correttamente.
 
 ```csharp
 [Authorize]

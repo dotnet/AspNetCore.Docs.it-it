@@ -19,16 +19,14 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/fundamentals/routing
-ms.openlocfilehash: c53263ea48bc2900fd811f6e159aca97cdff26f7
-ms.sourcegitcommit: 50d3e939a90c5480df480f651dda032901468dd5
+ms.openlocfilehash: 55e2cbc01af7352facad7121c05c754e9d438ae3
+ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99819029"
+ms.lasthandoff: 02/12/2021
+ms.locfileid: "100279882"
 ---
 # <a name="aspnet-core-blazor-routing"></a>BlazorRouting ASP.NET Core
-
-Di [Luke Latham](https://github.com/guardrex)
 
 Questo articolo illustra come gestire il routing delle richieste e come usare il <xref:Microsoft.AspNetCore.Components.Routing.NavLink> componente per creare collegamenti di navigazione nelle Blazor app.
 
@@ -40,7 +38,7 @@ Il <xref:Microsoft.AspNetCore.Components.Routing.Router> componente consente il 
 
 ::: moniker range=">= aspnetcore-5.0"
 
-[!code-razor[](routing/samples_snapshot/5.x/App1.razor)]
+[!code-razor[](~/blazor/common/samples/5.x/BlazorSample_WebAssembly/routing/App1.razor)]
 
 ::: moniker-end
 
@@ -48,7 +46,7 @@ Il <xref:Microsoft.AspNetCore.Components.Routing.Router> componente consente il 
 
 ::: moniker range="< aspnetcore-5.0"
 
-[!code-razor[](routing/samples_snapshot/3.x/App1.razor)]
+[!code-razor[](~/blazor/common/samples/3.x/BlazorSample_WebAssembly/routing/App1.razor)]
 
 ::: moniker-end
 
@@ -69,13 +67,13 @@ I componenti supportano più modelli di route usando più [ `@page` direttive](x
 
 ::: moniker range=">= aspnetcore-5.0"
 
-[!code-razor[](routing/samples_snapshot/5.x/BlazorRoute.razor?highlight=1-2)]
+[!code-razor[](~/blazor/common/samples/5.x/BlazorSample_WebAssembly/Pages/routing/BlazorRoute.razor?highlight=1-2)]
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-5.0"
 
-[!code-razor[](routing/samples_snapshot/3.x/BlazorRoute.razor?highlight=1-2)]
+[!code-razor[](~/blazor/common/samples/3.x/BlazorSample_WebAssembly/Pages/routing/BlazorRoute.razor?highlight=1-2)]
 
 ::: moniker-end
 
@@ -92,7 +90,7 @@ Nel `App` componente impostare il contenuto personalizzato nel modello del <xref
 
 ::: moniker range=">= aspnetcore-5.0"
 
-[!code-razor[](routing/samples_snapshot/5.x/App2.razor?highlight=5-8)]
+[!code-razor[](~/blazor/common/samples/5.x/BlazorSample_WebAssembly/routing/App2.razor?highlight=5-8)]
 
 ::: moniker-end
 
@@ -100,7 +98,7 @@ Nel `App` componente impostare il contenuto personalizzato nel modello del <xref
 
 ::: moniker range="< aspnetcore-5.0"
 
-[!code-razor[](routing/samples_snapshot/3.x/App2.razor?highlight=5-8)]
+[!code-razor[](~/blazor/common/samples/3.x/BlazorSample_WebAssembly/routing/App2.razor?highlight=5-8)]
 
 ::: moniker-end
 
@@ -114,7 +112,7 @@ Usare il <xref:Microsoft.AspNetCore.Components.Routing.Router.AdditionalAssembli
 
 ::: moniker range=">= aspnetcore-5.0"
 
-[!code-razor[](routing/samples_snapshot/5.x/App3.razor)]
+[!code-razor[](~/blazor/common/samples/5.x/BlazorSample_WebAssembly/routing/App3.razor?name=snippet)]
 
 ::: moniker-end
 
@@ -122,7 +120,7 @@ Usare il <xref:Microsoft.AspNetCore.Components.Routing.Router.AdditionalAssembli
 
 ::: moniker range="< aspnetcore-5.0"
 
-[!code-razor[](routing/samples_snapshot/3.x/App3.razor)]
+[!code-razor[](~/blazor/common/samples/3.x/BlazorSample_WebAssembly/routing/App3.razor?name=snippet)]
 
 ::: moniker-end
 
@@ -134,13 +132,13 @@ Il router usa parametri di route per popolare i [parametri del componente](xref:
 
 ::: moniker range=">= aspnetcore-5.0"
 
-[!code-razor[](routing/samples_snapshot/5.x/RouteParameter1.razor?highlight=1)]
+[!code-razor[](~/blazor/common/samples/5.x/BlazorSample_WebAssembly/Pages/routing/RouteParameter1.razor?highlight=1)]
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-5.0"
 
-[!code-razor[](routing/samples_snapshot/3.x/RouteParameter1.razor?highlight=1)]
+[!code-razor[](~/blazor/common/samples/3.x/BlazorSample_WebAssembly/Pages/routing/RouteParameter1.razor?highlight=1)]
 
 ::: moniker-end
 
@@ -150,7 +148,7 @@ Sono supportati i parametri facoltativi. Nell'esempio seguente, il `text` parame
 
 `Pages/RouteParameter.razor`:
 
-[!code-razor[](routing/samples_snapshot/5.x/RouteParameter2.razor?highlight=1)]
+[!code-razor[](~/blazor/common/samples/5.x/BlazorSample_WebAssembly/Pages/routing/RouteParameter2.razor?highlight=1)]
 
 ::: moniker-end
 
@@ -160,7 +158,7 @@ I parametri facoltativi non sono supportati. Nell'esempio seguente vengono appli
 
 `Pages/RouteParameter.razor`:
 
-[!code-razor[](routing/samples_snapshot/3.x/RouteParameter2.razor?highlight=2)]
+[!code-razor[](~/blazor/common/samples/3.x/BlazorSample_WebAssembly/Pages/routing/RouteParameter2.razor?highlight=2)]
 
 ::: moniker-end
 
@@ -186,13 +184,13 @@ Nell'esempio seguente, la route per il `User` componente corrisponde solo a se:
 
 ::: moniker range=">= aspnetcore-5.0"
 
-[!code-razor[](routing/samples_snapshot/5.x/User.razor?highlight=1)]
+[!code-razor[](~/blazor/common/samples/5.x/BlazorSample_WebAssembly/Pages/routing/User.razor?highlight=1)]
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-5.0"
 
-[!code-razor[](routing/samples_snapshot/3.x/User.razor?highlight=1)]
+[!code-razor[](~/blazor/common/samples/3.x/BlazorSample_WebAssembly/Pages/routing/User.razor?highlight=1)]
 
 ::: moniker-end
 
@@ -222,13 +220,13 @@ Si consideri il `Example` componente seguente che può ricevere un parametro di 
 
 ::: moniker range=">= aspnetcore-5.0"
 
-[!code-razor[](routing/samples_snapshot/5.x/Example.razor?highlight=1)]
+[!code-razor[](~/blazor/common/samples/5.x/BlazorSample_WebAssembly/Pages/routing/Example.razor?highlight=1)]
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-5.0"
 
-[!code-razor[](routing/samples_snapshot/3.x/Example.razor?highlight=2)]
+[!code-razor[](~/blazor/common/samples/3.x/BlazorSample_WebAssembly/Pages/routing/Example.razor?highlight=2)]
 
 ::: moniker-end
 
@@ -264,7 +262,7 @@ I parametri di route catch-all sono:
 
 `Pages/CatchAll.razor`:
 
-[!code-razor[](routing/samples_snapshot/5.x/CatchAll.razor)]
+[!code-razor[](~/blazor/common/samples/5.x/BlazorSample_WebAssembly/Pages/routing/CatchAll.razor)]
 
 Per l'URL `/catch-all/this/is/a/test` con un modello di route di `/catch-all/{*pageRoute}` , il valore di `PageRoute` è impostato su `this/is/a/test` .
 
@@ -309,13 +307,13 @@ Il componente seguente:
 
 ::: moniker range=">= aspnetcore-5.0"
 
-[!code-razor[](routing/samples_snapshot/5.x/Navigate.razor)]
+[!code-razor[](~/blazor/common/samples/5.x/BlazorSample_WebAssembly/Pages/routing/Navigate.razor)]
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-5.0"
 
-[!code-razor[](routing/samples_snapshot/3.x/Navigate.razor)]
+[!code-razor[](~/blazor/common/samples/3.x/BlazorSample_WebAssembly/Pages/routing/Navigate.razor)]
 
 ::: moniker-end
 
@@ -344,13 +342,13 @@ Nell' `ParseQueryString` esempio di componente seguente viene analizzata una chi
 
 ::: moniker range=">= aspnetcore-5.0"
 
-[!code-razor[](routing/samples_snapshot/5.x/ParseQueryString.razor)]
+[!code-razor[](~/blazor/common/samples/5.x/BlazorSample_WebAssembly/Pages/routing/ParseQueryString.razor)]
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-5.0"
 
-[!code-razor[](routing/samples_snapshot/3.x/ParseQueryString.razor)]
+[!code-razor[](~/blazor/common/samples/3.x/BlazorSample_WebAssembly/Pages/routing/ParseQueryString.razor)]
 
 ::: moniker-end
 
@@ -362,13 +360,13 @@ Il `NavMenu` componente seguente crea una [`Bootstrap`](https://getbootstrap.com
 
 ::: moniker range=">= aspnetcore-5.0"
 
-[!code-razor[](routing/samples_snapshot/5.x/NavMenu.razor?highlight=4,9)]
+[!code-razor[](~/blazor/common/samples/5.x/BlazorSample_WebAssembly/Shared/routing/NavMenu.razor?name=snippet&highlight=4,9)]
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-5.0"
 
-[!code-razor[](routing/samples_snapshot/3.x/NavMenu.razor?highlight=4,9)]
+[!code-razor[](~/blazor/common/samples/3.x/BlazorSample_WebAssembly/Shared/routing/NavMenu.razor?name=snippet&highlight=4,9)]
 
 ::: moniker-end
 
@@ -434,13 +432,13 @@ Blazor Server è integrato in [ASP.net core routing dell'endpoint](xref:fundamen
 
 ::: moniker range=">= aspnetcore-5.0"
 
-[!code-csharp[](routing/samples_snapshot/5.x/Startup.cs?highlight=5)]
+[!code-csharp[](~/blazor/common/samples/5.x/BlazorSample_Server/routing/Startup.cs?name=snippet&highlight=5)]
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-5.0"
 
-[!code-csharp[](routing/samples_snapshot/3.x/Startup.cs?highlight=5)]
+[!code-csharp[](~/blazor/common/samples/3.x/BlazorSample_Server/routing/Startup.cs?name=snippet&highlight=5)]
 
 ::: moniker-end
 

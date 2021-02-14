@@ -19,16 +19,14 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/host-and-deploy/webassembly
-ms.openlocfilehash: b849cbfe803ef51cbb845566b4d5d27b2761e00c
-ms.sourcegitcommit: 04ad9cd26fcaa8bd11e261d3661f375f5f343cdc
+ms.openlocfilehash: 04eba2e004e920e9ca799b316781857f0b0b4ca3
+ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100106869"
+ms.lasthandoff: 02/12/2021
+ms.locfileid: "100279772"
 ---
 # <a name="host-and-deploy-aspnet-core-blazor-webassembly"></a>Ospitare e distribuire ASP.NET Core Blazor WebAssembly
-
-Di [Luke Latham](https://github.com/guardrex), [Rainer Stropek](https://www.timecockpit.com), [Daniel Roth](https://github.com/danroth27), [ben Adams](https://twitter.com/ben_a_adams)e [Safia Amodio](https://safia.rocks)
 
 Con il [ Blazor WebAssembly modello di hosting](xref:blazor/hosting-models#blazor-webassembly):
 
@@ -55,7 +53,7 @@ Blazor si basa sull'host per gestire i file compressi appropriati. Quando si usa
   * Ottenere il decodificatore JavaScript Brotli dal [repository GitHub Google/Brotli](https://github.com/google/brotli). Il file del decodificatore è denominato `decode.js` e viene trovato nella [ `js` cartella](https://github.com/google/brotli/tree/master/js)del repository.
   
     > [!NOTE]
-    > Una regressione è presente nella versione minimizzati dello `decode.js` script ( `decode.min.js` ) nel [repository GitHub Google/brotli](https://github.com/google/brotli). Minimizzare lo script autonomamente o usare il [pacchetto NPM](https://www.npmjs.com/package/brotli) fino a quando non viene risolto il problema [TypeError in decode.min.js (google/brotli #881)](https://github.com/google/brotli/issues/881) . Il codice di esempio in questa sezione usa la versione **unminified** dello script.
+    > Una regressione è presente nella versione minimizzati dello `decode.js` script ( `decode.min.js` ) nel [repository GitHub Google/brotli](https://github.com/google/brotli). Minimizzare lo script (ad esempio, vedere [BuildBundlerMinifier bundleing and minification](xref:client-side/bundling-and-minification#configure-bundling-and-minification)) o usare il [pacchetto NPM](https://www.npmjs.com/package/brotli) fino a quando non viene risolto il problema [TypeError in decode.min.js (Google/brotli #881)](https://github.com/google/brotli/issues/881) . Il codice di esempio in questa sezione usa la versione **unminified** dello script.
 
   * Aggiornare l'app per l'uso del decodificatore. Modificare il markup all'interno del `<body>` tag di chiusura in `wwwroot/index.html` come segue:
   

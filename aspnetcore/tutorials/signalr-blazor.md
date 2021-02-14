@@ -20,16 +20,14 @@ no-loc:
 - SignalR
 uid: tutorials/signalr-blazor
 zone_pivot_groups: blazor-hosting-models
-ms.openlocfilehash: 226813f3b975e207a51eba24d6cbb57f00464073
-ms.sourcegitcommit: 04ad9cd26fcaa8bd11e261d3661f375f5f343cdc
+ms.openlocfilehash: 355db5ad5462747be0058096bc0132ed1071f290
+ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100107207"
+ms.lasthandoff: 02/12/2021
+ms.locfileid: "100280988"
 ---
 # <a name="use-aspnet-core-signalr-with-blazor"></a>Usare ASP.NET Core SignalR con Blazor
-
-Di [Daniel Roth](https://github.com/danroth27) e [Luke Latham](https://github.com/guardrex)
 
 Questa esercitazione illustra le nozioni di base per la creazione di un'app in tempo reale usando SignalR con Blazor . Si apprenderà come:
 

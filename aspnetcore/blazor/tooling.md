@@ -20,16 +20,14 @@ no-loc:
 - SignalR
 uid: blazor/tooling
 zone_pivot_groups: operating-systems
-ms.openlocfilehash: 5901a1cb693dfe8e34e62ce2a28456bcf584221c
-ms.sourcegitcommit: 063a06b644d3ade3c15ce00e72a758ec1187dd06
+ms.openlocfilehash: a17b16563ac12d634e6bdc32638991f45e2a66d5
+ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98252266"
+ms.lasthandoff: 02/12/2021
+ms.locfileid: "100280683"
 ---
-# <a name="tooling-for-aspnet-core-no-locblazor"></a>Strumenti per ASP.NET Core Blazor
-
-Di [Daniel Roth](https://github.com/danroth27) e [Luke Latham](https://github.com/guardrex)
+# <a name="tooling-for-aspnet-core-blazor"></a>Strumenti per ASP.NET Core Blazor
 
 ::: zone pivot="windows"
 
@@ -127,11 +125,11 @@ Se viene visualizzato un messaggio per considerare attendibile il certificato di
 
 ::: zone-end
 
-## <a name="use-visual-studio-code-for-cross-platform-no-locblazor-development"></a>Usare Visual Studio Code per Blazor lo sviluppo multipiattaforma
+## <a name="use-visual-studio-code-for-cross-platform-blazor-development"></a>Usare Visual Studio Code per Blazor lo sviluppo multipiattaforma
 
 [Visual Studio Code](https://code.visualstudio.com/) è un ambiente di sviluppo integrato (IDE) open source e multipiattaforma che può essere usato per sviluppare Blazor app. Usare l'interfaccia della riga di comando di .NET per creare una nuova Blazor app per lo sviluppo con Visual Studio Code. Per altre informazioni, vedere la [versione di questo articolo](?pivots=linux)relativa a Linux.
 
-## <a name="no-locblazor-template-options"></a>Blazor opzioni del modello
+## <a name="blazor-template-options"></a>Blazor opzioni del modello
 
 Il Blazor Framework fornisce modelli per la creazione di nuove app per ognuno dei due Blazor modelli di hosting. I modelli vengono usati per creare nuovi Blazor progetti e soluzioni indipendentemente dagli strumenti selezionati per Blazor lo sviluppo (Visual Studio, Visual Studio per Mac, Visual Studio Code o l'interfaccia della riga di comando di .NET):
 

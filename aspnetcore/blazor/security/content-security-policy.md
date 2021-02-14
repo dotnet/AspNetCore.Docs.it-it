@@ -19,16 +19,14 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/security/content-security-policy
-ms.openlocfilehash: 744449240fabc3dae317d0d7bc9090311521c224
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.openlocfilehash: f44f348947e31864f5d0d44c9caf1a3aa9c3b1d4
+ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "94570120"
+ms.lasthandoff: 02/12/2021
+ms.locfileid: "100280339"
 ---
-# <a name="enforce-a-content-security-policy-for-aspnet-core-no-locblazor"></a>Applicare un criterio di sicurezza del contenuto per ASP.NET Core Blazor
-
-Di [Javier Calvarro Nelson](https://github.com/javiercn) e [Luke Latham](https://github.com/guardrex)
+# <a name="enforce-a-content-security-policy-for-aspnet-core-blazor"></a>Applicare un criterio di sicurezza del contenuto per ASP.NET Core Blazor
 
 Il [cross-site scripting (XSS)](xref:security/cross-site-scripting) è una vulnerabilità di sicurezza in cui un utente malintenzionato inserisce uno o più script lato client dannosi nel contenuto sottoposto a rendering di un'app. Un criterio di sicurezza del contenuto (CSP) consente di proteggersi da attacchi XSS, informando il browser di valido:
 

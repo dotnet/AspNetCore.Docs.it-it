@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: performance/caching/distributed
-ms.openlocfilehash: 6d87c8de66bf5600189465b96dee903841106b6f
-ms.sourcegitcommit: ca34c1ac578e7d3daa0febf1810ba5fc74f60bbf
+ms.openlocfilehash: 6f89046f2e1805111dd81b3282253a72a7c6ea09
+ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93061145"
+ms.lasthandoff: 02/12/2021
+ms.locfileid: "100281018"
 ---
 # <a name="distributed-caching-in-aspnet-core"></a>Caching distribuito in ASP.NET Core
 
@@ -129,12 +129,12 @@ Vedere [questo problema di GitHub](https://github.com/dotnet/AspNetCore.Docs/iss
 
 [NCache](https://github.com/Alachisoft/NCache) è una cache distribuita in memoria open source sviluppata in modo nativo in .NET e .NET Core. NCache funziona sia localmente che configurato come cluster di cache distribuita per un'app ASP.NET Core in esecuzione in Azure o in altre piattaforme di hosting.
 
-Per installare e configurare NCache nel computer locale, vedere [NCache Introduzione Guide for Windows](https://www.alachisoft.com/resources/docs/ncache-oss/getting-started-guide-windows/).
+Per installare e configurare NCache nel computer locale, vedere la [guida introduzione per Windows (.NET e .NET Core)](https://www.alachisoft.com/resources/docs/ncache/getting-started-guide-windows/).
 
 Per configurare NCache:
 
 1. Installare [NCache Open Source NuGet](https://www.nuget.org/packages/Alachisoft.NCache.OpenSource.SDK/).
-1. Configurare il cluster di cache in [client. ncconf](https://www.alachisoft.com/resources/docs/ncache-oss/admin-guide/client-config.html).
+1. Configurare il cluster di cache in [client. ncconf](https://www.alachisoft.com/resources/docs/ncache/admin-guide/client-config.html).
 1. Aggiungere il codice seguente a `Startup.ConfigureServices`:
 
    ```csharp
@@ -156,7 +156,7 @@ Quando l'app di esempio viene avviata, <xref:Microsoft.Extensions.Caching.Distri
 
 L'app di esempio inserisce <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> nell'oggetto `IndexModel` per l'uso da parte della pagina di indice.
 
-Ogni volta che viene caricata la pagina di indice, viene verificata la presenza dell'ora memorizzata nella cache in `OnGetAsync` . Se il tempo di memorizzazione nella cache non è scaduto, viene visualizzata l'ora. Se sono trascorsi 20 secondi dall'ultima volta in cui è stato eseguito l'accesso all'ora memorizzata nella cache (l'ultima volta che questa pagina è stata caricata), la pagina Visualizza l' *ora della cache scaduta* .
+Ogni volta che viene caricata la pagina di indice, viene verificata la presenza dell'ora memorizzata nella cache in `OnGetAsync` . Se il tempo di memorizzazione nella cache non è scaduto, viene visualizzata l'ora. Se sono trascorsi 20 secondi dall'ultima volta in cui è stato eseguito l'accesso all'ora memorizzata nella cache (l'ultima volta che questa pagina è stata caricata), la pagina Visualizza l' *ora della cache scaduta*.
 
 Aggiornare immediatamente l'ora memorizzata nella cache all'ora corrente selezionando il pulsante **Reimposta tempo memorizzato nella cache** . Il pulsante attiva il `OnPostResetCachedTime` metodo del gestore.
 
@@ -173,7 +173,7 @@ Quando si decide quale implementazione di <xref:Microsoft.Extensions.Caching.Dis
 
 * Infrastruttura esistente
 * Requisiti per le prestazioni
-* Costi
+* Costo
 * Esperienza del team
 
 Le soluzioni per la memorizzazione nella cache si basano in genere sull'archiviazione in memoria per consentire un rapido recupero dei dati memorizzati nella cache, ma la memoria è una risorsa limitata ed è dispendiosa per espanderla. Archiviare solo i dati utilizzati di frequente in una cache.
@@ -299,12 +299,12 @@ Per installare Redis nel computer locale:
 
 [NCache](https://github.com/Alachisoft/NCache) è una cache distribuita in memoria open source sviluppata in modo nativo in .NET e .NET Core. NCache funziona sia localmente che configurato come cluster di cache distribuita per un'app ASP.NET Core in esecuzione in Azure o in altre piattaforme di hosting.
 
-Per installare e configurare NCache nel computer locale, vedere [NCache Introduzione Guide for Windows](https://www.alachisoft.com/resources/docs/ncache-oss/getting-started-guide-windows/).
+Per installare e configurare NCache nel computer locale, vedere la [guida introduzione per Windows (.NET e .NET Core)](https://www.alachisoft.com/resources/docs/ncache/getting-started-guide-windows/).
 
 Per configurare NCache:
 
 1. Installare [NCache Open Source NuGet](https://www.nuget.org/packages/Alachisoft.NCache.OpenSource.SDK/).
-1. Configurare il cluster di cache in [client. ncconf](https://www.alachisoft.com/resources/docs/ncache-oss/admin-guide/client-config.html).
+1. Configurare il cluster di cache in [client. ncconf](https://www.alachisoft.com/resources/docs/ncache/admin-guide/client-config.html).
 1. Aggiungere il codice seguente a `Startup.ConfigureServices`:
 
    ```csharp
@@ -326,7 +326,7 @@ Quando l'app di esempio viene avviata, <xref:Microsoft.Extensions.Caching.Distri
 
 L'app di esempio inserisce <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> nell'oggetto `IndexModel` per l'uso da parte della pagina di indice.
 
-Ogni volta che viene caricata la pagina di indice, viene verificata la presenza dell'ora memorizzata nella cache in `OnGetAsync` . Se il tempo di memorizzazione nella cache non è scaduto, viene visualizzata l'ora. Se sono trascorsi 20 secondi dall'ultima volta in cui è stato eseguito l'accesso all'ora memorizzata nella cache (l'ultima volta che questa pagina è stata caricata), la pagina Visualizza l' *ora della cache scaduta* .
+Ogni volta che viene caricata la pagina di indice, viene verificata la presenza dell'ora memorizzata nella cache in `OnGetAsync` . Se il tempo di memorizzazione nella cache non è scaduto, viene visualizzata l'ora. Se sono trascorsi 20 secondi dall'ultima volta in cui è stato eseguito l'accesso all'ora memorizzata nella cache (l'ultima volta che questa pagina è stata caricata), la pagina Visualizza l' *ora della cache scaduta*.
 
 Aggiornare immediatamente l'ora memorizzata nella cache all'ora corrente selezionando il pulsante **Reimposta tempo memorizzato nella cache** . Il pulsante attiva il `OnPostResetCachedTime` metodo del gestore.
 
@@ -343,7 +343,7 @@ Quando si decide quale implementazione di <xref:Microsoft.Extensions.Caching.Dis
 
 * Infrastruttura esistente
 * Requisiti per le prestazioni
-* Costi
+* Costo
 * Esperienza del team
 
 Le soluzioni per la memorizzazione nella cache si basano in genere sull'archiviazione in memoria per consentire un rapido recupero dei dati memorizzati nella cache, ma la memoria è una risorsa limitata ed è dispendiosa per espanderla. Archiviare solo i dati utilizzati di frequente in una cache.
@@ -475,12 +475,12 @@ Per installare Redis nel computer locale:
 
 [NCache](https://github.com/Alachisoft/NCache) è una cache distribuita in memoria open source sviluppata in modo nativo in .NET e .NET Core. NCache funziona sia localmente che configurato come cluster di cache distribuita per un'app ASP.NET Core in esecuzione in Azure o in altre piattaforme di hosting.
 
-Per installare e configurare NCache nel computer locale, vedere [NCache Introduzione Guide for Windows](https://www.alachisoft.com/resources/docs/ncache-oss/getting-started-guide-windows/).
+Per installare e configurare NCache nel computer locale, vedere la [guida introduzione per Windows (.NET e .NET Core)](https://www.alachisoft.com/resources/docs/ncache/getting-started-guide-windows/).
 
 Per configurare NCache:
 
 1. Installare [NCache Open Source NuGet](https://www.nuget.org/packages/Alachisoft.NCache.OpenSource.SDK/).
-1. Configurare il cluster di cache in [client. ncconf](https://www.alachisoft.com/resources/docs/ncache-oss/admin-guide/client-config.html).
+1. Configurare il cluster di cache in [client. ncconf](https://www.alachisoft.com/resources/docs/ncache/admin-guide/client-config.html).
 1. Aggiungere il codice seguente a `Startup.ConfigureServices`:
 
    ```csharp
@@ -502,7 +502,7 @@ Quando l'app di esempio viene avviata, <xref:Microsoft.Extensions.Caching.Distri
 
 L'app di esempio inserisce <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> nell'oggetto `IndexModel` per l'uso da parte della pagina di indice.
 
-Ogni volta che viene caricata la pagina di indice, viene verificata la presenza dell'ora memorizzata nella cache in `OnGetAsync` . Se il tempo di memorizzazione nella cache non è scaduto, viene visualizzata l'ora. Se sono trascorsi 20 secondi dall'ultima volta in cui è stato eseguito l'accesso all'ora memorizzata nella cache (l'ultima volta che questa pagina è stata caricata), la pagina Visualizza l' *ora della cache scaduta* .
+Ogni volta che viene caricata la pagina di indice, viene verificata la presenza dell'ora memorizzata nella cache in `OnGetAsync` . Se il tempo di memorizzazione nella cache non è scaduto, viene visualizzata l'ora. Se sono trascorsi 20 secondi dall'ultima volta in cui è stato eseguito l'accesso all'ora memorizzata nella cache (l'ultima volta che questa pagina è stata caricata), la pagina Visualizza l' *ora della cache scaduta*.
 
 Aggiornare immediatamente l'ora memorizzata nella cache all'ora corrente selezionando il pulsante **Reimposta tempo memorizzato nella cache** . Il pulsante attiva il `OnPostResetCachedTime` metodo del gestore.
 
@@ -519,7 +519,7 @@ Quando si decide quale implementazione di <xref:Microsoft.Extensions.Caching.Dis
 
 * Infrastruttura esistente
 * Requisiti per le prestazioni
-* Costi
+* Costo
 * Esperienza del team
 
 Le soluzioni per la memorizzazione nella cache si basano in genere sull'archiviazione in memoria per consentire un rapido recupero dei dati memorizzati nella cache, ma la memoria è una risorsa limitata ed è dispendiosa per espanderla. Archiviare solo i dati utilizzati di frequente in una cache.

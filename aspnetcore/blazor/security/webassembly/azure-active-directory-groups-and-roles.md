@@ -19,16 +19,14 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/security/webassembly/aad-groups-roles
-ms.openlocfilehash: d1c75d85283b583d8bfd885fcd6552b69c2528c7
-ms.sourcegitcommit: d4836f9b7c508f51c6c4ee6d0cc719b38c1729c4
+ms.openlocfilehash: c180580ec56313e444f2daf2b7d08c4d909b498a
+ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98758271"
+ms.lasthandoff: 02/12/2021
+ms.locfileid: "100280526"
 ---
 # <a name="azure-active-directory-aad-groups-administrator-roles-and-app-roles"></a>Gruppi di Azure Active Directory (AAD), ruoli di amministratore e ruoli dell'app
-
-Di [Luke Latham](https://github.com/guardrex) e [Javier Calvarro Nelson](https://github.com/javiercn)
 
 Azure Active Directory (AAD) fornisce diversi approcci di autorizzazione che possono essere combinati con ASP.NET Core Identity :
 

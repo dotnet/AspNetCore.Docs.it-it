@@ -19,16 +19,14 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/components/event-handling
-ms.openlocfilehash: fe50b95dda14afeae35c4922d0ae3470280bfd02
-ms.sourcegitcommit: 063a06b644d3ade3c15ce00e72a758ec1187dd06
+ms.openlocfilehash: f6a93eb9d95182d29a60cc1a5c48122b9166aa84
+ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98252526"
+ms.lasthandoff: 02/12/2021
+ms.locfileid: "100280141"
 ---
-# <a name="aspnet-core-no-locblazor-event-handling"></a>BlazorGestione degli eventi ASP.NET Core
-
-Di [Luke Latham](https://github.com/guardrex) e [Daniel Roth](https://github.com/danroth27)
+# <a name="aspnet-core-blazor-event-handling"></a>BlazorGestione degli eventi ASP.NET Core
 
 Razor i componenti di forniscono funzionalità di gestione degli eventi. Per un attributo dell'elemento HTML denominato, [`@on{EVENT}`](xref:mvc/views/razor#onevent) ad esempio, `@onclick` con un valore tipizzato come delegato, un Razor componente considera il valore dell'attributo come un gestore eventi.
 

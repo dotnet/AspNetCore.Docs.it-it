@@ -19,18 +19,16 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/advanced-scenarios
-ms.openlocfilehash: 95714b3c0d21d3b348a9a8a984e2a42e7708499e
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.openlocfilehash: ba2bf91f3318225383ec9d164c34be9124aa311b
+ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "93056556"
+ms.lasthandoff: 02/12/2021
+ms.locfileid: "100280844"
 ---
-# <a name="aspnet-core-no-locblazor-advanced-scenarios"></a>BlazorScenari ASP.NET Core avanzati
+# <a name="aspnet-core-blazor-advanced-scenarios"></a>BlazorScenari ASP.NET Core avanzati
 
-Di [Luke Latham](https://github.com/guardrex) e [Daniel Roth](https://github.com/danroth27)
-
-## <a name="no-locblazor-server-circuit-handler"></a>Blazor Server gestore circuito
+## <a name="blazor-server-circuit-handler"></a>Blazor Server gestore circuito
 
 Blazor Server consente al codice di definire un *gestore di circuito*, che consente l'esecuzione di codice in base alle modifiche apportate allo stato del circuito di un utente. Un gestore di circuito viene implementato tramite la derivazione da `CircuitHandler` e la registrazione della classe nel contenitore del servizio dell'app. L'esempio seguente di un gestore di circuito tiene traccia delle SignalR connessioni aperte:
 

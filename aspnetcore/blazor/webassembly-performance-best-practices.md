@@ -19,16 +19,14 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/webassembly-performance-best-practices
-ms.openlocfilehash: 64eb69ba597b1e48489733275ac3bed96c6c3241
-ms.sourcegitcommit: ef8d8c79993a6608bf597ad036edcf30b231843f
+ms.openlocfilehash: 1860a36ba4122fb39ca92797da9a44b282afa793
+ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99975235"
+ms.lasthandoff: 02/12/2021
+ms.locfileid: "100280653"
 ---
 # <a name="aspnet-core-blazor-webassembly-performance-best-practices"></a>Blazor WebAssemblyProcedure consigliate per le prestazioni ASP.NET Core
-
-Di [](https://github.com/pranavkm) [Manuel e Steve Sanderson](https://github.com/SteveSandersonMS)
 
 Blazor WebAssembly viene accuratamente progettato e ottimizzato per garantire prestazioni elevate in scenari di interfaccia utente dell'applicazione più realistici. Tuttavia, la produzione dei migliori risultati dipende dagli sviluppatori che usano i modelli e le funzionalità corrette. Prendere in considerazione gli aspetti seguenti:
 

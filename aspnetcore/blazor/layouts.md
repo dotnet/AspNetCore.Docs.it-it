@@ -19,16 +19,14 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/layouts
-ms.openlocfilehash: 417f69e797296cdcd01fc4ce326388512a406368
-ms.sourcegitcommit: 97243663fd46c721660e77ef652fe2190a461f81
+ms.openlocfilehash: d1f3e2028ca120b5901aca0b24802d872ae52597
+ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2021
-ms.locfileid: "98058272"
+ms.lasthandoff: 02/12/2021
+ms.locfileid: "100279735"
 ---
-# <a name="aspnet-core-no-locblazor-layouts"></a>BlazorLayout ASP.NET Core
-
-Di [Rainer Stropek](https://www.timecockpit.com) e [Luke Latham](https://github.com/guardrex)
+# <a name="aspnet-core-blazor-layouts"></a>BlazorLayout ASP.NET Core
 
 Alcuni elementi dell'app, ad esempio i menu, i messaggi di copyright e i logo aziendali, fanno in genere parte del layout generale dell'app e vengono usati da ogni componente nell'app. La copia del codice di questi elementi in tutti i componenti di un'app non è un approccio efficace. Ogni volta che uno degli elementi richiede un aggiornamento, è necessario aggiornare ogni componente. Tale duplicazione è difficile da gestire e può causare contenuti incoerenti nel tempo. I *layout* risolvono questo problema.
 
@@ -125,7 +123,7 @@ Infine, `MasterLayout` in `MasterLayout.razor` contiene gli elementi di layout d
 
 [!code-razor[](layouts/sample_snapshot/3.x/MasterLayout.razor?highlight=6)]
 
-## <a name="share-a-no-locrazor-pages-layout-with-integrated-components"></a>Condividere un Razor layout di pagine con componenti integrati
+## <a name="share-a-razor-pages-layout-with-integrated-components"></a>Condividere un Razor layout di pagine con componenti integrati
 
 Quando i componenti instradabili sono integrati in un' Razor app pagine, il layout condiviso dell'app può essere usato con i componenti. Per altre informazioni, vedere <xref:blazor/components/prerendering-and-integration>.
 

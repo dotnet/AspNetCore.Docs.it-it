@@ -19,16 +19,14 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/debug
-ms.openlocfilehash: 5bdfcc5660b4c897d3552d4cf25e43dade71541c
-ms.sourcegitcommit: 063a06b644d3ade3c15ce00e72a758ec1187dd06
+ms.openlocfilehash: aed9e800074dc72a2b55b816a2710722470cd7d1
+ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98252513"
+ms.lasthandoff: 02/12/2021
+ms.locfileid: "100280052"
 ---
-# <a name="debug-aspnet-core-no-locblazor-webassembly"></a>ASP.NET Core di debug Blazor WebAssembly
-
-[Daniel Roth](https://github.com/danroth27)
+# <a name="debug-aspnet-core-blazor-webassembly"></a>ASP.NET Core di debug Blazor WebAssembly
 
 Blazor WebAssembly è possibile eseguire il debug delle app usando gli strumenti di sviluppo del browser nei browser basati su cromo (Edge/Chrome). È anche possibile eseguire il debug dell'app usando gli ambienti di sviluppo integrato (IDE) seguenti:
 
@@ -192,7 +190,7 @@ Per informazioni sull'uso di un percorso di base dell'app personalizzato per le 
 > [!NOTE]
 > I punti di interruzione **non** vengono raggiunti durante l'avvio dell'app prima che il proxy di debug sia in esecuzione. Sono inclusi i punti di interruzione in `Program.Main` ( `Program.cs` ) e i punti di interruzione nei [ `OnInitialized{Async}` Metodi](xref:blazor/components/lifecycle#component-initialization-methods) dei componenti caricati dalla prima pagina richiesta dall'app.
 
-## <a name="debug-hosted-no-locblazor-webassembly"></a>Debug ospitato Blazor WebAssembly
+## <a name="debug-hosted-blazor-webassembly"></a>Debug ospitato Blazor WebAssembly
 
 1. Aprire la cartella della soluzione dell'app ospitata Blazor WebAssembly in vs code.
 
@@ -238,7 +236,7 @@ Le seguenti opzioni di configurazione di avvio sono supportate per il `blazorwas
 
 ## <a name="example-launch-configurations"></a>Configurazioni di avvio di esempio
 
-### <a name="launch-and-debug-a-standalone-no-locblazor-webassembly-app"></a>Avviare ed eseguire il debug di un'app autonoma Blazor WebAssembly
+### <a name="launch-and-debug-a-standalone-blazor-webassembly-app"></a>Avviare ed eseguire il debug di un'app autonoma Blazor WebAssembly
 
 ```json
 {
@@ -259,7 +257,7 @@ Le seguenti opzioni di configurazione di avvio sono supportate per il `blazorwas
 }
 ```
 
-### <a name="launch-and-debug-a-hosted-no-locblazor-webassembly-app-with-microsoft-edge"></a>Avviare ed eseguire il debug di un'app ospitata Blazor WebAssembly con Microsoft Edge
+### <a name="launch-and-debug-a-hosted-blazor-webassembly-app-with-microsoft-edge"></a>Avviare ed eseguire il debug di un'app ospitata Blazor WebAssembly con Microsoft Edge
 
 Per impostazione predefinita, la configurazione del browser è Google Chrome. Quando si usa Microsoft Edge per il debug, impostare `browser` su `edge` . Per usare Google Chrome, non impostare l' `browser` opzione o impostare il valore dell'opzione su `chrome` .
 

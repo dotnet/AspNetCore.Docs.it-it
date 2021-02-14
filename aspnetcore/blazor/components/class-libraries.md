@@ -19,16 +19,14 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/components/class-libraries
-ms.openlocfilehash: 9562d06cbb8c60cd5a3b01f7c382b70c50038363
-ms.sourcegitcommit: 04ad9cd26fcaa8bd11e261d3661f375f5f343cdc
+ms.openlocfilehash: fed5d26ecd73a4710ee794c413fd51e0b4cb4913
+ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100107064"
+ms.lasthandoff: 02/12/2021
+ms.locfileid: "100280198"
 ---
 # <a name="aspnet-core-razor-components-class-libraries"></a>RazorLibrerie di classi dei componenti ASP.NET Core
-
-Di [Simon Timms](https://github.com/stimms)
 
 I componenti possono essere condivisi in una [ Razor libreria di classi (RCL)](xref:razor-pages/ui-class) nei progetti. È possibile includere una *Razor libreria di classi Components* da:
 

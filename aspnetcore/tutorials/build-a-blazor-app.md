@@ -5,7 +5,7 @@ description: Creare un' Blazor app dettagliata.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/14/2020
+ms.date: 02/12/2021
 no-loc:
 - appsettings.json
 - ASP.NET Core Identity
@@ -19,16 +19,14 @@ no-loc:
 - Razor
 - SignalR
 uid: tutorials/build-a-blazor-app
-ms.openlocfilehash: 106e1119db777074b5eae24f5d7e216e6127ca13
-ms.sourcegitcommit: 75db2f684a9302b0be7925eab586aa091c6bd19f
+ms.openlocfilehash: 939841ca7214e212a2f197ea1e00b0f6152c471e
+ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99238300"
+ms.lasthandoff: 02/12/2021
+ms.locfileid: "100280512"
 ---
-# <a name="build-a-no-locblazor-todo-list-app"></a>Creare un' Blazor app elenco attività
-
-Di [Daniel Roth](https://github.com/danroth27) e [Luke Latham](https://github.com/guardrex)
+# <a name="build-a-blazor-todo-list-app"></a>Creare un' Blazor app elenco attività
 
 Questa esercitazione illustra come creare e modificare un' Blazor app. Si apprenderà come:
 
@@ -54,7 +52,7 @@ Al termine di questa esercitazione, si disporrà di un'app elenco attività.
 
 ::: moniker-end
 
-## <a name="create-a-todo-list-no-locblazor-app"></a>Creare un'app elenco attività Blazor
+## <a name="create-a-todo-list-blazor-app"></a>Creare un'app elenco attività Blazor
 
 1. Creare una nuova Blazor App denominata `TodoList` in una shell comandi:
 
@@ -83,7 +81,17 @@ Al termine di questa esercitazione, si disporrà di un'app elenco attività.
 
    `Pages/Todo.razor`:
 
-   [!code-razor[](build-a-blazor-app/samples_snapshot/Todo0.razor?highlight=1)]
+   ::: moniker range=">= aspnetcore-5.0"
+
+   [!code-razor[](~/blazor/common/samples/5.x/BlazorSample_WebAssembly/Pages/build-a-blazor-app/Todo0.razor?highlight=1)]
+
+   ::: moniker-end
+
+   ::: moniker range="< aspnetcore-5.0"
+
+   [!code-razor[](~/blazor/common/samples/3.x/BlazorSample_WebAssembly/Pages/build-a-blazor-app/Todo0.razor?highlight=1)]
+
+   ::: moniker-end
 
    Salvare il file.`Pages/Todo.razor`
 
@@ -95,7 +103,17 @@ Al termine di questa esercitazione, si disporrà di un'app elenco attività.
 
    In `Shared/NavMenu.razor`:
 
-   [!code-razor[](build-a-blazor-app/samples_snapshot/NavMenu.razor?highlight=5-9)]
+   ::: moniker range=">= aspnetcore-5.0"
+
+   [!code-razor[](~/blazor/common/samples/5.x/BlazorSample_WebAssembly/Shared/build-a-blazor-app/NavMenu.razor?highlight=5-9)]
+
+   ::: moniker-end
+
+   ::: moniker range="< aspnetcore-5.0"
+
+   [!code-razor[](~/blazor/common/samples/3.x/BlazorSample_WebAssembly/Shared/build-a-blazor-app/NavMenu.razor?highlight=5-9)]
+
+   ::: moniker-end
 
    Salvare il file.`Shared/NavMenu.razor`
 
@@ -107,8 +125,18 @@ Al termine di questa esercitazione, si disporrà di un'app elenco attività.
 
    `TodoItem.cs`:
 
-   [!code-csharp[](build-a-blazor-app/samples_snapshot/TodoItem.cs)]
-   
+   ::: moniker range=">= aspnetcore-5.0"
+
+   [!code-csharp[](~/blazor/common/samples/5.x/BlazorSample_WebAssembly/build-a-blazor-app/TodoItem.cs)]
+
+   ::: moniker-end
+
+   ::: moniker range="< aspnetcore-5.0"
+
+   [!code-csharp[](~/blazor/common/samples/3.x/BlazorSample_WebAssembly/build-a-blazor-app/TodoItem.cs)]
+
+   ::: moniker-end
+
    > [!NOTE]
    > Se si usa Visual Studio per creare il `ToDoItem.cs` file e la `ToDoItem` classe, usare uno degli approcci seguenti:
    >
@@ -122,11 +150,31 @@ Al termine di questa esercitazione, si disporrà di un'app elenco attività.
 
    `Pages/Todo.razor`:
 
-   [!code-razor[](build-a-blazor-app/samples_snapshot/Todo2.razor?highlight=5-10,13)]
+   ::: moniker range=">= aspnetcore-5.0"
+
+   [!code-razor[](~/blazor/common/samples/5.x/BlazorSample_WebAssembly/Pages/build-a-blazor-app/Todo2.razor?highlight=5-10,13)]
+
+   ::: moniker-end
+
+   ::: moniker range="< aspnetcore-5.0"
+
+   [!code-razor[](~/blazor/common/samples/3.x/BlazorSample_WebAssembly/Pages/build-a-blazor-app/Todo2.razor?highlight=5-10,13)]
+
+   ::: moniker-end
 
 1. L'app richiede elementi dell'interfaccia utente per l'aggiunta di voci todo all'elenco. Aggiungere un input di testo (`<input>`) e un pulsante (`<button>`) sotto l'elenco non ordinato (`<ul>...</ul>`):
 
-   [!code-razor[](build-a-blazor-app/samples_snapshot/Todo3.razor?highlight=12-13)]
+   ::: moniker range=">= aspnetcore-5.0"
+
+   [!code-razor[](~/blazor/common/samples/5.x/BlazorSample_WebAssembly/Pages/build-a-blazor-app/Todo3.razor?highlight=12-13)]
+
+   ::: moniker-end
+
+   ::: moniker range="< aspnetcore-5.0"
+
+   [!code-razor[](~/blazor/common/samples/3.x/BlazorSample_WebAssembly/Pages/build-a-blazor-app/Todo3.razor?highlight=12-13)]
+
+   ::: moniker-end
 
 1. Salvare il `TodoItem.cs` file e il `Pages/Todo.razor` file aggiornato. Nella shell dei comandi l'app viene ricompilata automaticamente quando i file vengono salvati. Il browser perde temporaneamente la connessione all'app e quindi ricarica la pagina quando viene ristabilita la connessione.
 
@@ -134,11 +182,31 @@ Al termine di questa esercitazione, si disporrà di un'app elenco attività.
 
 1. Aggiungere un `AddTodo` metodo al `Todo` componente e registrare il metodo per il pulsante usando l' `@onclick` attributo. Il metodo C# `AddTodo` viene chiamato quando viene selezionato il pulsante:
 
-   [!code-razor[](build-a-blazor-app/samples_snapshot/Todo4.razor?highlight=2,7-10)]
+   ::: moniker range=">= aspnetcore-5.0"
+
+   [!code-razor[](~/blazor/common/samples/5.x/BlazorSample_WebAssembly/Pages/build-a-blazor-app/Todo4.razor?highlight=2,7-10)]
+
+   ::: moniker-end
+
+   ::: moniker range="< aspnetcore-5.0"
+
+   [!code-razor[](~/blazor/common/samples/3.x/BlazorSample_WebAssembly/Pages/build-a-blazor-app/Todo4.razor?highlight=2,7-10)]
+
+   ::: moniker-end
 
 1. Per ottenere il titolo del nuovo elemento todo, aggiungere un `newTodo` campo stringa nella parte superiore del `@code` blocco:
 
-   [!code-razor[](build-a-blazor-app/samples_snapshot/Todo5.razor?highlight=3)]
+   ::: moniker range=">= aspnetcore-5.0"
+
+   [!code-razor[](~/blazor/common/samples/5.x/BlazorSample_WebAssembly/Pages/build-a-blazor-app/Todo5.razor?highlight=3)]
+
+   ::: moniker-end
+
+   ::: moniker range="< aspnetcore-5.0"
+
+   [!code-razor[](~/blazor/common/samples/3.x/BlazorSample_WebAssembly/Pages/build-a-blazor-app/Todo5.razor?highlight=3)]
+
+   ::: moniker-end
 
    Modificare l' `<input>` elemento di testo da associare all' `newTodo` `@bind` attributo:
 
@@ -148,13 +216,33 @@ Al termine di questa esercitazione, si disporrà di un'app elenco attività.
 
 1. Aggiornare il metodo `AddTodo` per aggiungere l'elemento `TodoItem` con il titolo specificato all'elenco. Cancellare il valore dell'input di testo impostando `newTodo` su una stringa vuota:
 
-   [!code-razor[](build-a-blazor-app/samples_snapshot/Todo6.razor?highlight=19-26)]
+   ::: moniker range=">= aspnetcore-5.0"
+
+   [!code-razor[](~/blazor/common/samples/5.x/BlazorSample_WebAssembly/Pages/build-a-blazor-app/Todo6.razor?highlight=19-26)]
+
+   ::: moniker-end
+
+   ::: moniker range="< aspnetcore-5.0"
+
+   [!code-razor[](~/blazor/common/samples/3.x/BlazorSample_WebAssembly/Pages/build-a-blazor-app/Todo6.razor?highlight=19-26)]
+
+   ::: moniker-end
 
 1. Salvare il file.`Pages/Todo.razor` L'app viene ricompilata automaticamente nella shell dei comandi. La pagina viene ricaricata nel browser dopo la riconnessione del browser all'app.
 
 1. Il testo del titolo per ogni elemento Todo può essere reso modificabile e una casella di controllo può consentire all'utente di tenere traccia degli elementi completati. Aggiungere un input casella di controllo per ogni elemento attività e associarne il valore alla proprietà `IsDone`. Passare `@todo.Title` a un `<input>` elemento associato a `todo.Title` con `@bind` :
 
-   [!code-razor[](build-a-blazor-app/samples_snapshot/Todo7.razor?highlight=4-7)]
+   ::: moniker range=">= aspnetcore-5.0"
+
+   [!code-razor[](~/blazor/common/samples/5.x/BlazorSample_WebAssembly/Pages/build-a-blazor-app/Todo7.razor?name=snippet&highlight=4-7)]
+
+   ::: moniker-end
+
+   ::: moniker range="< aspnetcore-5.0"
+
+   [!code-razor[](~/blazor/common/samples/3.x/BlazorSample_WebAssembly/Pages/build-a-blazor-app/Todo7.razor?name=snippet&highlight=4-7)]
+
+   ::: moniker-end
 
 1. Aggiornare l' `<h3>` intestazione per visualizzare un conteggio del numero di elementi todo non completi ( `IsDone` is `false` ).
 
@@ -164,7 +252,17 @@ Al termine di questa esercitazione, si disporrà di un'app elenco attività.
 
 1. Componente completato `Todo` ( `Pages/Todo.razor` ):
 
-   [!code-razor[](build-a-blazor-app/samples_snapshot/Todo1.razor)]
+   ::: moniker range=">= aspnetcore-5.0"
+
+   [!code-razor[](~/blazor/common/samples/5.x/BlazorSample_WebAssembly/Pages/build-a-blazor-app/Todo1.razor)]
+
+   ::: moniker-end
+
+   ::: moniker range="< aspnetcore-5.0"
+
+   [!code-razor[](~/blazor/common/samples/3.x/BlazorSample_WebAssembly/Pages/build-a-blazor-app/Todo1.razor)]
+
+   ::: moniker-end
 
 1. Salvare il file.`Pages/Todo.razor` L'app viene ricompilata automaticamente nella shell dei comandi. La pagina viene ricaricata nel browser dopo la riconnessione del browser all'app.
 

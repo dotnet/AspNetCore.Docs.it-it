@@ -4,7 +4,7 @@ author: jamesnk
 description: Informazioni su come creare messaggi protobuf per le app .NET.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
-ms.date: 08/23/2020
+ms.date: 02/12/2021
 no-loc:
 - appsettings.json
 - ASP.NET Core Identity
@@ -18,12 +18,12 @@ no-loc:
 - Razor
 - SignalR
 uid: grpc/protobuf
-ms.openlocfilehash: b70a5ee00405eecfce900b86dc631a54682dce1a
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.openlocfilehash: adb048c9b20e172ef8a7bc13f9b56928b1d4bf77
+ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "93058896"
+ms.lasthandoff: 02/12/2021
+ms.locfileid: "100280296"
 ---
 # <a name="create-protobuf-messages-for-net-apps"></a>Creare messaggi protobuf per le app .NET
 
@@ -48,6 +48,8 @@ message Person {
 ```
 
 La definizione di messaggio precedente specifica tre campi come coppie nome-valore. Analogamente alle proprietà sui tipi .NET, ogni campo dispone di un nome e di un tipo. Il tipo di campo può essere un [tipo di valore scalare protobuf](#scalar-value-types), ad esempio `int32` o un altro messaggio.
+
+La [Guida di stile protobuf](https://developers.google.com/protocol-buffers/docs/style) consiglia `underscore_separated_names` di usare per i nomi di campo. I nuovi messaggi protobuf creati per le app .NET devono seguire le linee guida di stile protobuf. Gli strumenti .NET generano automaticamente tipi .NET che utilizzano standard di denominazione .NET. Un campo protobuf, ad esempio, `first_name` genera una `FirstName` Proprietà .NET.
 
 Oltre a un nome, ogni campo nella definizione del messaggio ha un numero univoco. I numeri di campo vengono utilizzati per identificare i campi quando il messaggio viene serializzato in protobuf. La serializzazione di un numero ridotto è più veloce rispetto alla serializzazione dell'intero nome di campo. Poiché i numeri di campo identificano un campo, è importante prestare attenzione durante la modifica. Per ulteriori informazioni sulla modifica dei messaggi protobuf <xref:grpc/versioning> , vedere.
 

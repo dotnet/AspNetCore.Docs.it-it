@@ -19,16 +19,14 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/host-and-deploy/configure-linker
-ms.openlocfilehash: 0c99056053356133e901d6cf468fec8034dfb845
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.openlocfilehash: c720747983da4ef6997d95d77c3f5305cfd7d3c0
+ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "93055828"
+ms.lasthandoff: 02/12/2021
+ms.locfileid: "100279932"
 ---
-# <a name="configure-the-linker-for-aspnet-core-no-locblazor"></a>Configurare il linker per ASP.NET Core Blazor
-
-Di [Luke Latham](https://github.com/guardrex)
+# <a name="configure-the-linker-for-aspnet-core-blazor"></a>Configurare il linker per ASP.NET Core Blazor
 
 Blazor WebAssembly esegue il collegamento del [linguaggio intermedio (il)](/dotnet/standard/managed-code#intermediate-language--execution) durante una compilazione per eliminare il il non necessario dagli assembly di output dell'app. Il linker è disabilitato durante la compilazione nella configurazione di debug. Per abilitare il linker, le app devono essere compilate in configurazione versione. Quando si distribuiscono le app, è consigliabile creare in versione Blazor WebAssembly . 
 
@@ -126,7 +124,7 @@ Per controllare quali assembly I18N vengono conservati, impostare la `<BlazorWeb
 | `all`            | Tutti gli assembly inclusi |
 | `cjk`            | `I18N.CJK.dll`          |
 | `mideast`        | `I18N.MidEast.dll`      |
-| `none` (impostazione predefinita) | Nessuno                    |
+| `none` (impostazione predefinita) | nessuno                    |
 | `other`          | `I18N.Other.dll`        |
 | `rare`           | `I18N.Rare.dll`         |
 | `west`           | `I18N.West.dll`         |

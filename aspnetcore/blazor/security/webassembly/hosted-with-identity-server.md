@@ -19,16 +19,14 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/security/webassembly/hosted-with-identity-server
-ms.openlocfilehash: d35dd0acf626a6305f00e295e7918c82c7d6a912
-ms.sourcegitcommit: cc405f20537484744423ddaf87bd1e7d82b6bdf0
+ms.openlocfilehash: c74711c10fe399718600f879c3d9151bfb1abd42
+ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98658703"
+ms.lasthandoff: 02/12/2021
+ms.locfileid: "100281010"
 ---
-# <a name="secure-an-aspnet-core-no-locblazor-webassembly-hosted-app-with-no-locidentity-server"></a>Proteggere un' Blazor WebAssembly app ospitata ASP.NET Core Identity con server
-
-Di [Javier Calvarro Nelson](https://github.com/javiercn) e [Luke Latham](https://github.com/guardrex)
+# <a name="secure-an-aspnet-core-blazor-webassembly-hosted-app-with-identity-server"></a>Proteggere un' Blazor WebAssembly app ospitata ASP.NET Core Identity con server
 
 Questo articolo illustra come creare un' [ Blazor WebAssembly app ospitata](xref:blazor/hosting-models#blazor-webassembly) che usa il [ Identity Server](https://identityserver.io/) per autenticare gli utenti e le chiamate API.
 
@@ -126,7 +124,6 @@ La `Startup` classe presenta le aggiunte seguenti.
   * Il middleware di autorizzazione consente le funzionalità di autorizzazione:
 
     ```csharp
-    app.UseAuthentication();
     app.UseAuthorization();
     ```
 
@@ -138,7 +135,7 @@ Specificare l'autorità emittente in modo esplicito durante la distribuzione nel
 
 Il <xref:Microsoft.Extensions.DependencyInjection.IdentityServerBuilderConfigurationExtensions.AddApiAuthorization%2A> metodo helper configura il [ Identity server](https://identityserver.io/) per gli scenari di ASP.NET Core. IdentityServer è un Framework potente ed estendibile per la gestione dei problemi di sicurezza delle app. IdentityIl server espone complessità non necessaria per gli scenari più comuni. Di conseguenza, viene fornito un set di convenzioni e opzioni di configurazione che consideriamo un valido punto di partenza. Una volta modificate le esigenze di autenticazione, è disponibile tutta la potenza del Identity Server per personalizzare l'autenticazione per soddisfare i requisiti di un'app.
 
-### <a name="addno-locidentityserverjwt"></a>Aggiungi Identity ServerJwt
+### <a name="addidentityserverjwt"></a>Aggiungi Identity ServerJwt
 
 Il <xref:Microsoft.AspNetCore.Authentication.AuthenticationBuilderExtensions.AddIdentityServerJwt%2A> metodo helper configura uno schema di criteri per l'app come gestore di autenticazione predefinito. Il criterio è configurato in modo da consentire Identity a di gestire tutte le richieste indirizzate a qualsiasi sottopercorso nello Identity spazio URL `/Identity` . <xref:Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler>Gestisce tutte le altre richieste. Inoltre, questo metodo:
 
@@ -147,7 +144,7 @@ Il <xref:Microsoft.AspNetCore.Authentication.AuthenticationBuilderExtensions.Add
 
 ### <a name="weatherforecastcontroller"></a>WeatherForecastController
 
-In `WeatherForecastController` ( `Controllers/WeatherForecastController.cs` ), l' [`[Authorize]`](xref:Microsoft.AspNetCore.Authorization.AuthorizeAttribute) attributo viene applicato alla classe. L'attributo indica che l'utente deve essere autorizzato in base ai criteri predefiniti per accedere alla risorsa. I criteri di autorizzazione predefiniti sono configurati per l'utilizzo dello schema di autenticazione predefinito, impostato da <xref:Microsoft.AspNetCore.Authentication.AuthenticationBuilderExtensions.AddIdentityServerJwt%2A> . Il metodo helper viene configurato <xref:Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler> come gestore predefinito per le richieste all'app.
+In `WeatherForecastController` ( `Controllers/WeatherForecastController.cs` ), l' [ `[Authorize]` attributo](xref:Microsoft.AspNetCore.Authorization.AuthorizeAttribute) viene applicato alla classe. L'attributo indica che l'utente deve essere autorizzato in base ai criteri predefiniti per accedere alla risorsa. I criteri di autorizzazione predefiniti sono configurati per l'utilizzo dello schema di autenticazione predefinito, impostato da <xref:Microsoft.AspNetCore.Authentication.AuthenticationBuilderExtensions.AddIdentityServerJwt%2A> . Il metodo helper viene configurato <xref:Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler> come gestore predefinito per le richieste all'app.
 
 ### <a name="applicationdbcontext"></a>ApplicationDbContext
 
@@ -374,7 +371,7 @@ services.AddDefaultIdentity<ApplicationUser>(options =>
     .AddEntityFrameworkStores<ApplicationDbContext>();
 ```
 
-### <a name="configure-no-locidentity-server"></a>Configura Identity Server
+### <a name="configure-identity-server"></a>Configura Identity Server
 
 Usare **uno** degli approcci seguenti:
 
