@@ -5,7 +5,7 @@ description: Informazioni su come usare l'API di configurazione per configurare 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/24/2020
+ms.date: 1/29/2021
 no-loc:
 - appsettings.json
 - ASP.NET Core Identity
@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 62c9d1a58e0f771d91e2bc57f39ec5ebb25baaed
-ms.sourcegitcommit: 37186f76e4a50d7fb7389026dd0e5e234b51ebb2
+ms.openlocfilehash: 0f069b049889f7caade493e238ac7a23db5e79af
+ms.sourcegitcommit: a49c47d5a573379effee5c6b6e36f5c302aa756b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99541368"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100536300"
 ---
 # <a name="configuration-in-aspnet-core"></a>Configurazione in ASP.NET Core
 
@@ -232,9 +232,30 @@ setx Logging__1__Name=ToConsole
 setx Logging__1__Level=Information
 ```
 
-### <a name="environment-variables-set-in-launchsettingsjson"></a>Variabili di ambiente impostate in launchSettings.js
+### <a name="environment-variables-set-in-generated-launchsettingsjson"></a>Variabili di ambiente impostate nella launchSettings.jsgenerata
 
-Le variabili di ambiente impostate in *launchSettings.jssu* sostituiscono quelle impostate nell'ambiente di sistema.
+Le variabili di ambiente impostate in *launchSettings.jssu* sostituiscono quelle impostate nell'ambiente di sistema. Ad esempio, i modelli Web ASP.NET Core generano una *launchSettings.jssu* file che imposta la configurazione dell'endpoint su:
+
+```json
+"applicationUrl": "https://localhost:5001;http://localhost:5000"
+```
+
+La configurazione `applicationUrl` di imposta la `ASPNETCORE_URLS` variabile di ambiente ed esegue l'override dei valori impostati nell'ambiente.
+
+### <a name="escape-environment-variables-on-linux"></a>Variabili di ambiente di escape in Linux
+
+In Linux, il valore delle variabili di ambiente URL deve essere preceduto da un carattere di escape, in modo `systemd` che possa analizzarlo. USA lo strumento Linux `systemd-escape` che produce `http:--localhost:5001`
+ 
+ ```cmd
+ groot@terminus:~$ systemd-escape http://localhost:5001
+ http:--localhost:5001
+ ```
+
+### <a name="display-environment-variables"></a>Visualizza variabili di ambiente
+
+Il codice seguente Visualizza le variabili di ambiente e i valori all'avvio dell'applicazione, che possono essere utili durante il debug delle impostazioni di ambiente:
+
+[!code-csharp[](~/fundamentals/configuration/index/samples_snippets/5.x/Program.cs?name=snippet)]
 
 <a name="clcp"></a>
 
@@ -556,6 +577,38 @@ Nel codice precedente, `config.AddInMemoryCollection(Dict)` viene aggiunto dopo 
 
 Vedere [associare una matrice](#boa) per un altro esempio di utilizzo di `MemoryConfigurationProvider` .
 
+::: moniker-end
+::: moniker range=">= aspnetcore-5.0"
+
+<a name="kestrel"></a>
+
+## <a name="kestrel-endpoint-configuration"></a>Configurazione dell'endpoint Kestrel
+
+La configurazione di endpoint specifici di Gheppio sostituisce tutte le configurazioni degli endpoint [tra server](xref:fundamentals/servers/index) . Le configurazioni degli endpoint tra server includono:
+
+  * [UseUrls](xref:fundamentals/host/web-host#server-urls)
+  * `--urls` dalla [riga di comando](xref:fundamentals/configuration/index#command-line)
+  * [Variabile di ambiente](xref:fundamentals/configuration/index#environment-variables)`ASPNETCORE_URLS`
+
+Si consideri il seguente *appsettings.json* file usato in un'app web ASP.NET Core:
+
+[!code-json[](~/fundamentals/configuration/index/samples_snippets/5.x/appsettings.json?highlight=2-8)]
+
+Quando il markup evidenziato precedente viene usato in un'app Web ASP.NET Core ***e*** l'app viene avviata nella riga di comando con la configurazione di endpoint tra server seguente:
+
+`dotnet run --urls="https://localhost:7777"`
+
+Il Gheppio viene associato all'endpoint configurato specificamente per gheppio nel *appsettings.json* file ( `https://localhost:9999` ) e non `https://localhost:7777` .
+
+Si consideri l'endpoint specifico di Gheppio configurato come variabile di ambiente:
+
+`set Kestrel__Endpoints__Https__Url=https://localhost:8888`
+
+Nella variabile di ambiente precedente `Https` è il nome dell'endpoint specifico del gheppio. Il *appsettings.json* file precedente definisce anche un endpoint specifico del gheppio denominato `Https` . Per [impostazione predefinita](#default-configuration), le variabili di ambiente che usano il [provider di configurazione delle variabili di ambiente](#evcp) vengono lette dopo *appSettings.* `Environment` *. JSON*, pertanto, viene usata la variabile di ambiente precedente per l' `Https` endpoint.
+
+::: moniker-end
+::: moniker range=">= aspnetcore-3.0"
+
 ## <a name="getvalue"></a>GetValue
 
 [`ConfigurationBinder.GetValue<T>`](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.GetValue*) estrae un singolo valore dalla configurazione con una chiave specificata e lo converte nel tipo specificato:
@@ -773,7 +826,7 @@ Prima che l'app venga configurata e avviata, viene configurato e avviato un *hos
 
 ## <a name="default-host-configuration"></a>Configurazione host predefinita
 
-Per informazioni dettagliate sulla configurazione predefinita quando viene usato l'[host Web](xref:fundamentals/host/web-host), vedere la [versione di questo argomento per ASP.NET Core 2.2](?view=aspnetcore-2.2).
+Per informazioni dettagliate sulla configurazione predefinita quando viene usato l'[host Web](xref:fundamentals/host/web-host), vedere la [versione di questo argomento per ASP.NET Core 2.2](?view=aspnetcore-2.2&preserve-view=true).
 
 * La configurazione dell'host viene specificata da:
   * Variabili di ambiente con prefisso `DOTNET_` (ad esempio, `DOTNET_ENVIRONMENT` ) utilizzando il [provider di configurazione delle variabili di ambiente](#environment-variables). Il prefisso (`DOTNET_`) viene rimosso al caricamento delle coppie chiave-valore della configurazione.

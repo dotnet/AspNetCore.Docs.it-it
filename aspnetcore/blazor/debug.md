@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/debug
-ms.openlocfilehash: aed9e800074dc72a2b55b816a2710722470cd7d1
-ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
+ms.openlocfilehash: 9214fa10a2bf7d53a4cb12263a3fa69bded84b29
+ms.sourcegitcommit: a49c47d5a573379effee5c6b6e36f5c302aa756b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2021
-ms.locfileid: "100280052"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100536233"
 ---
 # <a name="debug-aspnet-core-blazor-webassembly"></a>ASP.NET Core di debug Blazor WebAssembly
 
@@ -162,6 +162,8 @@ Per informazioni sull'uso di un percorso di base dell'app personalizzato per le 
 
 <h2 id="vscode">Debug autonomo Blazor WebAssembly</h2>
 
+Per informazioni sulla configurazione di asset VS Code nella `.vscode` cartella, vedere la guida del sistema operativo **Linux** in <xref:blazor/tooling> .
+
 1. Aprire l'app autonoma Blazor WebAssembly in vs code.
 
    È possibile che venga ricevuta una notifica che è necessaria un'installazione aggiuntiva per abilitare il debug:
@@ -197,6 +199,8 @@ Per informazioni sull'uso di un percorso di base dell'app personalizzato per le 
 1. Se non è impostata alcuna configurazione di avvio per il progetto, viene visualizzata la notifica seguente. Selezionare **Sì**.
 
    > Gli asset necessari per la compilazione e il debug non sono presenti in ' {nome applicazione}'. e se si vuole aggiungerle.
+
+   Per informazioni sulla configurazione di asset VS Code nella `.vscode` cartella, vedere la guida del sistema operativo **Linux** in <xref:blazor/tooling> .
 
 1. Nel riquadro comandi nella parte superiore della finestra selezionare il progetto *Server* all'interno della soluzione ospitata.
 

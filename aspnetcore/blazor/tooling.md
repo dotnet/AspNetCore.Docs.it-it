@@ -5,7 +5,7 @@ description: Informazioni sugli strumenti disponibili per la compilazione di Bla
 monikerRange: '>= aspnetcore-3.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/28/2020
+ms.date: 02/11/2021
 no-loc:
 - appsettings.json
 - ASP.NET Core Identity
@@ -20,12 +20,12 @@ no-loc:
 - SignalR
 uid: blazor/tooling
 zone_pivot_groups: operating-systems
-ms.openlocfilehash: a17b16563ac12d634e6bdc32638991f45e2a66d5
-ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
+ms.openlocfilehash: 6b61d9a4645d273b0c78fae0388d569771c43a2d
+ms.sourcegitcommit: a49c47d5a573379effee5c6b6e36f5c302aa756b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2021
-ms.locfileid: "100280683"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100536246"
 ---
 # <a name="tooling-for-aspnet-core-blazor"></a>Strumenti per ASP.NET Core Blazor
 
@@ -49,6 +49,8 @@ ms.locfileid: "100280683"
 
 Per ulteriori informazioni su come considerare attendibile il certificato di sviluppo HTTPS ASP.NET Core, vedere <xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos> .
 
+Quando si esegue un'app ospitata Blazor WebAssembly , eseguire l'app dal progetto della soluzione **`Server`** .
+
 ::: zone-end
 
 ::: zone pivot="linux"
@@ -70,11 +72,11 @@ Per ulteriori informazioni su come considerare attendibile il certificato di svi
    ```
 
    Per un'esperienza ospitata Blazor WebAssembly , aggiungere l'opzione Hosted ( `-ho` o `--hosted` ) al comando:
-   
+
    ```dotnetcli
    dotnet new blazorwasm -o WebApplication1 -ho
    ```
-   
+
    Per un' Blazor Server esperienza, eseguire il comando seguente in una shell dei comandi:
 
    ```dotnetcli
@@ -86,6 +88,57 @@ Per ulteriori informazioni su come considerare attendibile il certificato di svi
 1. Aprire la cartella `WebApplication1` in Visual Studio Code.
 
 1. Le richieste dell'IDE aggiungono risorse per compilare ed eseguire il debug del progetto. Selezionare **Sì**.
+
+   **Blazor WebAssemblyAvvio e configurazione attività ospitate**
+
+   Per le Blazor WebAssembly soluzioni ospitate, aggiungere (o spostare) la `.vscode` cartella con i `launch.json` file e nella `tasks.json` cartella padre della soluzione, ovvero la cartella che contiene i nomi tipici delle cartelle di progetto `Client` , `Server` e `Shared` . Aggiornare o verificare che la configurazione nei `launch.json` file e `tasks.json` esegua un'app ospitata Blazor WebAssembly dal **`Server`** progetto.
+
+   **`.vscode/launch.json`** ( `launch` configurazione):
+
+   ```json
+   ...
+   "cwd": "${workspaceFolder}/{SERVER APP FOLDER}",
+   ...
+   ```
+
+   Nella configurazione precedente per la directory di lavoro corrente ( `cwd` ), il `{SERVER APP FOLDER}` segnaposto è la **`Server`** cartella del progetto, in genere " `Server` ".
+
+   Se viene usato Microsoft Edge e Google Chrome non è installato nel sistema, aggiungere una proprietà aggiuntiva di `"browser": "edge"` alla configurazione.
+
+   Esempio per una cartella di progetto di `Server` e che genera Microsoft Edge come browser per le esecuzioni di debug anziché il browser predefinito Google Chrome:
+
+   ```json
+   ...
+   "cwd": "${workspaceFolder}/Server",
+   "browser": "edge"
+   ...
+   ```
+
+   **`.vscode/tasks.json`**(argomenti del [ `dotnet` comando](/dotnet/core/tools/dotnet) ):
+
+   ```json
+   ...
+   "${workspaceFolder}/{SERVER APP FOLDER}/{PROJECT NAME}.csproj",
+   ...
+   ```
+
+   Nell'argomento precedente:
+
+   * Il `{SERVER APP FOLDER}` segnaposto è la **`Server`** cartella del progetto, in genere " `Server` ".
+   * Il `{PROJECT NAME}` segnaposto è il nome dell'app, in genere in base al nome della soluzione seguito da " `.Server` " in un'app generata dal Blazor modello di progetto.
+
+   Nell'esempio seguente dell' [esercitazione per l'uso di SignalR con un' Blazor WebAssembly app](xref:tutorials/signalr-blazor) viene usato il nome della cartella del progetto `Server` e il nome di un progetto `BlazorWebAssemblySignalRApp.Server` :
+
+   ```json
+   ...
+   "args": [
+     "build",
+       "${workspaceFolder}/Server/BlazorWebAssemblySignalRApp.Server.csproj",
+       "/property:GenerateFullPaths=true",
+       "/consoleloggerparameters:NoSummary"
+   ],
+   ...
+   ```
 
 1. Premere <kbd>CTRL</kbd> + <kbd>F5</kbd> per eseguire l'app.
 
@@ -122,6 +175,8 @@ Per ulteriori informazioni, vedere le indicazioni fornite dal produttore del bro
 1. Selezionare **Esegui**  >  **Avvia senza eseguire debug** per eseguire l'app *senza il debugger*. Eseguire l'app con **Esegui**  >  **debug Avvia debug** o il pulsante Esegui (&#9654;) per eseguire l'app *con il debugger*.
 
 Se viene visualizzato un messaggio per considerare attendibile il certificato di sviluppo, considerare attendibile il certificato e continuare. Per considerare attendibile il certificato, è necessario specificare le password dell'utente e del keychain. Per ulteriori informazioni su come considerare attendibile il certificato di sviluppo HTTPS ASP.NET Core, vedere <xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos> .
+
+Quando si esegue un'app ospitata Blazor WebAssembly , eseguire l'app dal progetto della soluzione **`Server`** .
 
 ::: zone-end
 

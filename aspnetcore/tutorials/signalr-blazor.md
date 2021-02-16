@@ -20,12 +20,12 @@ no-loc:
 - SignalR
 uid: tutorials/signalr-blazor
 zone_pivot_groups: blazor-hosting-models
-ms.openlocfilehash: 355db5ad5462747be0058096bc0132ed1071f290
-ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
+ms.openlocfilehash: f4e51b39c4c3b0c444b08025e9bd74eec0747541
+ms.sourcegitcommit: a49c47d5a573379effee5c6b6e36f5c302aa756b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2021
-ms.locfileid: "100280988"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100536378"
 ---
 # <a name="use-aspnet-core-signalr-with-blazor"></a>Usare ASP.NET Core SignalR con Blazor
 
@@ -134,7 +134,7 @@ Seguire le istruzioni per la scelta degli strumenti:
    dotnet new blazorwasm -ho -o BlazorWebAssemblySignalRApp
    ```
 
-   L' `-ho|--hosted` opzione Crea una soluzione ospitata Blazor WebAssembly .
+   L' `-ho|--hosted` opzione Crea una soluzione ospitata Blazor WebAssembly . Per informazioni sulla configurazione di asset VS Code nella `.vscode` cartella, vedere la guida del sistema operativo **Linux** in <xref:blazor/tooling> .
 
    L' `-o|--output` opzione Crea una cartella per la soluzione. Se è stata creata una cartella per la soluzione e la shell dei comandi è aperta in tale cartella, omettere l' `-o|--output` opzione e il valore per creare la soluzione.
 
@@ -378,6 +378,8 @@ Seguire le istruzioni per gli strumenti:
 
 # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
+Per informazioni sulla configurazione di asset VS Code nella `.vscode` cartella, vedere la guida del sistema operativo **Linux** in <xref:blazor/tooling> .
+
 1. Premere <kbd>F5</kbd> per eseguire l'app con il debug o <kbd>CTRL</kbd> + <kbd>F5</kbd> per eseguire l'app senza debug.
 
 1. Copiare l'URL dalla barra degli indirizzi, aprire un'altra istanza o scheda del browser e incollare l'URL nella barra degli indirizzi.
@@ -465,7 +467,7 @@ Seguire le istruzioni per la scelta degli strumenti:
 
 1. In Visual Studio Code aprire la cartella del progetto dell'app.
 
-1. Quando viene visualizzata la finestra di dialogo per aggiungere asset per compilare ed eseguire il debug dell'app, selezionare **Sì**. Visual Studio Code aggiunge automaticamente la `.vscode` cartella con `launch.json` `tasks.json` i file e generati.
+1. Quando viene visualizzata la finestra di dialogo per aggiungere asset per compilare ed eseguire il debug dell'app, selezionare **Sì**. Visual Studio Code aggiunge automaticamente la `.vscode` cartella con `launch.json` `tasks.json` i file e generati. Per informazioni sulla configurazione di asset VS Code nella `.vscode` cartella, vedere la guida del sistema operativo **Linux** in <xref:blazor/tooling> .
 
 # <a name="visual-studio-for-mac"></a>[Visual Studio per Mac](#tab/visual-studio-mac)
 

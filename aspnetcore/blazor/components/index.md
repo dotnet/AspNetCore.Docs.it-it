@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/components/index
-ms.openlocfilehash: 823c24620b369874fdbc3e314b5b08952df83c8b
-ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
+ms.openlocfilehash: 7b4438b4003916488c17d389b9817b5e09d1086c
+ms.sourcegitcommit: a49c47d5a573379effee5c6b6e36f5c302aa756b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2021
-ms.locfileid: "100280111"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100536220"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Creazione e utilizzo di Razor componenti ASP.NET Core
 
@@ -285,16 +285,168 @@ Nell'esempio seguente dall'app di esempio, `ParentComponent` imposta il valore d
 
 [!code-razor[](index/samples_snapshot/ParentComponent.razor?highlight=5-6)]
 
-Per convenzione, un valore di attributo costituito da codice C# viene assegnato a un parametro usando [ Razor il `@` simbolo riservato](xref:mvc/views/razor#razor-syntax):
+Assegnare i campi, le proprietà e i metodi C# ai parametri del componente come valori di attributo HTML usando [ Razor il `@` simbolo riservato](xref:mvc/views/razor#razor-syntax):
 
-* Campo o proprietà padre: `Title="@{FIELD OR PROPERTY}` , dove il segnaposto `{FIELD OR PROPERTY}` è un campo o una proprietà C# del componente padre.
-* Risultato di un metodo: `Title="@{METHOD}"` , dove il segnaposto `{METHOD}` è un metodo C# del componente padre.
-* [Espressione implicita o esplicita](xref:mvc/views/razor#implicit-razor-expressions): `Title="@({EXPRESSION})"` , dove il segnaposto `{EXPRESSION}` è un'espressione C#.
+* Per assegnare il campo, la proprietà o il metodo di un componente padre al parametro di un componente figlio, anteporre il simbolo al nome del campo, della proprietà o del metodo `@` . Per assegnare il risultato di un' [espressione C# implicita](xref:mvc/views/razor#implicit-razor-expressions) a un parametro, anteporre l'espressione implicita a un `@` simbolo.
+
+  Il componente padre seguente visualizza quattro istanze del componente precedente `ChildComponent` e imposta i relativi `Title` valori di parametro su:
+
+  * Valore del `title` campo.
+  * Risultato del `GetTitle` Metodo C#.
+  * Data locale corrente in formato lungo con <xref:System.DateTime.ToLongDateString%2A> .
+  * `person`Proprietà dell'oggetto `Name` .
+
+  `Pages/ParentComponent.razor`:
+  
+  ```razor
+  <ChildComponent Title="@title">
+      Title from field.
+  </ChildComponent>
+  
+  <ChildComponent Title="@GetTitle()">
+      Title from method.
+  </ChildComponent>
+  
+  <ChildComponent Title="@DateTime.Now.ToLongDateString()">
+      Title from implicit Razor expression.
+  </ChildComponent>
+  
+  <ChildComponent Title="@person.Name">
+      Title from implicit Razor expression.
+  </ChildComponent>
+  
+  @code {
+      private string title = "Panel Title from Parent";
+      private Person person = new Person();
+      
+      private string GetTitle()
+      {
+          return "Panel Title from Parent";
+      }
+      
+      private class Person
+      {
+          public string Name { get; set; } = "Dr. Who";
+      }
+  }
+  ```
+  
+  Diversamente da Razor pages ( `.cshtml` ), Blazor non è in grado di eseguire operazioni asincrone in un' Razor espressione durante il rendering di un componente. Questo è dovuto Blazor al fatto che è progettato per il rendering di interfacce utente interattive. In un'interfaccia utente interattiva, la schermata deve sempre visualizzare qualcosa, quindi non ha senso bloccare il flusso di rendering. Al contrario, il lavoro asincrono viene eseguito durante uno degli [eventi del ciclo](xref:blazor/components/lifecycle)di vita asincroni. Dopo ogni evento del ciclo di vita asincrono, il componente può eseguire di nuovo il rendering. La Razor sintassi seguente **non** è supportata:
+  
+  ```razor
+  <ChildComponent Title="@await ...">
+      ...
+  </ChildComponent>
+  ```
+  
+  Il codice nell'esempio precedente genera un *errore del compilatore* se l'app viene compilata:
+  
+  > L'operatore ' await ' può essere utilizzato solo all'interno di un metodo asincrono. Provare a contrassegnare questo metodo con il modificatore ' async ' e modificare il tipo restituito in ' Task '.
+
+  Per ottenere un valore per il `Title` parametro nell'esempio precedente asincrono, il componente può usare l' [ `OnInitializedAsync` evento del ciclo](xref:blazor/components/lifecycle#component-initialization-methods)di vita, come illustrato nell'esempio seguente:
+  
+  ```razor
+  <ChildComponent Title="@title">
+      Title from implicit Razor expression.
+  </ChildComponent>
+  
+  @code {
+      private string title;
+      
+      protected override async Task OnInitializedAsync()
+      {
+          title = await ...;
+      }
+  }
+  ```
+  
+* Per assegnare il risultato di un' [espressione C# esplicita](xref:mvc/views/razor#explicit-razor-expressions) nel componente padre al parametro di un componente figlio, racchiudere l'espressione tra parentesi con un `@` prefisso di simbolo.
+
+  Il componente figlio seguente dispone di un <xref:System.DateTime> parametro component, `ShowItemsSinceDate` .
+  
+  `Shared/ChildComponent.razor`:
+  
+  ```razor
+  <div class="panel panel-default">
+      <div class="panel-heading">Explicit DateTime Expression Example</div>
+      <div class="panel-body">
+          <p>@ChildContent</p>
+          <p>One week ago date: @ShowItemsSinceDate</p>
+      </div>
+  </div>
+
+  @code {
+      [Parameter]
+      public DateTime ShowItemsSinceDate { get; set; }
+
+      [Parameter]
+      public RenderFragment ChildContent { get; set; }
+  }
+  ```
+  
+  Il componente padre seguente calcola una data con un'espressione C# esplicita che è una settimana nel passato per l'assegnazione al parametro del figlio `ShowItemsSinceDate` .
+  
+  `Pages/ParentComponent.razor`:
+
+  ```razor
+  <ChildComponent ShowItemsSinceDate="@(DateTime.Now - TimeSpan.FromDays(7))">
+      Title from explicit Razor expression.
+  </ChildComponent>
+  ```
+
+  L'utilizzo di un'espressione esplicita per concatenare il testo con il risultato di un'espressione per l'assegnazione a un parametro **non** è supportato. Nell'esempio seguente viene cercata la concatenazione del testo "SKU-" con un numero di scorte del prodotto ( `SKU` proprietà, "Stock Keeping Unit") fornito dall'oggetto di un componente padre `product` . Sebbene questa sintassi sia supportata in una Razor pagina ( `.cshtml` ), non è valida per l'assegnazione al parametro del figlio `Title` .
+  
+  ```razor
+  <ChildComponent Title="SKU-@(product.SKU)">
+      Title from composed Razor expression. This doesn't compile.
+  </ChildComponent>
+  ```
+  
+  Il codice nell'esempio precedente genera un *errore del compilatore* se l'app viene compilata:
+  
+  > Gli attributi componente non supportano contenuto complesso (C# misto e markup).
+  
+  Per supportare l'assegnazione di un valore composto, usare un metodo, un campo o una proprietà. Nell'esempio seguente viene eseguita la concatination di "SKU-" e il numero di azioni di un prodotto nel metodo C# `GetTitle` :
+  
+  ```razor
+  <ChildComponent Title="@GetTitle()">
+      Composed title from method.
+  </ChildComponent>
+  
+  @code {
+      private Product product = new Product();
+
+      private string GetTitle() => $"SKU-{product.SKU}";
+      
+      private class Product
+      {
+          public string SKU { get; set; } = "12345";
+      }
+  }
+  ```
   
 Per ulteriori informazioni, vedere [ Razor riferimento alla sintassi per ASP.NET Core](xref:mvc/views/razor).
 
 > [!WARNING]
 > Non creare componenti che scrivono nei propri *parametri del componente*, usare invece un campo privato. Per ulteriori informazioni, vedere la sezione [parametri sovrascritti](#overwritten-parameters) .
+
+#### <a name="component-parameters-should-be-auto-properties"></a>I parametri dei componenti devono essere proprietà automatiche
+
+I parametri dei componenti devono essere dichiarati come *proprietà automatiche*, vale a dire che non devono contenere la logica personalizzata nei relativi Getter o Setter. Ad esempio, la `StartData` proprietà seguente è una proprietà automatica:
+
+```csharp
+[Parameter]
+public DateTime StartData { get; set; }
+```
+
+Non inserire logica personalizzata nella `get` funzione di `set` accesso o perché i parametri del componente sono destinati esclusivamente all'uso come canale per un componente padre per il flusso di informazioni a un componente figlio. Se un setter di una proprietà del componente figlio contiene la logica che causa il rendering del componente padre, viene restituito un ciclo di rendering infinito.
+
+Se è necessario trasformare un valore di parametro ricevuto:
+
+* Lasciare la proprietà del parametro come proprietà automatica pura per rappresentare i dati non elaborati forniti.
+* Creare un'altra proprietà o metodo che fornisca i dati trasformati in base alla proprietà del parametro.
+
+È possibile eseguire l'override `OnParametersSetAsync` di se si desidera trasformare un parametro ricevuto ogni volta che vengono ricevuti nuovi dati.
 
 ## <a name="child-content"></a>Contenuto figlio
 
