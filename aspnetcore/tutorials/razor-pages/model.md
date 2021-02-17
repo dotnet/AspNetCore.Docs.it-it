@@ -19,14 +19,14 @@ no-loc:
 - Razor
 - SignalR
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 7ea28e0ecad410335c37c603c8ec1eb5e6e41d33
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.openlocfilehash: 92bfda330399b43871b3ae0e6b609726f7ad4a91
+ms.sourcegitcommit: f77a7467651bab61b24261da9dc5c1dd75fc1fa9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97485992"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100564048"
 ---
-# <a name="part-2-add-a-model-to-a-no-locrazor-pages-app-in-aspnet-core"></a>Parte 2, aggiungere un modello a un' Razor app di pagine in ASP.NET Core
+# <a name="part-2-add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Parte 2, aggiungere un modello a un' Razor app di pagine in ASP.NET Core
 
 Autore: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -161,7 +161,7 @@ In questa sezione viene eseguito lo scaffolding del modello *Movie*. Lo strument
 1. Completare la finestra di dialogo **Aggiungi Razor pagine con Entity Framework (CRUD)** :
    1. Nell'elenco a discesa **classe modello** selezionare **Movie ( Razor PagesMovie. Models)**.
    1. Nella riga **Classe contesto di dati** selezionare il segno più **+**.
-      1. Nella finestra di dialogo **Aggiungi contesto dati** il nome della classe *Razor PagesMovie. Data. Razor* Viene generato PagesMovieContext.
+      1. Nella finestra di dialogo **Aggiungi contesto dati** viene generato il nome della classe `RazorPagesMovie.Data.RazorPagesMovieContext` .
    1. Selezionare **Aggiungi**.
 
    ![Immagine relativa alle istruzioni precedenti.](model/_static/3/arp.png)
@@ -226,7 +226,7 @@ Quando si seleziona SQLite, il codice generato dal modello è pronto per lo svil
    ![Immagine relativa alle istruzioni precedenti.](model/_static/add_scaffoldMac.png)
 
 1. Completare la finestra di dialogo **Aggiungi Razor pagine con Entity Framework (CRUD)** :
-   1. Nella **classe DbContext da usare:** Row, denominare la classe *Razor PagesMovie. Data. Razor PagesMovieContext*.
+   1. Nella **classe DbContext da usare:** Row, assegnare un nome alla classe `RazorPagesMovie.Data.RazorPagesMovieContext` .
    1. Selezionare **Fine**.
 
    ![Immagine relativa alle istruzioni precedenti.](model/_static/5/arpMac.png)

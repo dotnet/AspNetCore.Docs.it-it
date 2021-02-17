@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: test/troubleshoot-azure-iis
-ms.openlocfilehash: d51a4a43f585b0a0b7e3aab2c5de1b2d215de494
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.openlocfilehash: a8bb659a72e8370c31cc9c213689399e74f11b5c
+ms.sourcegitcommit: f77a7467651bab61b24261da9dc5c1dd75fc1fa9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "93059598"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100564067"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service-and-iis"></a>Risolvere i problemi relativi a ASP.NET Core in app Azure servizio e IIS
 
@@ -67,7 +67,7 @@ L'errore è in genere causato da una distribuzione interruppe sul sistema host, 
 * Il processo di distribuzione non è riuscito a spostare tutti i file e le cartelle dell'app nella cartella di distribuzione nel sistema di hosting.
 * Il file di *web.config* non è presente nella distribuzione oppure il contenuto del file di *web.config* non è valido.
 
-Effettuare i passaggi seguenti:
+Eseguire la procedura seguente:
 
 1. Eliminare tutti i file e le cartelle dalla cartella di distribuzione nel sistema di hosting.
 1. Ridistribuire il contenuto della cartella di *pubblicazione* dell'app nel sistema host usando il normale metodo di distribuzione, ad esempio Visual Studio, PowerShell o la distribuzione manuale:
@@ -321,6 +321,8 @@ Il log stdout del modulo ASP.NET Core spesso registra utili messaggi di errore n
 Disabilitare la registrazione stdout quando la risoluzione dei problemi è stata completata impostando `stdoutLogEnabled="false"` .
 
 Per altre informazioni, vedere <xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection>.
+
+<a name="enhanced-diagnostic-logs"></a>
 
 ### <a name="aspnet-core-module-debug-log-azure-app-service"></a>Log di debug del modulo ASP.NET Core (servizio app Azure)
 
@@ -632,7 +634,7 @@ L'errore è in genere causato da una distribuzione interruppe sul sistema host, 
 * Il processo di distribuzione non è riuscito a spostare tutti i file e le cartelle dell'app nella cartella di distribuzione nel sistema di hosting.
 * Il file di *web.config* non è presente nella distribuzione oppure il contenuto del file di *web.config* non è valido.
 
-Effettuare i passaggi seguenti:
+Eseguire la procedura seguente:
 
 1. Eliminare tutti i file e le cartelle dalla cartella di distribuzione nel sistema di hosting.
 1. Ridistribuire il contenuto della cartella di *pubblicazione* dell'app nel sistema host usando il normale metodo di distribuzione, ad esempio Visual Studio, PowerShell o la distribuzione manuale:
@@ -1125,7 +1127,7 @@ L'errore è in genere causato da una distribuzione interruppe sul sistema host, 
 * Il processo di distribuzione non è riuscito a spostare tutti i file e le cartelle dell'app nella cartella di distribuzione nel sistema di hosting.
 * Il file di *web.config* non è presente nella distribuzione oppure il contenuto del file di *web.config* non è valido.
 
-Effettuare i passaggi seguenti:
+Eseguire la procedura seguente:
 
 1. Eliminare tutti i file e le cartelle dalla cartella di distribuzione nel sistema di hosting.
 1. Ridistribuire il contenuto della cartella di *pubblicazione* dell'app nel sistema host usando il normale metodo di distribuzione, ad esempio Visual Studio, PowerShell o la distribuzione manuale:

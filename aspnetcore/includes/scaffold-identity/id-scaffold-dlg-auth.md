@@ -1,19 +1,39 @@
+---
+no-loc:
+- appsettings.json
+- ASP.NET Core Identity
+- cookie
+- Cookie
+- Blazor
+- Blazor Server
+- Blazor WebAssembly
+- Identity
+- Let's Encrypt
+- Razor
+- SignalR
+ms.openlocfilehash: 1161f7731898221e51a4c7f9f246269b83c6ae80
+ms.sourcegitcommit: a49c47d5a573379effee5c6b6e36f5c302aa756b
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100551363"
+---
 ::: moniker range=">= aspnetcore-3.0"
 
-Eseguire l'impalcatura delle identità:
+Eseguire l' Identity impalcatura:
 
 # <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Da **Esplora soluzioni**, fare clic con il pulsante destro del mouse sul progetto > **Aggiungi** > **nuovo elemento con impalcatura**.
 * Dal riquadro sinistro della finestra di dialogo **Aggiungi impalcatura** selezionare **Identity** > **Aggiungi**.
-* Nella finestra di dialogo **Aggiungi identità** selezionare le opzioni desiderate.
-  * Selezionare la pagina layout esistente in modo che il file di layout non venga sovrascritto con un markup errato. Quando si seleziona un file * \_ layout. cshtml* esistente, questo **non** viene sovrascritto. Ad esempio:
-    * `~/Pages/Shared/_Layout.cshtml`per progetti server Razor Pages o blazer con infrastruttura Razor Pages esistente
-    * `~/Views/Shared/_Layout.cshtml`per progetti MVC o progetti server Blazer con l'infrastruttura MVC esistente
+* Nella finestra di dialogo **Aggiungi Identity** Selezionare le opzioni desiderate.
+  * Selezionare la pagina layout esistente in modo che il file di layout non venga sovrascritto con un markup errato. Quando si seleziona un file *\_ layout. cshtml* esistente, questo **non** viene sovrascritto. Ad esempio:
+    * `~/Pages/Shared/_Layout.cshtml` per Razor pagine o Blazor Server progetti con Razor infrastruttura di pagine esistenti
+    * `~/Views/Shared/_Layout.cshtml` per progetti MVC o Blazor Server progetti con infrastruttura MVC esistente
 * Per usare il contesto dei dati esistente, selezionare almeno un file di cui eseguire l'override. È necessario selezionare almeno un file per aggiungere il contesto dei dati.
   * Selezionare la classe del contesto dati.
   * Selezionare **Aggiungi**.
-* Per creare un nuovo contesto utente ed eventualmente creare una classe utente personalizzata per l'identità:
+* Per creare un nuovo contesto utente ed eventualmente creare una classe utente personalizzata per Identity :
   * Selezionare il **+** pulsante per creare una nuova **classe del contesto dati**. Accettare il valore predefinito o specificare una classe (ad esempio, `MyApplication.Data.ApplicationDbContext` ).
   * Selezionare **Aggiungi**.
 
@@ -27,7 +47,7 @@ Se in precedenza non è stato installato il ASP.NET Core impalcatura, installarl
 dotnet tool install -g dotnet-aspnet-codegenerator
 ```
 
-Aggiungere i riferimenti ai pacchetti NuGet necessari al file di progetto (con*estensione csproj*). Eseguire i comandi seguenti nella directory del progetto:
+Aggiungere i riferimenti ai pacchetti NuGet necessari al file di progetto (con *estensione csproj*). Eseguire i comandi seguenti nella directory del progetto:
 
 ```dotnetcli
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
@@ -38,7 +58,7 @@ dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 dotnet add package Microsoft.EntityFrameworkCore.Tools
 ```
 
-Eseguire il comando seguente per elencare le opzioni dell'impalcatura di identità:
+Eseguire il comando seguente per elencare le Identity Opzioni dell'impalcatura:
 
 ```dotnetcli
 dotnet aspnet-codegenerator identity -h
@@ -46,7 +66,7 @@ dotnet aspnet-codegenerator identity -h
 
 [!INCLUDE[](~/includes/scaffoldTFM.md)]
 
-Nella cartella del progetto eseguire l'impalcatura di identità con le opzioni desiderate. Ad esempio, per configurare Identity con l'interfaccia utente predefinita e il numero minimo di file, eseguire il comando seguente. Usare il nome completo corretto per il contesto del database:
+Nella cartella del progetto eseguire l' Identity impalcatura con le opzioni desiderate. Ad esempio, per configurare Identity con l'interfaccia utente predefinita e il numero minimo di file, eseguire il comando seguente. Usare il nome completo corretto per il contesto del database:
 
 ```dotnetcli
 dotnet aspnet-codegenerator identity -dc MyApplication.Data.ApplicationDbContext --files "Account.Register;Account.Login"
@@ -58,7 +78,7 @@ PowerShell usa il punto e virgola come separatore di comandi. Quando si usa Powe
 dotnet aspnet-codegenerator identity -dc MyApplication.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout"
 ```
 
-Se si esegue l'impalcatura delle identità senza specificare il `--files` flag o il `--useDefaultUI` flag, tutte le pagine dell'interfaccia utente di identità disponibili verranno create nel progetto.
+Se si esegue l' Identity impalcatura senza specificare il `--files` flag o il `--useDefaultUI` flag, Identity verranno create tutte le pagine dell'interfaccia utente disponibili nel progetto.
 
 ---
 
@@ -66,20 +86,20 @@ Se si esegue l'impalcatura delle identità senza specificare il `--files` flag o
 
 ::: moniker range="< aspnetcore-3.0"
 
-Eseguire l'impalcatura delle identità:
+Eseguire l' Identity impalcatura:
 
 # <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Da **Esplora soluzioni**, fare clic con il pulsante destro del mouse sul progetto > **Aggiungi** > **nuovo elemento con impalcatura**.
 * Dal riquadro sinistro della finestra di dialogo **Aggiungi impalcatura** selezionare **Identity** > **Aggiungi**.
-* Nella finestra di dialogo **Aggiungi identità** selezionare le opzioni desiderate.
-  * Selezionare la pagina layout esistente. in alternativa, il file di layout verrà sovrascritto con un markup errato. Quando si seleziona un file * \_ layout. cshtml* esistente, questo **non** viene sovrascritto. Ad esempio:
-    * `~/Pages/Shared/_Layout.cshtml`per Razor Pages
-    * `~/Views/Shared/_Layout.cshtml`per i progetti MVC
+* Nella finestra di dialogo **Aggiungi Identity** Selezionare le opzioni desiderate.
+  * Selezionare la pagina layout esistente. in alternativa, il file di layout verrà sovrascritto con un markup errato. Quando si seleziona un file *\_ layout. cshtml* esistente, questo **non** viene sovrascritto. Ad esempio:
+    * `~/Pages/Shared/_Layout.cshtml` per le Razor pagine
+    * `~/Views/Shared/_Layout.cshtml` per i progetti MVC
 * Per usare il contesto dei dati esistente, selezionare almeno un file di cui eseguire l'override. È necessario selezionare almeno un file per aggiungere il contesto dei dati.
   * Selezionare la classe del contesto dati.
   * Selezionare **Aggiungi**.
-* Per creare un nuovo contesto utente ed eventualmente creare una classe utente personalizzata per l'identità:
+* Per creare un nuovo contesto utente ed eventualmente creare una classe utente personalizzata per Identity :
   * Selezionare il **+** pulsante per creare una nuova **classe del contesto dati**. Accettare il valore predefinito o specificare una classe (ad esempio, `MyApplication.Data.ApplicationDbContext` ).
   * Selezionare **Aggiungi**.
 
@@ -93,20 +113,20 @@ Se in precedenza non è stato installato il ASP.NET Core impalcatura, installarl
 dotnet tool install -g dotnet-aspnet-codegenerator
 ```
 
-Aggiungere un riferimento al pacchetto [Microsoft. VisualStudio. Web. CodeGeneration. Design](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Design/) al file di progetto (con*estensione csproj*). Eseguire i comandi seguenti nella directory del progetto:
+Aggiungere un riferimento al pacchetto [Microsoft. VisualStudio. Web. CodeGeneration. Design](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Design/) al file di progetto (con *estensione csproj*). Eseguire i comandi seguenti nella directory del progetto:
 
 ```dotnetcli
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet restore
 ```
 
-Eseguire il comando seguente per elencare le opzioni dell'impalcatura di identità:
+Eseguire il comando seguente per elencare le Identity Opzioni dell'impalcatura:
 
 ```dotnetcli
 dotnet aspnet-codegenerator identity -h
 ```
 
-Nella cartella del progetto eseguire l'impalcatura di identità con le opzioni desiderate. Ad esempio, per configurare Identity con l'interfaccia utente predefinita e il numero minimo di file, eseguire il comando seguente. Usare il nome completo corretto per il contesto del database:
+Nella cartella del progetto eseguire l' Identity impalcatura con le opzioni desiderate. Ad esempio, per configurare Identity con l'interfaccia utente predefinita e il numero minimo di file, eseguire il comando seguente. Usare il nome completo corretto per il contesto del database:
 
 ```dotnetcli
 dotnet aspnet-codegenerator identity -dc MyApplication.Data.ApplicationDbContext --files "Account.Register;Account.Login"
@@ -118,7 +138,7 @@ PowerShell usa il punto e virgola come separatore di comandi. Quando si usa Powe
 dotnet aspnet-codegenerator identity -dc MyApplication.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout"
 ```
 
-Se si esegue l'impalcatura delle identità senza specificare il `--files` flag o il `--useDefaultUI` flag, tutte le pagine dell'interfaccia utente di identità disponibili verranno create nel progetto.
+Se si esegue l' Identity impalcatura senza specificare il `--files` flag o il `--useDefaultUI` flag, Identity verranno create tutte le pagine dell'interfaccia utente disponibili nel progetto.
 
 ---
 

@@ -1,3 +1,23 @@
+---
+no-loc:
+- appsettings.json
+- ASP.NET Core Identity
+- cookie
+- Cookie
+- Blazor
+- Blazor Server
+- Blazor WebAssembly
+- Identity
+- Let's Encrypt
+- Razor
+- SignalR
+ms.openlocfilehash: e8791aee6dd6a16efc30d94133c197ff03333cc1
+ms.sourcegitcommit: a49c47d5a573379effee5c6b6e36f5c302aa756b
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100552020"
+---
 Se viene ricevuto un errore di impalcatura, verificare che il moniker del Framework di destinazione (TFM) corrisponda alla versione del pacchetto NuGet nel file di progetto. Ad esempio, il file di progetto seguente contiene la versione 3,1 per .NET Core e i pacchetti NuGet elencati:
 
 ```xml

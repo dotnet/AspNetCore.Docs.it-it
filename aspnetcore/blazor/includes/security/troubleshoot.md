@@ -1,3 +1,23 @@
+---
+no-loc:
+- appsettings.json
+- ASP.NET Core Identity
+- cookie
+- Cookie
+- Blazor
+- Blazor Server
+- Blazor WebAssembly
+- Identity
+- Let's Encrypt
+- Razor
+- SignalR
+ms.openlocfilehash: 4e7c0e9b0a164e0181af5d6baaedf0669c1c06aa
+ms.sourcegitcommit: a49c47d5a573379effee5c6b6e36f5c302aa756b
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100551986"
+---
 ## <a name="troubleshoot"></a>Risolvere problemi
 
 ::: moniker range=">= aspnetcore-5.0"
@@ -20,18 +40,18 @@
 
 ::: moniker-end
 
-### <a name="cookies-and-site-data"></a>Cookie e dati del sito
+### <a name="cookies-and-site-data"></a>Cookies e dati del sito
 
-I cookie e i dati del sito possono essere mantenuti tra gli aggiornamenti delle app e interferiscono con i test e la risoluzione Quando si apportano modifiche al codice dell'app, si cancellano le modifiche dell'account utente con il provider o le modifiche alla configurazione dell'app provider:
+Cookiee i dati del sito possono essere mantenuti tra gli aggiornamenti delle app e interferire con i test e la risoluzione dei problemi Quando si apportano modifiche al codice dell'app, si cancellano le modifiche dell'account utente con il provider o le modifiche alla configurazione dell'app provider:
 
-* Cookie di accesso utente
-* Cookie dell'app
+* Accesso utente cookie
+* App cookie s
 * Dati del sito memorizzati nella cache e archiviati
 
-Un approccio che impedisce ai cookie e ai dati del sito di interferire con i test e la risoluzione dei problemi consiste nel:
+Un approccio per impedire che i cookie dati del sito e di quelli persistenti interferiscano con i test e la risoluzione dei problemi sono:
 
 * Configurare un browser
-  * Utilizzare un browser per i test che è possibile configurare per eliminare tutti i cookie e i dati del sito ogni volta che il browser viene chiuso.
+  * Utilizzare un browser per i test che è possibile configurare per eliminare tutti i cookie dati di e del sito ogni volta che il browser viene chiuso.
   * Verificare che il browser sia chiuso manualmente o dall'IDE per qualsiasi modifica all'app, all'utente di test o alla configurazione del provider.
 * Usare un comando personalizzato per aprire un browser in modalità privata o in incognito in Visual Studio:
   * Aprire la finestra di dialogo **Sfoglia con** dal pulsante di **esecuzione** di Visual Studio.
@@ -51,7 +71,7 @@ Un approccio che impedisce ai cookie e ai dati del sito di interferire con i tes
 
 ### <a name="run-the-server-app"></a>Eseguire l'app Server
 
-Durante il test e la risoluzione dei problemi di un'app Blazer ospitata, assicurarsi di eseguire l'app dal **`Server`** progetto. Ad esempio, in Visual Studio verificare che il progetto server sia evidenziato in **Esplora soluzioni** prima di avviare l'app con uno degli approcci seguenti:
+Durante il test e la risoluzione dei problemi di un'app ospitata Blazor , assicurarsi di eseguire l'app dal **`Server`** progetto. Ad esempio, in Visual Studio verificare che il progetto server sia evidenziato in **Esplora soluzioni** prima di avviare l'app con uno degli approcci seguenti:
 
 * Selezionare il pulsante **Run** (Esegui).
 * Usare **debug**  >  **Avvia debug** dal menu.

@@ -1,4 +1,24 @@
-Mentre un'app del server blazer è prerendering, alcune azioni, ad esempio la chiamata a JavaScript, non sono possibili perché non è stata stabilita una connessione con il browser. I componenti potrebbero dover eseguire il rendering in modo diverso quando ne viene eseguito il rendering.
+---
+no-loc:
+- appsettings.json
+- ASP.NET Core Identity
+- cookie
+- Cookie
+- Blazor
+- Blazor Server
+- Blazor WebAssembly
+- Identity
+- Let's Encrypt
+- Razor
+- SignalR
+ms.openlocfilehash: c152524e0acd3803bd3b8078f667cce01180e25d
+ms.sourcegitcommit: a49c47d5a573379effee5c6b6e36f5c302aa756b
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100552773"
+---
+Mentre un' Blazor Server app è prerendering, alcune azioni, ad esempio la chiamata a JavaScript, non sono possibili perché non è stata stabilita una connessione con il browser. I componenti potrebbero dover eseguire il rendering in modo diverso quando ne viene eseguito il rendering.
 
 Per ritardare le chiamate di interoperabilità JavaScript finché non viene stabilita la connessione con il browser, è possibile usare l'evento del ciclo di vita del [componente OnAfterRenderAsync](xref:blazor/components/lifecycle#after-component-render). Questo evento viene chiamato solo dopo che viene eseguito il rendering completo dell'app e viene stabilita la connessione client.
 
@@ -22,7 +42,7 @@ Per ritardare le chiamate di interoperabilità JavaScript finché non viene stab
 }
 ```
 
-Per il codice di esempio precedente, fornire una `setElementText` funzione JavaScript all'interno dell' `<head>` elemento di `wwwroot/index.html` (webassembly Blazer) o `Pages/_Host.cshtml` (server Blazer). La funzione viene chiamata con <xref:Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync%2A?displayProperty=nameWithType> e non restituisce un valore:
+Per il codice di esempio precedente, fornire una `setElementText` funzione JavaScript all'interno dell' `<head>` elemento di `wwwroot/index.html` ( Blazor WebAssembly ) o `Pages/_Host.cshtml` ( Blazor Server ). La funzione viene chiamata con <xref:Microsoft.JSInterop.JSRuntimeExtensions.InvokeVoidAsync%2A?displayProperty=nameWithType> e non restituisce un valore:
 
 ```html
 <script>
@@ -31,7 +51,7 @@ Per il codice di esempio precedente, fornire una `setElementText` funzione JavaS
 ```
 
 > [!WARNING]
-> Nell'esempio precedente la Document Object Model (DOM) viene modificata direttamente a scopo dimostrativo. La modifica diretta del DOM con JavaScript non è consigliata nella maggior parte degli scenari perché JavaScript può interferire con il rilevamento delle modifiche di Blazer.
+> Nell'esempio precedente la Document Object Model (DOM) viene modificata direttamente a scopo dimostrativo. La modifica diretta del DOM con JavaScript non è consigliata nella maggior parte degli scenari perché JavaScript può interferire con Blazor il rilevamento delle modifiche.
 
 Nel componente seguente viene illustrato come utilizzare l'interoperabilità JavaScript come parte della logica di inizializzazione di un componente in modo che sia compatibile con il prerendering. Il componente indica che è possibile attivare un aggiornamento di rendering dall'interno di <xref:Microsoft.AspNetCore.Components.ComponentBase.OnAfterRenderAsync%2A> . Lo sviluppatore deve evitare di creare un ciclo infinito in questo scenario.
 
@@ -70,7 +90,7 @@ Set value via JS interop call:
 }
 ```
 
-Per il codice di esempio precedente, fornire una `setElementText` funzione JavaScript all'interno dell' `<head>` elemento di `wwwroot/index.html` (webassembly Blazer) o `Pages/_Host.cshtml` (server Blazer). La funzione viene chiamata con <xref:Microsoft.JSInterop.IJSRuntime.InvokeAsync%2A?displayProperty=nameWithType> e restituisce un valore:
+Per il codice di esempio precedente, fornire una `setElementText` funzione JavaScript all'interno dell' `<head>` elemento di `wwwroot/index.html` ( Blazor WebAssembly ) o `Pages/_Host.cshtml` ( Blazor Server ). La funzione viene chiamata con <xref:Microsoft.JSInterop.IJSRuntime.InvokeAsync%2A?displayProperty=nameWithType> e restituisce un valore:
 
 ```html
 <script>
@@ -82,4 +102,4 @@ Per il codice di esempio precedente, fornire una `setElementText` funzione JavaS
 ```
 
 > [!WARNING]
-> Nell'esempio precedente la Document Object Model (DOM) viene modificata direttamente a scopo dimostrativo. La modifica diretta del DOM con JavaScript non è consigliata nella maggior parte degli scenari perché JavaScript può interferire con il rilevamento delle modifiche di Blazer.
+> Nell'esempio precedente la Document Object Model (DOM) viene modificata direttamente a scopo dimostrativo. La modifica diretta del DOM con JavaScript non è consigliata nella maggior parte degli scenari perché JavaScript può interferire con Blazor il rilevamento delle modifiche.
