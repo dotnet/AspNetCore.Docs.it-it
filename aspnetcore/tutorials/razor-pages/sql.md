@@ -19,14 +19,14 @@ no-loc:
 - Razor
 - SignalR
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: 8c9d0d9c24e0ce81925ccde463bcf085531b665e
-ms.sourcegitcommit: 8b0e9a72c1599ce21830c843558a661ba908ce32
+ms.openlocfilehash: fa1060ae1a046a40d55e9fef4a094aa9e51a18af
+ms.sourcegitcommit: 422e8444b9f5cedc373be5efe8032822db54fcaf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98024736"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101101171"
 ---
-# <a name="part-4-of-tutorial-series-on-no-locrazor-pages"></a>Parte 4 della serie di esercitazioni sulle Razor pagine
+# <a name="part-4-of-tutorial-series-on-razor-pages"></a>Parte 4 della serie di esercitazioni sulle Razor pagine
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT) e [Joe Audette](https://twitter.com/joeaudette)
 
@@ -142,7 +142,7 @@ Nel codice precedente, il `Main` metodo è stato modificato per eseguire le oper
 
 * Ottenere un'istanza del contesto di database dal contenitore di inserimento delle dipendenze.
 * Chiamare il `seedData.Initialize` metodo passando all'istanza del contesto di database.
-* Eliminare il contesto dopo che il metodo di inizializzazione è stato completato. L' [istruzione using](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/using-statement) garantisce che il contesto venga eliminato.
+* Eliminare il contesto dopo che il metodo di inizializzazione è stato completato. L' [istruzione using](/dotnet/csharp/language-reference/keywords/using-statement) garantisce che il contesto venga eliminato.
 
 Quando `Update-Database` non è stato eseguito, si verifica l'eccezione seguente:
 
@@ -296,7 +296,7 @@ Nel codice precedente, il `Main` metodo è stato modificato per eseguire le oper
 
 * Ottenere un'istanza del contesto di database dal contenitore di inserimento delle dipendenze.
 * Chiamare il `seedData.Initialize` metodo passando all'istanza del contesto di database.
-* Eliminare il contesto dopo che il metodo di inizializzazione è stato completato. L' [istruzione using](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/using-statement) garantisce che il contesto venga eliminato.
+* Eliminare il contesto dopo che il metodo di inizializzazione è stato completato. L' [istruzione using](/dotnet/csharp/language-reference/keywords/using-statement) garantisce che il contesto venga eliminato.
 
 Quando `Update-Database` non è stato eseguito, si verifica l'eccezione seguente:
 
@@ -440,7 +440,7 @@ Nel codice precedente, il `Main` metodo è stato modificato per eseguire le oper
 
 * Ottenere un'istanza del contesto di database dal contenitore di inserimento delle dipendenze.
 * Chiamare il `seedData.Initialize` metodo passando all'istanza del contesto di database.
-* Eliminare il contesto dopo che il metodo di inizializzazione è stato completato. L' [istruzione using](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/using-statement) garantisce che il contesto venga eliminato.
+* Eliminare il contesto dopo che il metodo di inizializzazione è stato completato. L' [istruzione using](/dotnet/csharp/language-reference/keywords/using-statement) garantisce che il contesto venga eliminato.
 
 Un'app di produzione non chiamerà `Database.Migrate`. Sarà aggiunto al codice precedente per evitare l'eccezione seguente quando `Update-Database` non è stato eseguito:
 

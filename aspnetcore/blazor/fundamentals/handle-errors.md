@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/fundamentals/handle-errors
-ms.openlocfilehash: c1f859e0113d5bff65c7075ad1eb03088429174e
-ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
+ms.openlocfilehash: f7cac477e2c5bca54e24ae3faeadff9b51bdcd0f
+ms.sourcegitcommit: 422e8444b9f5cedc373be5efe8032822db54fcaf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2021
-ms.locfileid: "100279960"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101101061"
 ---
 # <a name="handle-errors-in-aspnet-core-blazor-apps"></a>Gestione degli errori nelle Blazor app ASP.NET Core
 
@@ -193,7 +193,17 @@ Nell'esempio seguente viene <xref:Microsoft.AspNetCore.Components.ComponentBase.
   * `loadFailed` è impostato su `true` , che viene utilizzato per visualizzare un messaggio di errore all'utente.
   * L'errore viene registrato.
 
-[!code-razor[](handle-errors/samples_snapshot/3.x/product-details.razor?highlight=11,27-39)]
+::: moniker range=">= aspnetcore-5.0"
+
+[!code-razor[](~/blazor/common/samples/5.x/BlazorSample_WebAssembly/Pages/handle-errors/ProductDetails.razor?name=snippet&highlight=11,27-39)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-5.0"
+
+[!code-razor[](~/blazor/common/samples/3.x/BlazorSample_WebAssembly/Pages/handle-errors/ProductDetails.razor?name=snippet&highlight=11,27-39)]
+
+::: moniker-end
 
 ### <a name="rendering-logic"></a>Logica di rendering
 
@@ -203,7 +213,17 @@ La logica di rendering può generare un'eccezione. Un esempio di questo scenario
 
 Per evitare un'eccezione di riferimento null nella logica di rendering, verificare la presenza di un `null` oggetto prima di accedere ai relativi membri. Nell'esempio seguente, `person.Address` non è possibile accedere alle proprietà se `person.Address` è `null` :
 
-[!code-razor[](handle-errors/samples_snapshot/3.x/person-example.razor?highlight=1)]
+::: moniker range=">= aspnetcore-5.0"
+
+[!code-razor[](~/blazor/common/samples/5.x/BlazorSample_WebAssembly/Pages/handle-errors/PersonExample.razor?name=snippet&highlight=1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-5.0"
+
+[!code-razor[](~/blazor/common/samples/3.x/BlazorSample_WebAssembly/Pages/handle-errors/PersonExample.razor?name=snippet&highlight=1)]
+
+::: moniker-end
 
 Il codice precedente presuppone che `person` non sia `null` . Spesso, la struttura del codice garantisce la presenza di un oggetto nel momento in cui viene eseguito il rendering del componente. In questi casi, non è necessario verificare la presenza di `null` nella logica di rendering. Nell'esempio precedente, `person` potrebbe essere garantito che esista perché `person` viene creato quando viene creata un'istanza del componente.
 

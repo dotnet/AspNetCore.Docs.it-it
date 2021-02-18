@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: tutorials/build-a-blazor-app
-ms.openlocfilehash: 939841ca7214e212a2f197ea1e00b0f6152c471e
-ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
+ms.openlocfilehash: d984023a1c46c5383d47a1634c54e61747b83d60
+ms.sourcegitcommit: 422e8444b9f5cedc373be5efe8032822db54fcaf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2021
-ms.locfileid: "100280512"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101101210"
 ---
 # <a name="build-a-blazor-todo-list-app"></a>Creare un' Blazor app elenco attività
 
@@ -117,7 +117,7 @@ Al termine di questa esercitazione, si disporrà di un'app elenco attività.
 
    Salvare il file.`Shared/NavMenu.razor`
 
-1. Compilare ed eseguire l'app eseguendo il [`dotnet watch run`](/aspnet/core/tutorials/dotnet-watch) comando nella shell dei comandi dalla `TodoList` cartella. Quando l'app è in esecuzione, visita la nuova pagina todo selezionando il **`Todo`** collegamento nella barra di spostamento dell'app, che carica la pagina in `/todo` .
+1. Compilare ed eseguire l'app eseguendo il [`dotnet watch run`](xref:tutorials/dotnet-watch) comando nella shell dei comandi dalla `TodoList` cartella. Quando l'app è in esecuzione, visita la nuova pagina todo selezionando il **`Todo`** collegamento nella barra di spostamento dell'app, che carica la pagina in `/todo` .
 
    Lasciare l'app in esecuzione nella shell dei comandi. Ogni volta che un file viene salvato, l'app viene ricompilata automaticamente. Il browser perde temporaneamente la connessione all'app durante la compilazione e il riavvio. La pagina nel browser viene ricaricata automaticamente quando viene ristabilita la connessione.
 
