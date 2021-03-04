@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 0f069b049889f7caade493e238ac7a23db5e79af
-ms.sourcegitcommit: a49c47d5a573379effee5c6b6e36f5c302aa756b
+ms.openlocfilehash: 24b4d5fc11d21dce4d9e0fd2f8f0dd2d45e82baa
+ms.sourcegitcommit: a1db01b4d3bd8c57d7a9c94ce122a6db68002d66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100536300"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102110079"
 ---
 # <a name="configuration-in-aspnet-core"></a>Configurazione in ASP.NET Core
 
@@ -91,6 +91,8 @@ Il valore predefinito <xref:Microsoft.Extensions.Configuration.Json.JsonConfigur
 
 * Durante lo sviluppo, la configurazione *appSettings*. ***Development** _._json * sovrascrive i valori presenti in *appsettings.json* .
 * In produzione, la configurazione *appSettings*. ***Production** _._json * sovrascrive i valori presenti in *appsettings.json* . Ad esempio, quando si distribuisce l'app in Azure.
+
+Se è necessario garantire un valore di configurazione, vedere [GetValue](#getvalue). L'esempio precedente legge solo le stringhe e non supporta un valore predefinito
 
 <a name="optpat"></a>
 

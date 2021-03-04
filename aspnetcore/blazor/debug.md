@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/debug
-ms.openlocfilehash: 9214fa10a2bf7d53a4cb12263a3fa69bded84b29
-ms.sourcegitcommit: a49c47d5a573379effee5c6b6e36f5c302aa756b
+ms.openlocfilehash: 0421fd0509fbd89e4635dc7d80a584508627b52c
+ms.sourcegitcommit: a1db01b4d3bd8c57d7a9c94ce122a6db68002d66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100536233"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102109780"
 ---
 # <a name="debug-aspnet-core-blazor-webassembly"></a>ASP.NET Core di debug Blazor WebAssembly
 
@@ -58,6 +58,13 @@ Il debug richiede uno dei seguenti browser:
 * Microsoft Edge (versione 80 o successiva)
 
 Assicurarsi che i firewall o i proxy non blocchino le comunicazioni con il proxy di debug ( `NodeJS` processo). Per ulteriori informazioni, vedere la sezione relativa alla [configurazione del firewall](#firewall-configuration) .
+
+Visual Studio Code utenti richiedono le seguenti estensioni:
+
+* [C# per estensione Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+* [ Blazor Estensione di debug WASM](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.blazorwasm-companion) (quando si usa C# per Visual Studio Code estensione 1.23.9 o versione successiva)
+
+Dopo l'apertura di un progetto in VS Code, è possibile che venga ricevuta una notifica che è necessaria un'installazione aggiuntiva per abilitare il debug. Se richiesto, installare le estensioni richieste dal Visual Studio Marketplace. Per esaminare le estensioni installate, aprire **View**  >  **Extensions** dalla barra dei menu o selezionare l'icona **Extensions** nella barra laterale **Activity** .
 
 Visual Studio per Mac richiede la versione 8,8 (Build 1532) o versioni successive:
 
@@ -173,7 +180,8 @@ Per informazioni sulla configurazione di asset VS Code nella `.vscode` cartella,
    Se si riceve la notifica:
 
    * Verificare che sia installata la versione più recente [di C# per Visual Studio Code estensione](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) . Per esaminare le estensioni installate, aprire **View**  >  **Extensions** dalla barra dei menu o selezionare l'icona **Extensions** nella barra laterale **Activity** .
-   * Verificare che l'anteprima JavaScript sia abilitata. Aprire le impostazioni dalla barra dei menu (  >    >  **Impostazioni** preferenze file). Eseguire la ricerca usando le parole chiave `debug preview` . Nei risultati della ricerca verificare che la casella di controllo per **Debug > JavaScript: USA anteprima** sia selezionata. Se l'opzione per abilitare il debug in anteprima non è presente, eseguire l'aggiornamento alla versione più recente di VS Code o installare l' [estensione del debugger JavaScript](https://marketplace.visualstudio.com/items?itemName=ms-vscode.js-debug-nightly) (VS Code versioni 1,46 o precedenti).
+   * Quando si usa [C# per Visual Studio Code estensione](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) **1.23.9 o versione successiva**, verificare che sia installata l' [ Blazor estensione di debug WASM](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.blazorwasm-companion) più recente. Per esaminare le estensioni installate, aprire **View**  >  **Extensions** dalla barra dei menu o selezionare l'icona **Extensions** nella barra laterale **Activity** .
+   * Verificare che l'anteprima JavaScript sia abilitata. Aprire le impostazioni dalla barra dei menu (  >    >  **Impostazioni** preferenze file). Eseguire la ricerca usando le parole chiave `debug preview` . Nei risultati della ricerca impostare o verificare che la casella di controllo per **Debug > JavaScript: USA anteprima** sia selezionata. Se l'opzione per abilitare il debug in anteprima non è presente, eseguire l'aggiornamento alla versione più recente di VS Code o installare l' [estensione del debugger JavaScript](https://marketplace.visualstudio.com/items?itemName=ms-vscode.js-debug-nightly) (VS Code versioni 1,46 o precedenti).
    * Ricaricare la finestra.
 
 1. Avviare il debug usando il tasto di scelta rapida <kbd>F5</kbd> o la voce di menu.

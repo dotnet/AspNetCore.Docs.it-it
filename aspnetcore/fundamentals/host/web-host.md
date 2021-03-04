@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: fundamentals/host/web-host
-ms.openlocfilehash: 98be96bf60441cf09a315dbd1c60e109a7a08afe
-ms.sourcegitcommit: 063a06b644d3ade3c15ce00e72a758ec1187dd06
+ms.openlocfilehash: fa9b1941d6dcda30855a4729dfa1cd78f897d9b6
+ms.sourcegitcommit: a1db01b4d3bd8c57d7a9c94ce122a6db68002d66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253111"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102109975"
 ---
 # <a name="aspnet-core-web-host"></a>Host Web ASP.NET Core
 
@@ -32,7 +32,7 @@ ASP.NET Core le app configurano e avviano un *host*. L'host è responsabile dell
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Questo articolo descrive l'host Web, che rimane disponibile solo per compatibilità con le versioni precedenti. L'[host generico](xref:fundamentals/host/generic-host) è consigliato per tutti i tipi di app.
+Questo articolo descrive l'host Web, che rimane disponibile solo per compatibilità con le versioni precedenti. I modelli di ASP.NET Core creano un [host generico .NET](<xref:fundamentals/host/generic-host>), consigliato per tutti i tipi di app.
 
 ::: moniker-end
 
@@ -151,7 +151,7 @@ Quando si configura un host, è possibile specificare i metodi [Configure](/dotn
 
 [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) si basa sugli approcci seguenti per impostare i valori di configurazione dell'host:
 
-* Configurazione del generatore di host, che include le variabili di ambiente nel formato `ASPNETCORE_{configurationKey}`. Ad esempio, `ASPNETCORE_ENVIRONMENT`.
+* Configurazione del generatore di host, che include le variabili di ambiente nel formato `ASPNETCORE_{configurationKey}`. Ad esempio: `ASPNETCORE_ENVIRONMENT`.
 * Le estensioni come [UseContentRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usecontentroot) e [UseConfiguration](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.useconfiguration) (vedere la sezione [Override della configurazione](#override-configuration)).
 * [UseSetting](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder.usesetting) e chiave associata. Quando si imposta un valore con `UseSetting`, il valore viene impostato come stringa indipendentemente dal tipo.
 
@@ -343,7 +343,7 @@ Indica gli indirizzi IP o gli indirizzi host con le porte e protocolli su cui il
 **Imposta utilizzando**: `UseUrls`  
 **Variabile di ambiente**: `ASPNETCORE_URLS`
 
-Impostare su un elenco di prefissi URL separati da punto e virgola (;) ai quali il server deve rispondere. Ad esempio, `http://localhost:123`. Usare "\*" per indicare che il server deve eseguire l'ascolto per le richieste su tutti gli indirizzi IP o nomi host usando la porta e il protocollo specificati (ad esempio, `http://*:5000`). Il protocollo (`http://` o `https://`) deve essere incluso con ogni URL. I formati supportati variano a seconda del server.
+Impostare su un elenco di prefissi URL separati da punto e virgola (;) ai quali il server deve rispondere. Ad esempio: `http://localhost:123`. Usare "\*" per indicare che il server deve eseguire l'ascolto per le richieste su tutti gli indirizzi IP o nomi host usando la porta e il protocollo specificati (ad esempio, `http://*:5000`). Il protocollo (`http://` o `https://`) deve essere incluso con ogni URL. I formati supportati variano a seconda del server.
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)

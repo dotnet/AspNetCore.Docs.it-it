@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/forms-validation
-ms.openlocfilehash: 012c8794b3d239ce93ac942000c7ec4f71d06cbf
-ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
+ms.openlocfilehash: a942c7848c77444d185ff73338a98a4205451992
+ms.sourcegitcommit: a1db01b4d3bd8c57d7a9c94ce122a6db68002d66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2021
-ms.locfileid: "100280001"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102109728"
 ---
 # <a name="aspnet-core-blazor-forms-and-validation"></a>ASP.NET Core Blazor moduli e convalida
 
@@ -1011,7 +1011,7 @@ Per assicurarsi che un risultato di convalida venga associato correttamente a un
 using System;
 using System.ComponentModel.DataAnnotations;
 
-private class CustomValidator : ValidationAttribute
+public class CustomValidator : ValidationAttribute
 {
     protected override ValidationResult IsValid(object value, 
         ValidationContext validationContext)
@@ -1031,22 +1031,84 @@ private class CustomValidator : ValidationAttribute
 
 ## <a name="custom-validation-class-attributes"></a>Attributi della classe di convalida personalizzata
 
-I nomi delle classi di convalida personalizzate sono utili per l'integrazione con Framework CSS, ad esempio [bootstrap](https://getbootstrap.com/). Per specificare i nomi delle classi di convalida personalizzate, creare una classe derivata da `FieldCssClassProvider` e impostare la classe nell' <xref:Microsoft.AspNetCore.Components.Forms.EditContext> istanza:
+I nomi delle classi di convalida personalizzate sono utili per l'integrazione con Framework CSS, ad esempio [bootstrap](https://getbootstrap.com/).
+
+Per specificare i nomi delle classi di convalida personalizzate:
+
+* Fornire stili CSS per la convalida personalizzata. Nell'esempio seguente vengono specificati gli stili validi e non validi:
+
+```css
+.validField {
+    border-color: lawngreen;
+}
+
+.invalidField {
+    background-color: tomato;
+}
+```
+
+* Creare una classe derivata da `FieldCssClassProvider` che controlla i messaggi di convalida del campo e applica lo stile valido o non valido appropriato:
 
 ```csharp
-var editContext = new EditContext(model);
-editContext.SetFieldCssClassProvider(new MyFieldClassProvider());
+using System.Linq;
+using Microsoft.AspNetCore.Components.Forms;
 
-...
-
-private class MyFieldClassProvider : FieldCssClassProvider
+public class MyFieldClassProvider : FieldCssClassProvider
 {
     public override string GetFieldCssClass(EditContext editContext, 
         in FieldIdentifier fieldIdentifier)
     {
         var isValid = !editContext.GetValidationMessages(fieldIdentifier).Any();
 
-        return isValid ? "good field" : "bad field";
+        return isValid ? "validField" : "invalidField";
+    }
+}
+```
+
+* Impostare la classe nell'istanza del form <xref:Microsoft.AspNetCore.Components.Forms.EditContext> :
+
+```razor
+...
+
+<EditForm EditContext="@editContext" OnValidSubmit="@HandleValidSubmit">
+    ...
+</EditForm>
+
+...
+
+@code {
+    private EditContext editContext;
+    private Model model = new Model();
+
+    protected override void OnInitialized()
+    {
+        editContext = new EditContext(model);
+        editContext.SetFieldCssClassProvider(new MyFieldClassProvider());
+    }
+
+    private void HandleValidSubmit()
+    {
+        ...
+    }
+}
+```
+
+Nell'esempio precedente viene verificata la validità di tutti i campi del modulo e viene applicato uno stile a ogni campo. Se il modulo deve applicare stili personalizzati solo a un subset dei campi, applicare gli `MyFieldClassProvider` stili in modo condizionale. Nell'esempio seguente viene applicato solo uno stile al `Identifier` campo:
+
+```csharp
+public class MyFieldClassProvider : FieldCssClassProvider
+{
+    public override string GetFieldCssClass(EditContext editContext,
+        in FieldIdentifier fieldIdentifier)
+    {
+        if (fieldIdentifier.FieldName == "Identifier")
+        {
+            var isValid = !editContext.GetValidationMessages(fieldIdentifier).Any();
+
+            return isValid ? "validField" : "invalidField";
+        }
+
+        return string.Empty;
     }
 }
 ```

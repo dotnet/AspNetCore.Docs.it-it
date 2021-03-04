@@ -5,7 +5,7 @@ description: Informazioni su come usare la virtualizzazione di componenti nelle 
 monikerRange: '>= aspnetcore-5.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/02/2020
+ms.date: 02/26/2021
 no-loc:
 - appsettings.json
 - ASP.NET Core Identity
@@ -19,24 +19,30 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/components/virtualization
-ms.openlocfilehash: d9fc767a4b5160c616053b075ba92194bcffa275
-ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
+ms.openlocfilehash: c81732c29b262e9134a4ff7dab077a4f31db96af
+ms.sourcegitcommit: a1db01b4d3bd8c57d7a9c94ce122a6db68002d66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2021
-ms.locfileid: "100280018"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102109819"
 ---
 # <a name="aspnet-core-blazor-component-virtualization"></a>BlazorVirtualizzazione componenti ASP.NET Core
 
-Migliorare le prestazioni percepite del rendering dei componenti utilizzando il Blazor supporto della virtualizzazione incorporato del Framework. La virtualizzazione è una tecnica che consente di limitare il rendering dell'interfaccia utente solo alle parti attualmente visibili. La virtualizzazione, ad esempio, è utile quando l'applicazione deve eseguire il rendering di un lungo elenco di elementi ed è necessario che sia visibile solo un subset di elementi in un determinato momento. Blazorfornisce il [ `Virtualize` componente](xref:Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize%601) che può essere usato per aggiungere la virtualizzazione ai componenti di un'app.
+Migliorare le prestazioni percepite del rendering dei componenti utilizzando il Blazor supporto di virtualizzazione incorporato del Framework con il [ `Virtualize` componente](xref:Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize%601). La virtualizzazione è una tecnica che consente di limitare il rendering dell'interfaccia utente solo alle parti attualmente visibili. La virtualizzazione, ad esempio, è utile quando l'applicazione deve eseguire il rendering di un lungo elenco di elementi ed è necessario che sia visibile solo un subset di elementi in un determinato momento.
 
-Il `Virtualize` componente può essere usato nei casi seguenti:
+Usare il componente nei casi seguenti `Virtualize` :
 
 * Rendering di un set di elementi di dati in un ciclo.
 * La maggior parte degli elementi non è visibile a causa dello scorrimento.
-* Gli elementi di cui è stato eseguito il rendering hanno esattamente le stesse dimensioni. Quando l'utente scorre fino a un punto arbitrario, il componente può calcolare gli elementi visibili da visualizzare.
+* Gli elementi di cui è stato eseguito il rendering hanno le stesse dimensioni.
 
-Senza virtualizzazione, un elenco tipico potrebbe usare un [`foreach`](/dotnet/csharp/language-reference/keywords/foreach-in) ciclo C# per eseguire il rendering di ogni elemento nell'elenco:
+Quando l'utente scorre fino a un punto arbitrario nell' `Virtualize` elenco di elementi del componente, il componente calcola gli elementi visibili da visualizzare. Non viene eseguito il rendering degli elementi non visibili.
+
+Senza virtualizzazione, un elenco tipico potrebbe usare un [`foreach`](/dotnet/csharp/language-reference/keywords/foreach-in) ciclo C# per eseguire il rendering di ogni elemento in un elenco. Nell'esempio seguente:
+
+* `allFlights` è una raccolta di voli aereo.
+* Il `FlightSummary` componente Visualizza i dettagli relativi a ogni volo.
+* L' [ `@key` attributo della direttiva](xref:blazor/components/index#use-key-to-control-the-preservation-of-elements-and-components) conserva la relazione di ogni `FlightSummary` componente con il relativo volo di cui è stato eseguito il rendering da parte del volo `FlightId` .
 
 ```razor
 <div style="height:500px;overflow-y:scroll">
@@ -47,9 +53,12 @@ Senza virtualizzazione, un elenco tipico potrebbe usare un [`foreach`](/dotnet/c
 </div>
 ```
 
-Se l'elenco contiene migliaia di elementi, il rendering dell'elenco potrebbe richiedere molto tempo. L'utente può riscontrare un ritardo dell'interfaccia utente evidente.
+Se la raccolta contiene migliaia di voli, il rendering dei voli richiede molto tempo e gli utenti riscontrano un ritardo dell'interfaccia utente evidente. La maggior parte dei voli non viene sottoposta a rendering perché non rientrano nell'altezza dell' `<div>` elemento.
 
-Anziché eseguire il rendering di ogni elemento nell'elenco in una sola volta, sostituire il [`foreach`](/dotnet/csharp/language-reference/keywords/foreach-in) ciclo con il `Virtualize` componente e specificare un'origine di elemento fisso con <xref:Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize%601.Items%2A?displayProperty=nameWithType> . Vengono visualizzati solo gli elementi attualmente visibili:
+Anziché eseguire il rendering dell'intero elenco dei voli contemporaneamente, sostituire il [`foreach`](/dotnet/csharp/language-reference/keywords/foreach-in) ciclo nell'esempio precedente con il `Virtualize` componente:
+
+* Specificare `allFlights` come origine dell'elemento fisso su <xref:Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize%601.Items%2A?displayProperty=nameWithType> . Il componente Visualizza solo i voli attualmente visibili `Virtualize` .
+* Specificare un contesto per ogni volo con il `Context` parametro. Nell'esempio seguente `flight` viene usato come contesto, che fornisce l'accesso ai membri di ogni volo.
 
 ```razor
 <div style="height:500px;overflow-y:scroll">
@@ -59,7 +68,7 @@ Anziché eseguire il rendering di ogni elemento nell'elenco in una sola volta, s
 </div>
 ```
 
-Se non si specifica un contesto per il componente con `Context` , usare il `context` valore nel modello di contenuto dell'elemento:
+Se il contesto non è specificato con il `Context` parametro, utilizzare il valore di `context` nel modello di contenuto dell'elemento per accedere ai membri di ogni volo:
 
 ```razor
 <div style="height:500px;overflow-y:scroll">
@@ -68,14 +77,6 @@ Se non si specifica un contesto per il componente con `Context` , usare il `cont
     </Virtualize>
 </div>
 ```
-
-> [!NOTE]
-> Il processo di mapping degli oggetti modello a elementi e componenti può essere controllato con l' [`@key`](xref:mvc/views/razor#key) attributo della direttiva. `@key` fa in modo che l'algoritmo diffe garantisca la conservazione di elementi o componenti in base al valore della chiave.
->
-> Per altre informazioni, vedere gli articoli seguenti:
->
-> * <xref:blazor/components/index#use-key-to-control-the-preservation-of-elements-and-components>
-> * [Razor informazioni di riferimento sulla sintassi per ASP.NET Core](xref:mvc/views/razor#key)
 
 Il `Virtualize` componente:
 
@@ -120,7 +121,7 @@ private async ValueTask<ItemsProviderResult<Employee>> LoadEmployees(
 }
 ```
 
-<xref:Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize%601.RefreshDataAsync%2A?displayProperty=nameWithType> indica al componente di ririchiedere i dati dal relativo oggetto <xref:Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize%601.ItemsProvider%2A> . Questa operazione è utile quando i dati esterni cambiano. Non è necessario chiamare questo quando si usa <xref:Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize%601.Items%2A> .
+<xref:Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize%601.RefreshDataAsync%2A?displayProperty=nameWithType> indica al componente di ririchiedere i dati dal relativo oggetto <xref:Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize%601.ItemsProvider%2A> . Questa operazione è utile quando i dati esterni cambiano. Non è necessario chiamare quando si <xref:Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize%601.RefreshDataAsync%2A> Usa <xref:Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize%601.Items%2A> .
 
 ## <a name="placeholder"></a>Segnaposto
 
@@ -147,7 +148,7 @@ Poiché la richiesta di elementi da un'origine dati remota potrebbe richiedere d
 
 ## <a name="item-size"></a>Dimensioni dell'elemento
 
-L'altezza di ogni elemento in pixel può essere impostata con <xref:Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize%601.ItemSize%2A?displayProperty=nameWithType> (impostazione predefinita: 50):
+L'altezza di ogni elemento in pixel può essere impostata con <xref:Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize%601.ItemSize%2A?displayProperty=nameWithType> (impostazione predefinita: 50). Nell'esempio seguente viene modificata l'altezza di ogni elemento dal valore predefinito di 50 pixel a 25 pixel:
 
 ```razor
 <Virtualize Context="employee" Items="@employees" ItemSize="25">
@@ -155,11 +156,11 @@ L'altezza di ogni elemento in pixel può essere impostata con <xref:Microsoft.As
 </Virtualize>
 ```
 
-Per impostazione predefinita, il `Virtualize` componente misura le dimensioni effettive del rendering *dopo che* è stato eseguito il rendering iniziale. Usare <xref:Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize%601.ItemSize%2A> per fornire in anticipo le dimensioni esatte degli elementi per supportare le prestazioni di rendering iniziali accurate e per garantire la corretta posizione di scorrimento per i ricaricamenti della pagina. Se per impostazione predefinita <xref:Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize%601.ItemSize%2A> viene eseguito il rendering di alcuni elementi al di fuori della visualizzazione attualmente visibile, viene attivato un secondo nuovo rendering. Per mantenere correttamente la posizione di scorrimento del browser in un elenco virtualizzato, il rendering iniziale deve essere corretto. In caso contrario, gli utenti potrebbero visualizzare gli elementi non corretti. 
+Per impostazione predefinita, il `Virtualize` componente misura le dimensioni di rendering (altezza) dei singoli elementi *dopo che* è stato eseguito il rendering iniziale. Usare <xref:Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize%601.ItemSize%2A> per fornire in anticipo le dimensioni esatte degli elementi per supportare le prestazioni di rendering iniziali accurate e per garantire la corretta posizione di scorrimento per i ricaricamenti della pagina. Se per impostazione predefinita <xref:Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize%601.ItemSize%2A> viene eseguito il rendering di alcuni elementi al di fuori della visualizzazione attualmente visibile, viene attivato un secondo nuovo rendering. Per mantenere correttamente la posizione di scorrimento del browser in un elenco virtualizzato, il rendering iniziale deve essere corretto. In caso contrario, gli utenti potrebbero visualizzare gli elementi non corretti.
 
 ## <a name="overscan-count"></a>Conteggio overscan
 
-<xref:Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize%601.OverscanCount%2A?displayProperty=nameWithType> determina il numero di elementi aggiuntivi che vengono sottoposti a rendering prima e dopo l'area visibile. Questa impostazione consente di ridurre la frequenza di rendering durante lo scorrimento. Tuttavia, i valori più elevati comportano il rendering di più elementi nella pagina (impostazione predefinita: 3):
+<xref:Microsoft.AspNetCore.Components.Web.Virtualization.Virtualize%601.OverscanCount%2A?displayProperty=nameWithType> determina il numero di elementi aggiuntivi che vengono sottoposti a rendering prima e dopo l'area visibile. Questa impostazione consente di ridurre la frequenza di rendering durante lo scorrimento. Tuttavia, i valori più elevati generano più elementi sottoposti a rendering nella pagina (impostazione predefinita: 3). Nell'esempio seguente viene modificato il conteggio overscan dal valore predefinito di tre elementi a quattro elementi:
 
 ```razor
 <Virtualize Context="employee" Items="@employees" OverscanCount="4">

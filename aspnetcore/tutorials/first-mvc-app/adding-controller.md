@@ -18,12 +18,12 @@ no-loc:
 - SignalR
 uid: tutorials/first-mvc-app/adding-controller
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 47bb9b96bd5565a3a67f3cbdf9a4b6bc1f987447
-ms.sourcegitcommit: ef8d8c79993a6608bf597ad036edcf30b231843f
+ms.openlocfilehash: 1a13fe31859b9ed41edc746ba450f552bc07f344
+ms.sourcegitcommit: a1db01b4d3bd8c57d7a9c94ce122a6db68002d66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99975261"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102110209"
 ---
 # <a name="part-2-add-a-controller-to-an-aspnet-core-mvc-app"></a>Parte 2, aggiungere un controller a un'app MVC ASP.NET Core
 
@@ -44,8 +44,8 @@ Le app basate sul pattern MVC contengono:
 
 In un'app MVC, la vista Visualizza solo le informazioni. Il controller gestisce e risponde all'input e all'interazione dell'utente. Il controller, ad esempio, gestisce i segmenti URL e i valori della stringa di query e passa questi valori al modello. Il modello può usare questi valori per eseguire query sul database. Ad esempio:
 
-* `Https://localhost:5001/Home/Privacy`: specifica il `Home`  controller e l' `Privacy` azione.
-* `Https://localhost:5001/Movies/Edit/5`: è una richiesta di modifica del film con ID = 5 utilizzando il `Movies` controller e l' `Edit` azione, descritti in dettaglio più avanti nell'esercitazione.
+* `https://localhost:5001/Home/Privacy`: specifica il `Home` controller e l' `Privacy` azione.
+* `https://localhost:5001/Movies/Edit/5`: è una richiesta di modifica del film con ID = 5 utilizzando il `Movies` controller e l' `Edit` azione, descritti in dettaglio più avanti nell'esercitazione.
 
 I dati della route vengono spiegati in seguito nell'esercitazione.
 

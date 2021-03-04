@@ -19,12 +19,12 @@ no-loc:
 - SignalR
 - Models
 uid: tutorials/first-web-api
-ms.openlocfilehash: 1f7c7db857090ff0a174d37b86e1265bab40b4fd
-ms.sourcegitcommit: f77a7467651bab61b24261da9dc5c1dd75fc1fa9
+ms.openlocfilehash: 43b243c946384be55019b39bf558182e1e95de90
+ms.sourcegitcommit: a1db01b4d3bd8c57d7a9c94ce122a6db68002d66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100564076"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102110196"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Esercitazione: Creare un'API Web con ASP.NET Core
 
@@ -268,8 +268,8 @@ Il *contesto di database* è la classe principale che coordina le funzionalità 
 ### <a name="add-nuget-packages"></a>Aggiungere pacchetti NuGet
 
 * Dal menu **Strumenti** selezionare **Gestione pacchetti NuGet > Gestisci pacchetti NuGet per la soluzione**.
-* Selezionare la scheda **Sfoglia** e quindi immettere **Microsoft. EntityFrameworkCore. InMemory** nella casella di ricerca.
-* Selezionare **Microsoft. EntityFrameworkCore. InMemory** nel riquadro sinistro.
+* Selezionare la scheda **Sfoglia** e quindi immettere `Microsoft.EntityFrameworkCore.InMemory` nella casella di ricerca.
+* Selezionare `Microsoft.EntityFrameworkCore.InMemory` nel riquadro sinistro.
 * Selezionare la casella di controllo **Progetto** nel riquadro di destra e quindi selezionare **Installa**.
 
 ![Gestione pacchetti NuGet](first-web-api/_static/5/vsNuGet.png)
@@ -323,8 +323,8 @@ Eseguire i comandi seguenti:
 ```dotnetcli
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 dotnet tool install -g dotnet-aspnet-codegenerator
-dotnet tool update -g dotnet-aspnet-codegenerator
 dotnet aspnet-codegenerator controller -name TodoItemsController -async -api -m TodoItem -dc TodoContext -outDir Controllers
 ```
 
@@ -1501,3 +1501,4 @@ Per altre informazioni, vedere le risorse seguenti:
 * <xref:host-and-deploy/azure-apps/index>
 * <xref:host-and-deploy/index>
 * [Versione YouTube dell'esercitazione](https://www.youtube.com/watch?v=TTkhEyGBfAk)
+* [Microsoft Learn: creare un'API Web con ASP.NET Core](/learn/modules/build-web-api-aspnet-core/)

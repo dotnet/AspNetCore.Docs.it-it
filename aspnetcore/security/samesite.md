@@ -19,14 +19,14 @@ no-loc:
 - SignalR
 - Electron
 uid: security/samesite
-ms.openlocfilehash: f1aa388015bd540a6fda263eac53753ada63bf79
-ms.sourcegitcommit: bce62ceaac7782e22d185814f2e8532c84efa472
+ms.openlocfilehash: e06c73edfc999053e0aa37f05d984a2b428f69a9
+ms.sourcegitcommit: a1db01b4d3bd8c57d7a9c94ce122a6db68002d66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94673991"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102109936"
 ---
-# <a name="work-with-samesite-no-loccookies-in-aspnet-core"></a>Usare navigava sullostesso sito cookie s in ASP.NET Core
+# <a name="work-with-samesite-cookies-in-aspnet-core"></a>Usare navigava sullostesso sito cookie s in ASP.NET Core
 
 Autore: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -42,13 +42,13 @@ L' `SameSite=Lax` impostazione funziona per la maggior parte delle applicazioni 
 
 Ogni componente ASP.NET Core che emette cookie s deve decidere se navigava sullostesso sito è appropriato.
 
-## <a name="samesite-and-no-locidentity"></a>Navigava sullostesso sito e Identity
+## <a name="samesite-and-identity"></a>Navigava sullostesso sito e Identity
 
 [!INCLUDE[](~/includes/SameSiteIdentity.md)]
 
 ## <a name="samesite-test-sample-code"></a>Codice di esempio di test di navigava sullostesso sito
 
- ::: moniker range=">= aspnetcore-2.1 < aspnetcore-3.0"
+::: moniker range=">= aspnetcore-2.1 < aspnetcore-3.0"
 
 È possibile scaricare e testare gli esempi seguenti:
 
@@ -62,7 +62,6 @@ Ogni componente ASP.NET Core che emette cookie s deve decidere se navigava sullo
 ::: moniker range=">= aspnetcore-3.0"
 
 È possibile scaricare e testare l'esempio seguente:
-
 
 | Esempio               | Documento |
 | ----------------- | ------------ |
@@ -227,7 +226,7 @@ Edge supporta lo standard navigava sullostesso sito precedente. La versione peri
 
 I flag navigava sullostesso sito sono impostati nella `edge://flags/#same-site-by-default-cookies` pagina. Nessun problema di compatibilità rilevato con cromo perimetrale.
 
-### <a name="test-with-no-locelectron"></a>Esegui test con Electron
+### <a name="test-with-electron"></a>Esegui test con Electron
 
 Le versioni di Electron includono versioni precedenti di cromo. Ad esempio, la versione di Electron usata dai team è Chromium 66, che presenta il comportamento precedente. È necessario eseguire un test di compatibilità personalizzato con la versione del Electron prodotto usato. Vedere [supporto dei browser precedenti](#sob) nella sezione seguente.
 

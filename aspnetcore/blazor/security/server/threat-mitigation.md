@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/security/server/threat-mitigation
-ms.openlocfilehash: 524a1f85838d083ed2f01afd96601bcd5e6ce12b
-ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
+ms.openlocfilehash: 2a5add79d60ddcbb1afdb9489fa16da692a7d6bd
+ms.sourcegitcommit: a1db01b4d3bd8c57d7a9c94ce122a6db68002d66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2021
-ms.locfileid: "100280976"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102109663"
 ---
 # <a name="threat-mitigation-guidance-for-aspnet-core-blazor-server"></a>Linee guida per la mitigazione delle minacce per ASP.NET Core Blazor Server
 
@@ -139,7 +139,7 @@ Per le chiamate da metodi .NET a JavaScript:
 
 Adottare le seguenti precauzioni per evitare gli scenari precedenti:
 
-* Eseguire il wrapping delle chiamate di interoperabilità JS all'interno [`try-catch`](/dotnet/csharp/language-reference/keywords/try-catch) delle istruzioni per tenere conto degli errori che potrebbero verificarsi durante la chiamata. Per altre informazioni, vedere <xref:blazor/fundamentals/handle-errors#javascript-interop>.
+* Eseguire il wrapping delle chiamate di interoperabilità JS all'interno [`try-catch`](/dotnet/csharp/language-reference/keywords/try-catch) delle istruzioni per tenere conto degli errori che potrebbero verificarsi durante la chiamata. Per altre informazioni, vedere <xref:blazor/fundamentals/handle-errors?pivots=server#javascript-interop-server>.
 * Convalidare i dati restituiti dalle chiamate di interoperabilità JS, inclusi i messaggi di errore, prima di intraprendere qualsiasi azione.
 
 ### <a name="net-methods-invoked-from-the-browser"></a>Metodi .NET richiamati dal browser
@@ -302,7 +302,7 @@ Le interazioni di interoperabilità JS tra il client e il server vengono registr
 
 Quando si verifica un errore nel server, il framework invia una notifica al client e rimuove la sessione. Per impostazione predefinita, il client riceve un messaggio di errore generico che può essere visualizzato negli strumenti di sviluppo del browser.
 
-L'errore sul lato client non include il stack e non fornisce dettagli sulla ragione dell'errore, ma i log del server contengono tali informazioni. A scopo di sviluppo, le informazioni sensibili sugli errori possono essere rese disponibili al client [abilitando errori dettagliati](xref:blazor/fundamentals/handle-errors#blazor-server-detailed-circuit-errors).
+L'errore sul lato client non include lo stack di chiamate e non fornisce dettagli sulla motivo dell'errore, ma i log del server contengono tali informazioni. A scopo di sviluppo, le informazioni sensibili sugli errori possono essere rese disponibili al client [abilitando errori dettagliati](xref:blazor/fundamentals/handle-errors#blazor-server-detailed-circuit-errors).
 
 > [!WARNING]
 > L'esposizione delle informazioni sugli errori ai client su Internet costituisce un rischio per la sicurezza che deve essere sempre evitata.

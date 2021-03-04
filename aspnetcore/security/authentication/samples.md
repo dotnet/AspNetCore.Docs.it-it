@@ -3,7 +3,7 @@ title: Esempi di autenticazione per ASP.NET Core
 author: rick-anderson
 description: Fornisce collegamenti agli esempi di autenticazione nel repository ASP.NET Core.
 ms.author: riande
-ms.date: 01/31/2019
+ms.date: 02/21/2021
 no-loc:
 - appsettings.json
 - ASP.NET Core Identity
@@ -17,55 +17,33 @@ no-loc:
 - Razor
 - SignalR
 uid: security/authentication/samples
-ms.openlocfilehash: 4153a443748dbff40be19e25fc1c719ee4e39609
-ms.sourcegitcommit: ca34c1ac578e7d3daa0febf1810ba5fc74f60bbf
+ms.openlocfilehash: e7fb2ac32f57cf4ecd3c5db294bd0df8e186b6c6
+ms.sourcegitcommit: a1db01b4d3bd8c57d7a9c94ce122a6db68002d66
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93060339"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102110118"
 ---
 # <a name="authentication-samples-for-aspnet-core"></a>Esempi di autenticazione per ASP.NET Core
 
 Autore: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-::: moniker range=">= aspnetcore-3.0"
+Il [repository ASP.NET Core](https://github.com/dotnet/aspnetcore) contiene i seguenti esempi di autenticazione ( `main` Branch):
 
-Il [repository ASP.NET Core](https://github.com/dotnet/AspNetCore) contiene gli esempi di autenticazione seguenti nella cartella *AspNetCore/SRC/Security/Samples* :
+* [Trasformazione delle attestazioni](https://github.com/dotnet/aspnetcore/tree/main/src/Security/samples/ClaimsTransformation)
+* [Cookie autenticazione](https://github.com/dotnet/aspnetcore/tree/main/src/Security/samples/Cookies)
+* [Risposta di errore di autorizzazione personalizzata](https://github.com/dotnet/aspnetcore/tree/main/src/Security/samples/CustomAuthorizationFailureResponse)
+* [Provider di criteri personalizzati-IAuthorizationPolicyProvider](https://github.com/dotnet/aspnetcore/tree/main/src/Security/samples/CustomPolicyProvider)
+* [Opzioni e schemi di autenticazione dinamici](https://github.com/dotnet/aspnetcore/tree/main/src/Security/samples/DynamicSchemes)
+* [Attestazioni esterne](https://github.com/dotnet/aspnetcore/tree/main/src/Security/samples/Identity.ExternalClaims)
+* [Selezione tra cookie e un altro schema di autenticazione in base alla richiesta](https://github.com/dotnet/aspnetcore/tree/main/src/Security/samples/PathSchemeSelection)
+* [Limita l'accesso ai file statici](https://github.com/dotnet/aspnetcore/tree/main/src/Security/samples/StaticFilesAuth)
 
-* [Trasformazione delle attestazioni](https://github.com/dotnet/AspNetCore/tree/release/3.1/src/Security/samples/ClaimsTransformation)
-* [Cookie autenticazione](https://github.com/dotnet/AspNetCore/tree/release/3.1/src/Security/samples/Cookies)
-* [Provider di criteri personalizzati-IAuthorizationPolicyProvider](https://github.com/dotnet/AspNetCore/tree/release/3.1/src/Security/samples/CustomPolicyProvider)
-* [Opzioni e schemi di autenticazione dinamici](https://github.com/dotnet/AspNetCore/tree/release/3.1/src/Security/samples/DynamicSchemes)
-* [Attestazioni esterne](https://github.com/dotnet/AspNetCore/tree/release/3.1/src/Security/samples/Identity.ExternalClaims)
-* [Selezione tra cookie e un altro schema di autenticazione in base alla richiesta](https://github.com/dotnet/AspNetCore/tree/release/3.1/src/Security/samples/PathSchemeSelection)
-* [Limita l'accesso ai file statici](https://github.com/dotnet/AspNetCore/tree/release/3.1/src/Security/samples/StaticFilesAuth)
+## <a name="obtain-and-run-the-samples"></a>Ottenere ed eseguire gli esempi
 
-## <a name="run-the-samples"></a>Eseguire gli esempi
+I collegamenti di esempio forniti in questo articolo forniscono esempi per la prossima versione di ASP.NET Core. Per ottenere un esempio per la versione corrente o una versione precedente, seguire questa procedura:
 
-* Selezionare un [ramo](https://github.com/dotnet/AspNetCore). Ad esempio, usare `release/3.1`
-* Clonare o scaricare il [repository ASP.NET Core](https://github.com/dotnet/AspNetCore).
-* Verificare di aver installato la versione di [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) corrispondente al clone del repository di ASP.NET Core.
-* Passare a un esempio in *AspNetCore/SRC/Security/Samples* ed eseguire l'esempio con `dotnet run` .
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.0"
-
-Il [repository ASP.NET Core](https://github.com/dotnet/AspNetCore) contiene gli esempi di autenticazione seguenti nella cartella *AspNetCore/SRC/Security/Samples* :
-
-* [Trasformazione delle attestazioni](https://github.com/dotnet/AspNetCore/tree/release/2.1/src/Security/samples/ClaimsTransformation)
-* [Cookie autenticazione](https://github.com/dotnet/AspNetCore/tree/release/2.1/src/Security/samples/Cookies)
-* [Provider di criteri personalizzati-IAuthorizationPolicyProvider](https://github.com/dotnet/AspNetCore/tree/2.1.3/src/Security/samples/CustomPolicyProvider)
-* [Opzioni e schemi di autenticazione dinamici](https://github.com/dotnet/AspNetCore/tree/release/2.1/src/Security/samples/DynamicSchemes)
-* [Attestazioni esterne](https://github.com/dotnet/AspNetCore/tree/release/2.1/src/Security/samples/Identity.ExternalClaims)
-* [Selezione tra cookie e un altro schema di autenticazione in base alla richiesta](https://github.com/dotnet/AspNetCore/tree/release/2.1/src/Security/samples/PathSchemeSelection)
-* [Limita l'accesso ai file statici](https://github.com/dotnet/AspNetCore/tree/2.1.3/src/Security/samples/StaticFilesAuth)
-
-## <a name="run-the-samples"></a>Eseguire gli esempi
-
-* Selezionare un [ramo](https://github.com/dotnet/AspNetCore). Ad esempio, usare `release/2.1`
-* Clonare o scaricare il [repository ASP.NET Core](https://github.com/dotnet/AspNetCore).
-* Verificare di aver installato la versione di [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) corrispondente al clone del repository di ASP.NET Core.
-* Passare a un esempio in *AspNetCore/SRC/Security/Samples* ed eseguire l'esempio con `dotnet run` .
-
-::: moniker-end
+* Selezionare il ramo di rilascio del [repository ASP.NET Core](https://github.com/dotnet/aspnetcore)] ( https://github.com/dotnet/aspnetcore) . Ad esempio, il `release/5.0` Branch contiene gli esempi per la versione di ASP.NET Core 5,0.
+* Clonare o scaricare il repository ASP.NET Core.
+* Nel sistema locale verificare l'installazione della versione [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) corrispondente al clone del repository ASP.NET Core.
+* Passare a un esempio nella `aspnetcore/src/Security/samples` cartella ed eseguire l'esempio con il [ `dotnet run` comando](/dotnet/core/tools/dotnet-run).
