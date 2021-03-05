@@ -18,12 +18,12 @@ no-loc:
 - Razor
 - SignalR
 uid: grpc/performance
-ms.openlocfilehash: 622c6ba042c5832f99bba379fadd9aba7d7163f2
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.openlocfilehash: 386359adfe0e876fa5c067dc82153fd3de0f3fba
+ms.sourcegitcommit: 3982ff9dabb5b12aeb0a61cde2686b5253364f5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "93060404"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102118941"
 ---
 # <a name="performance-best-practices-with-grpc"></a>Procedure consigliate per le prestazioni con gRPC
 
@@ -105,7 +105,7 @@ Per il bilanciamento del carico gRPC sono disponibili due opzioni:
 
 ### <a name="client-side-load-balancing"></a>Bilanciamento del carico lato client
 
-Con il bilanciamento del carico lato client, il client conosce gli endpoint. Per ogni chiamata a gRPC viene selezionato un endpoint diverso a cui inviare la chiamata. Il bilanciamento del carico lato client è una scelta ottimale quando la latenza è importante. Non esiste alcun proxy tra il client e il servizio, quindi la chiamata viene inviata direttamente al servizio. Lo svantaggio del bilanciamento del carico lato client è che ogni client deve tenere traccia degli endpoint disponibili da usare.
+Con il bilanciamento del carico lato client, il client conosce gli endpoint. Per ogni chiamata a gRPC, viene selezionato un endpoint diverso a cui inviare la chiamata. Il bilanciamento del carico lato client è una scelta ottimale quando la latenza è importante. Non esiste alcun proxy tra il client e il servizio, quindi la chiamata viene inviata direttamente al servizio. Lo svantaggio del bilanciamento del carico lato client è che ogni client deve tenere traccia degli endpoint disponibili che deve usare.
 
 Il bilanciamento del carico del client lookaside è una tecnica in cui lo stato del bilanciamento del carico viene archiviato in una posizione centrale. I client eseguono periodicamente una query sulla posizione centrale per ottenere informazioni da usare quando si prendono decisioni di bilanciamento del carico.
 

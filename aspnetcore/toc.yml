@@ -1368,6 +1368,9 @@
       uid: fundamentals/middleware/extensibility-third-party-container
 - name: Migrazione
   items:
+    - name: 'da 5,0 a 6,0'
+      displayName: 'migrate, migration'
+      uid: migration/50-to-60
     - name: Da 3.1 a 5.0
       displayName: 'migrate, migration'
       uid: migration/31-to-50
