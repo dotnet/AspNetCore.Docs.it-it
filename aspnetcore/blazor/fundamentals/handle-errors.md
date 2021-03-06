@@ -20,12 +20,12 @@ no-loc:
 - SignalR
 uid: blazor/fundamentals/handle-errors
 zone_pivot_groups: blazor-hosting-models
-ms.openlocfilehash: 96f4d7fcacf1f8eb03ffe83ba18b353e5588448e
-ms.sourcegitcommit: a1db01b4d3bd8c57d7a9c94ce122a6db68002d66
+ms.openlocfilehash: d4c8054afc3818d58bc2a047a0aa74613ae6047b
+ms.sourcegitcommit: 1436bd4d70937d6ec3140da56d96caab33c4320b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102109708"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102395097"
 ---
 # <a name="handle-errors-in-aspnet-core-blazor-apps"></a>Gestione degli errori nelle Blazor app ASP.NET Core
 
@@ -40,7 +40,7 @@ Quando un' Blazor app non funziona correttamente durante lo sviluppo, la ricezio
 * Durante lo sviluppo, la barra indirizza l'utente alla console del browser, in cui è possibile visualizzare l'eccezione.
 * In produzione, la barra informa l'utente che si è verificato un errore e consiglia di aggiornare il browser.
 
-L'interfaccia utente per questa esperienza di gestione degli errori fa parte dei Blazor modelli di progetto.
+L'interfaccia utente per questa esperienza di gestione degli errori fa parte dei [ Blazor modelli di progetto](xref:blazor/project-structure).
 
 In un' Blazor WebAssembly app, personalizzare l'esperienza nel `wwwroot/index.html` file:
 
@@ -257,7 +257,7 @@ Quando un' Blazor app non funziona correttamente durante lo sviluppo, la ricezio
 * Durante lo sviluppo, la barra indirizza l'utente alla console del browser, in cui è possibile visualizzare l'eccezione.
 * In produzione, la barra informa l'utente che si è verificato un errore e consiglia di aggiornare il browser.
 
-L'interfaccia utente per questa esperienza di gestione degli errori fa parte dei Blazor modelli di progetto.
+L'interfaccia utente per questa esperienza di gestione degli errori fa parte dei [ Blazor modelli di progetto](xref:blazor/project-structure).
 
 In un' Blazor Server app, personalizzare l'esperienza nel `Pages/_Host.cshtml` file:
 

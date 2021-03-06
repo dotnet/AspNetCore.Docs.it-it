@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: fundamentals/websockets
-ms.openlocfilehash: 6edf2017cc889321cfb484e643b75711fd66004d
-ms.sourcegitcommit: 97243663fd46c721660e77ef652fe2190a461f81
+ms.openlocfilehash: 2864d98c1e3cff4474ce38d05c47f7cd0e8b3cc5
+ms.sourcegitcommit: 1436bd4d70937d6ec3140da56d96caab33c4320b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2021
-ms.locfileid: "98058350"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102395240"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>Supporto di WebSocket in ASP.NET Core
 
@@ -61,6 +61,9 @@ Per alcune app, [gRPC in .NET](xref:grpc/index) offre un'alternativa ai WebSocke
 Aggiungere il middleware degli oggetti WebSocket nel metodo `Configure` della classe `Startup`:
 
 [!code-csharp[](websockets/samples/2.x/WebSocketsSample/Startup.cs?name=UseWebSockets)]
+
+> [!NOTE]
+> Se si desidera accettare le richieste WebSocket in un controller, la chiamata a `app.UseWebSockets` deve essere eseguita prima di `app.UseEndpoints` .
 
 ::: moniker range="< aspnetcore-2.2"
 

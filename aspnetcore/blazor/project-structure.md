@@ -19,20 +19,22 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/project-structure
-ms.openlocfilehash: 94b5a3d8c0f5b94ecac32e6fc5f94efeb8337f37
-ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
+ms.openlocfilehash: fe42c2d43b79ea959bb0ba8e5b96e6c865b2a416
+ms.sourcegitcommit: 1436bd4d70937d6ec3140da56d96caab33c4320b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2021
-ms.locfileid: "100280354"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102394876"
 ---
 # <a name="aspnet-core-blazor-project-structure"></a>BlazorStruttura del progetto ASP.NET Core
 
-Questo articolo descrive i file e le cartelle che costituiscono un' Blazor app generata dai Blazor modelli di progetto.
+Questo articolo descrive i file e le cartelle che costituiscono un' Blazor app generata da uno dei Blazor modelli di progetto del Framework. Per informazioni su come usare gli strumenti di per creare un' Blazor app da un Blazor modello di progetto, vedere <xref:blazor/tooling> . Per informazioni sui Blazor modelli di hosting di Blazor WebAssembly , Blazor Server vedere <xref:blazor/hosting-models> .
 
 ## Blazor WebAssembly
 
-Il Blazor WebAssembly modello ( `blazorwasm` ) crea i file e la struttura di directory iniziali per un' Blazor WebAssembly app. L'app viene popolata con il codice dimostrativo per un `FetchData` componente che carica i dati da un asset statico, `weather.json` e l'interazione dell'utente con un `Counter` componente.
+Blazor WebAssembly modello di progetto: `blazorwasm`
+
+Il Blazor WebAssembly modello crea i file e la struttura di directory iniziali per un' Blazor WebAssembly app. L'app viene popolata con il codice dimostrativo per un `FetchData` componente che carica i dati da un asset statico, `weather.json` e l'interazione dell'utente con un `Counter` componente.
 
 * `Pages` cartella: contiene i componenti e le pagine instradabili ( `.razor` ) che costituiscono l' Blazor app. La route per ogni pagina viene specificata utilizzando la [`@page`](xref:mvc/views/razor#page) direttiva. Il modello include i componenti seguenti:
   * `Counter` Component ( `Counter.razor` ): implementa la pagina del contatore.
@@ -104,7 +106,9 @@ Il Blazor WebAssembly modello ( `blazorwasm` ) crea i file e la struttura di dir
 
 ## Blazor Server
 
-Il Blazor Server modello ( `blazorserver` ) crea i file e la struttura di directory iniziali per un' Blazor Server app. L'app viene popolata con il codice dimostrativo per un `FetchData` componente che carica i dati da un servizio registrato, `WeatherForecastService` , e l'interazione dell'utente con un `Counter` componente.
+Blazor Server modello di progetto: `blazorserver`
+
+Il Blazor Server modello crea i file e la struttura di directory iniziali per un' Blazor Server app. L'app viene popolata con il codice dimostrativo per un `FetchData` componente che carica i dati da un servizio registrato, `WeatherForecastService` , e l'interazione dell'utente con un `Counter` componente.
 
 * `Data` cartella: contiene la `WeatherForecast` classe e l'implementazione dell'oggetto `WeatherForecastService` che fornisce dati meteorologici di esempio al `FetchData` componente dell'app.
 
@@ -158,3 +162,8 @@ Il Blazor Server modello ( `blazorserver` ) crea i file e la struttura di direct
   * `Configure`: Configura la pipeline di gestione delle richieste dell'app:
     * <xref:Microsoft.AspNetCore.Builder.ComponentEndpointRouteBuilderExtensions.MapBlazorHub%2A> viene chiamato per configurare un endpoint per la connessione in tempo reale con il browser. La connessione viene creata con [SignalR](xref:signalr/introduction) , che è un Framework per l'aggiunta di funzionalità Web in tempo reale alle app.
     * [`MapFallbackToPage("/_Host")`](xref:Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions.MapFallbackToPage*) viene chiamato per impostare la pagina radice dell'app ( `Pages/_Host.cshtml` ) e abilitare la navigazione.
+
+## <a name="additional-resources"></a>Risorse aggiuntive
+
+* <xref:blazor/tooling>
+* <xref:blazor/hosting-models>

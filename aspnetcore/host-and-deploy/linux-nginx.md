@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: 6a8fd8e3498dda9b7c10834791e64df6276e2823
-ms.sourcegitcommit: 063a06b644d3ade3c15ce00e72a758ec1187dd06
+ms.openlocfilehash: 8a593654fa31e643e7c239f361f035589c75ce98
+ms.sourcegitcommit: 1436bd4d70937d6ec3140da56d96caab33c4320b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253020"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102395253"
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Hosting di ASP.NET Core in Linux con Nginx
 
@@ -46,13 +46,9 @@ In questa guida:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-1. Accedere a un server Ubuntu 16.04 con un account utente standard con privilegio sudo.
-1. Installare il runtime .NET Core nel server.
-   1. Visitare la [pagina di download di .NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-   1. Selezionare la versione più recente di .NET Core non in anteprima.
-   1. Scaricare la versione più recente del runtime non di anteprima nella tabella in **Run Apps-Runtime**.
-   1. Selezionare il collegamento **istruzioni di gestione pacchetti** Linux e seguire le istruzioni di Ubuntu per la versione di Ubuntu.
-1. Un'app ASP.NET Core esistente.
+* Accedere a un server Ubuntu 16.04 con un account utente standard con privilegio sudo.
+* Il [Runtime .NET](/dotnet/core/install/linux) non di anteprima più recente installato nel server.
+* Un'app ASP.NET Core esistente.
 
 In qualsiasi momento in futuro dopo l'aggiornamento del Framework condiviso, riavviare le app ASP.NET Core ospitate dal server.
 
@@ -385,7 +381,7 @@ Configurare il server con moduli aggiuntivi obbligatori. Può essere utile usare
 
 **Configurare l'app per connessioni locali sicure (HTTPS)**
 
-Il comando [DotNet Run](/dotnet/core/tools/dotnet-run) usa le *Proprietà/launchSettings.js* dell'app nel file, che configura l'app in modo che sia in ascolto sugli URL forniti dalla `applicationUrl` Proprietà. Ad esempio, `https://localhost:5001;http://localhost:5000`.
+Il comando [DotNet Run](/dotnet/core/tools/dotnet-run) usa le *Proprietà/launchSettings.js* dell'app nel file, che configura l'app in modo che sia in ascolto sugli URL forniti dalla `applicationUrl` Proprietà. Ad esempio: `https://localhost:5001;http://localhost:5000`.
 
 Configurare l'app per l'uso di un certificato in fase di sviluppo per il `dotnet run` comando o l'ambiente di sviluppo (<kbd>F5</kbd> o <kbd>CTRL</kbd> + <kbd>F5</kbd> in Visual Studio Code) usando uno degli approcci seguenti:
 

@@ -18,12 +18,12 @@ no-loc:
 - SignalR
 uid: tutorials/first-mvc-app/adding-controller
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 1a13fe31859b9ed41edc746ba450f552bc07f344
-ms.sourcegitcommit: a1db01b4d3bd8c57d7a9c94ce122a6db68002d66
+ms.openlocfilehash: 4afee8c09a3eb1030bf68e7591e1686b18d5f7e9
+ms.sourcegitcommit: 1436bd4d70937d6ec3140da56d96caab33c4320b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102110209"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102394447"
 ---
 # <a name="part-2-add-a-controller-to-an-aspnet-core-mvc-app"></a>Parte 2, aggiungere un controller a un'app MVC ASP.NET Core
 
@@ -166,7 +166,7 @@ Nell'URL precedente:
 
 * Il terzo segmento di URL corrisponde al parametro di route `id` . 
 * Il metodo `Welcome` contiene un parametro `id` che corrisponde al modello di URL nel metodo `MapControllerRoute`.
-* Il carattere finale `?` (in `id?`) indica che il parametro `id` è facoltativo.
+* L'oggetto finale `?` Avvia la [stringa di query](https://wikipedia.org/wiki/Query_string).
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie5/Startup.cs?name=snippet_route&highlight=5)]
 

@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/fundamentals/environments
-ms.openlocfilehash: a5ead59e467da331b585e8daefb1d7d259c7edba
-ms.sourcegitcommit: 422e8444b9f5cedc373be5efe8032822db54fcaf
+ms.openlocfilehash: 86484fe2e2ce8e20e397a78f118d8b1bbe0cc88a
+ms.sourcegitcommit: 1436bd4d70937d6ec3140da56d96caab33c4320b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101101048"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102395110"
 ---
 # <a name="aspnet-core-blazor-environments"></a>Ambienti di ASP.NET Core Blazor
 
@@ -33,7 +33,7 @@ ms.locfileid: "101101048"
 
 Quando si esegue un'app localmente, per impostazione predefinita viene impostato lo sviluppo per l'ambiente. Quando l'app viene pubblicata, per impostazione predefinita viene impostato l'ambiente di produzione.
 
-L'app sul lato client Blazor ( *`Client`* ) di una soluzione ospitata Blazor WebAssembly determina l'ambiente dall' *`Server`* app della soluzione tramite un middleware che comunica l'ambiente al browser. L' *`Server`* app aggiunge un'intestazione denominata `blazor-environment` con l'ambiente come valore dell'intestazione. L' *`Client`* intestazione viene letta dall'app. L' *`Server`* app della soluzione è un'app ASP.NET Core, quindi ulteriori informazioni su come configurare l'ambiente si trovano in <xref:fundamentals/environments> .
+L'app sul lato client Blazor ( **`Client`** ) di una soluzione ospitata Blazor WebAssembly determina l'ambiente dall' **`Server`** app della soluzione tramite un middleware che comunica l'ambiente al browser. L' **`Server`** app aggiunge un'intestazione denominata `blazor-environment` con l'ambiente come valore dell'intestazione. L' **`Client`** intestazione viene letta dall'app. L' **`Server`** app della soluzione è un'app ASP.NET Core, quindi ulteriori informazioni su come configurare l'ambiente si trovano in <xref:fundamentals/environments> .
 
 Per un'app autonoma Blazor WebAssembly in esecuzione in locale, il server di sviluppo aggiunge l' `blazor-environment` intestazione per specificare l'ambiente di sviluppo. Per specificare l'ambiente per altri ambienti host, aggiungere l' `blazor-environment` intestazione.
 

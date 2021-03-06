@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/progressive-web-app
-ms.openlocfilehash: 515da543fc6b6cca0b90968b154d91b611ea3345
-ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
+ms.openlocfilehash: 9e7063297e124aabbdf1defd01ac90f735ef5321
+ms.sourcegitcommit: 1436bd4d70937d6ec3140da56d96caab33c4320b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2021
-ms.locfileid: "100280549"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102395006"
 ---
 # <a name="build-progressive-web-applications-with-aspnet-core-blazor-webassembly"></a>Creazione di applicazioni Web progressive con ASP.NET Core Blazor WebAssembly
 
@@ -104,15 +104,17 @@ Per ottenere risorse statiche, usare **uno** degli approcci seguenti:
   
   Nel comando precedente, l' `-o|--output` opzione Crea una nuova cartella per l'app denominata `MyBlazorPwa` .
   
-  Se non si converte un'app per la versione più recente, passare l' `-f|--framework` opzione. Nell'esempio seguente viene creata l'app per ASP.NET Core versione 3,1:
+  **Se non si converte un'app per la versione più recente**, passare l' `-f|--framework` opzione. Nell'esempio seguente viene creata l'app per ASP.NET Core versione 3,1:
   
   ```dotnetcli
   dotnet new blazorwasm -o MyBlazorPwa --pwa -f netcoreapp3.1
   ```
 
-* Passare al repository GitHub ASP.NET Core all'URL seguente, che si collega all'origine e alle risorse di riferimento della versione 5,0. Se non si converte un'app per la versione 5,0, selezionare la versione che si sta usando dall'elenco a discesa **Cambia rami o tag** applicabile all'app.
+* Passare al repository GitHub ASP.NET Core all'URL seguente, che si collega all' `main` origine e alle risorse di riferimento del ramo. Selezionare la versione che si sta utilizzando dall'elenco a discesa **Cambia rami o tag** che si applica all'app.
 
-  [cartella del modello di progetto DotNet/aspnetcore (versione 5,0) Blazor WebAssembly `wwwroot`](https://github.com/dotnet/aspnetcore/tree/release/5.0/src/ProjectTemplates/Web.ProjectTemplates/content/ComponentsWebAssembly-CSharp/Client/wwwroot)
+  [Blazor WebAssembly cartella del modello di progetto `wwwroot` (Branch del repository GitHub DotNet/aspnetcore `main` )](https://github.com/dotnet/aspnetcore/tree/main/src/ProjectTemplates/Web.ProjectTemplates/content/ComponentsWebAssembly-CSharp/Client/wwwroot)
+
+  [!INCLUDE[](~/blazor/includes/aspnetcore-repo-ref-source-links.md)]
 
 ::: moniker-end
 
@@ -128,12 +130,14 @@ Per ottenere risorse statiche, usare **uno** degli approcci seguenti:
 
 * Passare al repository GitHub ASP.NET Core all'URL seguente, che si collega all'origine e agli asset di riferimento della versione 3,1:
 
-  [cartella del modello di progetto DotNet/aspnetcore (versione 3,1) Blazor WebAssembly `wwwroot`](https://github.com/dotnet/aspnetcore/tree/release/3.1/src/ProjectTemplates/ComponentsWebAssembly.ProjectTemplates/content/ComponentsWebAssembly-CSharp/Client/wwwroot)
+  [Blazor WebAssembly cartella del modello di progetto `wwwroot` (Branch del repository GitHub DotNet/aspnetcore `release 3.1` )](https://github.com/dotnet/aspnetcore/tree/release/3.1/src/ProjectTemplates/ComponentsWebAssembly.ProjectTemplates/content/ComponentsWebAssembly-CSharp/Client/wwwroot)
 
   > [!NOTE]
-  > L'URL per il modello di progetto è stato Blazor WebAssembly modificato dopo il rilascio di ASP.NET Core 3,1. Gli asset di riferimento per 5,0 o versioni successive sono disponibili all'URL seguente:
+  > L'URL per il modello di progetto è stato Blazor WebAssembly modificato dopo il rilascio di ASP.NET Core 3,1. Gli asset di riferimento per qualsiasi versione sono disponibili nell'origine riferimento ASP.NET Core. Selezionare la versione che si sta utilizzando dall'elenco a discesa **Cambia rami o tag** che si applica all'app.
   >
-  > [cartella del modello di progetto DotNet/aspnetcore (versione 5,0) Blazor WebAssembly `wwwroot`](https://github.com/dotnet/aspnetcore/tree/release/5.0/src/ProjectTemplates/Web.ProjectTemplates/content/ComponentsWebAssembly-CSharp/Client/wwwroot)
+  > [Blazor WebAssembly cartella del modello di progetto `wwwroot` (Branch del repository GitHub DotNet/aspnetcore `main` )](https://github.com/dotnet/aspnetcore/tree/main/src/ProjectTemplates/Web.ProjectTemplates/content/ComponentsWebAssembly-CSharp/Client/wwwroot)
+  >
+  > [!INCLUDE[](~/blazor/includes/aspnetcore-repo-ref-source-links.md)]
 
 ::: moniker-end
 

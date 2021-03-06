@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: tutorials/build-a-blazor-app
-ms.openlocfilehash: d984023a1c46c5383d47a1634c54e61747b83d60
-ms.sourcegitcommit: 422e8444b9f5cedc373be5efe8032822db54fcaf
+ms.openlocfilehash: 260d921316d6fadecbd42db11048593b19a5ddee
+ms.sourcegitcommit: 1436bd4d70937d6ec3140da56d96caab33c4320b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101101210"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102394434"
 ---
 # <a name="build-a-blazor-todo-list-app"></a>Creare un' Blazor app elenco attività
 
@@ -138,7 +138,7 @@ Al termine di questa esercitazione, si disporrà di un'app elenco attività.
    ::: moniker-end
 
    > [!NOTE]
-   > Se si usa Visual Studio per creare il `ToDoItem.cs` file e la `ToDoItem` classe, usare uno degli approcci seguenti:
+   > Se si usa Visual Studio per creare il `TodoItem.cs` file e la `TodoItem` classe, usare uno degli approcci seguenti:
    >
    > * Rimuovere lo spazio dei nomi generato da Visual Studio per la classe.
    > * Usare il pulsante **copia** nel blocco di codice precedente e sostituire l'intero contenuto del file generato da Visual Studio.

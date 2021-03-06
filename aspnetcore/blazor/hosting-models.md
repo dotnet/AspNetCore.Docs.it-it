@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/hosting-models
-ms.openlocfilehash: 780161090d376f08b849fadb47127810d6661d0c
-ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
+ms.openlocfilehash: 8dd11251358bbeea444661970fadf19cb1390fd3
+ms.sourcegitcommit: 1436bd4d70937d6ec3140da56d96caab33c4320b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2021
-ms.locfileid: "100279762"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102394928"
 ---
 # <a name="aspnet-core-blazor-hosting-models"></a>BlazorModelli di hosting ASP.NET Core
 
@@ -36,7 +36,7 @@ Il Blazor modello di hosting primario è in esecuzione sul lato client nel brows
 
 ![::: NO-LOC (webassembly Blaze):::: l'oggetto::: NO-LOC (Blazer)::: app viene eseguito su un thread dell'interfaccia utente all'interno del browser.](hosting-models/_static/blazor-webassembly.png)
 
-Quando l' Blazor WebAssembly app viene creata per la distribuzione senza un'app ASP.NET Core back-end per gestire i file, l'app viene chiamata app *autonoma* Blazor WebAssembly . Quando l'app viene creata per la distribuzione con un'app back-end per gestire i file, l'app viene chiamata app *ospitata* Blazor WebAssembly . Un'app ospitata Blazor WebAssembly in genere interagisce con il server tramite la rete mediante chiamate API Web o [SignalR](xref:signalr/introduction) ( <xref:tutorials/signalr-blazor> ).
+Quando l' Blazor WebAssembly app viene creata per la distribuzione senza un'app ASP.NET Core back-end per gestire i file, l'app viene chiamata app *autonoma* Blazor WebAssembly . Quando l'app viene creata per la distribuzione con un'app back-end per gestire i file, l'app viene chiamata app *ospitata* Blazor WebAssembly . Un'app ospitata Blazor WebAssembly **`Client`** in genere interagisce con l'app back-end tramite **`Server`** la rete usando chiamate API Web o [SignalR](xref:signalr/introduction) ( <xref:tutorials/signalr-blazor> ).
 
 Lo `blazor.webassembly.js` script viene fornito dal Framework e gestisce:
 
@@ -59,7 +59,7 @@ Il Blazor WebAssembly modello di hosting presenta le limitazioni seguenti:
 
 Per creare un' Blazor WebAssembly app, vedere <xref:blazor/tooling> .
 
-Il modello di app ospitata Blazor supporta i [contenitori Docker](/dotnet/standard/microservices-architecture/container-docker-introduction/index). Per il supporto di Docker in Visual Studio, fare clic con il pulsante destro del mouse sul `Server` progetto di una soluzione ospitata Blazor WebAssembly e scegliere **Aggiungi**  >  **supporto Docker**.
+Il modello di app ospitata Blazor supporta i [contenitori Docker](/dotnet/standard/microservices-architecture/container-docker-introduction/index). Per il supporto di Docker in Visual Studio, fare clic con il pulsante destro del mouse sul **`Server`** progetto di una soluzione ospitata Blazor WebAssembly e scegliere **Aggiungi**  >  **supporto Docker**.
 
 ## Blazor Server
 
@@ -157,6 +157,7 @@ Quando si usa IIS, le sessioni permanenti sono abilitate con il *routing delle r
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * <xref:blazor/tooling>
+* <xref:blazor/project-structure>
 * <xref:signalr/introduction>
 * <xref:blazor/fundamentals/signalr>
 * <xref:tutorials/signalr-blazor>

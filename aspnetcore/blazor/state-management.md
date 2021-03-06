@@ -20,12 +20,12 @@ no-loc:
 - SignalR
 uid: blazor/state-management
 zone_pivot_groups: blazor-hosting-models
-ms.openlocfilehash: 811ec08eb457fcf0697a64dc4990d29082454f73
-ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
+ms.openlocfilehash: fee4473aede3fd213314c51a18284b4e4ad95b2b
+ms.sourcegitcommit: 1436bd4d70937d6ec3140da56d96caab33c4320b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2021
-ms.locfileid: "100280867"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102394668"
 ---
 # <a name="aspnet-core-blazor-state-management"></a>BlazorGestione dello stato ASP.NET Core
 
@@ -254,7 +254,7 @@ La scelta dipende dal percorso di archiviazione del browser che si desidera util
 
 La `@using` direttiva può essere inserita nel file dell'app `_Imports.razor` anziché nel componente. L'uso del `_Imports.razor` file rende lo spazio dei nomi disponibile a segmenti più grandi dell'app o dell'intera app.
 
-Per salvare in modo permanente il `currentCount` valore nel `Counter` componente di un'app in base al Blazor Server modello di progetto, modificare il `IncrementCount` metodo in modo da usare `ProtectedSessionStore.SetAsync` :
+Per salvare in modo permanente il `currentCount` valore nel `Counter` componente di un'app in base al [ Blazor Server modello di progetto](xref:blazor/project-structure), modificare il `IncrementCount` metodo in modo da usare `ProtectedSessionStore.SetAsync` :
 
 ```csharp
 private async Task IncrementCount()
@@ -502,7 +502,7 @@ La scelta dipende dal percorso di archiviazione del browser che si desidera util
 
 L' `@using` istruzione può essere inserita in un `_Imports.razor` file anziché nel componente. L'uso del `_Imports.razor` file rende lo spazio dei nomi disponibile a segmenti più grandi dell'app o dell'intera app.
 
-Per salvare in modo permanente il `currentCount` valore nel `Counter` componente di un'app in base al Blazor Server modello di progetto, modificare il `IncrementCount` metodo in modo da usare `ProtectedSessionStore.SetAsync` :
+Per salvare in modo permanente il `currentCount` valore nel `Counter` componente di un'app in base al [ Blazor Server modello di progetto](xref:blazor/project-structure), modificare il `IncrementCount` metodo in modo da usare `ProtectedSessionStore.SetAsync` :
 
 ```csharp
 private async Task IncrementCount()

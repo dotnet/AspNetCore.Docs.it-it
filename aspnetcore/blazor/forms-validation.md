@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/forms-validation
-ms.openlocfilehash: a942c7848c77444d185ff73338a98a4205451992
-ms.sourcegitcommit: a1db01b4d3bd8c57d7a9c94ce122a6db68002d66
+ms.openlocfilehash: eb72810a5b65232aa778daa556a9b2d406807e87
+ms.sourcegitcommit: 1436bd4d70937d6ec3140da56d96caab33c4320b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102109728"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102395136"
 ---
 # <a name="aspnet-core-blazor-forms-and-validation"></a>ASP.NET Core Blazor moduli e convalida
 
@@ -454,7 +454,7 @@ La convalida del server può essere eseguita con un [componente validator](#vali
 
 L'esempio seguente è basato su:
 
-* Soluzione ospitata Blazor creata dal [ Blazor modello di progetto ospitato](xref:blazor/hosting-models#blazor-webassembly). Questo esempio può essere usato con qualsiasi soluzione ospitata protetta Blazor descritta nella pagina [ Identity relativa alla sicurezza e alla documentazione](xref:blazor/security/webassembly/index#implementation-guidance).
+* Una soluzione ospitata Blazor WebAssembly creata dal [ Blazor WebAssembly modello di progetto](xref:blazor/project-structure). Questo esempio può essere usato con qualsiasi soluzione ospitata protetta Blazor descritta nella pagina [ Identity relativa alla sicurezza e alla documentazione](xref:blazor/security/webassembly/index#implementation-guidance).
 * Il modulo del *database Starship astronave* nell'esempio precedente della sezione relativa ai [componenti dei moduli incorporati](#built-in-forms-components) .
 * BlazorComponente del Framework <xref:Microsoft.AspNetCore.Components.Forms.DataAnnotationsValidator> .
 * `CustomValidator`Componente visualizzato nella sezione [componenti validator](#validator-components) .
@@ -966,7 +966,9 @@ Il Blazor Framework non gestisce automaticamente le `null` conversioni di string
 
 ## <a name="validation-support"></a>Supporto della convalida
 
-Il <xref:Microsoft.AspNetCore.Components.Forms.DataAnnotationsValidator> componente connette il supporto di convalida usando le annotazioni dei dati a a cascata <xref:Microsoft.AspNetCore.Components.Forms.EditContext> . L'abilitazione del supporto per la convalida usando le annotazioni dei dati richiede questo movimento esplicito. Per usare un sistema di convalida diverso rispetto alle annotazioni dei dati, sostituire <xref:Microsoft.AspNetCore.Components.Forms.DataAnnotationsValidator> con un'implementazione personalizzata. L'implementazione del ASP.NET Core è disponibile per l'ispezione nell'origine riferimento: [`DataAnnotationsValidator`](https://github.com/dotnet/AspNetCore/blob/master/src/Components/Forms/src/DataAnnotationsValidator.cs) / [`AddDataAnnotationsValidation`](https://github.com/dotnet/AspNetCore/blob/master/src/Components/Forms/src/EditContextDataAnnotationsExtensions.cs) . I collegamenti precedenti a origine riferimento forniscono il codice dal ramo del repository `master` , che rappresenta lo sviluppo corrente dell'unità di prodotto per la prossima versione di ASP.NET Core. Per selezionare il ramo per una versione diversa, usare il selettore di ramo GitHub (ad esempio `release/3.1` ).
+Il <xref:Microsoft.AspNetCore.Components.Forms.DataAnnotationsValidator> componente connette il supporto di convalida usando le annotazioni dei dati a a cascata <xref:Microsoft.AspNetCore.Components.Forms.EditContext> . L'abilitazione del supporto per la convalida usando le annotazioni dei dati richiede questo movimento esplicito. Per usare un sistema di convalida diverso rispetto alle annotazioni dei dati, sostituire <xref:Microsoft.AspNetCore.Components.Forms.DataAnnotationsValidator> con un'implementazione personalizzata. Le implementazioni ASP.NET Core sono disponibili per l'ispezione nell'origine riferimento: [`DataAnnotationsValidator`](https://github.com/dotnet/AspNetCore/blob/main/src/Components/Forms/src/DataAnnotationsValidator.cs) / [`AddDataAnnotationsValidation`](https://github.com/dotnet/AspNetCore/blob/main/src/Components/Forms/src/EditContextDataAnnotationsExtensions.cs) .
+
+[!INCLUDE[](~/blazor/includes/aspnetcore-repo-ref-source-links.md)]
 
 Blazor esegue due tipi di convalida:
 

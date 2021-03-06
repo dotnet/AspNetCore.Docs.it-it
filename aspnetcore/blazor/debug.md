@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/debug
-ms.openlocfilehash: 0421fd0509fbd89e4635dc7d80a584508627b52c
-ms.sourcegitcommit: a1db01b4d3bd8c57d7a9c94ce122a6db68002d66
+ms.openlocfilehash: adf22001e7d9b8ee4f36456cd4b07d2791a7331f
+ms.sourcegitcommit: 1436bd4d70937d6ec3140da56d96caab33c4320b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102109780"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102395150"
 ---
 # <a name="debug-aspnet-core-blazor-webassembly"></a>ASP.NET Core di debug Blazor WebAssembly
 
@@ -48,7 +48,7 @@ Per il momento *non è possibile*:
 * Interrompi in corrispondenza di eccezioni non gestite.
 * Premere i punti di interruzione durante l'avvio dell'app prima che il proxy di debug sia in esecuzione. Sono inclusi i punti di interruzione in `Program.Main` ( `Program.cs` ) e i punti di interruzione nei [ `OnInitialized{Async}` Metodi](xref:blazor/components/lifecycle#component-initialization-methods) dei componenti caricati dalla prima pagina richiesta dall'app.
 * Eseguire il debug in scenari non locali (ad esempio, il [sottosistema Windows per Linux (WSL)](/windows/wsl/) o gli spazi dei nomi di [Visual Studio](/visualstudio/codespaces/overview/what-is-vsonline)).
-* Ricompilare automaticamente l'app back-end `*Server*` di una soluzione ospitata Blazor durante il debug, ad esempio eseguendo l'app con [`dotnet watch run`](xref:tutorials/dotnet-watch) .
+* Ricompilare automaticamente l'app back-end `*Server*` di una soluzione ospitata Blazor WebAssembly durante il debug, ad esempio eseguendo l'app con [`dotnet watch run`](xref:tutorials/dotnet-watch) .
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -97,7 +97,7 @@ I valori segnaposto per i protocolli WebSockets ( `wsProtocol` ), host ( `url.ho
 
 Per eseguire il debug di un' Blazor WebAssembly app in Visual Studio:
 
-1. Creare una nuova app ospitata ASP.NET Core Blazor WebAssembly .
+1. Creare una nuova soluzione ospitata Blazor WebAssembly .
 1. Premere <kbd>F5</kbd> per eseguire l'app nel debugger.
 
    > [!NOTE]
@@ -202,7 +202,7 @@ Per informazioni sulla configurazione di asset VS Code nella `.vscode` cartella,
 
 ## <a name="debug-hosted-blazor-webassembly"></a>Debug ospitato Blazor WebAssembly
 
-1. Aprire la cartella della soluzione dell'app ospitata Blazor WebAssembly in vs code.
+1. Aprire la **`Client`** cartella di progetto della cartella della soluzione ospitata Blazor in vs code.
 
 1. Se non è impostata alcuna configurazione di avvio per il progetto, viene visualizzata la notifica seguente. Selezionare **Sì**.
 

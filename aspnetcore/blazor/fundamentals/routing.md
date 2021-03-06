@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/fundamentals/routing
-ms.openlocfilehash: 55e2cbc01af7352facad7121c05c754e9d438ae3
-ms.sourcegitcommit: 1166b0ff3828418559510c661e8240e5c5717bb7
+ms.openlocfilehash: ee6de9a13a69154eef6b677663091667d391452f
+ms.sourcegitcommit: 1436bd4d70937d6ec3140da56d96caab33c4320b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2021
-ms.locfileid: "100279882"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102395058"
 ---
 # <a name="aspnet-core-blazor-routing"></a>BlazorRouting ASP.NET Core
 
@@ -59,7 +59,7 @@ In fase di esecuzione, il <xref:Microsoft.AspNetCore.Components.RouteView> compo
 * Riceve <xref:Microsoft.AspNetCore.Components.RouteData> da <xref:Microsoft.AspNetCore.Components.Routing.Router> insieme ai parametri di route.
 * Esegue il rendering del componente specificato con il [layout](xref:blazor/layouts), inclusi eventuali altri layout annidati.
 
-Facoltativamente, specificare un <xref:Microsoft.AspNetCore.Components.RouteView.DefaultLayout> parametro con una classe layout per i componenti che non specificano un layout con la [ `@layout` direttiva](xref:blazor/layouts#specify-a-layout-in-a-component). I modelli di Blazor progetto del Framework specificano il `MainLayout` componente ( `Shared/MainLayout.razor` ) come layout predefinito dell'app. Per ulteriori informazioni sui layout, vedere <xref:blazor/layouts> .
+Facoltativamente, specificare un <xref:Microsoft.AspNetCore.Components.RouteView.DefaultLayout> parametro con una classe layout per i componenti che non specificano un layout con la [ `@layout` direttiva](xref:blazor/layouts#apply-a-layout-to-a-component). I modelli di [ Blazor progetto](xref:blazor/project-structure) del Framework specificano il `MainLayout` componente ( `Shared/MainLayout.razor` ) come layout predefinito dell'app. Per ulteriori informazioni sui layout, vedere <xref:blazor/layouts> .
 
 I componenti supportano più modelli di route usando più [ `@page` direttive](xref:mvc/views/razor#page). Il componente di esempio seguente carica le richieste per `/BlazorRoute` e `/DifferentBlazorRoute` .
 
@@ -102,7 +102,7 @@ Nel `App` componente impostare il contenuto personalizzato nel modello del <xref
 
 ::: moniker-end
 
-Gli elementi arbitrari sono supportati come contenuto dei `<NotFound>` tag, ad esempio altri componenti interattivi. Per applicare un layout predefinito al <xref:Microsoft.AspNetCore.Components.Routing.Router.NotFound> contenuto, vedere <xref:blazor/layouts#default-layout> .
+Gli elementi arbitrari sono supportati come contenuto dei `<NotFound>` tag, ad esempio altri componenti interattivi. Per applicare un layout predefinito al <xref:Microsoft.AspNetCore.Components.Routing.Router.NotFound> contenuto, vedere <xref:blazor/layouts#apply-a-layout-to-arbitrary-content-layoutview-component> .
 
 ## <a name="route-to-components-from-multiple-assemblies"></a>Routing a componenti da più assembly
 
@@ -230,7 +230,7 @@ Si consideri il `Example` componente seguente che può ricevere un parametro di 
 
 ::: moniker-end
 
-Per consentire all' *`Server`* app di una soluzione ospitata Blazor WebAssembly di instradare la richiesta con un punto nel `param` parametro di route, aggiungere un modello di route per il file di fallback con il parametro facoltativo in `Startup.Configure` .
+Per consentire all' **`Server`** app di una soluzione ospitata Blazor WebAssembly di instradare la richiesta con un punto nel `param` parametro di route, aggiungere un modello di route per il file di fallback con il parametro facoltativo in `Startup.Configure` .
 
 `Startup.cs`:
 
@@ -371,7 +371,7 @@ Il `NavMenu` componente seguente crea una [`Bootstrap`](https://getbootstrap.com
 ::: moniker-end
 
 > [!NOTE]
-> Il `NavMenu` componente ( `NavMenu.razor` ) viene fornito nella `Shared` cartella di un'app generata dai modelli di Blazor progetto.
+> Il `NavMenu` componente ( `NavMenu.razor` ) viene fornito nella `Shared` cartella di un'app generata dai modelli di [ Blazor progetto](xref:blazor/project-structure).
 
 Sono disponibili due <xref:Microsoft.AspNetCore.Components.Routing.NavLinkMatch> opzioni che è possibile assegnare all' `Match` attributo dell' `<NavLink>` elemento:
 
