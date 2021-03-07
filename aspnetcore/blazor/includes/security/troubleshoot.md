@@ -11,12 +11,12 @@ no-loc:
 - Let's Encrypt
 - Razor
 - SignalR
-ms.openlocfilehash: eefd16dca126c9bce1efa2cdc90d4201bac09b91
-ms.sourcegitcommit: 3982ff9dabb5b12aeb0a61cde2686b5253364f5d
+ms.openlocfilehash: f58da78475d65cbb70b0b177e1b0443535e97d55
+ms.sourcegitcommit: 1436bd4d70937d6ec3140da56d96caab33c4320b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102193689"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102402300"
 ---
 ## <a name="troubleshoot"></a>Risolvere problemi
 
@@ -29,6 +29,7 @@ ms.locfileid: "102193689"
   * A seconda dei requisiti dello scenario, un'autorità mancante o errata, un'istanza, un ID tenant, un dominio tenant, un ID client o un URI di reindirizzamento impedisce a un'app di autenticare i client.
   * Un ambito del token di accesso non corretto impedisce ai client di accedere agli endpoint dell'API Web del server.
   * Le autorizzazioni dell'API server errate o mancanti impediscono ai client di accedere agli endpoint dell'API Web del server.
+  * Esecuzione dell'app in una porta diversa da quella configurata nell'URI di reindirizzamento della Identity registrazione dell'app del provider.
   
   Le sezioni di configurazione delle linee guida di questo articolo mostrano esempi della configurazione corretta. Controllare attentamente ogni sezione dell'articolo ricerca di app e configurazione errata dell'IP.
   
@@ -112,7 +113,7 @@ Un'app funzionante potrebbe non riuscire immediatamente dopo l'aggiornamento del
 
 ### <a name="run-the-server-app"></a>Eseguire l'app Server
 
-Durante il test e la risoluzione dei problemi di un'app ospitata Blazor , assicurarsi di eseguire l'app dal **`Server`** progetto. Ad esempio, in Visual Studio verificare che il progetto server sia evidenziato in **Esplora soluzioni** prima di avviare l'app con uno degli approcci seguenti:
+Durante il test e la risoluzione dei problemi di una soluzione ospitata Blazor , assicurarsi di eseguire l'app dal **`Server`** progetto. Ad esempio, in Visual Studio verificare che il progetto server sia evidenziato in **Esplora soluzioni** prima di avviare l'app con uno degli approcci seguenti:
 
 * Selezionare il pulsante **Run** (Esegui).
 * Usare **debug**  >  **Avvia debug** dal menu.
