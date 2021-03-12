@@ -19,14 +19,14 @@ no-loc:
 - Razor
 - SignalR
 uid: signalr/java-client
-ms.openlocfilehash: 92941d21820de90eb2ae8fb76c21c588ed9f1ffb
-ms.sourcegitcommit: 8b0e9a72c1599ce21830c843558a661ba908ce32
+ms.openlocfilehash: bdfaf50895612e739eb5ca068a76755f97cf24c2
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98024756"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102588074"
 ---
-# <a name="aspnet-core-no-locsignalr-java-client"></a>SignalRClient Java ASP.NET Core
+# <a name="aspnet-core-signalr-java-client"></a>SignalRClient Java ASP.NET Core
 
 Di [Mikael Mengistu](https://twitter.com/MikaelM_12)
 
@@ -34,9 +34,9 @@ Il client Java consente la connessione a un SignalR server di ASP.NET Core dal c
 
 L'app console Java di esempio a cui si fa riferimento in questo articolo usa il SignalR client Java.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/java-client/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/signalr/java-client/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
 
-## <a name="install-the-no-locsignalr-java-client-package"></a>Installare il SignalR pacchetto client Java
+## <a name="install-the-signalr-java-client-package"></a>Installare il SignalR pacchetto client Java
 
 Il file jar *SignalR-1.0.0* consente ai client di connettersi agli SignalR Hub. Per trovare il numero di versione del file JAR più recente, vedere i [Risultati della ricerca di Maven](https://search.maven.org/search?q=g:com.microsoft.signalr%20AND%20a:signalr).
 

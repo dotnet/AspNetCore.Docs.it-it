@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: fundamentals/routing
-ms.openlocfilehash: 1355fdaeae58b6f4e0cf8d41a74b1c28aee0e8fe
-ms.sourcegitcommit: 063a06b644d3ade3c15ce00e72a758ec1187dd06
+ms.openlocfilehash: 0ce89d2dee3fb2054655c003daddfda2ffa52696
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253085"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102587282"
 ---
 # <a name="routing-in-aspnet-core"></a>Routing in ASP.NET Core
 
@@ -53,7 +53,7 @@ Il sistema di routing degli endpoint descritto in questo documento si applica a 
 * Selettore di versione per una versione precedente.
 * Selezionare [ASP.NET Core 2,1 routing](?view=aspnetcore-2.1).
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples/3.x) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/fundamentals/routing/samples/3.x) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 Gli esempi di download per questo documento sono abilitati da una `Startup` classe specifica. Per eseguire un esempio specifico, modificare *Program.cs* per chiamare la `Startup` classe desiderata.
 
@@ -261,7 +261,7 @@ Il middleware terminale può essere uno strumento efficace, ma può richiedere:
 
 Prendere in considerazione l'integrazione con routing prima di scrivere un middleware terminale.
 
-Il middleware terminale esistente che si integra con [Map](xref:fundamentals/middleware/index#branch-the-middleware-pipeline) o <xref:Microsoft.AspNetCore.Builder.MapWhenExtensions.MapWhen*> può in genere essere trasformato in un endpoint in grado di riconoscere il routing. [MapHealthChecks](https://github.com/aspnet/AspNetCore/blob/master/src/Middleware/HealthChecks/src/Builder/HealthCheckEndpointRouteBuilderExtensions.cs#L16) illustra il modello per il router-Ware:
+Il middleware terminale esistente che si integra con [Map](xref:fundamentals/middleware/index#branch-the-middleware-pipeline) o <xref:Microsoft.AspNetCore.Builder.MapWhenExtensions.MapWhen*> può in genere essere trasformato in un endpoint in grado di riconoscere il routing. [MapHealthChecks](https://github.com/dotnet/AspNetCore/blob/main/src/Middleware/HealthChecks/src/Builder/HealthCheckEndpointRouteBuilderExtensions.cs#L16) illustra il modello per il router-Ware:
 * Scrivere un metodo di estensione in <xref:Microsoft.AspNetCore.Routing.IEndpointRouteBuilder> .
 * Creare una pipeline middleware annidata usando <xref:Microsoft.AspNetCore.Routing.IEndpointRouteBuilder.CreateApplicationBuilder*> .
 * Alleghi il middleware alla nuova pipeline. In questo caso, <xref:Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions.UseHealthChecks*>.
@@ -345,7 +345,7 @@ A causa dei tipi di estendibilità offerti dal routing, non è possibile che il 
 
 ### <a name="route-template-precedence-and-endpoint-selection-order"></a>Ordine di precedenza e selezione degli endpoint del modello di route
 
-La [precedenza del modello di route](https://github.com/dotnet/aspnetcore/blob/master/src/Http/Routing/src/Template/RoutePrecedence.cs#L16) è un sistema che assegna a ogni modello di route un valore in base a quanto è specifico. Precedenza modello di route:
+La [precedenza del modello di route](https://github.com/dotnet/aspnetcore/blob/main/src/Http/Routing/src/Template/RoutePrecedence.cs#L16) è un sistema che assegna a ogni modello di route un valore in base a quanto è specifico. Precedenza modello di route:
 
 * Evita la necessità di modificare l'ordine degli endpoint in casi comuni.
 * Tenta di trovare la corrispondenza con le aspettative comuni del comportamento di routing.
@@ -360,7 +360,7 @@ I dettagli del funzionamento della precedenza sono associati alla modalità di d
 * Un segmento complesso è considerato specifico come un segmento di parametro con un vincolo.
 * I parametri catch-all sono i meno specifici. Per informazioni importanti sulle route catch-all, vedere **catch-all** nel [riferimento del modello di route](#rtr) .
 
-Per un riferimento di valori esatti, vedere il [codice sorgente su GitHub](https://github.com/dotnet/aspnetcore/blob/master/src/Http/Routing/src/Template/RoutePrecedence.cs#L189) .
+Per un riferimento di valori esatti, vedere il [codice sorgente su GitHub](https://github.com/dotnet/aspnetcore/blob/main/src/Http/Routing/src/Template/RoutePrecedence.cs#L189) .
 
 <a name="lg"></a>
 
@@ -437,7 +437,7 @@ I modelli di URL che tentano di acquisire un nome file con un'estensione facolta
 * `/files/myFile.txt`
 * `/files/myFile`
 
-I parametri di route possono avere **valori predefiniti**, definiti specificando il valore predefinito dopo il nome del parametro, separato da un segno di uguale (`=`). Ad esempio, `{controller=Home}` definisce `Home` come valore predefinito per `controller`. Il valore predefinito viene usato se nell'URL non è presente alcun valore per il parametro. I parametri di route vengono resi facoltativi aggiungendo un punto interrogativo ( `?` ) alla fine del nome del parametro. Ad esempio, `id?`. La differenza tra i valori facoltativi e i parametri di route predefiniti è la seguente:
+I parametri di route possono avere **valori predefiniti**, definiti specificando il valore predefinito dopo il nome del parametro, separato da un segno di uguale (`=`). Ad esempio, `{controller=Home}` definisce `Home` come valore predefinito per `controller`. Il valore predefinito viene usato se nell'URL non è presente alcun valore per il parametro. I parametri di route vengono resi facoltativi aggiungendo un punto interrogativo ( `?` ) alla fine del nome del parametro. Ad esempio: `id?`. La differenza tra i valori facoltativi e i parametri di route predefiniti è la seguente:
 
 * Un parametro di route con un valore predefinito produce sempre un valore.
 * Un parametro facoltativo ha un valore solo quando un valore viene fornito dall'URL della richiesta.
@@ -586,7 +586,7 @@ Per limitare un parametro a un set noto di valori possibili, usare un'espression
 
 I vincoli di Route personalizzati sono raramente necessari. Prima di implementare un vincolo di route personalizzato, prendere in considerazione le alternative, ad esempio l'associazione di modelli.
 
-Nella cartella ASP.NET Core [Constraints](https://github.com/dotnet/aspnetcore/tree/master/src/Http/Routing/src/Constraints) sono disponibili ottimi esempi di creazione di vincoli. Ad esempio, [GuidRouteConstraint](https://github.com/dotnet/aspnetcore/blob/master/src/Http/Routing/src/Constraints/GuidRouteConstraint.cs#L18).
+Nella cartella ASP.NET Core [Constraints](https://github.com/dotnet/aspnetcore/tree/main/src/Http/Routing/src/Constraints) sono disponibili ottimi esempi di creazione di vincoli. Ad esempio, [GuidRouteConstraint](https://github.com/dotnet/aspnetcore/blob/main/src/Http/Routing/src/Constraints/GuidRouteConstraint.cs#L18).
 
 Per usare un oggetto personalizzato `IRouteConstraint` , il tipo di vincolo di route deve essere registrato con l'app <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> nel contenitore del servizio. `ConstraintMap` è un dizionario che esegue il mapping delle chiavi dei vincoli di route alle implementazioni di `IRouteConstraint` che convalidano tali vincoli. La proprietà `ConstraintMap` di un'app può essere aggiornata in `Startup.ConfigureServices` come parte di una chiamata [services.AddRouting](xref:Microsoft.Extensions.DependencyInjection.RoutingServiceCollectionExtensions.AddRouting*) o configurando <xref:Microsoft.AspNetCore.Routing.RouteOptions> direttamente con `services.Configure<RouteOptions>`. Ad esempio:
 
@@ -947,7 +947,7 @@ app.UseEndpoints(endpoints =>
 
 **Prendere in considerazione** la scrittura <xref:Microsoft.AspNetCore.Routing.EndpointDataSource> . `EndpointDataSource` è la primitiva di basso livello per la dichiarazione e l'aggiornamento di una raccolta di endpoint. `EndpointDataSource` è un'API potente utilizzata dai controller e dalle Razor pagine.
 
-I test di routing hanno un [esempio di base](https://github.com/aspnet/AspNetCore/blob/master/src/Http/Routing/test/testassets/RoutingSandbox/Framework/FrameworkEndpointDataSource.cs#L17) di un'origine dati che non esegue l'aggiornamento.
+I test di routing hanno un [esempio di base](https://github.com/dotnet/AspNetCore/blob/main/src/Http/Routing/test/testassets/RoutingSandbox/Framework/FrameworkEndpointDataSource.cs#L17) di un'origine dati che non esegue l'aggiornamento.
 
 **Non** tentare di registrare un per `EndpointDataSource` impostazione predefinita. Richiedere agli utenti di registrare il Framework in <xref:Microsoft.AspNetCore.Builder.EndpointRoutingApplicationBuilderExtensions.UseEndpoints*> . La filosofia del routing è che nulla è incluso per impostazione predefinita ed `UseEndpoints` è la posizione in cui registrare gli endpoint.
 
@@ -1029,7 +1029,7 @@ Per altre informazioni sul routing basato su <xref:Microsoft.AspNetCore.Routing.
 > [!IMPORTANT]
 > Questo documento descrive il routing di basso livello di ASP.NET Core. Per informazioni sul routing di ASP.NET Core MVC, vedere <xref:mvc/controllers/routing>. Per informazioni sulle convenzioni di routing nelle Razor pagine, vedere <xref:razor-pages/razor-pages-conventions> .
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/fundamentals/routing/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="routing-basics"></a>Nozioni fondamentali sul routing
 
@@ -1565,7 +1565,7 @@ L'esempio seguente mostra come generare un collegamento a una route usando un di
 
 [!code-csharp[](routing/samples/2.x/RoutingSample/Startup.cs?name=snippet_Dictionary)]
 
-L'elemento <xref:Microsoft.AspNetCore.Routing.VirtualPathData.VirtualPath> generato alla fine dell'esempio precedente è `/package/create/123`. Il dizionario fornisce i valori di route `operation` e `id` del modello "Track Package Route", `package/{operation}/{id}`. Per informazioni dettagliate, vedere il codice di esempio nella sezione [Usare il middleware di routing](#use-routing-middleware) oppure l'[app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples).
+L'elemento <xref:Microsoft.AspNetCore.Routing.VirtualPathData.VirtualPath> generato alla fine dell'esempio precedente è `/package/create/123`. Il dizionario fornisce i valori di route `operation` e `id` del modello "Track Package Route", `package/{operation}/{id}`. Per informazioni dettagliate, vedere il codice di esempio nella sezione [Usare il middleware di routing](#use-routing-middleware) oppure l'[app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/fundamentals/routing/samples).
 
 Il secondo parametro per il costruttore <xref:Microsoft.AspNetCore.Routing.VirtualPathContext> è una raccolta di *valori di ambiente*. I valori di ambiente sono utili poiché limitano il numero di valori che uno sviluppatore deve specificare all'interno del contesto di una richiesta. I valori di route correnti della richiesta corrente sono considerati valori di ambiente per la generazione del collegamento. Nell'azione `About` di un'app ASP.NET Core MVC di `HomeController`, non è necessario specificare il valore di route del controller per collegarsi all'azione `Index`. Viene usato il valore di ambiente `Home`.
 
@@ -1611,7 +1611,7 @@ services.AddMvc()
 > [!IMPORTANT]
 > Questo documento descrive il routing di basso livello di ASP.NET Core. Per informazioni sul routing di ASP.NET Core MVC, vedere <xref:mvc/controllers/routing>. Per informazioni sulle convenzioni di routing nelle Razor pagine, vedere <xref:razor-pages/razor-pages-conventions> .
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/fundamentals/routing/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="routing-basics"></a>Nozioni fondamentali sul routing
 
@@ -1971,7 +1971,7 @@ L'esempio seguente mostra come generare un collegamento a una route usando un di
 
 [!code-csharp[](routing/samples/2.x/RoutingSample/Startup.cs?name=snippet_Dictionary)]
 
-L'elemento <xref:Microsoft.AspNetCore.Routing.VirtualPathData.VirtualPath> generato alla fine dell'esempio precedente è `/package/create/123`. Il dizionario fornisce i valori di route `operation` e `id` del modello "Track Package Route", `package/{operation}/{id}`. Per informazioni dettagliate, vedere il codice di esempio nella sezione [Usare il middleware di routing](#use-routing-middleware) oppure l'[app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples).
+L'elemento <xref:Microsoft.AspNetCore.Routing.VirtualPathData.VirtualPath> generato alla fine dell'esempio precedente è `/package/create/123`. Il dizionario fornisce i valori di route `operation` e `id` del modello "Track Package Route", `package/{operation}/{id}`. Per informazioni dettagliate, vedere il codice di esempio nella sezione [Usare il middleware di routing](#use-routing-middleware) oppure l'[app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/fundamentals/routing/samples).
 
 Il secondo parametro per il costruttore <xref:Microsoft.AspNetCore.Routing.VirtualPathContext> è una raccolta di *valori di ambiente*. I valori di ambiente sono utili poiché limitano il numero di valori che uno sviluppatore deve specificare all'interno del contesto di una richiesta. I valori di route correnti della richiesta corrente sono considerati valori di ambiente per la generazione del collegamento. Nell'azione `About` di un'app ASP.NET Core MVC di `HomeController`, non è necessario specificare il valore di route del controller per collegarsi all'azione `Index`. Viene usato il valore di ambiente `Home`.
 

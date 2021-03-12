@@ -18,14 +18,14 @@ no-loc:
 - Razor
 - SignalR
 uid: razor-pages/index
-ms.openlocfilehash: f8cdbbffae9b291923a6d425fef5526b0ec88f61
-ms.sourcegitcommit: 063a06b644d3ade3c15ce00e72a758ec1187dd06
+ms.openlocfilehash: 78b192cb2240046d16b1b766954ed4ca5229d888
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253189"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102586709"
 ---
-# <a name="introduction-to-no-locrazor-pages-in-aspnet-core"></a>Introduzione alle Razor pagine ASP.NET Core
+# <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introduzione alle Razor pagine ASP.NET Core
 
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT) e [Ryan Nowak](https://github.com/rynowak)
@@ -78,7 +78,7 @@ Questo documento fornisce un'introduzione alle Razor pagine. Non è un'esercitaz
 
 <a name="rpvs17"></a>
 
-## <a name="create-a-no-locrazor-pages-project"></a>Creazione di un Razor progetto di pagine
+## <a name="create-a-razor-pages-project"></a>Creazione di un Razor progetto di pagine
 
 # <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -94,7 +94,7 @@ Per istruzioni dettagliate su come creare un progetto di pagine, vedere [Introdu
 
 ---
 
-## <a name="no-locrazor-pages"></a>Razor Pagine
+## <a name="razor-pages"></a>Razor Pagine
 
 Razor Le pagine sono abilitate in *Startup.cs*:
 
@@ -134,7 +134,7 @@ Note:
 
 Razor Pagine è progettato per semplificare l'implementazione dei modelli comuni usati con i Web browser quando si compila un'app. L' [associazione di modelli](xref:mvc/models/model-binding), gli [Helper Tag](xref:mvc/views/tag-helpers/intro)e gli helper HTML *funzionano solo* con le proprietà definite in una Razor classe di pagine. Si consideri una pagina che implementa un form "contact us" di base per il modello `Contact`:
 
-Per gli esempi riportati in questo documento, `DbContext` viene inizializzato nel file [Startup.cs](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/razor-pages/index/3.0sample/RazorPagesContacts/Startup.cs#L23-L24).
+Per gli esempi riportati in questo documento, `DbContext` viene inizializzato nel file [Startup.cs](https://github.com/dotnet/AspNetCore.Docs/blob/main/aspnetcore/razor-pages/index/3.0sample/RazorPagesContacts/Startup.cs#L23-L24).
 
 Il database in memoria richiede il `Microsoft.EntityFrameworkCore.InMemory` pacchetto NuGet.
 
@@ -247,7 +247,7 @@ Il file *index. cshtml* contiene il markup seguente:
 
 [!code-cshtml[](index/3.0sample/RazorPagesContacts/Pages/Customers/Index.cshtml?range=21)]
 
-L' `<a /a>` [Helper tag di ancoraggio](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) ha usato l' `asp-route-{value}` attributo per generare un collegamento alla pagina di modifica. Il collegamento contiene i dati della route con l'ID contatto. Ad esempio, `https://localhost:5001/Edit/1`. Gli [Helper Tag](xref:mvc/views/tag-helpers/intro) consentono al codice lato server di partecipare alla creazione e al rendering di elementi HTML nei Razor file.
+L' `<a /a>` [Helper tag di ancoraggio](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) ha usato l' `asp-route-{value}` attributo per generare un collegamento alla pagina di modifica. Il collegamento contiene i dati della route con l'ID contatto. Ad esempio: `https://localhost:5001/Edit/1`. Gli [Helper Tag](xref:mvc/views/tag-helpers/intro) consentono al codice lato server di partecipare alla creazione e al rendering di elementi HTML nei Razor file.
 
 Il file *index. cshtml* contiene il markup per la creazione di un pulsante Delete per ogni contatto del cliente:
 
@@ -369,13 +369,13 @@ Razor Le pagine eseguono il fallback alla chiamata del `OnGet` gestore se non `O
 
 <a name="xsrf"></a>
 
-## <a name="xsrfcsrf-and-no-locrazor-pages"></a>XSRF/CSRF e Razor pagine
+## <a name="xsrfcsrf-and-razor-pages"></a>XSRF/CSRF e Razor pagine
 
 Razor Le pagine sono protette dalla [convalida antifalsificazione](xref:security/anti-request-forgery). [FormTagHelper](xref:mvc/views/working-with-forms#the-form-tag-helper) inserisce i token antifalsificazione negli elementi del form HTML.
 
 <a name="layout"></a>
 
-## <a name="using-layouts-partials-templates-and-tag-helpers-with-no-locrazor-pages"></a>Uso di layout, parti parziali, modelli e helper tag con Razor pagine
+## <a name="using-layouts-partials-templates-and-tag-helpers-with-razor-pages"></a>Uso di layout, parti parziali, modelli e helper tag con Razor pagine
 
 Le pagine funzionano con tutte le funzionalità del Razor motore di visualizzazione. Layout, parti parziali, modelli, helper tag, *_ViewStart. cshtml* e *_ViewImports. cshtml* funzionano allo stesso modo per le Razor visualizzazioni convenzionali.
 
@@ -614,13 +614,13 @@ Utilizzare <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions> per impo
 
 Per eseguire la precompilazione delle visualizzazioni, vedere [ Razor visualizzare la compilazione](xref:mvc/views/view-compilation).
 
-### <a name="specify-that-no-locrazor-pages-are-at-the-content-root"></a>Consente di specificare che Razor le pagine si trovano nella radice del contenuto
+### <a name="specify-that-razor-pages-are-at-the-content-root"></a>Consente di specificare che Razor le pagine si trovano nella radice del contenuto
 
 Per impostazione predefinita, Razor le pagine hanno una radice nella directory */pages* Aggiungere <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions.WithRazorPagesAtContentRoot*> per specificare che le Razor pagine si trovano nella [radice del contenuto](xref:fundamentals/index#content-root) ( <xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment.ContentRootPath> ) dell'app:
 
 [!code-csharp[](index/3.0sample/RazorPagesContacts/StartupWithRazorPagesAtContentRoot.cs?name=snippet)]
 
-### <a name="specify-that-no-locrazor-pages-are-at-a-custom-root-directory"></a>Consente di specificare che le Razor pagine si trovano in una directory radice personalizzata
+### <a name="specify-that-razor-pages-are-at-a-custom-root-directory"></a>Consente di specificare che le Razor pagine si trovano in una directory radice personalizzata
 
 Aggiungere <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcCoreBuilderExtensions.WithRazorPagesRoot*> per specificare che Razor le pagine si trovano in una directory radice personalizzata nell'app (fornire un percorso relativo):
 
@@ -630,7 +630,7 @@ Aggiungere <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcCoreBu
 
 * Vedere Introduzione [alle Razor pagine](xref:tutorials/razor-pages/razor-pages-start), che si basa su questa introduzione.
 * [Autorizzare gli attributi e le Razor pagine](xref:security/authorization/simple#aarp)
-* [Scaricare o visualizzare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/index/3.0sample)
+* [Scaricare o visualizzare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/razor-pages/index/3.0sample)
 * <xref:index>
 * [Razor informazioni di riferimento sulla sintassi per ASP.NET Core](xref:mvc/views/razor)
 * <xref:mvc/controllers/areas>
@@ -661,7 +661,7 @@ Aggiungere <xref:Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcCoreBu
 
 <a name="rpvs17"></a>
 
-## <a name="create-a-no-locrazor-pages-project"></a>Creazione di un Razor progetto di pagine
+## <a name="create-a-razor-pages-project"></a>Creazione di un Razor progetto di pagine
 
 # <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -679,7 +679,7 @@ Eseguire `dotnet new webapp` dalla riga di comando.
 
 ---
 
-## <a name="no-locrazor-pages"></a>Razor Pagine
+## <a name="razor-pages"></a>Razor Pagine
 
 Razor Le pagine sono abilitate in *Startup.cs*:
 
@@ -719,7 +719,7 @@ Note:
 
 Razor Pagine è progettato per semplificare l'implementazione dei modelli comuni usati con i Web browser quando si compila un'app. L' [associazione di modelli](xref:mvc/models/model-binding), gli [Helper Tag](xref:mvc/views/tag-helpers/intro)e gli helper HTML *funzionano solo* con le proprietà definite in una Razor classe di pagine. Si consideri una pagina che implementa un form "contact us" di base per il modello `Contact`:
 
-Per gli esempi riportati in questo documento, `DbContext` viene inizializzato nel file [Startup.cs](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/razor-pages/index/sample/RazorPagesContacts/Startup.cs#L15-L16).
+Per gli esempi riportati in questo documento, `DbContext` viene inizializzato nel file [Startup.cs](https://github.com/dotnet/AspNetCore.Docs/blob/main/aspnetcore/razor-pages/index/sample/RazorPagesContacts/Startup.cs#L15-L16).
 
 [!code-csharp[](index/sample/RazorPagesContacts/Startup.cs?highlight=15-16)]
 
@@ -793,7 +793,7 @@ Il file *Index.cshtml* contiene il markup seguente per creare un collegamento di
 
 [!code-cshtml[](index/sample/RazorPagesContacts/Pages/Index.cshtml?range=21)]
 
-L' `<a asp-page="./Edit" asp-route-id="@contact.Id">Edit</a>` [Helper tag di ancoraggio](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) ha usato l' `asp-route-{value}` attributo per generare un collegamento alla pagina di modifica. Il collegamento contiene i dati della route con l'ID contatto. Ad esempio, `https://localhost:5001/Edit/1`. Gli [Helper Tag](xref:mvc/views/tag-helpers/intro) consentono al codice lato server di partecipare alla creazione e al rendering di elementi HTML nei Razor file. Gli helper tag sono abilitati da `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers`
+L' `<a asp-page="./Edit" asp-route-id="@contact.Id">Edit</a>` [Helper tag di ancoraggio](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) ha usato l' `asp-route-{value}` attributo per generare un collegamento alla pagina di modifica. Il collegamento contiene i dati della route con l'ID contatto. Ad esempio: `https://localhost:5001/Edit/1`. Gli [Helper Tag](xref:mvc/views/tag-helpers/intro) consentono al codice lato server di partecipare alla creazione e al rendering di elementi HTML nei Razor file. Gli helper tag sono abilitati da `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers`
 
 Il file *Pages/Edit.cshtml*:
 
@@ -879,13 +879,13 @@ services.AddMvc()
 
 <a name="xsrf"></a>
 
-## <a name="xsrfcsrf-and-no-locrazor-pages"></a>XSRF/CSRF e Razor pagine
+## <a name="xsrfcsrf-and-razor-pages"></a>XSRF/CSRF e Razor pagine
 
 Non è necessario scrivere codice per la [convalida antifalsificazione](xref:security/anti-request-forgery). La generazione e la convalida di token antifalsificazione sono incluse automaticamente nelle Razor pagine.
 
 <a name="layout"></a>
 
-## <a name="using-layouts-partials-templates-and-tag-helpers-with-no-locrazor-pages"></a>Uso di layout, parti parziali, modelli e helper tag con Razor pagine
+## <a name="using-layouts-partials-templates-and-tag-helpers-with-razor-pages"></a>Uso di layout, parti parziali, modelli e helper tag con Razor pagine
 
 Le pagine funzionano con tutte le funzionalità del Razor motore di visualizzazione. Layout, parti parziali, modelli, helper tag, *_ViewStart. cshtml*, *_ViewImports. cshtml* funzionano esattamente come per le Razor visualizzazioni convenzionali.
 
@@ -1109,11 +1109,11 @@ Attualmente è possibile usare `RazorPagesOptions` per impostare la directory ra
 
 Per eseguire la precompilazione delle visualizzazioni, vedere [ Razor visualizzare la compilazione](xref:mvc/views/view-compilation) .
 
-[Scaricare o visualizzare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/index/sample).
+[Scaricare o visualizzare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/razor-pages/index/sample).
 
 Vedere Introduzione [alle Razor pagine](xref:tutorials/razor-pages/razor-pages-start), che si basa su questa introduzione.
 
-### <a name="specify-that-no-locrazor-pages-are-at-the-content-root"></a>Consente di specificare che Razor le pagine si trovano nella radice del contenuto
+### <a name="specify-that-razor-pages-are-at-the-content-root"></a>Consente di specificare che Razor le pagine si trovano nella radice del contenuto
 
 Per impostazione predefinita, Razor le pagine hanno una radice nella directory */pages* Aggiungere [con Razor PagesAtContentRoot](/dotnet/api/microsoft.extensions.dependencyinjection.mvcrazorpagesmvcbuilderextensions.withrazorpagesatcontentroot) a [AddMvc](/dotnet/api/microsoft.extensions.dependencyinjection.mvcservicecollectionextensions.addmvc#Microsoft_Extensions_DependencyInjection_MvcServiceCollectionExtensions_AddMvc_Microsoft_Extensions_DependencyInjection_IServiceCollection_) per specificare che le Razor pagine si trovano nella [radice del contenuto](xref:fundamentals/index#content-root) ([ContentRootPath](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment.contentrootpath)) dell'app:
 
@@ -1126,7 +1126,7 @@ services.AddMvc()
     .WithRazorPagesAtContentRoot();
 ```
 
-### <a name="specify-that-no-locrazor-pages-are-at-a-custom-root-directory"></a>Consente di specificare che le Razor pagine si trovano in una directory radice personalizzata
+### <a name="specify-that-razor-pages-are-at-a-custom-root-directory"></a>Consente di specificare che le Razor pagine si trovano in una directory radice personalizzata
 
 Aggiungere [con Razor PagesRoot](/dotnet/api/microsoft.extensions.dependencyinjection.mvcrazorpagesmvccorebuilderextensions.withrazorpagesroot) a [AddMvc](/dotnet/api/microsoft.extensions.dependencyinjection.mvcservicecollectionextensions.addmvc#Microsoft_Extensions_DependencyInjection_MvcServiceCollectionExtensions_AddMvc_Microsoft_Extensions_DependencyInjection_IServiceCollection_) per specificare che le Razor pagine si trovano in una directory radice personalizzata nell'app (fornire un percorso relativo):
 

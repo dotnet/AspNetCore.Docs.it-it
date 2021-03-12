@@ -18,12 +18,12 @@ no-loc:
 - Razor
 - SignalR
 uid: mvc/views/tag-helpers/th-components
-ms.openlocfilehash: 15bddd8ce18546bef7ee7e6ec2e32e369d0858a3
-ms.sourcegitcommit: ca34c1ac578e7d3daa0febf1810ba5fc74f60bbf
+ms.openlocfilehash: fb0bda0cf8d225df4c58ae43f81ed0dce10c1adc
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93060560"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102587151"
 ---
 # <a name="tag-helper-components-in-aspnet-core"></a>Componenti helper tag in ASP.NET Core
 
@@ -31,9 +31,9 @@ Di [Scott Addie](https://twitter.com/Scott_Addie) e [Fiyaz Bin Hasan](https://gi
 
 Un componente helper tag è un helper tag che consente di modificare o aggiungere elementi HTML da codice lato server in modo condizionale. Questa funzionalità è disponibile in ASP.NET Core 2.0 o versioni successive.
 
-ASP.NET Core include due componenti helper tag predefiniti: `head` e `body`. Si trovano nello <xref:Microsoft.AspNetCore.Mvc.Razor.TagHelpers> spazio dei nomi e possono essere usati sia in MVC che in Razor pagine. I componenti helper tag non richiedono la registrazione con l'app in *_ViewImports.cshtml* .
+ASP.NET Core include due componenti helper tag predefiniti: `head` e `body`. Si trovano nello <xref:Microsoft.AspNetCore.Mvc.Razor.TagHelpers> spazio dei nomi e possono essere usati sia in MVC che in Razor pagine. I componenti helper tag non richiedono la registrazione con l'app in *_ViewImports.cshtml*.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/tag-helpers/th-components/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/mvc/views/tag-helpers/th-components/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="use-cases"></a>Casi d'uso
 
@@ -84,7 +84,7 @@ Se la classe di componenti helper tag non è gestita con <xref:Microsoft.AspNetC
 
 [!code-csharp[](th-components/samples/RazorPagesSample/Startup.cs?name=snippet_ConfigureServices&highlight=12-15)]
 
-### <a name="registration-via-no-locrazor-file"></a>Registrazione tramite Razor file
+### <a name="registration-via-razor-file"></a>Registrazione tramite Razor file
 
 Se il componente helper tag non è registrato con DI, può essere registrato da una Razor pagina di pagine o da una visualizzazione MVC. Questa tecnica viene usata per controllare il markup inserito e l'ordine di esecuzione dei componenti da un Razor file.
 
@@ -124,7 +124,7 @@ Per creare un componente helper tag personalizzato:
 
 * Creare una classe pubblica che deriva da <xref:Microsoft.AspNetCore.Mvc.Razor.TagHelpers.TagHelperComponentTagHelper>.
 * Applicare un [`[HtmlTargetElement]`](xref:Microsoft.AspNetCore.Razor.TagHelpers.HtmlTargetElementAttribute) attributo alla classe. Specificare il nome dell'elemento HTML di destinazione.
-* *Facoltativo* : applicare un [`[EditorBrowsable(EditorBrowsableState.Never)]`](xref:System.ComponentModel.EditorBrowsableAttribute) attributo alla classe per disattivare la visualizzazione del tipo in IntelliSense.
+* *Facoltativo*: applicare un [`[EditorBrowsable(EditorBrowsableState.Never)]`](xref:System.ComponentModel.EditorBrowsableAttribute) attributo alla classe per disattivare la visualizzazione del tipo in IntelliSense.
 
 Il codice seguente crea un componente helper tag personalizzato che fa riferimento all'elemento HTML `<address>`:
 

@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: performance/caching/middleware
-ms.openlocfilehash: 3c28b6c736f07c0d0483152eeec4300a5a92224c
-ms.sourcegitcommit: ca34c1ac578e7d3daa0febf1810ba5fc74f60bbf
+ms.openlocfilehash: 0f1f5dfcb9595270a9659a02141f7d1eba5c44ef
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93052110"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102587697"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Middleware di memorizzazione nella cache delle risposte in ASP.NET Core
 
@@ -34,7 +34,7 @@ A cura di [John Luo](https://github.com/JunTaoLuo)
 
 Questo articolo illustra come configurare il middleware di memorizzazione nella cache delle risposte in un'app ASP.NET Core. Il middleware determina quando le risposte sono memorizzabili nella cache, archivia le risposte e fornisce risposte dalla cache. Per un'introduzione alla memorizzazione nella cache HTTP e all' [`[ResponseCache]`](xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute) attributo, vedere [caching delle risposte](xref:performance/caching/response).
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/middleware/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/performance/caching/middleware/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="configuration"></a>Configurazione
 
@@ -136,7 +136,7 @@ Per un maggiore controllo sul comportamento della memorizzazione nella cache, es
 * <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>
 * <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se il comportamento di memorizzazione nella cache non è quello previsto, verificare che le risposte siano memorizzabili nella cache e in grado di essere servite dalla cache. Esaminare le intestazioni in ingresso della richiesta e le intestazioni in uscita della risposta. Abilitare la [registrazione](xref:fundamentals/logging/index) per facilitare il debug.
 
@@ -181,7 +181,7 @@ Durante il test e la risoluzione dei problemi relativi al comportamento di Cachi
 
 Questo articolo illustra come configurare il middleware di memorizzazione nella cache delle risposte in un'app ASP.NET Core. Il middleware determina quando le risposte sono memorizzabili nella cache, archivia le risposte e fornisce risposte dalla cache. Per un'introduzione alla memorizzazione nella cache HTTP e all' [`[ResponseCache]`](xref:Microsoft.AspNetCore.Mvc.ResponseCacheAttribute) attributo, vedere [caching delle risposte](xref:performance/caching/response).
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/middleware/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/performance/caching/middleware/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="configuration"></a>Configurazione
 
@@ -280,7 +280,7 @@ Per un maggiore controllo sul comportamento della memorizzazione nella cache, es
 * <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>
 * <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se il comportamento di memorizzazione nella cache non è quello previsto, verificare che le risposte siano memorizzabili nella cache e in grado di essere servite dalla cache. Esaminare le intestazioni in ingresso della richiesta e le intestazioni in uscita della risposta. Abilitare la [registrazione](xref:fundamentals/logging/index) per facilitare il debug.
 

@@ -18,12 +18,12 @@ no-loc:
 - Razor
 - SignalR
 uid: web-api/jsonpatch
-ms.openlocfilehash: da507974b88c21de22e2c7a56950943207565138
-ms.sourcegitcommit: ca34c1ac578e7d3daa0febf1810ba5fc74f60bbf
+ms.openlocfilehash: 4ed44a0fca9e0834a78e433cdd48cbd153c58666
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93060547"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102587853"
 ---
 # <a name="jsonpatch-in-aspnet-core-web-api"></a>JSON Patch nell'API Web ASP.NET Core
 
@@ -68,7 +68,7 @@ I metodi PUT e [PATCH](https://tools.ietf.org/html/rfc5789) vengono usati per ag
 
 ## <a name="json-patch"></a>JSON Patch
 
-[JSON Patch](https://tools.ietf.org/html/rfc6902) è un formato per specificare gli aggiornamenti da applicare a una risorsa. Un documento JSON Patch è una matrice di *operazioni* . Ogni operazione identifica un tipo specifico di modifica. Esempi di tali modifiche includono l'aggiunta di un elemento di matrice o la sostituzione di un valore della proprietà.
+[JSON Patch](https://tools.ietf.org/html/rfc6902) è un formato per specificare gli aggiornamenti da applicare a una risorsa. Un documento JSON Patch è una matrice di *operazioni*. Ogni operazione identifica un tipo specifico di modifica. Esempi di tali modifiche includono l'aggiunta di un elemento di matrice o la sostituzione di un valore della proprietà.
 
 Ad esempio, i documenti JSON seguenti rappresentano una risorsa, un documento di patch JSON per la risorsa e il risultato dell'applicazione delle operazioni patch.
 
@@ -114,11 +114,11 @@ Le modifiche apportate applicando un documento Patch JSON a una risorsa sono ato
 
 ## <a name="path-syntax"></a>Sintassi di path
 
-La proprietà [path](https://tools.ietf.org/html/rfc6901) di un oggetto operazione include barre tra livelli. Ad esempio `"/address/zipCode"`.
+La proprietà [path](https://tools.ietf.org/html/rfc6901) di un oggetto operazione include barre tra livelli. Ad esempio: `"/address/zipCode"`.
 
 Vengono usati indici in base zero per specificare gli elementi della matrice. Il primo elemento della matrice `addresses` è in corrispondenza di `/addresses/0`. Fino alla `add` fine di una matrice, usare un trattino ( `-` ) invece di un numero di indice: `/addresses/-` .
 
-### <a name="operations"></a>Operazioni
+### <a name="operations"></a>Gestione operativa
 
 La tabella seguente mostra le operazioni supportate in base a quanto definito nella [specifica JSON Patch](https://tools.ietf.org/html/rfc6902):
 
@@ -251,7 +251,7 @@ Il documento di patch di esempio seguente non ha alcun effetto se il valore iniz
 
 ## <a name="get-the-code"></a>Ottenere il codice
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/jsonpatch/samples). ([Come scaricare](xref:index#how-to-download-a-sample)).
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/web-api/jsonpatch/samples). ([Come scaricare](xref:index#how-to-download-a-sample)).
 
 Per testare l'esempio, eseguire l'app e inviare richieste HTTP con le impostazioni seguenti:
 
@@ -266,7 +266,7 @@ Per testare l'esempio, eseguire l'app e inviare richieste HTTP con le impostazio
 * [Specifica JSON Patch IETF RFC 6902](https://tools.ietf.org/html/rfc6902)
 * [Specifica del formato di percorso JSON Patch IETF RFC 6901](https://tools.ietf.org/html/rfc6901)
 * [Documentazione di JSON Patch](https://jsonpatch.com/). Include collegamenti a risorse per la creazione di documenti JSON Patch.
-* [Codice sorgente JSON Patch in ASP.NET Core](https://github.com/dotnet/AspNetCore/tree/master/src/Features/JsonPatch/src)
+* [Codice sorgente JSON Patch in ASP.NET Core](https://github.com/dotnet/AspNetCore/tree/main/src/Features/JsonPatch/src)
 
 ::: moniker-end
 
@@ -280,7 +280,7 @@ I metodi PUT e [PATCH](https://tools.ietf.org/html/rfc5789) vengono usati per ag
 
 ## <a name="json-patch"></a>JSON Patch
 
-[JSON Patch](https://tools.ietf.org/html/rfc6902) è un formato per specificare gli aggiornamenti da applicare a una risorsa. Un documento JSON Patch è una matrice di *operazioni* . Ogni operazione identifica un determinato tipo di modifica, ad esempio l'aggiunta di un elemento della matrice o la sostituzione di un valore di proprietà.
+[JSON Patch](https://tools.ietf.org/html/rfc6902) è un formato per specificare gli aggiornamenti da applicare a una risorsa. Un documento JSON Patch è una matrice di *operazioni*. Ogni operazione identifica un determinato tipo di modifica, ad esempio l'aggiunta di un elemento della matrice o la sostituzione di un valore di proprietà.
 
 Ad esempio, i documenti JSON seguenti rappresentano una risorsa, un documento di patch JSON per la risorsa e il risultato dell'applicazione delle operazioni patch.
 
@@ -326,11 +326,11 @@ Le modifiche apportate tramite l'applicazione di un documento JSON Patch a una r
 
 ## <a name="path-syntax"></a>Sintassi di path
 
-La proprietà [path](https://tools.ietf.org/html/rfc6901) di un oggetto operazione include barre tra livelli. Ad esempio `"/address/zipCode"`.
+La proprietà [path](https://tools.ietf.org/html/rfc6901) di un oggetto operazione include barre tra livelli. Ad esempio: `"/address/zipCode"`.
 
 Vengono usati indici in base zero per specificare gli elementi della matrice. Il primo elemento della matrice `addresses` è in corrispondenza di `/addresses/0`. Per aggiungere (`add`) un elemento alla fine della matrice, usare un trattino (-) invece di un numero di indice: `/addresses/-`.
 
-### <a name="operations"></a>Operazioni
+### <a name="operations"></a>Gestione operativa
 
 La tabella seguente mostra le operazioni supportate in base a quanto definito nella [specifica JSON Patch](https://tools.ietf.org/html/rfc6902):
 
@@ -463,7 +463,7 @@ Il documento di patch di esempio seguente non ha alcun effetto se il valore iniz
 
 ## <a name="get-the-code"></a>Ottenere il codice
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/jsonpatch/samples/2.2). ([Come scaricare](xref:index#how-to-download-a-sample)).
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/web-api/jsonpatch/samples/2.2). ([Come scaricare](xref:index#how-to-download-a-sample)).
 
 Per testare l'esempio, eseguire l'app e inviare richieste HTTP con le impostazioni seguenti:
 
@@ -478,6 +478,6 @@ Per testare l'esempio, eseguire l'app e inviare richieste HTTP con le impostazio
 * [Specifica JSON Patch IETF RFC 6902](https://tools.ietf.org/html/rfc6902)
 * [Specifica del formato di percorso JSON Patch IETF RFC 6901](https://tools.ietf.org/html/rfc6901)
 * [Documentazione di JSON Patch](https://jsonpatch.com/). Include collegamenti a risorse per la creazione di documenti JSON Patch.
-* [Codice sorgente JSON Patch in ASP.NET Core](https://github.com/dotnet/AspNetCore/tree/master/src/Features/JsonPatch/src)
+* [Codice sorgente JSON Patch in ASP.NET Core](https://github.com/dotnet/AspNetCore/tree/main/src/Features/JsonPatch/src)
 
 ::: moniker-end

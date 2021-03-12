@@ -18,12 +18,12 @@ no-loc:
 - Razor
 - SignalR
 uid: security/cors
-ms.openlocfilehash: 03008f40fc1c4b323535d08a1bb4c4007bc145f7
-ms.sourcegitcommit: ca34c1ac578e7d3daa0febf1810ba5fc74f60bbf
+ms.openlocfilehash: 7afa8105e0ab007153d5c3e8238765d4e9f22641
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93060820"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102586800"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>Abilitare le richieste tra le origini (CORS) in ASP.NET Core
 
@@ -33,7 +33,7 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT) e [Kirk Larkin](https://twit
 
 Questo articolo illustra come abilitare CORS in un'app ASP.NET Core.
 
-La sicurezza del browser impedisce a una pagina Web di eseguire richieste a un dominio diverso da quello che ha gestito la pagina Web. Questa restrizione è detta *criterio della stessa origine* . Il criterio della stessa origine impedisce a un sito dannoso di leggere dati sensibili da un altro sito. In alcuni casi potrebbe essere necessario consentire ad altri siti di effettuare richieste tra le origini per l'app. Per altre informazioni, vedere l' [articolo relativo a Mozilla CORS](https://developer.mozilla.org/docs/Web/HTTP/CORS).
+La sicurezza del browser impedisce a una pagina Web di eseguire richieste a un dominio diverso da quello che ha gestito la pagina Web. Questa restrizione è detta *criterio della stessa origine*. Il criterio della stessa origine impedisce a un sito dannoso di leggere dati sensibili da un altro sito. In alcuni casi potrebbe essere necessario consentire ad altri siti di effettuare richieste tra le origini per l'app. Per altre informazioni, vedere l' [articolo relativo a Mozilla CORS](https://developer.mozilla.org/docs/Web/HTTP/CORS).
 
 [Condivisione risorse tra le origini](https://www.w3.org/TR/cors/) (CORS):
 
@@ -42,7 +42,7 @@ La sicurezza del browser impedisce a una pagina Web di eseguire richieste a un d
 * Consente a un server di consentire in modo esplicito alcune richieste tra origini rifiutando altre.
 * È più sicuro e flessibile rispetto alle tecniche precedenti, ad esempio [JSONP](/dotnet/framework/wcf/samples/jsonp).
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/cors/3.1sample/Cors/WebAPI) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/security/cors/3.1sample/Cors/WebAPI) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="same-origin"></a>Stessa origine
 
@@ -131,7 +131,7 @@ Nel codice precedente:
 
 * `app.UseCors` Abilita il middleware CORS. Poiché un criterio predefinito non è stato configurato, `app.UseCors()` da solo non Abilita CORS.
 * Gli `/echo` endpoint del controller e consentono richieste tra le origini usando i criteri specificati.
-* Gli `/echo2` Razor endpoint delle pagine e non **not** consentono richieste tra le origini perché non è stato specificato alcun criterio predefinito.
+* Gli `/echo2` Razor endpoint delle pagine e non  consentono richieste tra le origini perché non è stato specificato alcun criterio predefinito.
 
 L'attributo [[DisableCors]](#dc) non **Disabilita CORS**  che è stato abilitato dal routing di endpoint con `RequireCors` .
 
@@ -271,7 +271,7 @@ Le intestazioni di risposta disponibili per impostazione predefinita sono:
 * `Last-Modified`
 * `Pragma`
 
-La specifica CORS chiama queste intestazioni di *risposta semplici* . Per rendere disponibili altre intestazioni per l'app, chiamare <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithExposedHeaders*> :
+La specifica CORS chiama queste intestazioni di *risposta semplici*. Per rendere disponibili altre intestazioni per l'app, chiamare <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithExposedHeaders*> :
 
 [!code-csharp[](cors/3.1sample/Cors/WebAPI/StartupAllowSubdomain.cs?name=snippet5)]
 ### <a name="credentials-in-cross-origin-requests"></a>Credenziali nelle richieste tra le origini
@@ -441,7 +441,7 @@ In questa sezione viene descritto cosa accade in una richiesta [CORS](https://de
 
 La [specifica CORS](https://www.w3.org/TR/cors/) ha introdotto diverse nuove intestazioni HTTP che consentono richieste tra le origini. Se un browser supporta CORS, queste intestazioni vengono impostate automaticamente per le richieste tra le origini. Il codice JavaScript personalizzato non è necessario per abilitare CORS.
 
-[Pulsante Put test](https://cors3.azurewebsites.net/test) nell' [esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/cors/3.1sample/Cors/WebAPI) distribuito
+[Pulsante Put test](https://cors3.azurewebsites.net/test) nell' [esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/security/cors/3.1sample/Cors/WebAPI) distribuito
 
 Di seguito è riportato un esempio di richiesta tra più origini dal pulsante test [valori](https://cors3.azurewebsites.net/) a `https://cors1.azurewebsites.net/api/values` . `Origin`Intestazione:
 
@@ -468,7 +468,7 @@ Vary: Accept-Encoding
 X-Powered-By: ASP.NET
 ```
 
-**Intestazioni della richiesta**
+**Intestazioni delle richieste**
 
 ```
 Accept: */*
@@ -484,7 +484,7 @@ Sec-Fetch-Site: cross-site
 User-Agent: Mozilla/5.0 ...
 ```
 
-Nelle `OPTIONS` richieste, il server imposta l'intestazione delle **intestazioni di risposta** `Access-Control-Allow-Origin: {allowed origin}` nella risposta. Ad esempio, la richiesta del pulsante [Delete [EnableCors]](https://cors1.azurewebsites.net/test?number=2) di [esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/cors/3.1sample/Cors/WebAPI)distribuito `OPTIONS` contiene le intestazioni seguenti:
+Nelle `OPTIONS` richieste, il server imposta l'intestazione delle **intestazioni di risposta** `Access-Control-Allow-Origin: {allowed origin}` nella risposta. Ad esempio, la richiesta del pulsante [Delete [EnableCors]](https://cors1.azurewebsites.net/test?number=2) di [esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/security/cors/3.1sample/Cors/WebAPI)distribuito `OPTIONS` contiene le intestazioni seguenti:
 
 **Intestazioni generali**
 
@@ -506,7 +506,7 @@ Vary: Origin
 X-Powered-By: ASP.NET
 ```
 
-**Intestazioni della richiesta**
+**Intestazioni delle richieste**
 
 ```
 Accept: */*
@@ -550,7 +550,7 @@ Quando si esegue la distribuzione in IIS, CORS deve essere eseguito prima dell'a
 
 ## <a name="test-cors"></a>Testare CORS
 
-Il [download di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/cors/3.1sample/Cors/WebAPI) contiene codice per testare CORS. Vedere [come scaricare un esempio](xref:index#how-to-download-a-sample). L'esempio è un progetto API con Razor pagine aggiunte:
+Il [download di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/security/cors/3.1sample/Cors/WebAPI) contiene codice per testare CORS. Vedere [come scaricare un esempio](xref:index#how-to-download-a-sample). L'esempio è un progetto API con Razor pagine aggiunte:
 
 [!code-csharp[](cors/3.1sample/Cors/WebAPI/StartupTest2.cs?name=snippet2)]
 
@@ -605,9 +605,9 @@ Di seguito sono riportati gli `TodoItems1Controller` endpoint per i test:
 
 [!code-csharp[](cors/3.1sample/Cors/WebAPI/Controllers/TodoItems1Controller.cs?name=snippet2)]
 
-Testare il codice precedente dalla [pagina di test](https://cors1.azurewebsites.net/test?number=1) dell' [esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/cors/3.1sample/Cors/WebAPI)distribuito.
+Testare il codice precedente dalla [pagina di test](https://cors1.azurewebsites.net/test?number=1) dell' [esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/security/cors/3.1sample/Cors/WebAPI)distribuito.
 
-I pulsanti **Delete [EnableCors]** e **Get [EnableCors]** sono riusciti perché gli endpoint hanno `[EnableCors]` e rispondono alle richieste preliminari. Gli altri endpoint hanno esito negativo. Il pulsante **Get** ha esito negativo perché il [codice JavaScript](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/cors/3.1sample/Cors/WebAPI/wwwroot/js/MyJS.js) Invia:
+I pulsanti **Delete [EnableCors]** e **Get [EnableCors]** sono riusciti perché gli endpoint hanno `[EnableCors]` e rispondono alle richieste preliminari. Gli altri endpoint hanno esito negativo. Il pulsante **Get** ha esito negativo perché il [codice JavaScript](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/security/cors/3.1sample/Cors/WebAPI/wwwroot/js/MyJS.js) Invia:
 
 ```javascript
  headers: {
@@ -619,11 +619,11 @@ Di seguito `TodoItems2Controller` vengono forniti endpoint simili, ma è incluso
 
 [!code-csharp[](cors/3.1sample/Cors/WebAPI/Controllers/TodoItems2Controller.cs?name=snippet2)]
 
-Testare il codice precedente dalla [pagina di test](https://cors1.azurewebsites.net/test?number=2) dell'esempio distribuito. Nell'elenco a discesa **controller** selezionare **preliminare** e quindi **impostare controller** . Tutte le chiamate CORS agli `TodoItems2Controller` endpoint hanno esito positivo.
+Testare il codice precedente dalla [pagina di test](https://cors1.azurewebsites.net/test?number=2) dell'esempio distribuito. Nell'elenco a discesa **controller** selezionare **preliminare** e quindi **impostare controller**. Tutte le chiamate CORS agli `TodoItems2Controller` endpoint hanno esito positivo.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Condivisione risorse tra le origini (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS)
+* [Condivisione di risorse tra le origini (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS)
 * [Introduzione al modulo CORS di IIS](https://blogs.iis.net/iisteam/getting-started-with-the-iis-cors-module)
 
 ::: moniker-end
@@ -634,7 +634,7 @@ Autore: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Questo articolo illustra come abilitare CORS in un'app ASP.NET Core.
 
-La sicurezza del browser impedisce a una pagina Web di eseguire richieste a un dominio diverso da quello che ha gestito la pagina Web. Questa restrizione è detta *criterio della stessa origine* . Il criterio della stessa origine impedisce a un sito dannoso di leggere dati sensibili da un altro sito. In alcuni casi potrebbe essere necessario consentire ad altri siti di effettuare richieste tra le origini all'app. Per altre informazioni, vedere l' [articolo relativo a Mozilla CORS](https://developer.mozilla.org/docs/Web/HTTP/CORS).
+La sicurezza del browser impedisce a una pagina Web di eseguire richieste a un dominio diverso da quello che ha gestito la pagina Web. Questa restrizione è detta *criterio della stessa origine*. Il criterio della stessa origine impedisce a un sito dannoso di leggere dati sensibili da un altro sito. In alcuni casi potrebbe essere necessario consentire ad altri siti di effettuare richieste tra le origini all'app. Per altre informazioni, vedere l' [articolo relativo a Mozilla CORS](https://developer.mozilla.org/docs/Web/HTTP/CORS).
 
 [Condivisione risorse tra le origini](https://www.w3.org/TR/cors/) (CORS):
 
@@ -643,7 +643,7 @@ La sicurezza del browser impedisce a una pagina Web di eseguire richieste a un d
 * Consente a un server di consentire in modo esplicito alcune richieste tra origini rifiutando altre.
 * È più sicuro e flessibile rispetto alle tecniche precedenti, ad esempio [JSONP](/dotnet/framework/wcf/samples/jsonp).
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/cors/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/security/cors/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="same-origin"></a>Stessa origine
 
@@ -724,7 +724,7 @@ L' `[EnableCors]` attributo può essere applicato a:
 * Controller
 * Metodo di azione del controller
 
-È possibile applicare criteri diversi a controller/pagina-modello/azione con l'  `[EnableCors]` attributo. Quando l' `[EnableCors]` attributo viene applicato a un metodo di azione/modello di pagina, mentre CORS è abilitato nel middleware, vengono applicati **entrambi** i criteri. Si consiglia di **non** combinare i criteri. Usare l' `[EnableCors]` attributo o il middleware, **non entrambi** . Quando `[EnableCors]` si usa, **non** definire criteri predefiniti.
+È possibile applicare criteri diversi a controller/pagina-modello/azione con l'  `[EnableCors]` attributo. Quando l' `[EnableCors]` attributo viene applicato a un metodo di azione/modello di pagina, mentre CORS è abilitato nel middleware, vengono applicati **entrambi** i criteri. Si consiglia di **non** combinare i criteri. Usare l' `[EnableCors]` attributo o il middleware, **non entrambi**. Quando `[EnableCors]` si usa, **non** definire criteri predefiniti.
 
 Il codice seguente applica un criterio diverso a ogni metodo:
 
@@ -775,7 +775,7 @@ In questa sezione vengono descritte le varie opzioni che è possibile impostare 
 
 ### <a name="set-the-allowed-request-headers"></a>Impostare le intestazioni della richiesta consentita
 
-Per consentire l'invio di intestazioni specifiche in una richiesta CORS, denominate *intestazioni richiesta autore* , chiamare <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithHeaders*> e specificare le intestazioni consentite:
+Per consentire l'invio di intestazioni specifiche in una richiesta CORS, denominate *intestazioni richiesta autore*, chiamare <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithHeaders*> e specificare le intestazioni consentite:
 
 [!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=55-60&highlight=5)]
 
@@ -817,7 +817,7 @@ Le intestazioni di risposta disponibili per impostazione predefinita sono:
 * `Last-Modified`
 * `Pragma`
 
-La specifica CORS chiama queste intestazioni di *risposta semplici* . Per rendere disponibili altre intestazioni per l'app, chiamare <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithExposedHeaders*> :
+La specifica CORS chiama queste intestazioni di *risposta semplici*. Per rendere disponibili altre intestazioni per l'app, chiamare <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithExposedHeaders*> :
 
 [!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=73-78&highlight=5)]
 
@@ -868,7 +868,7 @@ La specifica CORS indica inoltre che l'impostazione delle origini su `"*"` (tutt
 
 ### <a name="preflight-requests"></a>Richieste preliminari
 
-Per alcune richieste CORS, il browser invia una richiesta aggiuntiva prima di effettuare la richiesta effettiva. Questa richiesta è detta *richiesta preliminare* . Il browser può ignorare la richiesta preliminare se vengono soddisfatte le condizioni seguenti:
+Per alcune richieste CORS, il browser invia una richiesta aggiuntiva prima di effettuare la richiesta effettiva. Questa richiesta è detta *richiesta preliminare*. Il browser può ignorare la richiesta preliminare se vengono soddisfatte le condizioni seguenti:
 
 * Il metodo di richiesta è GET, HEAD o POST.
 * L'app non imposta intestazioni di richiesta diverse da `Accept` , `Accept-Language` , `Content-Language` , `Content-Type` o `Last-Event-ID` .
@@ -991,7 +991,7 @@ Se la risposta non include l' `Access-Control-Allow-Origin` intestazione, la ric
 
 Per testare CORS:
 
-1. [Creare un progetto API](xref:tutorials/first-web-api). In alternativa, è possibile [scaricare l'esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/cors/sample/Cors).
+1. [Creare un progetto API](xref:tutorials/first-web-api). In alternativa, è possibile [scaricare l'esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/security/cors/sample/Cors).
 1. Abilitare CORS usando uno degli approcci descritti in questo documento. Ad esempio:
 
   [!code-csharp[](cors/sample/Cors/WebAPI/StartupTest.cs?name=snippet2&highlight=13-18)]
@@ -1029,7 +1029,7 @@ Quando si esegue la distribuzione in IIS, CORS deve essere eseguito prima dell'a
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Condivisione risorse tra le origini (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS)
+* [Condivisione di risorse tra le origini (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS)
 * [Introduzione al modulo CORS di IIS](https://blogs.iis.net/iisteam/getting-started-with-the-iis-cors-module)
 
 ::: moniker-end

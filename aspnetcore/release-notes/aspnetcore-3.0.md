@@ -18,12 +18,12 @@ no-loc:
 - Razor
 - SignalR
 uid: aspnetcore-3.0
-ms.openlocfilehash: 161d6aeefe1882b86ce97cdcfa7e5b23048693f0
-ms.sourcegitcommit: 7e394a8527c9818caebb940f692ae4fcf2f1b277
+ms.openlocfilehash: fe68c54ff16751058a3eeee3880a11657344c40a
+ms.sourcegitcommit: acfe51c35497a204f75c2a61125c9408c04493e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99217505"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102605672"
 ---
 # <a name="whats-new-in-aspnet-core-30"></a>Novità di ASP.NET Core 3,0
 
@@ -53,11 +53,11 @@ Per altre informazioni, vedere <xref:blazor/index>.
 
 Blazor separa la logica di rendering dei componenti dal modo in cui vengono applicati gli aggiornamenti dell'interfaccia utente. Blazor Server fornisce supporto per l'hosting di Razor componenti nel server in un'app ASP.NET Core. Gli aggiornamenti dell'interfaccia utente vengono gestiti tramite una SignalR connessione. Blazor Server è supportato in ASP.NET Core 3,0.
 
-### <a name="no-locblazor-webassembly-preview"></a>Blazor WebAssembly (anteprima)
+### <a name="blazor-webassembly-preview"></a>Blazor WebAssembly (anteprima)
 
 Blazor le app possono essere eseguite anche direttamente nel browser usando un Runtime .NET basato su webassembly. Blazor WebAssembly è in anteprima e *non* è supportato in ASP.NET Core 3,0. Blazor WebAssembly verrà supportato in una versione futura di ASP.NET Core.
 
-### <a name="no-locrazor-components"></a>Componenti di Razor
+### <a name="razor-components"></a>Componenti di Razor
 
 Blazor le app sono compilate da componenti. I componenti sono blocchi autonomi dell'interfaccia utente (UI), ad esempio una pagina, una finestra di dialogo o un form. I componenti sono classi .NET normali che definiscono la logica di rendering dell'interfaccia utente e i gestori eventi sul lato client. È possibile creare app Web interattive avanzate senza JavaScript.
 
@@ -324,14 +324,14 @@ ASP.NET Core 3,0 ora usa <xref:System.Text.Json> per impostazione predefinita la
 
 Per aggiungere Json.NET a ASP.NET Core 3,0, vedere [aggiungere Newtonsoft.Jssupporto in formato JSON basato su](xref:web-api/advanced/formatting#add-newtonsoftjson-based-json-format-support).
 
-## <a name="new-no-locrazor-directives"></a>Nuove Razor direttive
+## <a name="new-razor-directives"></a>Nuove Razor direttive
 
 L'elenco seguente contiene le nuove Razor direttive:
 
 * [`@attribute`](xref:mvc/views/razor#attribute): La `@attribute` direttiva applica l'attributo specificato alla classe della pagina o della visualizzazione generata. Ad esempio: `@attribute [Authorize]`.
 * [`@implements`](xref:mvc/views/razor#implements): La `@implements` direttiva implementa un'interfaccia per la classe generata. Ad esempio: `@implements IDisposable`.
 
-## <a name="no-locidentityserver4-supports-authentication-and-authorization-for-web-apis-and-spas"></a>IdentityServer4 supporta l'autenticazione e l'autorizzazione per le API Web e le Spa
+## <a name="identityserver4-supports-authentication-and-authorization-for-web-apis-and-spas"></a>IdentityServer4 supporta l'autenticazione e l'autorizzazione per le API Web e le Spa
 
 ASP.NET Core 3,0 offre l'autenticazione in app a pagina singola (Spa) usando il supporto per l'autorizzazione dell'API Web. ASP.NET Core Identityper l'autenticazione e l'archiviazione degli utenti è combinato con [ Identity Server4](https://identityserver.io/) per l'implementazione di OpenID Connect.
 
@@ -407,7 +407,7 @@ Per altre informazioni, vedere <xref:security/authentication/windowsauth>.
 I modelli dell'interfaccia utente Web ( Razor pagine, MVC con controller e visualizzazioni) hanno rimosso quanto segue:
 
 * L' cookie interfaccia utente di consenso non è più inclusa. Per abilitare la cookie funzionalità di consenso in un ASP.NET Core app generata da un modello 3,0, vedere <xref:security/gdpr> .
-* Agli script e agli asset statici correlati viene ora fatto riferimento come file locali invece di usare CDNs. Per altre informazioni, vedere [gli script e gli asset statici correlati a cui viene ora fatto riferimento come file locali invece di usare CDNs in base all'ambiente corrente (ASPNET/AspNetCore.Docs #14350)](https://github.com/dotnet/AspNetCore.Docs/issues/14350).
+* Agli script e agli asset statici correlati viene ora fatto riferimento come file locali invece di usare CDNs. Per altre informazioni, vedere [gli script e gli asset statici correlati a cui viene ora fatto riferimento come file locali invece di usare CDNs in base all'ambiente corrente (DotNet/AspNetCore.Docs #14350)](https://github.com/dotnet/AspNetCore.Docs/issues/14350).
 
 Modello angolare aggiornato per l'utilizzo di 8 angolare.
 

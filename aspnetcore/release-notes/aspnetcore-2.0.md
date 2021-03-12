@@ -18,18 +18,18 @@ no-loc:
 - Razor
 - SignalR
 uid: aspnetcore-2.0
-ms.openlocfilehash: f9fad5a63c76a3b21341a12fd40baafcdf2c9dac
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.openlocfilehash: b7515bcd8b15199770a4245469d00d10da5566f8
+ms.sourcegitcommit: acfe51c35497a204f75c2a61125c9408c04493e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "93059728"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102605686"
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>Novità di ASP.NET Core 2.0
 
 Questo articolo evidenzia le modifiche più significative apportate ad ASP.NET Core 2.0, con collegamenti alla relativa documentazione.
 
-## <a name="no-locrazor-pages"></a>Razor Pagine
+## <a name="razor-pages"></a>Razor Pagine
 
 Razor Pages è una nuova funzionalità di ASP.NET Core MVC che rende più semplice e più produttivo gli scenari di codifica della pagina.
 
@@ -76,7 +76,7 @@ I nuovi modelli sono disponibili per la configurazione dell'autenticazione per l
 
 Per informazioni sullo stato della documentazione prevista, vedere l'[argomento su GitHub](https://github.com/dotnet/AspNetCore.Docs/issues/3054).
 
-## <a name="no-locidentity-update"></a>Aggiornamento di Identity
+## <a name="identity-update"></a>Aggiornamento di Identity
 
 È stata semplificata la creazione di API Web sicure con Identity in ASP.NET Core 2,0. È possibile acquisire i token di accesso per accedere alle API Web usando la libreria di autenticazione [MSAL](https://www.nuget.org/packages/Microsoft.Identity.Client).
 
@@ -140,7 +140,7 @@ Razor per impostazione predefinita, la pre-compilazione viene abilitata durante 
 
 Per ulteriori informazioni, vedere la pagina relativa [ Razor alla visualizzazione della compilazione e della precompilazione in ASP.NET Core](xref:mvc/views/view-compilation).
 
-## <a name="no-locrazor-support-for-c-71"></a>Razor supporto per C# 7,1
+## <a name="razor-support-for-c-71"></a>Razor supporto per C# 7,1
 
 Il Razor motore di visualizzazione è stato aggiornato per funzionare con il nuovo compilatore Roslyn. Questo include il supporto per funzionalità di C# 7.1 tra cui le espressioni predefinite, i nomi di tupla dedotti e i criteri di ricerca con i generics. Per usare C# 7.1 nel progetto, aggiungere la proprietà seguente nel file di progetto e quindi ricaricare la soluzione:
 
@@ -148,7 +148,7 @@ Il Razor motore di visualizzazione è stato aggiornato per funzionare con il nuo
 <LangVersion>latest</LangVersion>
 ```
 
-Per informazioni sullo stato delle funzionalità di C# 7.1, vedere il [repository GitHub per Roslyn](https://github.com/dotnet/roslyn/blob/master/docs/Language%20Feature%20Status.md).
+Per informazioni sullo stato delle funzionalità di C# 7.1, vedere il [repository GitHub per Roslyn](https://github.com/dotnet/roslyn/blob/main/docs/Language%20Feature%20Status.md).
 
 ## <a name="other-documentation-updates-for-20"></a>Altri aggiornamenti alla documentazione per la versione 2.0
 

@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: fundamentals/http-requests
-ms.openlocfilehash: 1cf3029452f87a396847f969f0f3136a75874752
-ms.sourcegitcommit: 83524f739dd25fbfa95ee34e95342afb383b49fe
+ms.openlocfilehash: 2bc093af63f305dd9808e37011223043646852d5
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99057330"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102588048"
 ---
 # <a name="make-http-requests-using-ihttpclientfactory-in-aspnet-core"></a>Effettuare richieste HTTP usando IHttpClientFactory in ASP.NET Core
 
@@ -39,7 +39,7 @@ Di [Kirk Larkin](https://github.com/serpent5), [Steve Gordon](https://github.com
 * Gestisce il pool e la durata delle istanze sottostanti `HttpClientMessageHandler` . La gestione automatica evita i problemi comuni di DNS (Domain Name System) che si verificano quando si gestiscono manualmente le `HttpClient` durate.
 * Aggiunge un'esperienza di registrazione configurabile, tramite `ILogger`, per tutte le richieste inviate attraverso i client creati dalla factory.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/http-requests/samples) ([procedura per il download](xref:index#how-to-download-a-sample)).
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/fundamentals/http-requests/samples) ([procedura per il download](xref:index#how-to-download-a-sample)).
 
 Il codice di esempio in questo argomento version USA <xref:System.Text.Json> per deserializzare il contenuto JSON restituito nelle risposte http. Per esempi che usano `Json.NET` e `ReadAsAsync<T>` , usare il selettore di versione per selezionare una versione 2. x di questo argomento.
 
@@ -283,7 +283,7 @@ Il gestore delegato seguente utilizza e USA `IOperationScoped` per impostare l' 
 
 [!code-csharp[](http-requests/samples/3.x/HttpRequestsSample/Handlers/OperationHandler.cs?name=snippet_Class&highlight=13)]
 
-Nel [ `HttpRequestsSample` download](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/http-requests/samples/3.x/HttpRequestsSample)] passare a `/Operation` e aggiornare la pagina. Il valore dell'ambito della richiesta cambia per ogni richiesta, ma il valore dell'ambito del gestore cambia solo ogni 5 secondi.
+Nel [ `HttpRequestsSample` download](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/fundamentals/http-requests/samples/3.x/HttpRequestsSample)] passare a `/Operation` e aggiornare la pagina. Il valore dell'ambito della richiesta cambia per ogni richiesta, ma il valore dell'ambito del gestore cambia solo ogni 5 secondi.
 
 I gestori possono dipendere da servizi di qualsiasi ambito. I servizi da cui dipendono i gestori vengono eliminati al momento dell'eliminazione del gestore.
 
@@ -380,7 +380,7 @@ Gli approcci precedenti risolvono i problemi di gestione delle risorse che vengo
 - Il `SocketsHttpHandler` condivide le connessioni tra le `HttpClient` istanze. Questa condivisione impedisce l'esaurimento del socket.
 - Il `SocketsHttpHandler` ciclo di connessioni in base a `PooledConnectionLifetime` per evitare problemi DNS non aggiornati.
 
-### <a name="no-loccookies"></a>Cookies
+### <a name="cookies"></a>Cookies
 
 Le `HttpMessageHandler` istanze in pool generano `CookieContainer` oggetti condivisi. La `CookieContainer` condivisione di oggetti imprevista spesso genera codice errato. Per le app che richiedono cookie s, prendere in considerazione quanto segue:
 
@@ -462,7 +462,7 @@ Di [Glenn Condron](https://github.com/glennc), [Ryan Nowak](https://github.com/r
 * Gestisce il pooling e la durata delle istanze di `HttpClientMessageHandler` sottostanti per evitare problemi DNS comuni che si verificano quando le durate di `HttpClient` vengono gestite manualmente.
 * Aggiunge un'esperienza di registrazione configurabile, tramite `ILogger`, per tutte le richieste inviate attraverso i client creati dalla factory.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/http-requests/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/fundamentals/http-requests/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="consumption-patterns"></a>Modelli di consumo
 
@@ -698,7 +698,7 @@ Gli approcci precedenti risolvono i problemi di gestione delle risorse che vengo
 - Il `SocketsHttpHandler` condivide le connessioni tra le `HttpClient` istanze. Questa condivisione impedisce l'esaurimento del socket.
 - Il `SocketsHttpHandler` ciclo di connessioni in base a `PooledConnectionLifetime` per evitare problemi DNS non aggiornati.
 
-### <a name="no-loccookies"></a>Cookies
+### <a name="cookies"></a>Cookies
 
 Le `HttpMessageHandler` istanze in pool generano `CookieContainer` oggetti condivisi. La `CookieContainer` condivisione di oggetti imprevista spesso genera codice errato. Per le app che richiedono cookie s, prendere in considerazione quanto segue:
 
@@ -763,7 +763,7 @@ Di [Glenn Condron](https://github.com/glennc), [Ryan Nowak](https://github.com/r
 * Gestisce il pooling e la durata delle istanze di `HttpClientMessageHandler` sottostanti per evitare problemi DNS comuni che si verificano quando le durate di `HttpClient` vengono gestite manualmente.
 * Aggiunge un'esperienza di registrazione configurabile, tramite `ILogger`, per tutte le richieste inviate attraverso i client creati dalla factory.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/http-requests/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/fundamentals/http-requests/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -1006,7 +1006,7 @@ Gli approcci precedenti risolvono i problemi di gestione delle risorse che vengo
 - Il `SocketsHttpHandler` condivide le connessioni tra le `HttpClient` istanze. Questa condivisione impedisce l'esaurimento del socket.
 - Il `SocketsHttpHandler` ciclo di connessioni in base a `PooledConnectionLifetime` per evitare problemi DNS non aggiornati.
 
-### <a name="no-loccookies"></a>Cookies
+### <a name="cookies"></a>Cookies
 
 Le `HttpMessageHandler` istanze in pool generano `CookieContainer` oggetti condivisi. La `CookieContainer` condivisione di oggetti imprevista spesso genera codice errato. Per le app che richiedono cookie s, prendere in considerazione quanto segue:
 

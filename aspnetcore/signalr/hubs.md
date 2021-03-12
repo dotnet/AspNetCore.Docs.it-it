@@ -19,24 +19,24 @@ no-loc:
 - Razor
 - SignalR
 uid: signalr/hubs
-ms.openlocfilehash: 4a31c16eb44e2244574d0df49c30e7a44b2bba6e
-ms.sourcegitcommit: ca34c1ac578e7d3daa0febf1810ba5fc74f60bbf
+ms.openlocfilehash: 872b88cc3c87137365de8c50a37bf5dd5fd9fe10
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93050940"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102587866"
 ---
-# <a name="use-hubs-in-no-locsignalr-for-aspnet-core"></a>Usare gli hub in SignalR per ASP.NET Core
+# <a name="use-hubs-in-signalr-for-aspnet-core"></a>Usare gli hub in SignalR per ASP.NET Core
 
 Di [Rachel Appel](https://twitter.com/rachelappel) e [Kevin Griffin](https://twitter.com/1kevgriff)
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/hubs/sample/ ) [(procedura per il download)](xref:index#how-to-download-a-sample)
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/signalr/hubs/sample/ ) [(procedura per il download)](xref:index#how-to-download-a-sample)
 
-## <a name="what-is-a-no-locsignalr-hub"></a>Che cos'è un SignalR Hub
+## <a name="what-is-a-signalr-hub"></a>Che cos'è un SignalR Hub
 
 L' SignalR API Hub consente di chiamare i metodi sui client connessi dal server. Nel codice del server si definiscono i metodi che vengono chiamati dal client. Nel codice client è possibile definire metodi che vengono chiamati dal server. SignalR gestisce tutti gli elementi dietro le quinte che rendono possibili le comunicazioni da client a server e da server a client in tempo reale.
 
-## <a name="configure-no-locsignalr-hubs"></a>Configurare gli SignalR Hub
+## <a name="configure-signalr-hubs"></a>Configurare gli SignalR Hub
 
 Il SignalR middleware richiede alcuni servizi, che vengono configurati chiamando `services.AddSignalR` .
 
@@ -200,7 +200,7 @@ Microsoft.AspNetCore.SignalR.HubException: An unexpected error occurred invoking
 
 Le eccezioni impreviste spesso contengono informazioni riservate, ad esempio il nome di un server di database in un'eccezione attivata quando la connessione al database non riesce. SignalR non espone questi messaggi di errore dettagliati per impostazione predefinita come misura di sicurezza. Vedere l' [articolo Considerazioni sulla sicurezza](xref:signalr/security#exceptions) per ulteriori informazioni sul motivo per cui i dettagli dell'eccezione vengono eliminati.
 
-Se si ha una condizione *eccezionale da* propagare al client, è possibile usare la `HubException` classe. Se si genera un'operazione `HubException` dal metodo Hub, SignalR **will** invierà l'intero messaggio al client, senza modifiche.
+Se si ha una condizione *eccezionale da* propagare al client, è possibile usare la `HubException` classe. Se si genera un'operazione `HubException` dal metodo Hub, SignalR  invierà l'intero messaggio al client, senza modifiche.
 
 [!code-csharp[ThrowHubException](hubs/sample/hubs/chathub.cs?name=ThrowHubException&highlight=3)]
 

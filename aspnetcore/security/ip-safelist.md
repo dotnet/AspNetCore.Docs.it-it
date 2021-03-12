@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: security/ip-safelist
-ms.openlocfilehash: dfc134b97bb0976bc682a53d536cd27785550c7d
-ms.sourcegitcommit: ca34c1ac578e7d3daa0febf1810ba5fc74f60bbf
+ms.openlocfilehash: f89191cff1faa5b55ee9031a6a6d0749a74e43c0
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93059663"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102587541"
 ---
 # <a name="client-ip-safelist-for-aspnet-core"></a>Indirizzi IP attendibili del client per ASP.NET Core
 
@@ -43,7 +43,7 @@ In ogni caso, una stringa contenente gli indirizzi IP client approvati viene arc
 
 L'accesso è consentito se la matrice contiene l'indirizzo IP. In caso contrario, viene restituito un codice di stato HTTP 403 Forbidden.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/ip-safelist/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/security/ip-safelist/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="ip-address-safelist"></a>Indirizzi IP attendibili
 
@@ -103,7 +103,7 @@ Nell'app di esempio, il filtro azioni viene applicato al metodo di azione del co
 
 * Un verbo di richiesta HTTP diverso da GET, il `AdminSafeListMiddleware` middleware convalida l'indirizzo IP del client.
 
-## <a name="no-locrazor-pages-filter"></a>Razor Filtro pagine
+## <a name="razor-pages-filter"></a>Razor Filtro pagine
 
 Se si desidera il controllo degli accessi basato su attendibilità per un' Razor app pagine, utilizzare un Razor filtro pagine. Ad esempio:
 

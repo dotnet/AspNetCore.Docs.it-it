@@ -18,14 +18,14 @@ no-loc:
 - Razor
 - SignalR
 uid: razor-pages/ui-class
-ms.openlocfilehash: a878a3485ecee0782b21ac69c5ec6ff832b9f06c
-ms.sourcegitcommit: cb984e0d7dc23a88c3a4121f23acfaea0acbfe1e
+ms.openlocfilehash: 88b3bae5d52e334dea7ffcfe245f49d2816047c3
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98571016"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102588178"
 ---
-# <a name="create-reusable-ui-using-the-no-locrazor-class-library-project-in-aspnet-core"></a>Creare un'interfaccia utente riutilizzabile usando il Razor progetto libreria di classi in ASP.NET Core
+# <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>Creare un'interfaccia utente riutilizzabile usando il Razor progetto libreria di classi in ASP.NET Core
 
 Autore: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -33,16 +33,16 @@ Autore: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Razorle visualizzazioni, le pagine, i controller, i modelli di pagina, i [ Razor componenti](xref:blazor/components/class-libraries), i [componenti di visualizzazione](xref:mvc/views/view-components)e i modelli di dati possono essere incorporati in una Razor libreria di classi (RCL). La libreria di classi Razor può essere inclusa nel pacchetto e usata nuovamente. Le applicazioni possono includere la libreria di classi Razor ed eseguire l'override delle visualizzazioni e pagine in essa contenute. Quando si trova una visualizzazione, una visualizzazione parziale o una Razor pagina nell'app Web e nel RCL, il Razor markup (file con *estensione cshtml* ) nell'app Web ha la precedenza.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/ui-class/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/razor-pages/ui-class/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
-## <a name="create-a-class-library-containing-no-locrazor-ui"></a>Creare una libreria di classi contenente l' Razor interfaccia utente
+## <a name="create-a-class-library-containing-razor-ui"></a>Creare una libreria di classi contenente l' Razor interfaccia utente
 
 # <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * In Visual Studio selezionare **Crea nuovo nuovo progetto**.
 * Selezionare **Razor libreria di classi** > **Avanti**.
 * Assegnare un nome alla libreria (ad esempio, " Razor CLASSLIB") > **creare**. Per evitare un conflitto di nomi di file con la libreria di visualizzazione generata, verificare che il nome della libreria non finisca per `.Views`.
-* Se è necessario supportare le visualizzazioni, selezionare **pagine e visualizzazioni di supporto** . Per impostazione predefinita, Razor sono supportate solo le pagine. Selezionare **Create** (Crea).
+* Se è necessario supportare le visualizzazioni, selezionare **pagine e visualizzazioni di supporto** . Per impostazione predefinita, Razor sono supportate solo le pagine. Selezionare **Crea**.
 
 Per impostazione predefinita, il Razor modello libreria di classi (RCL) prevede Razor lo sviluppo di componenti. L'opzione **pagine e visualizzazioni di supporto** supporta pagine e viste.
 
@@ -208,9 +208,9 @@ Quando viene pubblicata l'app, gli asset complementari di tutti i progetti e i p
 
 Razorle visualizzazioni, le pagine, i controller, i modelli di pagina, i [ Razor componenti](xref:blazor/components/class-libraries), i [componenti di visualizzazione](xref:mvc/views/view-components)e i modelli di dati possono essere incorporati in una Razor libreria di classi (RCL). La libreria di classi Razor può essere inclusa nel pacchetto e usata nuovamente. Le applicazioni possono includere la libreria di classi Razor ed eseguire l'override delle visualizzazioni e pagine in essa contenute. Quando si trova una visualizzazione, una visualizzazione parziale o una Razor pagina nell'app Web e nel RCL, il Razor markup (file con *estensione cshtml* ) nell'app Web ha la precedenza.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/ui-class/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/razor-pages/ui-class/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
-## <a name="create-a-class-library-containing-no-locrazor-ui"></a>Creare una libreria di classi contenente l' Razor interfaccia utente
+## <a name="create-a-class-library-containing-razor-ui"></a>Creare una libreria di classi contenente l' Razor interfaccia utente
 
 # <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -247,9 +247,9 @@ Il riferimento alla libreria di classi Razor può essere eseguito da:
 * Pacchetto NuGet. Vedere [Creazione di pacchetti NuGet](/nuget/create-packages/creating-a-package), [dotnet add package](/dotnet/core/tools/dotnet-add-package) e [Creare e pubblicare un pacchetto NuGet](/nuget/quickstart/create-and-publish-a-package-using-visual-studio).
 * *{ProjectName}.csproj*. Vedere [dotnet-add reference](/dotnet/core/tools/dotnet-add-reference).
 
-## <a name="walkthrough-create-an-rcl-project-and-use-from-a-no-locrazor-pages-project"></a>Procedura dettagliata: creare un progetto RCL e usarlo da un Razor progetto Pages
+## <a name="walkthrough-create-an-rcl-project-and-use-from-a-razor-pages-project"></a>Procedura dettagliata: creare un progetto RCL e usarlo da un Razor progetto Pages
 
-È possibile scaricare il [progetto completo](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/ui-class/samples) e testarlo anziché crearlo. Il download di esempio contiene codice aggiuntivo e collegamenti che rendono più semplice testare il progetto. È possibile lasciare commenti e suggerimenti in [questa discussione su GitHub](https://github.com/dotnet/AspNetCore.Docs/issues/6098) con i commenti sui download di esempio rispetto alle istruzioni dettagliate.
+È possibile scaricare il [progetto completo](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/razor-pages/ui-class/samples) e testarlo anziché crearlo. Il download di esempio contiene codice aggiuntivo e collegamenti che rendono più semplice testare il progetto. È possibile lasciare commenti e suggerimenti in [questa discussione su GitHub](https://github.com/dotnet/AspNetCore.Docs/issues/6098) con i commenti sui download di esempio rispetto alle istruzioni dettagliate.
 
 ### <a name="test-the-download-app"></a>Testare l'app di download
 
@@ -312,7 +312,7 @@ Il file *_ViewStart. cshtml* è necessario per usare il layout del Razor progett
 
 ---
 
-### <a name="add-no-locrazor-files-and-folders-to-the-project"></a>Aggiungere Razor file e cartelle al progetto
+### <a name="add-razor-files-and-folders-to-the-project"></a>Aggiungere Razor file e cartelle al progetto
 
 * Sostituire il markup in *Razor UIClassLib/areas/la funzionalità/Pages/Shared/_Message. cshtml* con il codice seguente:
 
@@ -338,7 +338,7 @@ Il file *_ViewStart. cshtml* è necessario per usare il layout del Razor progett
 
 L'output di compilazione contiene *RazorUIClassLib.dll* e *RazorUIClassLib.Views.dll*. *RazorUIClassLib.Views.dll* contiene il Razor contenuto compilato.
 
-### <a name="use-the-no-locrazor-ui-library-from-a-no-locrazor-pages-project"></a>Usare la Razor libreria dell'interfaccia utente da un Razor progetto di pagine
+### <a name="use-the-razor-ui-library-from-a-razor-pages-project"></a>Usare la Razor libreria dell'interfaccia utente da un Razor progetto di pagine
 
 # <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 

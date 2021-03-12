@@ -17,12 +17,12 @@ no-loc:
 - Razor
 - SignalR
 uid: security/authorization/simple
-ms.openlocfilehash: 1678f1b4af2c65e3b10c66f7ccdbecf19156a834
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.openlocfilehash: eaf36822edc47f7238c356e167b05ac44f93175d
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97865564"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102587567"
 ---
 # <a name="simple-authorization-in-aspnet-core"></a>Autorizzazione semplice in ASP.NET Core
 
@@ -90,20 +90,21 @@ Ciò consente solo agli utenti autenticati di `AccountController` , ad eccezione
 
 <a name="aarp"></a>
 
-## <a name="authorize-attribute-and-no-locrazor-pages"></a>Autorizzare gli attributi e le Razor pagine
+## <a name="authorize-attribute-and-razor-pages"></a>Autorizzare gli attributi e le Razor pagine
 
-L'oggetto <xref:Microsoft.AspNetCore.Authorization.AuthorizeAttribute> can ***not** _ deve essere applicato ai gestori di Razor pagine. Ad esempio, `[Authorize]` non può essere applicato a `OnGet` , `OnPost` o a qualsiasi altro gestore di pagina. Considerare l'uso di un controller ASP.NET Core MVC per le pagine con requisiti di autorizzazione diversi per gestori diversi.
+<xref:Microsoft.AspNetCore.Authorization.AuthorizeAttribute> ***Non*** può essere applicato ai Razor gestori di pagine. Ad esempio, `[Authorize]` non può essere applicato a `OnGet` , `OnPost` o a qualsiasi altro gestore di pagina. Considerare l'uso di un controller ASP.NET Core MVC per le pagine con requisiti di autorizzazione diversi per gestori diversi.
 
 Per applicare l'autorizzazione ai metodi del gestore di pagina, è possibile usare i due approcci seguenti Razor :
 
-_ Utilizzare pagine separate per i gestori di pagine che richiedono un'autorizzazione diversa. Spostare il contenuto condiviso in una o più [visualizzazioni parziali](xref:mvc/views/partial). Quando possibile, questo è l'approccio consigliato.
-* Per il contenuto che deve condividere una pagina comune, scrivere un filtro che esegua l'autorizzazione come parte di [IAsyncPageFilter. OnPageHandlerSelectionAsync](xref:Microsoft.AspNetCore.Mvc.Filters.IAsyncPageFilter.OnPageHandlerSelectionAsync%2A). Il progetto GitHub [PageHandlerAuth](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/simple/samples/3.1/PageHandlerAuth) illustra questo approccio:
-  * [AuthorizeIndexPageHandlerFilter](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/security/authorization/simple/samples/3.1/PageHandlerAuth/AuthorizeIndexPageHandlerFilter.cs) implementa il filtro di autorizzazione:[!code-csharp[](~/security/authorization/simple/samples/3.1/PageHandlerAuth/Pages/Index.cshtml.cs?name=snippet)]
+* Usare pagine separate per i gestori di pagine che richiedono un'autorizzazione diversa. Spostare il contenuto condiviso in una o più [visualizzazioni parziali](xref:mvc/views/partial). Quando possibile, questo è l'approccio consigliato.
+* Per il contenuto che deve condividere una pagina comune, scrivere un filtro che esegua l'autorizzazione come parte di [IAsyncPageFilter. OnPageHandlerSelectionAsync](xref:Microsoft.AspNetCore.Mvc.Filters.IAsyncPageFilter.OnPageHandlerSelectionAsync%2A). Il progetto GitHub [PageHandlerAuth](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/security/authorization/simple/samples/3.1/PageHandlerAuth) illustra questo approccio:
+  * [AuthorizeIndexPageHandlerFilter](https://github.com/dotnet/AspNetCore.Docs/blob/main/aspnetcore/security/authorization/simple/samples/3.1/PageHandlerAuth/AuthorizeIndexPageHandlerFilter.cs) implementa il filtro di autorizzazione:[!code-csharp[](~/security/authorization/simple/samples/3.1/PageHandlerAuth/Pages/Index.cshtml.cs?name=snippet)]
 
-  * L'attributo [[AuthorizePageHandler]](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/simple/samples/3.1/PageHandlerAuth/Pages/Index.cshtml.cs#L16) viene applicato al `OnGet` gestore di pagina: [!code-csharp[](~/security/authorization/simple/samples/3.1/PageHandlerAuth/AuthorizeIndexPageHandlerFilter.cs?name=snippet)]
+  * L'attributo [[AuthorizePageHandler]](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/security/authorization/simple/samples/3.1/PageHandlerAuth/Pages/Index.cshtml.cs#L16) viene applicato al `OnGet` gestore di pagina: [!code-csharp[](~/security/authorization/simple/samples/3.1/PageHandlerAuth/AuthorizeIndexPageHandlerFilter.cs?name=snippet)]
 
 > [!WARNING]
-> L'approccio di esempio [PageHandlerAuth](https://github.com/pranavkm/PageHandlerAuth) esegue ***not** _: _ compose con attributi di autorizzazione applicati alla pagina, al modello di pagina o a livello globale. La composizione di attributi di autorizzazione comporta l'autenticazione e l'autorizzazione eseguite più volte quando si dispone `AuthorizeAttribute` di un'altra `AuthorizeFilter` istanza o di istanze applicate anche alla pagina.
+> L' [](https://github.com/pranavkm/PageHandlerAuth) approccio di esempio PageHandlerAuth ***non***:
+> * Comporre con attributi di autorizzazione applicati alla pagina, al modello di pagina o a livello globale. La composizione di attributi di autorizzazione comporta l'autenticazione e l'autorizzazione eseguite più volte quando si dispone `AuthorizeAttribute` di un'altra `AuthorizeFilter` istanza o di istanze applicate anche alla pagina.
 > * Usare insieme al resto del sistema di autenticazione e autorizzazione ASP.NET Core. È necessario verificare che l'utilizzo di questo approccio funzioni correttamente per l'applicazione.
 
 Non sono previsti piani per il supporto `AuthorizeAttribute` dei Razor gestori di pagine. 

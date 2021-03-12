@@ -18,12 +18,12 @@ no-loc:
 - Razor
 - SignalR
 uid: mvc/models/model-binding
-ms.openlocfilehash: 4de34a75da932b41190caa8434ac5be8cc0710fd
-ms.sourcegitcommit: 8363e44f630fcc6433ccd2a85f7aa9567cd274ed
+ms.openlocfilehash: 5eaedf6dbe5df59848b9cf8a5bda67add48db2a6
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94981934"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102586943"
 ---
 # <a name="model-binding-in-aspnet-core"></a>Associazione di modelli in ASP.NET Core
 
@@ -31,7 +31,7 @@ ms.locfileid: "94981934"
 
 Questo articolo illustra cos'è l'associazione di modelli, come funziona e come personalizzarne il comportamento.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/model-binding/samples) ([procedura per il download](xref:index#how-to-download-a-sample)).
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/mvc/models/model-binding/samples) ([procedura per il download](xref:index#how-to-download-a-sample)).
 
 ## <a name="what-is-model-binding"></a>Che cos'è l'associazione di modelli
 
@@ -165,7 +165,7 @@ I dati di origine vengono forniti al sistema di associazione di modelli dai *pro
 * Creare una classe che implementi `IValueProviderFactory`.
 * Registrare la classe factory in `Startup.ConfigureServices`.
 
-L'app di esempio include un [provider di valori](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/3.x/ModelBindingSample/CookieValueProvider.cs) e un esempio di [Factory](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/3.x/ModelBindingSample/CookieValueProviderFactory.cs) che ottiene i valori da cookie s. Ecco il codice di registrazione in `Startup.ConfigureServices`:
+L'app di esempio include un [provider di valori](https://github.com/dotnet/AspNetCore.Docs/blob/main/aspnetcore/mvc/models/model-binding/samples/3.x/ModelBindingSample/CookieValueProvider.cs) e un esempio di [Factory](https://github.com/dotnet/AspNetCore.Docs/blob/main/aspnetcore/mvc/models/model-binding/samples/3.x/ModelBindingSample/CookieValueProviderFactory.cs) che ottiene i valori da cookie s. Ecco il codice di registrazione in `Startup.ConfigureServices`:
 
 [!code-csharp[](model-binding/samples/3.x/ModelBindingSample/Startup.cs?name=snippet_ValueProvider&highlight=4)]
 
@@ -211,14 +211,14 @@ I tipi semplici in cui lo strumento di associazione di modelli può convertire l
 * [DateTimeOffset](xref:System.ComponentModel.DateTimeOffsetConverter)
 * [Decimale](xref:System.ComponentModel.DecimalConverter)
 * [Double](xref:System.ComponentModel.DoubleConverter)
-* [Enum](xref:System.ComponentModel.EnumConverter)
+* [Enumerazione](xref:System.ComponentModel.EnumConverter)
 * [GUID](xref:System.ComponentModel.GuidConverter)
 * [Int16](xref:System.ComponentModel.Int16Converter), [Int32](xref:System.ComponentModel.Int32Converter), [Int64](xref:System.ComponentModel.Int64Converter)
 * [Singolo](xref:System.ComponentModel.SingleConverter)
 * [TimeSpan](xref:System.ComponentModel.TimeSpanConverter)
 * [UInt16](xref:System.ComponentModel.UInt16Converter), [UInt32](xref:System.ComponentModel.UInt32Converter), [UInt64](xref:System.ComponentModel.UInt64Converter)
 * [Uri](xref:System.UriTypeConverter)
-* [Version](xref:System.ComponentModel.VersionConverter)
+* [Versione](xref:System.ComponentModel.VersionConverter)
 
 ## <a name="complex-types"></a>Tipi complessi
 
@@ -280,11 +280,11 @@ Sono disponibili vari attributi predefiniti per controllare l'associazione di mo
 * `[BindNever]`
 
 > [!WARNING]
-> Questi attributi influiscono sul modello di associazione quando i dati di modulo inviati sono l'origine dei valori. **Non hanno** effetti sui formattatori di input, che elaborano i corpi di richiesta JSON e XML. I formattatori di input sono descritti [più avanti in questo articolo](#input-formatters).
+> Questi attributi influiscono sul modello di associazione quando i dati di modulo inviati sono l'origine dei valori. ***Non influiscono sui*** formattatori di input, che elaborano i corpi delle richieste JSON e XML. I formattatori di input sono descritti [più avanti in questo articolo](#input-formatters).
 
 ### <a name="bind-attribute"></a>Attributo [Bind]
 
-Può essere applicato a una classe o a un parametro di metodo. Specifica quali proprietà di un modello devono essere incluse nell'associazione di modelli. `[Bind]` non _*_influisce sui_*_ formattatori di input.
+Può essere applicato a una classe o a un parametro di metodo. Specifica quali proprietà di un modello devono essere incluse nell'associazione di modelli. `[Bind]` non ***influisce sui*** formattatori di input.
 
 Nell'esempio seguente vengono associate solo le proprietà specificate del modello `Instructor` quando viene chiamato qualsiasi gestore o metodo di azione:
 
@@ -300,7 +300,7 @@ Nell'esempio seguente vengono associate solo le proprietà specificate del model
 public IActionResult OnPost([Bind("LastName,FirstMidName,HireDate")] Instructor instructor)
 ```
 
-L' `[Bind]` attributo può essere utilizzato per la protezione dall'overposting negli scenari _create *. Non funziona bene negli scenari di modifica perché le proprietà escluse vengono impostate su Null o su un valore predefinito anziché rimanere inalterate. Per difendersi dall'overposting, sono consigliati i modelli di visualizzazione anziché l'attributo `[Bind]`. Per altre informazioni, vedere [Nota sulla sicurezza relativa all'overposting](xref:data/ef-mvc/crud#security-note-about-overposting).
+L'attributo `[Bind]` può essere usato per evitare l'overposting negli scenari di *creazione*. Non funziona bene negli scenari di modifica perché le proprietà escluse vengono impostate su Null o su un valore predefinito anziché rimanere inalterate. Per difendersi dall'overposting, sono consigliati i modelli di visualizzazione anziché l'attributo `[Bind]`. Per altre informazioni, vedere [Nota sulla sicurezza relativa all'overposting](xref:data/ef-mvc/crud#security-note-about-overposting).
 
 ### <a name="modelbinder-attribute"></a>Attributo [ModelBinder]
 
@@ -471,7 +471,7 @@ Al contrario, i valori provenienti dai dati del form subiscono una conversione c
 Per rendere il provider del valore di route ASP.NET Core e il provider di valori della stringa di query sottoposti a una conversione dipendente dalle impostazioni cultura:
 
 * Ereditano da <xref:Microsoft.AspNetCore.Mvc.ModelBinding.IValueProviderFactory>
-* Copiare il codice da [QueryStringValueProviderFactory](https://github.com/dotnet/AspNetCore/blob/master/src/Mvc/Mvc.Core/src/ModelBinding/QueryStringValueProviderFactory.cs) o [RouteValueValueProviderFactory](https://github.com/dotnet/AspNetCore/blob/master/src/Mvc/Mvc.Core/src/ModelBinding/RouteValueProviderFactory.cs)
+* Copiare il codice da [QueryStringValueProviderFactory](https://github.com/dotnet/AspNetCore/blob/main/src/Mvc/Mvc.Core/src/ModelBinding/QueryStringValueProviderFactory.cs) o [RouteValueValueProviderFactory](https://github.com/dotnet/AspNetCore/blob/main/src/Mvc/Mvc.Core/src/ModelBinding/RouteValueProviderFactory.cs)
 * Sostituire il [valore delle impostazioni cultura](https://github.com/dotnet/AspNetCore/blob/e625fe29b049c60242e8048b4ea743cca65aa7b5/src/Mvc/Mvc.Core/src/ModelBinding/QueryStringValueProviderFactory.cs#L30) passato al costruttore del provider di valori con [CultureInfo. CurrentCulture](xref:System.Globalization.CultureInfo.CurrentCulture)
 * Sostituire la factory del provider di valori predefinito in opzioni MVC con la nuova:
 
@@ -580,7 +580,7 @@ Il nome di questo attributo segue il modello degli attributi di associazione di 
 
 Questo articolo illustra cos'è l'associazione di modelli, come funziona e come personalizzarne il comportamento.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/model-binding/samples) ([procedura per il download](xref:index#how-to-download-a-sample)).
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/mvc/models/model-binding/samples) ([procedura per il download](xref:index#how-to-download-a-sample)).
 
 ## <a name="what-is-model-binding"></a>Che cos'è l'associazione di modelli
 
@@ -714,7 +714,7 @@ I dati di origine vengono forniti al sistema di associazione di modelli dai *pro
 * Creare una classe che implementi `IValueProviderFactory`.
 * Registrare la classe factory in `Startup.ConfigureServices`.
 
-L'app di esempio include un [provider di valori](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/2.x/ModelBindingSample/CookieValueProvider.cs) e un esempio di [Factory](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/models/model-binding/samples/2.x/ModelBindingSample/CookieValueProviderFactory.cs) che ottiene i valori da cookie s. Ecco il codice di registrazione in `Startup.ConfigureServices`:
+L'app di esempio include un [provider di valori](https://github.com/dotnet/AspNetCore.Docs/blob/main/aspnetcore/mvc/models/model-binding/samples/2.x/ModelBindingSample/CookieValueProvider.cs) e un esempio di [Factory](https://github.com/dotnet/AspNetCore.Docs/blob/main/aspnetcore/mvc/models/model-binding/samples/2.x/ModelBindingSample/CookieValueProviderFactory.cs) che ottiene i valori da cookie s. Ecco il codice di registrazione in `Startup.ConfigureServices`:
 
 [!code-csharp[](model-binding/samples/2.x/ModelBindingSample/Startup.cs?name=snippet_ValueProvider&highlight=3)]
 
@@ -760,14 +760,14 @@ I tipi semplici in cui lo strumento di associazione di modelli può convertire l
 * [DateTimeOffset](xref:System.ComponentModel.DateTimeOffsetConverter)
 * [Decimale](xref:System.ComponentModel.DecimalConverter)
 * [Double](xref:System.ComponentModel.DoubleConverter)
-* [Enum](xref:System.ComponentModel.EnumConverter)
+* [Enumerazione](xref:System.ComponentModel.EnumConverter)
 * [GUID](xref:System.ComponentModel.GuidConverter)
 * [Int16](xref:System.ComponentModel.Int16Converter), [Int32](xref:System.ComponentModel.Int32Converter), [Int64](xref:System.ComponentModel.Int64Converter)
 * [Singolo](xref:System.ComponentModel.SingleConverter)
 * [TimeSpan](xref:System.ComponentModel.TimeSpanConverter)
 * [UInt16](xref:System.ComponentModel.UInt16Converter), [UInt32](xref:System.ComponentModel.UInt32Converter), [UInt64](xref:System.ComponentModel.UInt64Converter)
 * [Uri](xref:System.UriTypeConverter)
-* [Version](xref:System.ComponentModel.VersionConverter)
+* [Versione](xref:System.ComponentModel.VersionConverter)
 
 ## <a name="complex-types"></a>Tipi complessi
 
@@ -958,7 +958,7 @@ Al contrario, i valori provenienti dai dati del form subiscono una conversione c
 Per rendere il provider del valore di route ASP.NET Core e il provider di valori della stringa di query sottoposti a una conversione dipendente dalle impostazioni cultura:
 
 * Ereditano da <xref:Microsoft.AspNetCore.Mvc.ModelBinding.IValueProviderFactory>
-* Copiare il codice da [QueryStringValueProviderFactory](https://github.com/dotnet/AspNetCore/blob/master/src/Mvc/Mvc.Core/src/ModelBinding/QueryStringValueProviderFactory.cs) o [RouteValueValueProviderFactory](https://github.com/dotnet/AspNetCore/blob/master/src/Mvc/Mvc.Core/src/ModelBinding/RouteValueProviderFactory.cs)
+* Copiare il codice da [QueryStringValueProviderFactory](https://github.com/dotnet/AspNetCore/blob/main/src/Mvc/Mvc.Core/src/ModelBinding/QueryStringValueProviderFactory.cs) o [RouteValueValueProviderFactory](https://github.com/dotnet/AspNetCore/blob/main/src/Mvc/Mvc.Core/src/ModelBinding/RouteValueProviderFactory.cs)
 * Sostituire il [valore delle impostazioni cultura](https://github.com/dotnet/AspNetCore/blob/e625fe29b049c60242e8048b4ea743cca65aa7b5/src/Mvc/Mvc.Core/src/ModelBinding/QueryStringValueProviderFactory.cs#L30) passato al costruttore del provider di valori con [CultureInfo. CurrentCulture](xref:System.Globalization.CultureInfo.CurrentCulture)
 * Sostituire la factory del provider di valori predefinito in opzioni MVC con la nuova:
 

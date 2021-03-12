@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
-ms.openlocfilehash: 124f23caa4a757f63a80dfea627304204ba2cdca
-ms.sourcegitcommit: ca34c1ac578e7d3daa0febf1810ba5fc74f60bbf
+ms.openlocfilehash: 184901ad0bb6188ed908d41dabf2433c5ca7c1ce
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93061431"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102587164"
 ---
 # <a name="partial-tag-helper-in-aspnet-core"></a>Helper tag Partial in ASP.NET Core
 
@@ -32,7 +32,7 @@ Di [Scott Addie](https://github.com/scottaddie)
 
 Per una panoramica degli helper per tag, vedere <xref:mvc/views/tag-helpers/intro>.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/mvc/views/tag-helpers/built-in/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="overview"></a>Panoramica
 
@@ -59,7 +59,7 @@ Segue un inventario degli attributi dell'helper tag Partial.
 
 L'attributo `name` è obbligatorio. Indica il nome o il percorso della visualizzazione parziale di cui eseguire il rendering. Quando viene offerto un nome della visualizzazione parziale, viene avviato il processo di [individuazione delle visualizzazioni](xref:mvc/views/overview#view-discovery). Tale processo viene ignorato quando viene offerto un percorso esplicito. Per tutti i valori `name` accettabili, vedere [Individuazione delle visualizzazioni parziali](xref:mvc/views/partial#partial-view-discovery).
 
-Il markup seguente usa un percorso esplicito, che indica che *_ProductPartial.cshtml* deve essere caricato dalla cartella *Shared* . Mediante l'attributo [for](#for) un modello viene passato alla visualizzazione parziale per l'associazione.
+Il markup seguente usa un percorso esplicito, che indica che *_ProductPartial.cshtml* deve essere caricato dalla cartella *Shared*. Mediante l'attributo [for](#for) un modello viene passato alla visualizzazione parziale per l'associazione.
 
 [!code-cshtml[](samples/TagHelpersBuiltIn/Pages/Product.cshtml?name=snippet_Name)]
 
@@ -67,7 +67,7 @@ Il markup seguente usa un percorso esplicito, che indica che *_ProductPartial.cs
 
 L'attributo `for` assegna una [ModelExpression](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.modelexpression) da valutare rispetto al modello corrente. Un elemento `ModelExpression` deduce la sintassi `@Model.`. Ad esempio `for="Product"` può essere usato invece di `for="@Model.Product"`. Questo comportamento di inferenza predefinito può essere ignorato se si usa il simbolo `@` per definire un'espressione inline.
 
-Il markup seguente carica *_ProductPartial.cshtml* :
+Il markup seguente carica *_ProductPartial.cshtml*:
 
 [!code-cshtml[](samples/TagHelpersBuiltIn/Pages/Product.cshtml?name=snippet_For)]
 
@@ -97,7 +97,7 @@ In questo esempio il valore di `ViewData["IsNumberReadOnly"]` determina se il ca
 
 ## <a name="migrate-from-an-html-helper"></a>Eseguire la migrazione da un helper HTML
 
-Osservare l'esempio di helper HTML asincrono seguente. Viene eseguita l'iterazione e visualizzata una raccolta di prodotti. Per il primo parametro del metodo `PartialAsync`, viene caricata la visualizzazione parziale *_ProductPartial.cshtml* . Un'istanza del modello `Product` viene passata alla visualizzazione parziale per l'associazione.
+Osservare l'esempio di helper HTML asincrono seguente. Viene eseguita l'iterazione e visualizzata una raccolta di prodotti. Per il primo parametro del metodo `PartialAsync`, viene caricata la visualizzazione parziale *_ProductPartial.cshtml*. Un'istanza del modello `Product` viene passata alla visualizzazione parziale per l'associazione.
 
 [!code-cshtml[](samples/TagHelpersBuiltIn/Pages/Products.cshtml?name=snippet_HtmlHelper&highlight=3)]
 

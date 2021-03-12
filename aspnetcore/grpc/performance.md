@@ -18,12 +18,12 @@ no-loc:
 - Razor
 - SignalR
 uid: grpc/performance
-ms.openlocfilehash: 386359adfe0e876fa5c067dc82153fd3de0f3fba
-ms.sourcegitcommit: 3982ff9dabb5b12aeb0a61cde2686b5253364f5d
+ms.openlocfilehash: 5d19ace2e844f2159c1ba0e8bc92960bcf00d54e
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102118941"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102586995"
 ---
 # <a name="performance-best-practices-with-grpc"></a>Procedure consigliate per le prestazioni con gRPC
 
@@ -205,3 +205,30 @@ Tenere presente la complessità e le limitazioni aggiuntive dell'utilizzo di chi
 1. Un flusso può essere interrotto da un errore del servizio o della connessione. La logica è necessaria per riavviare il flusso se si verifica un errore.
 2. `RequestStream.WriteAsync` non è sicuro per il multithread. Solo un messaggio può essere scritto in un flusso alla volta. L'invio di messaggi da più thread su un singolo flusso richiede una coda producer/consumer <xref:System.Threading.Channels.Channel%601> , ad esempio i messaggi Marshall.
 3. Un metodo di streaming gRPC è limitato a ricevere un tipo di messaggio e a inviare un tipo di messaggio. Ad esempio, `rpc StreamingCall(stream RequestMessage) returns (stream ResponseMessage)` riceve `RequestMessage` e invia `ResponseMessage` . Il supporto di protobuf per i messaggi sconosciuti o condizionali `Any` che usano e `oneof` può ovviare a questa limitazione.
+
+## <a name="send-binary-payloads"></a>Invia payload binari
+
+I payload binari sono supportati in protobuf con il `bytes` tipo di valore scalare. Una proprietà generata in C# usa `ByteString` come tipo di proprietà.
+
+```protobuf
+syntax = "proto3";
+
+message PayloadResponse {
+    bytes data = 1;
+}  
+```
+
+`ByteString` le istanze vengono create utilizzando `ByteString.CopyFrom(byte[] data)` . Questo metodo alloca un nuovo oggetto `ByteString` e un nuovo oggetto `byte[]` . I dati vengono copiati nella nuova matrice di byte.
+
+È possibile evitare allocazioni e copie aggiuntive utilizzando `UnsafeByteOperations.UnsafeWrap(ReadOnlyMemory<byte> bytes)` per creare `ByteString` istanze di.
+
+```csharp
+var data = await File.ReadAllBytesAsync(path);
+
+var payload = new PayloadResponse();
+payload.Data = UnsafeByteOperations.UnsafeWrap(data);
+```
+
+I byte non vengono copiati con `UnsafeByteOperations.UnsafeWrap` , quindi non devono essere modificati mentre `ByteString` è in uso.
+
+`UnsafeByteOperations.UnsafeWrap` richiede [Google. protobuf](https://www.nuget.org/packages/Google.Protobuf/) versione 3.15.0 o successiva.

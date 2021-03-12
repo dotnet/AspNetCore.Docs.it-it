@@ -17,12 +17,12 @@ no-loc:
 - Razor
 - SignalR
 uid: tutorials/dotnet-watch
-ms.openlocfilehash: 27420fe00ba6375e15b67fb359be06df055eff1f
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.openlocfilehash: 84cae3b3babe28c2ebf6dba50023b020112d1bb3
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "93060040"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102587580"
 ---
 # <a name="develop-aspnet-core-apps-using-a-file-watcher"></a>Sviluppare app ASP.NET Core usando un watcher per file
 
@@ -32,7 +32,7 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT) e [Victor Hurdugaci](https:/
 
 Questa esercitazione usa un'API Web esistente con due endpoint, di cui uno restituisce una somma e l'altro un prodotto. Il metodo del prodotto ha un bug, che verrà corretto in questa esercitazione.
 
-Scaricare l' [app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/dotnet-watch/sample). Questa è costituita da due progetti: *WebApp* (un'API Web di ASP.NET Core) e *WebAppTests* (unit test per l'API Web).
+Scaricare l' [app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/tutorials/dotnet-watch/sample). Questa è costituita da due progetti: *WebApp* (un'API Web di ASP.NET Core) e *WebAppTests* (unit test per l'API Web).
 
 In una shell dei comandi passare alla cartella *WebApp*. Eseguire il comando seguente:
 
@@ -219,7 +219,3 @@ Alcune opzioni di configurazione possono essere passate a `dotnet watch` tramite
 | `DOTNET_WATCH_SUPPRESS_MSBUILD_INCREMENTALISM`   | Per impostazione predefinita, `dotnet watch` ottimizza la compilazione evitando determinate operazioni, ad esempio l'esecuzione del ripristino o la rivalutazione del set di file controllati per ogni modifica apportata al file. Se impostato su "1" o "true", queste ottimizzazioni sono disabilitate. |
 | `DOTNET_WATCH_SUPPRESS_LAUNCH_BROWSER`   | `dotnet watch run` tenta di avviare browser per le app Web con `launchBrowser` configurato in *launchSettings.js*. Se impostato su "1" o "true", questo comportamento viene eliminato. |
 | `DOTNET_WATCH_SUPPRESS_BROWSER_REFRESH`   | `dotnet watch run` tenta di aggiornare i browser quando rileva le modifiche al file. Se impostato su "1" o "true", questo comportamento viene eliminato. Questo comportamento viene anche eliminato se `DOTNET_WATCH_SUPPRESS_LAUNCH_BROWSER` è impostato. |
-
-## <a name="dotnet-watch-in-github"></a>`dotnet-watch` in GitHub
-
-`dotnet-watch` fa parte del [repository DotNet/AspNetCore](https://github.com/dotnet/AspNetCore/tree/master/src/Tools/dotnet-watch)di GitHub.

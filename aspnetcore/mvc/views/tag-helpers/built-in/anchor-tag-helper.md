@@ -18,12 +18,12 @@ no-loc:
 - Razor
 - SignalR
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: d39db59b0fc273fe4193a4864f302ecd3f4ad348
-ms.sourcegitcommit: ca34c1ac578e7d3daa0febf1810ba5fc74f60bbf
+ms.openlocfilehash: 2e49c545b0d343475ce44a636a6ae66324f9d3bf
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93060911"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102587203"
 ---
 # <a name="anchor-tag-helper-in-aspnet-core"></a>Helper tag di ancoraggio in ASP.NET Core
 
@@ -33,7 +33,7 @@ L'[helper tag](xref:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper) di anco
 
 Per una panoramica degli helper per tag, vedere <xref:mvc/views/tag-helpers/intro>.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/mvc/views/tag-helpers/built-in/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 *SpeakerController* viene usato negli esempi in tutto il documento:
 
@@ -53,7 +53,7 @@ Codice HTML generato:
 <a href="/Speaker">All Speakers</a>
 ```
 
-Se si specifica l'attributo `asp-controller` e l'attributo `asp-action` viene omesso, il valore `asp-action` predefinito è l'azione del controller associata alla visualizzazione di esecuzione corrente. Se `asp-action` viene omesso dal markup precedente e viene usato l'helper tag di ancoraggio nella visualizzazione *Index* di *HomeController* ( */Home* ), il codice HTML generato è:
+Se si specifica l'attributo `asp-controller` e l'attributo `asp-action` viene omesso, il valore `asp-action` predefinito è l'azione del controller associata alla visualizzazione di esecuzione corrente. Se `asp-action` viene omesso dal markup precedente e viene usato l'helper tag di ancoraggio nella visualizzazione *Index* di *HomeController* (*/Home*), il codice HTML generato è:
 
 ```html
 <a href="/Home">All Speakers</a>
@@ -83,7 +83,7 @@ Esaminare l'azione del controller seguente:
 
 [!code-csharp[](samples/TagHelpersBuiltIn/Controllers/BuiltInTagController.cs?name=snippet_AnchorTagHelperAction)]
 
-Con un modello di route predefinito definito in *Startup.Configure* :
+Con un modello di route predefinito definito in *Startup.Configure*:
 
 [!code-csharp[](samples/TagHelpersBuiltIn/Startup.cs?name=snippet_UseMvc&highlight=8-10)]
 
@@ -139,7 +139,7 @@ Nel markup seguente l'attributo `asp-route` fa riferimento alla route denominata
 
 [!code-cshtml[](samples/TagHelpersBuiltIn/Views/Home/Index.cshtml?name=snippet_AspRoute)]
 
-L'helper tag di ancoraggio genera una route direttamente per tale azione del controller usando l'URL */Speaker/Evaluations* . Codice HTML generato:
+L'helper tag di ancoraggio genera una route direttamente per tale azione del controller usando l'URL */Speaker/Evaluations*. Codice HTML generato:
 
 ```html
 <a href="/Speaker/Evaluations">Speaker Evaluations</a>
@@ -185,7 +185,7 @@ I tag hash sono utili per la compilazione di app sul lato client. Ad esempio pos
 
 L'attributo [asp-area](xref:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Area*) imposta il nome dell'area usato per impostare la route appropriata. Gli esempi seguenti illustrano come l'attributo `asp-area` determina la modifica del mapping delle route.
 
-#### <a name="usage-in-no-locrazor-pages"></a>Utilizzo nelle Razor pagine
+#### <a name="usage-in-razor-pages"></a>Utilizzo nelle Razor pagine
 
 Razor Le aree delle pagine sono supportate in ASP.NET Core 2,1 o versioni successive.
 
@@ -247,7 +247,7 @@ Codice HTML generato:
 ```
 
 > [!TIP]
-> Per supportare le aree in un'app MVC, il modello di route deve includere un riferimento all'area, se esistente. Tale modello è rappresentato dal secondo parametro della `routes.MapRoute` chiamata al metodo in *Startup.ConfigUre* :
+> Per supportare le aree in un'app MVC, il modello di route deve includere un riferimento all'area, se esistente. Tale modello è rappresentato dal secondo parametro della `routes.MapRoute` chiamata al metodo in *Startup.ConfigUre*:
 >
 > [!code-csharp[](samples/TagHelpersBuiltIn/Startup.cs?name=snippet_UseMvc&highlight=5)]
 

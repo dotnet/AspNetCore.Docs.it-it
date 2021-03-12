@@ -18,12 +18,12 @@ no-loc:
 - Razor
 - SignalR
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: 5f0e8efdf57e0a8ba5483680224d33ea5d60f06a
-ms.sourcegitcommit: e311cfb77f26a0a23681019bd334929d1aaeda20
+ms.openlocfilehash: 9ea3bd7aaa075ae4601af51c7cc90f28a884a096
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99530151"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102587892"
 ---
 # <a name="tutorial-read-related-data---aspnet-mvc-with-ef-core"></a>Esercitazione: leggere dati correlati-MVC ASP.NET con EF Core
 
@@ -258,7 +258,7 @@ Eseguire l'app e passare alla pagina di indice degli insegnanti. Non si noterà 
 
 ## <a name="get-the-code"></a>Ottenere il codice
 
-[Scaricare o visualizzare l'applicazione completata.](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[Scaricare o visualizzare l'applicazione completata.](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

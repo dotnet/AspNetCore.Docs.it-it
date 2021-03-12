@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: web-api/advanced/conventions
-ms.openlocfilehash: 0c5ea8ba69e4c6287afce1771ac9cee65bb188a8
-ms.sourcegitcommit: ca34c1ac578e7d3daa0febf1810ba5fc74f60bbf
+ms.openlocfilehash: 1e6526f46fbd177add3699fb5b667021b741c6a4
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93052539"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102587840"
 ---
 # <a name="use-web-api-conventions"></a>Usare le convenzioni dell'API Web
 
@@ -37,11 +37,11 @@ Una convenzione consente di:
 * Definire i tipi restituiti più comuni e i codici di stato restituiti da un tipo di azione specifico.
 * Identificare le azioni che deviano dallo standard definito.
 
-ASP.NET Core MVC 2.2 e versioni successive include un set di convenzioni predefinite in <xref:Microsoft.AspNetCore.Mvc.DefaultApiConventions?displayProperty=fullName>. Le convenzioni sono basate sul controller ( *ValuesController.cs* ) disponibile nel modello di progetto **API** di ASP.NET Core. Se si seguono i criteri del modello, le convenzioni predefinite danno i risultati previsti. Se tuttavia le convenzioni predefinite non soddisfano le proprie esigenze, vedere [Creare convenzioni dell'API Web](#create-web-api-conventions).
+ASP.NET Core MVC 2.2 e versioni successive include un set di convenzioni predefinite in <xref:Microsoft.AspNetCore.Mvc.DefaultApiConventions?displayProperty=fullName>. Le convenzioni sono basate sul controller (*ValuesController.cs*) disponibile nel modello di progetto **API** di ASP.NET Core. Se si seguono i criteri del modello, le convenzioni predefinite danno i risultati previsti. Se tuttavia le convenzioni predefinite non soddisfano le proprie esigenze, vedere [Creare convenzioni dell'API Web](#create-web-api-conventions).
 
 In fase di runtime, <xref:Microsoft.AspNetCore.Mvc.ApiExplorer> riconosce le convenzioni. `ApiExplorer` è l'astrazione MVC per comunicare con i generatori di documenti [OpenAPI](https://www.openapis.org/) (noti anche come Swagger). Gli attributi della convenzione applicata vengono associati a un'azione e sono inclusi nella documentazione OpenAPI dell'azione. Anche gli [analizzatori di API](xref:web-api/advanced/analyzers) supportano le convenzioni. Se l'azione non è convenzionale (ad esempio, se restituisce un codice di stato non documentato dalla convenzione applicata), un avviso richiede di documentare il codice di stato.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/conventions/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/web-api/advanced/conventions/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="apply-web-api-conventions"></a>Applicare le convenzioni dell'API Web
 
@@ -66,11 +66,11 @@ Le convenzioni non sono componibili; ogni azione può essere associata a una sol
 
 1. `Microsoft.AspNetCore.Mvc.ApiConventionTypeAttribute` applicato a un controller &mdash; Applica il tipo di convenzione specificato a tutte le azioni del controller. Un metodo di convenzione è contrassegnato con hint che determinano le azioni a cui si applica il metodo di convenzione. Per altre informazioni sugli hint, vedere [Creare convenzioni dell'API Web](#create-web-api-conventions).
 
-    Nell'esempio seguente il set di convenzioni predefinito viene applicato a tutte le azioni in *ContactsConventionController* :
+    Nell'esempio seguente il set di convenzioni predefinito viene applicato a tutte le azioni in *ContactsConventionController*:
 
     [!code-csharp[](conventions/sample/Controllers/ContactsConventionController.cs?name=snippet_ApiConventionTypeAttribute&highlight=2)]
 
-1. `Microsoft.AspNetCore.Mvc.ApiConventionTypeAttribute` applicato a un assembly &mdash; Applica il tipo di convenzione specificato a tutti i controller dell'assembly corrente. È consigliabile applicare attributi a livello di assembly nel file *Startup.cs* .
+1. `Microsoft.AspNetCore.Mvc.ApiConventionTypeAttribute` applicato a un assembly &mdash; Applica il tipo di convenzione specificato a tutti i controller dell'assembly corrente. È consigliabile applicare attributi a livello di assembly nel file *Startup.cs*.
 
     Nell'esempio seguente il set di convenzioni predefinito viene applicato a tutti i controller dell'assembly:
 

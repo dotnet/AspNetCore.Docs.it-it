@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: data/ef-mvc/intro
-ms.openlocfilehash: c0623de3c8031b6dbb518a6d25623b55a6500af5
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.openlocfilehash: 5bb1a05f5e81730d0785c1d6a69a8cafb68f85ab
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "94703735"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102586683"
 ---
 # <a name="tutorial-get-started-with-ef-core-in-an-aspnet-mvc-web-app"></a>Esercitazione: Introduzione a EF Core in un'app Web MVC ASP.NET
 
@@ -56,7 +56,7 @@ If you choose to use SQLite, download and install a third-party tool for managin
 
 ## <a name="solve-problems-and-troubleshoot"></a>Risolvere i problemi e risolvere i problemi
 
-Se si verifica un problema che non si sa come risolvere, è generalmente possibile trovare la soluzione confrontando il codice con il [progetto completato](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples). Per un elenco degli errori comuni e delle relative soluzioni, vedere [la sezione relativa alla risoluzione dei problemi nell'ultima esercitazione della serie](advanced.md#common-errors). Se non si trova la soluzione, è possibile inviare una domanda a StackOverflow.com per [ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) o [Entity Framework Core](https://stackoverflow.com/questions/tagged/entity-framework-core).
+Se si verifica un problema che non si sa come risolvere, è generalmente possibile trovare la soluzione confrontando il codice con il [progetto completato](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/data/ef-mvc/intro/samples). Per un elenco degli errori comuni e delle relative soluzioni, vedere [la sezione relativa alla risoluzione dei problemi nell'ultima esercitazione della serie](advanced.md#common-errors). Se non si trova la soluzione, è possibile inviare una domanda a StackOverflow.com per [ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) o [Entity Framework Core](https://stackoverflow.com/questions/tagged/entity-framework-core).
 
 > [!TIP]
 > In questa serie di 10 esercitazioni ogni esercitazione si basa su quanto viene eseguito nelle esercitazioni precedenti. È consigliabile salvare una copia del progetto dopo aver completato ogni esercitazione. Se si verificano problemi, è possibile ricominciare dall'esercitazione precedente anziché tornare all'inizio della serie.
@@ -283,11 +283,11 @@ La creazione automatica di metodi di azione [CRUD](https://wikipedia.org/wiki/Cr
 * In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla `Controllers` cartella e scegliere **Aggiungi > nuovo elemento con impalcatura**.
 * Nella finestra di dialogo **Aggiungi scaffolding** eseguire le operazioni seguenti:
   * Selezionare **Controller MVC con visualizzazioni, che usa Entity Framework**.
-  * Scegliere **Aggiungi**. Viene visualizzata la finestra **di dialogo Aggiungi controller MVC con visualizzazioni, usando Entity Framework** : per ![ studenti di ponteggi](intro/_static/scaffold-student2.png)
+  * Fare clic su **Aggiungi**. Viene visualizzata la finestra **di dialogo Aggiungi controller MVC con visualizzazioni, usando Entity Framework** : per ![ studenti di ponteggi](intro/_static/scaffold-student2.png)
   * In **classe modello** selezionare **studente**.
   * In **classe contesto dati** selezionare **schoolContext**.
   * Accettare il valore predefinito **StudentsController** come nome.
-  * Scegliere **Aggiungi**.
+  * Fare clic su **Aggiungi**.
 
 Il motore di ponteggi di Visual Studio crea un `StudentsController.cs` file e un set di visualizzazioni ( `*.cshtml` file) che funzionano con il controller.
 
@@ -411,7 +411,7 @@ L'applicazione di esempio è un sito Web per una fittizia Contoso University. In
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-Se si verifica un problema che non si sa come risolvere, è generalmente possibile trovare la soluzione confrontando il codice con il [progetto completato](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples). Per un elenco degli errori comuni e delle relative soluzioni, vedere [la sezione relativa alla risoluzione dei problemi nell'ultima esercitazione della serie](advanced.md#common-errors). Se non si trova la soluzione, è possibile inviare una domanda a StackOverflow.com per [ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) o [Entity Framework Core](https://stackoverflow.com/questions/tagged/entity-framework-core).
+Se si verifica un problema che non si sa come risolvere, è generalmente possibile trovare la soluzione confrontando il codice con il [progetto completato](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/data/ef-mvc/intro/samples). Per un elenco degli errori comuni e delle relative soluzioni, vedere [la sezione relativa alla risoluzione dei problemi nell'ultima esercitazione della serie](advanced.md#common-errors). Se non si trova la soluzione, è possibile inviare una domanda a StackOverflow.com per [ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) o [Entity Framework Core](https://stackoverflow.com/questions/tagged/entity-framework-core).
 
 > [!TIP]
 > In questa serie di 10 esercitazioni ogni esercitazione si basa su quanto viene eseguito nelle esercitazioni precedenti. È consigliabile salvare una copia del progetto dopo aver completato ogni esercitazione. Se si verificano problemi, è possibile ricominciare dall'esercitazione precedente anziché tornare all'inizio della serie.
@@ -612,11 +612,11 @@ La creazione automatica di metodi di azione CRUD e di visualizzazioni è nota co
 * Fare clic con il pulsante destro del mouse sulla cartella **Controller** in **Esplora soluzioni** e scegliere **Aggiungi -> Nuovo elemento di scaffolding**.
 * Nella finestra di dialogo **Aggiungi scaffolding** eseguire le operazioni seguenti:
   * Selezionare **Controller MVC con visualizzazioni, che usa Entity Framework**.
-  * Scegliere **Aggiungi**. Viene visualizzata la finestra **di dialogo Aggiungi controller MVC con visualizzazioni, usando Entity Framework** : per ![ studenti di ponteggi](intro/_static/scaffold-student2.png)
+  * Fare clic su **Aggiungi**. Viene visualizzata la finestra **di dialogo Aggiungi controller MVC con visualizzazioni, usando Entity Framework** : per ![ studenti di ponteggi](intro/_static/scaffold-student2.png)
   * In **Classe modello** selezionare **Student** (Studente).
   * In **Classe contesto di dati** selezionare **SchoolContext**.
   * Accettare il valore predefinito **StudentsController** come nome.
-  * Scegliere **Aggiungi**.
+  * Fare clic su **Aggiungi**.
 
 Il motore di ponteggi di Visual Studio crea un file *StudentsController.cs* e un set di visualizzazioni (file con *estensione cshtml* ) che funzionano con il controller.
 

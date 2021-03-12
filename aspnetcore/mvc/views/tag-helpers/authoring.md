@@ -18,18 +18,18 @@ no-loc:
 - Razor
 - SignalR
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: 306416db3d9ae0219f859c3cf459eb08a5b778cf
-ms.sourcegitcommit: ca34c1ac578e7d3daa0febf1810ba5fc74f60bbf
+ms.openlocfilehash: e0c9f450e4eded49694cbbb0e9fa2614a221ab14
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93060924"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102586826"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>Creare helper tag in ASP.NET Core
 
 Autore: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/tag-helpers/authoring/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/mvc/views/tag-helpers/authoring/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="get-started-with-tag-helpers"></a>Guida introduttiva agli helper tag
 
@@ -37,9 +37,9 @@ Questa esercitazione rappresenta un'introduzione alla programmazione di helper t
 
 Un helper tag è una classe che implementa l'interfaccia `ITagHelper`. Quando si crea un helper tag, tuttavia, in genere lo si deriva da `TagHelper`. In questo modo si ottiene l'accesso al metodo `Process`.
 
-1. Creare un nuovo progetto ASP.NET Core denominato **AuthoringTagHelpers** . Per questo progetto non sarà necessaria l'autenticazione.
+1. Creare un nuovo progetto ASP.NET Core denominato **AuthoringTagHelpers**. Per questo progetto non sarà necessaria l'autenticazione.
 
-1. Creare una cartella che contenga gli helper tag denominata *TagHelpers* . La cartella *TagHelpers**non* è obbligatoria, ma rappresenta una convenzione sensata. È ora possibile iniziare a scrivere alcuni helper tag semplici.
+1. Creare una cartella che contenga gli helper tag denominata *TagHelpers*. La cartella *TagHelpers**non* è obbligatoria, ma rappresenta una convenzione sensata. È ora possibile iniziare a scrivere alcuni helper tag semplici.
 
 ## <a name="a-minimal-tag-helper"></a>Un helper tag piccolissimo
 
@@ -57,11 +57,11 @@ Il server userà l'helper tag di posta elettronica creato per convertire il mark
 
 In altre parole, un tag di ancoraggio che dà come risultato un collegamento di posta elettronica. È necessario eseguire questa operazione se si sta scrivendo un motore di blog e si vuole inviare posta elettronica di marketing o di supporto ad altri contatti, tutti nello stesso dominio.
 
-1. Aggiungere la classe `EmailTagHelper` seguente alla cartella *TagHelpers* .
+1. Aggiungere la classe `EmailTagHelper` seguente alla cartella *TagHelpers*.
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1EmailTagHelperCopy.cs)]
 
-   * Gli helper tag usano una convenzione di denominazione che interessa gli elementi del nome della classe di base (meno la parte *TagHelper* del nome della classe). In questo esempio, il nome radice di **EmailTagHelper** è *posta elettronica* , quindi il `<email>` tag verrà assegnato come destinazione. Questa convenzione di denominazione dovrebbe funzionare per la maggior parte degli helper tag. Più avanti verrà illustrato come eseguirne l'override.
+   * Gli helper tag usano una convenzione di denominazione che interessa gli elementi del nome della classe di base (meno la parte *TagHelper* del nome della classe). In questo esempio, il nome radice di **EmailTagHelper** è *posta elettronica*, quindi il `<email>` tag verrà assegnato come destinazione. Questa convenzione di denominazione dovrebbe funzionare per la maggior parte degli helper tag. Più avanti verrà illustrato come eseguirne l'override.
 
    * La classe `EmailTagHelper` deriva da `TagHelper`. La classe `TagHelper` mette a disposizione metodi e proprietà per la scrittura di helper tag.
 
@@ -71,7 +71,7 @@ In altre parole, un tag di ancoraggio che dà come risultato un collegamento di 
 
    * Il parametro output di `Process` (e `ProcessAsync`) contiene un elemento HTML con stato rappresentativo dell'origine originale usato per generare un tag e del contenuto HTML.
 
-   * Il nome della classe usata ha il suffisso **TagHelper** , che *non* è obbligatorio, ma il cui uso è considerato una convenzione basata su procedure consigliate. È possibile dichiarare la classe come:
+   * Il nome della classe usata ha il suffisso **TagHelper**, che *non* è obbligatorio, ma il cui uso è considerato una convenzione basata su procedure consigliate. È possibile dichiarare la classe come:
 
    ```csharp
    public class Email : TagHelper
@@ -94,7 +94,7 @@ the following snippet uses TagHelpers3 and should use TagHelpers (not the 3)
     [!code-cshtml[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImports.cshtml?highlight=3&range=1-3)]
 -->
 
-Per aggiungere un helper tag a una visualizzazione usando un nome completo, aggiungere prima il nome completo (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`) e quindi il **nome dell'assembly** ( *AuthoringTagHelpers* , non necessariamente `namespace`). La maggior parte degli sviluppatori preferisce usare la sintassi con caratteri jolly. [Introduzione agli helper tag](intro.md) descrive in dettaglio la sintassi di aggiunta, rimozione, gerarchia degli helper tag, nonché la sintassi con caratteri jolly.
+Per aggiungere un helper tag a una visualizzazione usando un nome completo, aggiungere prima il nome completo (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`) e quindi il **nome dell'assembly** (*AuthoringTagHelpers*, non necessariamente `namespace`). La maggior parte degli sviluppatori preferisce usare la sintassi con caratteri jolly. [Introduzione agli helper tag](intro.md) descrive in dettaglio la sintassi di aggiunta, rimozione, gerarchia degli helper tag, nonché la sintassi con caratteri jolly.
 
 1. Aggiornare il markup nel file *Views/Home/Contact.cshtml* con queste modifiche:
 
@@ -149,7 +149,7 @@ In questa sezione verrà scritto un helper di posta elettronica asincrono.
 
    * Usare il parametro `output` per ottenere il contenuto dell'elemento HTML.
 
-1. Apportare le seguenti modifiche al file *Views/Home/Contact.cshtml* , in modo che l'helper tag possa ottenere la posta elettronica di destinazione.
+1. Apportare le seguenti modifiche al file *Views/Home/Contact.cshtml*, in modo che l'helper tag possa ottenere la posta elettronica di destinazione.
 
    [!code-cshtml[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/Contact.cshtml?highlight=15,16&range=1-17)]
 
@@ -157,7 +157,7 @@ In questa sezione verrà scritto un helper di posta elettronica asincrono.
 
 ### <a name="removeall-precontentsethtmlcontent-and-postcontentsethtmlcontent"></a>RemoveAll, PreContent.SetHtmlContent e PostContent.SetHtmlContent
 
-1. Aggiungere la classe `BoldTagHelper` seguente alla cartella *TagHelpers* .
+1. Aggiungere la classe `BoldTagHelper` seguente alla cartella *TagHelpers*.
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/BoldTagHelper.cs)]
 
@@ -195,13 +195,13 @@ Se si aggiungono più attributi alla stessa istruzione, il runtime li gestisce c
 
 ## <a name="pass-a-model-to-a-tag-helper"></a>Passare un modello a un helper tag
 
-1. Aggiungere una cartella *Models* .
+1. Aggiungere una cartella *Models*.
 
-1. Aggiungere la classe `WebsiteContext` seguente alla cartella *Models* :
+1. Aggiungere la classe `WebsiteContext` seguente alla cartella *Models*:
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Models/WebsiteContext.cs)]
 
-1. Aggiungere la classe `WebsiteInformationTagHelper` seguente alla cartella *TagHelpers* .
+1. Aggiungere la classe `WebsiteInformationTagHelper` seguente alla cartella *TagHelpers*.
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/WebsiteInformationTagHelper.cs)]
 
@@ -227,7 +227,7 @@ Se si aggiungono più attributi alla stessa istruzione, il runtime li gestisce c
    $@"<ul><li><strong>Version:</strong> {Info.Version}</li>
    ```
 
-1. Aggiungere il markup seguente alla visualizzazione *About.cshtml* . Il markup evidenziato visualizza le informazioni sul sito Web.
+1. Aggiungere il markup seguente alla visualizzazione *About.cshtml*. Il markup evidenziato visualizza le informazioni sul sito Web.
 
    [!code-cshtml[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/About.cshtml?highlight=1,4-8, 18-999)]
 
@@ -249,7 +249,7 @@ Se si aggiungono più attributi alla stessa istruzione, il runtime li gestisce c
 
 L'helper tag di condizione esegue il rendering dell'output quando riceve un valore true.
 
-1. Aggiungere la classe `ConditionTagHelper` seguente alla cartella *TagHelpers* .
+1. Aggiungere la classe `ConditionTagHelper` seguente alla cartella *TagHelpers*.
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/ConditionTagHelper.cs)]
 
@@ -276,14 +276,14 @@ In questa sezione verrà scritta una coppia di helper tag a collegamento automat
 
 Poiché questi due helper sono strettamente correlati e in futuro potrebbero essere sottoposti a refactoring, verranno mantenuti nello stesso file.
 
-1. Aggiungere la classe `AutoLinkerHttpTagHelper` seguente alla cartella *TagHelpers* .
+1. Aggiungere la classe `AutoLinkerHttpTagHelper` seguente alla cartella *TagHelpers*.
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinker.cs?range=7-19)]
 
    >[!NOTE]
    >La classe `AutoLinkerHttpTagHelper` ha come destinazioni elementi `p` e usa [Regex](/dotnet/standard/base-types/regular-expression-language-quick-reference) per creare l'ancoraggio.
 
-1. Aggiungere il markup seguente alla fine del file *Views/Home/Contact.cshtml* :
+1. Aggiungere il markup seguente alla fine del file *Views/Home/Contact.cshtml*:
 
    [!code-cshtml[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/Contact.cshtml?highlight=19)]
 

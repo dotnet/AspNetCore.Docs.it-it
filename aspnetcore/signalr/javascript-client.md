@@ -19,14 +19,14 @@ no-loc:
 - Razor
 - SignalR
 uid: signalr/javascript-client
-ms.openlocfilehash: b4b1bc6131a6676710adbf2503efe3f304d89a58
-ms.sourcegitcommit: ca34c1ac578e7d3daa0febf1810ba5fc74f60bbf
+ms.openlocfilehash: 1b5c89c1beaf36912766b3e08b9f16c4d33945f8
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93050849"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102588061"
 ---
-# <a name="aspnet-core-no-locsignalr-javascript-client"></a>ASP.NET Core SignalR client JavaScript
+# <a name="aspnet-core-signalr-javascript-client"></a>ASP.NET Core SignalR client JavaScript
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -34,15 +34,15 @@ Di [Rachel Appel](https://twitter.com/rachelappel)
 
 La SignalR libreria client JavaScript ASP.NET Core consente agli sviluppatori di chiamare il codice dell'hub sul lato server.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/javascript-client/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/signalr/javascript-client/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
-## <a name="install-the-no-locsignalr-client-package"></a>Installare il SignalR pacchetto client
+## <a name="install-the-signalr-client-package"></a>Installare il SignalR pacchetto client
 
 La SignalR libreria client JavaScript viene distribuita come pacchetto [NPM](https://www.npmjs.com/) . Le sezioni seguenti illustrano diversi modi per installare la libreria client.
 
 ### <a name="install-with-npm"></a>Eseguire l'installazione con NPM
 
-Per Visual Studio, eseguire i comandi seguenti dalla **console di gestione pacchetti** nella cartella radice. Per Visual Studio Code, eseguire i comandi seguenti dal **terminale integrato** .
+Per Visual Studio, eseguire i comandi seguenti dalla **console di gestione pacchetti** nella cartella radice. Per Visual Studio Code, eseguire i comandi seguenti dal **terminale integrato**.
 
 ```bash
 npm init -y
@@ -302,15 +302,15 @@ Di [Rachel Appel](https://twitter.com/rachelappel)
 
 La SignalR libreria client JavaScript ASP.NET Core consente agli sviluppatori di chiamare il codice dell'hub sul lato server.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/javascript-client/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/signalr/javascript-client/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
-## <a name="install-the-no-locsignalr-client-package"></a>Installare il SignalR pacchetto client
+## <a name="install-the-signalr-client-package"></a>Installare il SignalR pacchetto client
 
 La SignalR libreria client JavaScript viene distribuita come pacchetto [NPM](https://www.npmjs.com/) . Le sezioni seguenti illustrano diversi modi per installare la libreria client.
 
 ### <a name="install-with-npm"></a>Eseguire l'installazione con NPM
 
-Se si usa Visual Studio, eseguire i comandi seguenti dalla **console di gestione pacchetti** nella cartella radice. Per Visual Studio Code, eseguire i comandi seguenti dal **terminale integrato** .
+Se si usa Visual Studio, eseguire i comandi seguenti dalla **console di gestione pacchetti** nella cartella radice. Per Visual Studio Code, eseguire i comandi seguenti dal **terminale integrato**.
 
 ```bash
 npm init -y
