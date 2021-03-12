@@ -6,12 +6,12 @@ metadata:
   description: Informazioni sul contenuto nuovo e aggiornato in ASP.NET Core docs.
   ms.topic: landing-page
   ms.date: 03/04/2021
-  ms.openlocfilehash: a4ef3edbf260c6f2ee34ac739884bd9a605bd396
-  ms.sourcegitcommit: 3982ff9dabb5b12aeb0a61cde2686b5253364f5d
+  ms.openlocfilehash: 514c66eb130ac2d32ce0c3b9a14f62263d54076d
+  ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/04/2021
-  ms.locfileid: "102119006"
+  ms.lasthandoff: 03/10/2021
+  ms.locfileid: "102585708"
 landingContent:
 - title: Trovare gli aggiornamenti di ASP.NET Core docs
   linkLists:
@@ -34,17 +34,17 @@ landingContent:
   - linkListType: overview
     links:
     - text: Repository ASP.NET Core docs
-      url: https://github.com/dotnet/AspNetCore.Docs/blob/master/README.md
+      url: https://github.com/dotnet/AspNetCore.Docs/blob/main/README.md
     - text: Struttura del progetto ed etichette per problemi e richieste pull
-      url: https://github.com/dotnet/docs/blob/master/styleguide/labels-projects.md
+      url: https://github.com/dotnet/docs/blob/main/styleguide/labels-projects.md
   - linkListType: concept
     links:
     - text: Guida per i collaboratori di Microsoft docs
       url: /contribute
     - text: Guida per i collaboratori di ASP.NET Core docs
-      url: https://github.com/dotnet/AspNetCore.Docs/blob/master/CONTRIBUTING.md
+      url: https://github.com/dotnet/AspNetCore.Docs/blob/main/CONTRIBUTING.md
     - text: Guida per i collaboratori di documentazione di riferimento per l'API ASP.NET Core
-      url: https://github.com/dotnet/AspNetApiDocs/blob/master/CONTRIBUTING.md
+      url: https://github.com/dotnet/AspNetApiDocs/blob/main/CONTRIBUTING.md
 - title: Community
   linkLists:
   - linkListType: whats-new
@@ -58,7 +58,7 @@ landingContent:
     - text: Aggiornamenti docs Novell
       url: /xamarin/whats-new/
     - text: Note sulla versione di .NET Core
-      url: https://github.com/dotnet/core/blob/master/release-notes/README.md
+      url: https://github.com/dotnet/core/blob/main/release-notes/README.md
     - text: Note sulla versione di ASP.NET Core
       url: ../release-notes/aspnetcore-3.1.md
     - text: Note sulla versione del compilatore C# (Roslyn)
