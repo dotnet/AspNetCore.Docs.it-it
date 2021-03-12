@@ -17,12 +17,12 @@ no-loc:
 - Razor
 - SignalR
 uid: security/authentication/identity
-ms.openlocfilehash: 4fa49f795b78b88e00bd32d04f74acd8689383b2
-ms.sourcegitcommit: 1436bd4d70937d6ec3140da56d96caab33c4320b
+ms.openlocfilehash: 7141808b3190db2c882d562d753cd68fe3f985ff
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2021
-ms.locfileid: "102394473"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102589738"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Introduzione a Identity on ASP.NET Core
 
@@ -52,7 +52,7 @@ In questo argomento si apprenderà come usare Identity per registrare, accedere 
 
 [!INCLUDE[](~/includes/IdentityServer4.md)]
 
-Consente di [visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/identity/sample) ([come scaricare](xref:index#how-to-download-a-sample)).
+Consente di [visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/security/authentication/identity/sample) ([come scaricare](xref:index#how-to-download-a-sample)).
 
 <a name="adi"></a>
 
@@ -183,7 +183,7 @@ Quando un utente fa clic sul pulsante **registra** nella `Register` pagina, `Reg
 [!code-csharp[](identity/sample/WebApp3/Areas/Identity/Pages/Account/Register.cshtml.cs?name=snippet&highlight=9)]
 
 <!-- .NET 5 fixes this, see
-https://github.com/dotnet/aspnetcore/blob/master/src/Identity/UI/src/Areas/Identity/Pages/V4/Account/RegisterConfirmation.cshtml.cs#L74-L77
+https://github.com/dotnet/aspnetcore/blob/main/src/Identity/UI/src/Areas/Identity/Pages/V4/Account/RegisterConfirmation.cshtml.cs#L74-L77
 -->
 [!INCLUDE[](~/includes/disableVer.md)]
 
@@ -273,7 +273,7 @@ Per evitare la pubblicazione Identity di risorse statiche (fogli di stile e file
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [ASP.NET Core Identity codice sorgente](https://github.com/dotnet/aspnetcore/tree/master/src/Identity)
+* [ASP.NET Core Identity codice sorgente](https://github.com/dotnet/aspnetcore/tree/main/src/Identity)
 * Per informazioni sulla configurazione di using SQLite, vedere [questo problema di GitHub](https://github.com/dotnet/AspNetCore.Docs/issues/5131) Identity .
 * [Configurare Identity](xref:security/authentication/identity-configuration)
 * <xref:security/authorization/secure-data>
@@ -294,7 +294,7 @@ ASP.NET Core Identity è un sistema di appartenenza che aggiunge la funzionalit�
 
 Identity può essere configurato usando un database di SQL Server per archiviare i nomi utente, le password e i dati di profilo. In alternativa, è possibile usare un altro archivio permanente, ad esempio archiviazione tabelle di Azure.
 
-Consente di [visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/identity/sample/src/ASPNETCore-IdentityDemoComplete/) ([come scaricare](xref:index#how-to-download-a-sample)).
+Consente di [visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/security/authentication/identity/sample/src/ASPNETCore-IdentityDemoComplete/) ([come scaricare](xref:index#how-to-download-a-sample)).
 
 In questo argomento si apprenderà come usare Identity per registrare, accedere e disconnettere un utente. Per istruzioni più dettagliate sulla creazione di app che usano Identity , vedere la sezione passaggi successivi alla fine di questo articolo.
 

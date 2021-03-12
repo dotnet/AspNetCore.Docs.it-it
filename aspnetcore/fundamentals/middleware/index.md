@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: fundamentals/middleware/index
-ms.openlocfilehash: bdeccf81a3bb620c2e1fe15a798d5a83375842c8
-ms.sourcegitcommit: 92439194682dc788b8b5b3a08bd2184dc00e200b
+ms.openlocfilehash: 15d011e88ab291173668a0b6dc5f46e97fdfeff0
+ms.sourcegitcommit: acfe51c35497a204f75c2a61125c9408c04493e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96556541"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102605711"
 ---
 # <a name="aspnet-core-middleware"></a>Middleware di ASP.NET Core
 
@@ -258,7 +258,7 @@ La tabella seguente visualizza le richieste e le risposte da `http://localhost:1
 | Richiesta                       | Risposta                     |
 | ----------------------------- | ---------------------------- |
 | localhost:1234                | Hello from non-Map delegate. |
-| localhost:1234/?branch=master | Ramo usato = master         |
+| localhost: 1234/? Branch = principale | Ramo usato = Main         |
 
 <xref:Microsoft.AspNetCore.Builder.UseWhenExtensions.UseWhen%2A> dirama anche la pipeline della richiesta in base al risultato del predicato specificato. Diversamente da `MapWhen` , questo ramo viene riunito alla pipeline principale se non esegue un cortocircuito o contiene un middleware terminale:
 
@@ -270,7 +270,7 @@ Nell'esempio precedente, risposta "Hello from Main pipeline". viene scritto per 
 
 ASP.NET Core include i componenti middleware seguenti. Nella colonna *Ordinamento* sono disponibili note sul posizionamento del middleware nella pipeline di elaborazione delle richieste e indicazioni sulle condizioni nelle quali il middleware può terminare l'elaborazione delle richieste. Quando un middleware esegue un corto circuito della pipeline di elaborazione delle richieste e impedisce al middleware a valle di elaborare una richiesta, viene denominato *middleware terminale*. Per altre informazioni sul corto circuito, vedere la sezione [Creare una pipeline middleware con IApplicationBuilder](#create-a-middleware-pipeline-with-iapplicationbuilder).
 
-| Middleware | Descrizione | Ordine |
+| Middleware | Descrizione | JSON |
 | ---------- | ----------- | ----- |
 | [autenticazione](xref:security/authentication/identity) | Offre il supporto dell'autenticazione. | Prima di `HttpContext.User`. Terminale per i callback OAuth. |
 | [Autorizzazione](xref:Microsoft.AspNetCore.Builder.AuthorizationAppBuilderExtensions.UseAuthorization%2A) | Fornisce supporto per l'autorizzazione. | Subito dopo il middleware di autenticazione. |
@@ -455,7 +455,7 @@ La tabella seguente visualizza le richieste e le risposte da `http://localhost:1
 | Richiesta                       | Risposta                     |
 | ----------------------------- | ---------------------------- |
 | localhost:1234                | Hello from non-Map delegate. |
-| localhost:1234/?branch=master | Ramo usato = master         |
+| localhost: 1234/? Branch = principale | Ramo usato = Main         |
 
 `Map` supporta l'annidamento, ad esempio:
 
@@ -478,7 +478,7 @@ app.Map("/level1", level1App => {
 
 ASP.NET Core include i componenti middleware seguenti. Nella colonna *Ordinamento* sono disponibili note sul posizionamento del middleware nella pipeline di elaborazione delle richieste e indicazioni sulle condizioni nelle quali il middleware può terminare l'elaborazione delle richieste. Quando un middleware esegue un corto circuito della pipeline di elaborazione delle richieste e impedisce al middleware a valle di elaborare una richiesta, viene denominato *middleware terminale*. Per altre informazioni sul corto circuito, vedere la sezione [Creare una pipeline middleware con IApplicationBuilder](#create-a-middleware-pipeline-with-iapplicationbuilder).
 
-| Middleware | Descrizione | Ordine |
+| Middleware | Descrizione | JSON |
 | ---------- | ----------- | ----- |
 | [autenticazione](xref:security/authentication/identity) | Offre il supporto dell'autenticazione. | Prima di `HttpContext.User`. Terminale per i callback OAuth. |
 | [Cookie Politica](xref:security/gdpr) | Tiene traccia del consenso degli utenti per l'archiviazione di informazioni personali e impone gli standard minimi per i cookie campi, ad esempio `secure` e `SameSite` . | Prima del middleware che rilascia cookie . Esempi: Autenticazione, Sessione, MVC (TempData). |

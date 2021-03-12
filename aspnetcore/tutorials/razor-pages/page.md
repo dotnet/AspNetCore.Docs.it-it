@@ -19,14 +19,14 @@ no-loc:
 - Razor
 - SignalR
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: a6efbb22f8b6280bd636cd1575d8a4a2bca0bb06
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.openlocfilehash: 049e7764766a4d5d535f7d7959a3554b040607c5
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97486174"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102588503"
 ---
-# <a name="part-3-scaffolded-no-locrazor-pages-in-aspnet-core"></a>Parte 3, Razor pagine con impalcatura in ASP.NET Core
+# <a name="part-3-scaffolded-razor-pages-in-aspnet-core"></a>Parte 3, Razor pagine con impalcatura in ASP.NET Core
 
 Autore: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -34,13 +34,13 @@ Questa esercitazione esamina le Razor pagine create dall'impalcatura nell' [eser
 
 ::: moniker range=">= aspnetcore-5.0"
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie50) ([procedura per il download](xref:index#how-to-download-a-sample)).
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie50) ([procedura per il download](xref:index#how-to-download-a-sample)).
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-5.0 >= aspnetcore-3.0"
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30) ([procedura per il download](xref:index#how-to-download-a-sample)).
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30) ([procedura per il download](xref:index#how-to-download-a-sample)).
 
 ::: moniker-end
 
@@ -118,9 +118,9 @@ Si consideri il markup seguente dal file *pages/Movies/ Index . cshtml* :
 
 Il markup evidenziato sopra è un esempio di Razor transizione in C#. Tra i caratteri `{` e `}` è racchiuso un blocco di codice C#.
 
-La `PageModel` classe base contiene una `ViewData` Proprietà Dictionary che può essere utilizzata per passare dati a una visualizzazione. Gli oggetti vengono aggiunti al `ViewData` dizionario usando un criterio ***valore chiave** _. Nell'esempio precedente la proprietà `Title` viene aggiunta al dizionario `ViewData`.
+La `PageModel` classe base contiene una `ViewData` Proprietà Dictionary che può essere utilizzata per passare dati a una visualizzazione. Gli oggetti vengono aggiunti al `ViewData` dizionario usando un modello di ***valore di chiave*** . Nell'esempio precedente la proprietà `Title` viene aggiunta al dizionario `ViewData`.
 
-La `Title` proprietà viene usata nel file _Pages/shared/_Layout. cshtml *. Il markup seguente illustra le prime righe del file *_Layout.cshtml*.
+La proprietà `Title` viene usata nel file *Pages/Shared/_Layout.cshtml*. Il markup seguente illustra le prime righe del file *_Layout.cshtml*.
 
 <!-- We need a snapshot copy of layout because we are changing in the next step. -->
 
@@ -148,7 +148,7 @@ La riga `@*Markup removed for brevity.*@` è un Razor commento. Diversamente dai
 
    L'elemento di ancoraggio precedente è un [helper tag](xref:mvc/views/tag-helpers/intro). In questo caso, si tratta dell'[helper tag di ancoraggio](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper). L' `asp-page="/Movies/Index"` attributo e il valore dell'helper Tag creano un collegamento alla `/Movies/Index` Razor pagina. Poiché il valore dell'attributo `asp-area` è vuoto, l'area non viene usata nel collegamento. Per altre informazioni, vedere [Aree](xref:mvc/controllers/areas).
 
-1. Salvare le modifiche ed eseguire il test dell'app selezionando il collegamento **RpMovie** . In caso di problemi, vedere il file [_Layout.cshtml](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30/Pages/Shared/_Layout.cshtml) in GitHub.
+1. Salvare le modifiche ed eseguire il test dell'app selezionando il collegamento **RpMovie** . In caso di problemi, vedere il file [_Layout.cshtml](https://github.com/dotnet/AspNetCore.Docs/blob/main/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30/Pages/Shared/_Layout.cshtml) in GitHub.
 
 1. Testare i collegamenti **Home**, **RpMovie**, **create**, **Edit** e **Delete** . Ogni pagina imposta il titolo, che è possibile visualizzare nella scheda del browser. Quando si aggiunge un segnalibro a una pagina, il titolo viene usato per il segnalibro.
 
@@ -182,7 +182,7 @@ Se non sono presenti errori del modello:
 * I dati vengono salvati.
 * Il browser viene reindirizzato alla Index pagina.
 
-### <a name="the-create-no-locrazor-page"></a>Pagina Crea Razor
+### <a name="the-create-razor-page"></a>Pagina Crea Razor
 
 Esaminare il file di paging *pages/Movies/create. cshtml* Razor :
 
@@ -323,7 +323,7 @@ Sostituire l'elemento precedente con il markup seguente.
 
 L'elemento di ancoraggio precedente è un [helper tag](xref:mvc/views/tag-helpers/intro). In questo caso, si tratta dell'[helper tag di ancoraggio](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper). L' `asp-page="/Movies/Index"` attributo e il valore dell'helper Tag creano un collegamento alla `/Movies/Index` Razor pagina. Poiché il valore dell'attributo `asp-area` è vuoto, l'area non viene usata nel collegamento. Per altre informazioni, vedere [Aree](xref:mvc/controllers/areas).
 
-Salvare le modifiche e testare l'app selezionando il collegamento **RpMovie**. In caso di problemi, vedere il file [_Layout.cshtml](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Pages/Shared/_Layout.cshtml) in GitHub.
+Salvare le modifiche e testare l'app selezionando il collegamento **RpMovie**. In caso di problemi, vedere il file [_Layout.cshtml](https://github.com/dotnet/AspNetCore.Docs/blob/main/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Pages/Shared/_Layout.cshtml) in GitHub.
 
 Testare gli altri collegamenti (**Home**, **RpMovie**, **Create**, **Edit** e **Delete**). Ogni pagina imposta il titolo, che è possibile visualizzare nella scheda del browser. Quando si aggiunge un segnalibro a una pagina, il titolo viene usato per il segnalibro.
 
@@ -354,7 +354,7 @@ Se il modello contiene errori, il modulo viene nuovamente visualizzato insieme a
 
 Se non sono presenti errori del modello, i dati vengono salvati e il browser viene reindirizzato alla Index pagina.
 
-### <a name="the-create-no-locrazor-page"></a>Pagina Crea Razor
+### <a name="the-create-razor-page"></a>Pagina Crea Razor
 
 Esaminare il file di paging *pages/Movies/create. cshtml* Razor :
 

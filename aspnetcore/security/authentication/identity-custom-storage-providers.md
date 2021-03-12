@@ -18,20 +18,20 @@ no-loc:
 - Razor
 - SignalR
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: c89098bf0b2c4396f9856aca2be9967af5df0cb7
-ms.sourcegitcommit: ca34c1ac578e7d3daa0febf1810ba5fc74f60bbf
+ms.openlocfilehash: f1c4366e4e4afa3dd86a816a649ad0a8b2ce817b
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93051902"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102588627"
 ---
-# <a name="custom-storage-providers-for-no-locaspnet-core-identity"></a>Provider di archiviazione personalizzati per ASP.NET Core Identity
+# <a name="custom-storage-providers-for-aspnet-core-identity"></a>Provider di archiviazione personalizzati per ASP.NET Core Identity
 
 Di [Steve Smith](https://ardalis.com/)
 
 ASP.NET Core Identity è un sistema estensibile che consente di creare un provider di archiviazione personalizzato e connetterlo all'app. In questo argomento viene descritto come creare un provider di archiviazione personalizzato per ASP.NET Core Identity . Vengono illustrati i concetti importanti per la creazione di un provider di archiviazione, ma non una procedura dettagliata.
 
-[Visualizzare o scaricare un esempio da GitHub](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/identity-custom-storage-providers/sample/CustomIdentityProviderSample).
+[Visualizzare o scaricare un esempio da GitHub](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/security/authentication/identity-custom-storage-providers/sample/CustomIdentityProviderSample).
 
 ## <a name="introduction"></a>Introduzione
 
@@ -51,7 +51,7 @@ Quando si usa il interfaccia della riga di comando di .NET Core, aggiungere `-au
 dotnet new mvc -au Individual
 ```
 
-## <a name="the-no-locaspnet-core-identity-architecture"></a>ASP.NET Core IdentityArchitettura
+## <a name="the-aspnet-core-identity-architecture"></a>ASP.NET Core IdentityArchitettura
 
 ASP.NET Core Identity è costituito da classi denominate Manager e archivi. I *responsabili* sono classi di alto livello che lo sviluppatore di app usa per eseguire operazioni, ad esempio la creazione di un Identity utente. Gli *archivi* sono classi di livello inferiore che specificano il modo in cui le entità, ad esempio utenti e ruoli, vengono rese permanente. Gli archivi seguono il modello di repository e sono strettamente collegati al meccanismo di persistenza. I Manager vengono separati dagli archivi, ovvero è possibile sostituire il meccanismo di persistenza senza modificare il codice dell'applicazione (ad eccezione della configurazione).
 
@@ -65,7 +65,7 @@ Quando si crea una nuova istanza di `UserManager` o `RoleManager` si fornisce il
 
 [Riconfigurare l'app per l'uso di un nuovo provider di archiviazione](#reconfigure-app-to-use-a-new-storage-provider) Mostra come creare un'istanza di `UserManager` e `RoleManager` con un archivio personalizzato.
 
-## <a name="no-locaspnet-core-identity-stores-data-types"></a>ASP.NET Core Identity Archivia i tipi di dati
+## <a name="aspnet-core-identity-stores-data-types"></a>ASP.NET Core Identity Archivia i tipi di dati
 
 [ASP.NET Core Identity](https://github.com/aspnet/identity) i tipi di dati sono descritti in dettaglio nelle sezioni seguenti:
 
@@ -150,7 +150,7 @@ Creare una `UserStore` classe che fornisce i metodi per tutte le operazioni sui 
 * [IUserTwoFactorStore](/dotnet/api/microsoft.aspnetcore.identity.iusertwofactorstore-1)
 * [IUserLockoutStore](/dotnet/api/microsoft.aspnetcore.identity.iuserlockoutstore-1)
 
-Le interfacce opzionali ereditano da `IUserStore<TUser>` . Nell' [app di esempio](https://github.com/dotnet/AspNetCore.Docs/blob/master/aspnetcore/security/authentication/identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs)è possibile visualizzare un archivio utenti di esempio parzialmente implementato.
+Le interfacce opzionali ereditano da `IUserStore<TUser>` . Nell' [app di esempio](https://github.com/dotnet/AspNetCore.Docs/blob/main/aspnetcore/security/authentication/identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs)è possibile visualizzare un archivio utenti di esempio parzialmente implementato.
 
 All'interno della `UserStore` classe si utilizzano le classi di accesso ai dati create per eseguire operazioni. Questi vengono passati usando l'inserimento di dipendenze. Ad esempio, nel SQL Server con l'implementazione di elegante, la `UserStore` classe ha il `CreateAsync` metodo che usa un'istanza di `DapperUsersTable` per inserire un nuovo record:
 
@@ -195,7 +195,7 @@ public class UserStore : IUserStore<IdentityUser>,
 }
 ```
 
-### <a name="no-locidentityuserclaim-no-locidentityuserlogin-and-no-locidentityuserrole"></a>IdentityUserClaim, Identity userlogin e Identity userrole
+### <a name="identityuserclaim-identityuserlogin-and-identityuserrole"></a>IdentityUserClaim, Identity userlogin e Identity userrole
 
 Lo `Microsoft.AspNet.Identity.EntityFramework` spazio dei nomi contiene implementazioni delle classi [ Identity UserClaim](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserclaim-1), [ Identity userlogin](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuserlogin)e [ Identity userrole](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserrole-1) . Se si usano queste funzionalità, è possibile creare versioni personalizzate di queste classi e definire le proprietà per l'app. Tuttavia, a volte è più efficiente non caricare queste entità in memoria durante l'esecuzione di operazioni di base, ad esempio l'aggiunta o la rimozione di un'attestazione dell'utente. Al contrario, le classi dell'archivio back-end possono eseguire queste operazioni direttamente sull'origine dati. Il metodo, ad esempio, `UserStore.GetClaimsAsync` può chiamare il `userClaimTable.FindByUserId(user.Id)` metodo per eseguire direttamente una query sulla tabella e restituire un elenco di attestazioni.
 
@@ -250,4 +250,4 @@ public void ConfigureServices(IServiceCollection services)
 ## <a name="references"></a>Riferimenti
 
 * [Provider di archiviazione personalizzati per ASP.NET 4. x Identity](/aspnet/identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity)
-* [ASP.NET Core Identity](https://github.com/dotnet/AspNetCore/tree/master/src/Identity): Questo repository include collegamenti a provider di archivi gestiti dalla community.
+* [ASP.NET Core Identity](https://github.com/dotnet/AspNetCore/tree/main/src/Identity): Questo repository include collegamenti a provider di archivi gestiti dalla community.

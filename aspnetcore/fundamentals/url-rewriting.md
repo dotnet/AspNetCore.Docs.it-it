@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 55993f951bfe910fb179fdb25b8d04f81d4ee2c9
-ms.sourcegitcommit: 83524f739dd25fbfa95ee34e95342afb383b49fe
+ms.openlocfilehash: 44e6570090de9c5f3550d18a30fcde758fb16f85
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99057460"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102588523"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Middleware Riscrittura URL in ASP.NET Core
 
@@ -47,7 +47,7 @@ La riscrittura URL è l'azione di modificare gli URL di richiesta in base a una 
 > [!NOTE]
 > La riscrittura URL può ridurre le prestazioni di un'app. Ove possibile, limitare il numero e la complessità delle regole.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/fundamentals/url-rewriting/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="url-redirect-and-url-rewrite"></a>Reindirizzamento URL e riscrittura URL
 
@@ -77,7 +77,7 @@ Anche se il client fosse in grado di recuperare la risorsa nell'URL riscritto, n
 
 ## <a name="url-rewriting-sample-app"></a>App di esempio per la riscrittura URL
 
-È possibile esplorare le funzionalità del middleware Riscrittura URL con l'[app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/). L'app applica regole di reindirizzamento e riscrittura e visualizza l'URL reindirizzato o riscritto per diversi scenari.
+È possibile esplorare le funzionalità del middleware Riscrittura URL con l'[app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/fundamentals/url-rewriting/samples/). L'app applica regole di reindirizzamento e riscrittura e visualizza l'URL reindirizzato o riscritto per diversi scenari.
 
 ## <a name="when-to-use-url-rewriting-middleware"></a>Quando usare il middleware Riscrittura URL
 
@@ -399,7 +399,7 @@ La riscrittura URL è l'azione di modificare gli URL di richiesta in base a una 
 > [!NOTE]
 > La riscrittura URL può ridurre le prestazioni di un'app. Ove possibile, limitare il numero e la complessità delle regole.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/fundamentals/url-rewriting/samples/) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="url-redirect-and-url-rewrite"></a>Reindirizzamento URL e riscrittura URL
 
@@ -429,7 +429,7 @@ Anche se il client fosse in grado di recuperare la risorsa nell'URL riscritto, n
 
 ## <a name="url-rewriting-sample-app"></a>App di esempio per la riscrittura URL
 
-È possibile esplorare le funzionalità del middleware Riscrittura URL con l'[app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/). L'app applica regole di reindirizzamento e riscrittura e visualizza l'URL reindirizzato o riscritto per diversi scenari.
+È possibile esplorare le funzionalità del middleware Riscrittura URL con l'[app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/fundamentals/url-rewriting/samples/). L'app applica regole di reindirizzamento e riscrittura e visualizza l'URL reindirizzato o riscritto per diversi scenari.
 
 ## <a name="when-to-use-url-rewriting-middleware"></a>Quando usare il middleware Riscrittura URL
 

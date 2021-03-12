@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: ffa2a7c73e00ccfb5dd726a084352c0b80cc41b0
-ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
+ms.openlocfilehash: 8574bc06b7c27fbb8caf834754188dba67bcb4e3
+ms.sourcegitcommit: acfe51c35497a204f75c2a61125c9408c04493e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/10/2021
-ms.locfileid: "102586969"
+ms.locfileid: "102605697"
 ---
 # <a name="aspnet-core-module"></a>Modulo ASP.NET Core
 
@@ -1078,5 +1078,5 @@ I log del programma di installazione del bundle di hosting per il modulo sono di
 
 * <xref:host-and-deploy/iis/index>
 * <xref:host-and-deploy/azure-apps/index>
-* [Origine riferimento modulo ASP.NET Core [ramo predefinito (Master)]](https://github.com/dotnet/aspnetcore/tree/main/src/Servers/IIS/AspNetCoreModuleV2): usare l'elenco a discesa **Branch** per selezionare una versione specifica (ad esempio, `release/3.1` ).
+* [Origine riferimento modulo ASP.NET Core [ramo predefinito (Main)]](https://github.com/dotnet/aspnetcore/tree/main/src/Servers/IIS/AspNetCoreModuleV2): usare l'elenco a discesa **Branch** per selezionare una versione specifica (ad esempio, `release/3.1` ).
 * <xref:host-and-deploy/iis/modules>
