@@ -18,12 +18,12 @@ no-loc:
 - Razor
 - SignalR
 uid: security/authorization/secure-data
-ms.openlocfilehash: ebd3c0dc9baa63b30f142773d7a3d621ce4082d9
-ms.sourcegitcommit: ebc5beccba5f3f7619de20baa58ad727d2a3d18c
+ms.openlocfilehash: 662456af59c453df66ca48139a6de40d0e2cbf0d
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98689305"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102589192"
 ---
 # <a name="create-an-aspnet-core-web-app-with-user-data-protected-by-authorization"></a>Creare un'app Web di ASP.NET Core con i dati utente protetti dall'autorizzazione
 
@@ -87,11 +87,11 @@ Questa esercitazione è avanzata. È necessario avere familiarità con:
 
 ## <a name="the-starter-and-completed-app"></a>App iniziale e completata
 
-[Scaricare](xref:index#how-to-download-a-sample) l'app [completata](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples) . [Testare](#test-the-completed-app) l'app completata in modo da acquisire familiarità con le funzionalità di sicurezza.
+[Scaricare](xref:index#how-to-download-a-sample) l'app [completata](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/security/authorization/secure-data/samples) . [Testare](#test-the-completed-app) l'app completata in modo da acquisire familiarità con le funzionalità di sicurezza.
 
 ### <a name="the-starter-app"></a>App iniziale
 
-[Scaricare](xref:index#how-to-download-a-sample) l'app [Starter](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/) .
+[Scaricare](xref:index#how-to-download-a-sample) l'app [Starter](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/security/authorization/secure-data/samples/) .
 
 Eseguire l'app, toccare il collegamento **ContactManager** e verificare che sia possibile creare, modificare ed eliminare un contatto. Per creare l'app iniziale, vedere [creare l'app iniziale](#create-the-starter-app).
 
@@ -114,7 +114,7 @@ dotnet ef migrations add userID_Status
 dotnet ef database update
 ```
 
-### <a name="add-role-services-to-no-locidentity"></a>Aggiungere servizi ruolo a Identity
+### <a name="add-role-services-to-identity"></a>Aggiungere servizi ruolo a Identity
 
 Aggiungere [Aggiungi ruoli](/dotnet/api/microsoft.aspnetcore.identity.identitybuilder.addroles#Microsoft_AspNetCore_Identity_IdentityBuilder_AddRoles__1) per aggiungere servizi ruolo:
 
@@ -128,13 +128,13 @@ Impostare i criteri di autenticazione di fallback per richiedere l'autenticazion
 
 [!code-csharp[](secure-data/samples/final3/Startup.cs?name=snippet&highlight=13-99)]
 
-Il codice evidenziato precedente imposta i [criteri di autenticazione di fallback](xref:Microsoft.AspNetCore.Authorization.AuthorizationOptions.FallbackPolicy). I criteri di autenticazione di fallback richiedono che *_tutti_* gli utenti siano autenticati, ad eccezione di Razor pagine, controller o metodi di azione con un attributo di autenticazione. Ad esempio, Razor pagine, controller o metodi di azione con `[AllowAnonymous]` o `[Authorize(PolicyName="MyPolicy")]` utilizzano l'attributo di autenticazione applicato anziché i criteri di autenticazione di fallback.
+Il codice evidenziato precedente imposta i [criteri di autenticazione di fallback](xref:Microsoft.AspNetCore.Authorization.AuthorizationOptions.FallbackPolicy). Per i criteri di autenticazione di fallback è necessario autenticare ***tutti*** gli utenti, ad eccezione di Razor pagine, controller o metodi di azione con un attributo di autenticazione. Ad esempio, Razor pagine, controller o metodi di azione con `[AllowAnonymous]` o `[Authorize(PolicyName="MyPolicy")]` utilizzano l'attributo di autenticazione applicato anziché i criteri di autenticazione di fallback.
 
 <xref:Microsoft.AspNetCore.Authorization.AuthorizationPolicyBuilder.RequireAuthenticatedUser%2A> aggiunge <xref:Microsoft.AspNetCore.Authorization.Infrastructure.DenyAnonymousAuthorizationRequirement> all'istanza corrente che impone che l'utente corrente sia autenticato.
 
 I criteri di autenticazione di fallback:
 
-_ Viene applicato a tutte le richieste che non specificano in modo esplicito i criteri di autenticazione. Per le richieste gestite dal routing degli endpoint, questo includerebbe qualsiasi endpoint che non specifichi un attributo di autorizzazione. Per le richieste gestite da altri middleware dopo il middleware di autorizzazione, ad esempio [i file statici](xref:fundamentals/static-files), il criterio viene applicato a tutte le richieste.
+* Viene applicato a tutte le richieste che non specificano in modo esplicito i criteri di autenticazione. Per le richieste gestite dal routing degli endpoint, questo includerebbe qualsiasi endpoint che non specifichi un attributo di autorizzazione. Per le richieste gestite da altri middleware dopo il middleware di autorizzazione, ad esempio [i file statici](xref:fundamentals/static-files), il criterio viene applicato a tutte le richieste.
 
 L'impostazione dei criteri di autenticazione di fallback per richiedere l'autenticazione degli utenti consente di proteggere le Razor pagine e i controller appena aggiunti. La necessità di eseguire l'autenticazione per impostazione predefinita è più sicura rispetto a quella di fare affidamento su nuovi controller e Razor pagine per includere l' `[Authorize]` attributo.
 
@@ -221,7 +221,7 @@ Esaminare la `ContactOperations` classe. Questa classe contiene i requisiti supp
 
 [!code-csharp[](secure-data/samples/final3/Authorization/ContactOperations.cs)]
 
-### <a name="create-a-base-class-for-the-contacts-no-locrazor-pages"></a>Creare una classe di base per le Razor pagine contatti
+### <a name="create-a-base-class-for-the-contacts-razor-pages"></a>Creare una classe di base per le Razor pagine contatti
 
 Creare una classe di base che contiene i servizi utilizzati nelle Razor pagine contatti. La classe base inserisce il codice di inizializzazione in un'unica posizione:
 
@@ -381,7 +381,7 @@ Se si verifica un bug con il `dotnet aspnet-codegenerator razorpage` comando, ve
 
 ### <a name="seed-the-database"></a>Specificare il valore di inizializzazione del database
 
-Aggiungere la classe [SeedData](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter3/Data/SeedData.cs) alla cartella *Data* :
+Aggiungere la classe [SeedData](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/security/authorization/secure-data/samples/starter3/Data/SeedData.cs) alla cartella *Data* :
 
 [!code-csharp[](secure-data/samples/starter3/Data/SeedData.cs)]
 
@@ -443,11 +443,11 @@ Questa esercitazione è avanzata. È necessario avere familiarità con:
 
 ## <a name="the-starter-and-completed-app"></a>App iniziale e completata
 
-[Scaricare](xref:index#how-to-download-a-sample) l'app [completata](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples) . [Testare](#test-the-completed-app) l'app completata in modo da acquisire familiarità con le funzionalità di sicurezza.
+[Scaricare](xref:index#how-to-download-a-sample) l'app [completata](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/security/authorization/secure-data/samples) . [Testare](#test-the-completed-app) l'app completata in modo da acquisire familiarità con le funzionalità di sicurezza.
 
 ### <a name="the-starter-app"></a>App iniziale
 
-[Scaricare](xref:index#how-to-download-a-sample) l'app [Starter](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/) .
+[Scaricare](xref:index#how-to-download-a-sample) l'app [Starter](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/security/authorization/secure-data/samples/) .
 
 Eseguire l'app, toccare il collegamento **ContactManager** e verificare che sia possibile creare, modificare ed eliminare un contatto.
 
@@ -470,7 +470,7 @@ dotnet ef migrations add userID_Status
 dotnet ef database update
 ```
 
-### <a name="add-role-services-to-no-locidentity"></a>Aggiungere servizi ruolo a Identity
+### <a name="add-role-services-to-identity"></a>Aggiungere servizi ruolo a Identity
 
 Aggiungere [Aggiungi ruoli](/dotnet/api/microsoft.aspnetcore.identity.identitybuilder.addroles#Microsoft_AspNetCore_Identity_IdentityBuilder_AddRoles__1) per aggiungere servizi ruolo:
 
@@ -557,7 +557,7 @@ Esaminare la `ContactOperations` classe. Questa classe contiene i requisiti supp
 
 [!code-csharp[](secure-data/samples/final2.1/Authorization/ContactOperations.cs)]
 
-### <a name="create-a-base-class-for-the-contacts-no-locrazor-pages"></a>Creare una classe di base per le Razor pagine contatti
+### <a name="create-a-base-class-for-the-contacts-razor-pages"></a>Creare una classe di base per le Razor pagine contatti
 
 Creare una classe di base che contiene i servizi utilizzati nelle Razor pagine contatti. La classe base inserisce il codice di inizializzazione in un'unica posizione:
 
@@ -704,7 +704,7 @@ Creare un contatto nel browser dell'amministratore. Copiare l'URL da eliminare e
 
 ### <a name="seed-the-database"></a>Specificare il valore di inizializzazione del database
 
-Aggiungere la classe [SeedData](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2.1/Data/SeedData.cs) alla cartella *Data* .
+Aggiungere la classe [SeedData](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/security/authorization/secure-data/samples/starter2.1/Data/SeedData.cs) alla cartella *Data* .
 
 Chiama `SeedData.Initialize` da `Main` :
 

@@ -18,18 +18,18 @@ no-loc:
 - Razor
 - SignalR
 uid: mvc/views/view-components
-ms.openlocfilehash: 61fcc07aeb30db15014fb716194328d366f27859
-ms.sourcegitcommit: 97243663fd46c721660e77ef652fe2190a461f81
+ms.openlocfilehash: 1d0e0da3a5d047d7457e7ca7587c81029e33cb69
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2021
-ms.locfileid: "98058337"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102586007"
 ---
 # <a name="view-components-in-aspnet-core"></a>Componenti di visualizzazione in ASP.NET Core
 
 Autore: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/view-components/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/mvc/views/view-components/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="view-components"></a>Componenti di visualizzazione
 
@@ -167,7 +167,7 @@ In questo esempio il componente di visualizzazione viene chiamato direttamente d
 
 ## <a name="walkthrough-creating-a-simple-view-component"></a>Procedura dettagliata: creazione di un componente di visualizzazione semplice
 
-[Scaricare](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/view-components/sample), compilare e testare il codice di avvio. Si tratta di un progetto semplice con un controller `ToDo` che visualizza un elenco di elementi *ToDo*.
+[Scaricare](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/mvc/views/view-components/sample), compilare e testare il codice di avvio. Si tratta di un progetto semplice con un controller `ToDo` che visualizza un elenco di elementi *ToDo*.
 
 ![Elenco di elementi ToDo](view-components/_static/2dos.png)
 
@@ -193,7 +193,7 @@ Note riguardanti il codice:
 * `InvokeAsync` espone un metodo che può essere chiamato da una visualizzazione e può accettare un numero arbitrario di argomenti.
 * Il metodo `InvokeAsync` restituisce il set di elementi `ToDo` che soddisfano i parametri `isDone` e `maxPriority`.
 
-### <a name="create-the-view-component-no-locrazor-view"></a>Creare la visualizzazione del componente di visualizzazione Razor
+### <a name="create-the-view-component-razor-view"></a>Creare la visualizzazione del componente di visualizzazione Razor
 
 * Creare la cartella *Views/Shared/Components*. Il nome di questa cartella **deve** essere *Components*.
 

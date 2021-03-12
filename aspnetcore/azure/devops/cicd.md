@@ -18,12 +18,12 @@ no-loc:
 - Razor
 - SignalR
 uid: azure/devops/cicd
-ms.openlocfilehash: 2ac7a130d223b21330d0a797c1d460fc0cf467d7
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.openlocfilehash: 18b2c6ce27132844402f88b2817a07e3588d81c1
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "96901210"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102586267"
 ---
 # <a name="continuous-integration-and-deployment"></a>Integrazione e distribuzione continua
 
@@ -65,7 +65,7 @@ In questa sezione verranno completate le attività seguenti:
 1. Pubblicare il repository git locale nel repository GitHub appena creato. Eseguire il comando seguente:
 
     ```console
-    git push -u origin master
+    git push -u origin main
     ```
 
 1. Aprire una finestra del browser e passare a `https://github.com/<GitHub_username>/simple-feed-reader/` . Verificare che il codice venga visualizzato nel repository GitHub.
@@ -118,7 +118,7 @@ Sono disponibili tre passaggi distinti per il completamento. Il completamento de
 1. Se l'autenticazione a due fattori è abilitata nell'account GitHub, è necessario un token di accesso personale. In tal caso, fare clic sul collegamento **autorizza con un token di accesso personale GitHub** . Vedere le istruzioni per la creazione di un [token di accesso personale GitHub ufficiale](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) per la guida. È necessario solo l'ambito del *repository* delle autorizzazioni. In caso contrario, fare clic sul pulsante **autorizza tramite OAuth** .
 1. Quando richiesto, accedere al proprio account GitHub. Selezionare quindi autorizza per concedere l'accesso all'organizzazione DevOps di Azure. Se l'esito è positivo, viene creato un nuovo endpoint del servizio.
 1. Fare clic sul pulsante con i puntini di sospensione accanto al pulsante **repository** . Selezionare il *<GitHub_username>repository/Simple-Feed-Reader* dall'elenco. Fare clic sul pulsante **Seleziona**.
-1. Selezionare il ramo predefinito (*Master*) dal **ramo predefinito per le compilazioni manuali e pianificate** . Fare clic sul pulsante **Continue** (Continue). Verrà visualizzata la pagina Selezione modello.
+1. Selezionare il ramo predefinito (*Main*) dal **ramo predefinito per le compilazioni manuali e pianificate** . Fare clic sul pulsante **Continue** (Continue). Verrà visualizzata la pagina Selezione modello.
 
 ### <a name="create-the-build-definition"></a>Creare la definizione di compilazione
 
@@ -128,15 +128,15 @@ Sono disponibili tre passaggi distinti per il completamento. Il completamento de
 
 1. Verranno visualizzati i risultati della ricerca del modello. Passare il puntatore del mouse sul modello di **ASP.NET Core** , quindi fare clic sul pulsante **applica** .
 1. Verrà visualizzata la scheda **attività** della definizione di compilazione. Fare clic sulla scheda **trigger** .
-1. Selezionare la casella **Abilita integrazione continua** . Nella sezione **filtri ramo** verificare che l'elenco a discesa **tipo** sia impostato su *Includi*. Impostare l'elenco a discesa **specifica ramo** su *Master*.
+1. Selezionare la casella **Abilita integrazione continua** . Nella sezione **filtri ramo** verificare che l'elenco a discesa **tipo** sia impostato su *Includi*. Impostare l'elenco a discesa **specifica ramo** su *principale*.
 
     ![Abilita impostazioni di integrazione continua](media/cicd/vsts-enable-ci.png)
 
-    Queste impostazioni comportano l'attivazione di una compilazione quando viene effettuato il push di una modifica nel ramo predefinito (*Master*) del repository GitHub. L'integrazione continua viene testata nella sezione [commit delle modifiche in GitHub e distribuzione automatica in Azure](#commit-changes-to-github-and-automatically-deploy-to-azure) .
+    Queste impostazioni comportano l'attivazione di una compilazione quando viene effettuato il push di una modifica nel ramo predefinito (*Main*) del repository GitHub. L'integrazione continua viene testata nella sezione [commit delle modifiche in GitHub e distribuzione automatica in Azure](#commit-changes-to-github-and-automatically-deploy-to-azure) .
 
 1. Fare clic sul pulsante **salva & coda** e selezionare l'opzione **Salva** :
 
-    ![Pulsante Salva](media/cicd/vsts-save-build.png)
+    ![Pulsante per il salvataggio](media/cicd/vsts-save-build.png)
 
 1. Viene visualizzata la finestra di dialogo modale seguente:
 
@@ -176,7 +176,7 @@ Sono disponibili tre passaggi distinti per il completamento. Il completamento de
 
     Se questa opzione è abilitata, viene eseguita una distribuzione ogni volta che è disponibile una nuova compilazione.
 1. A destra viene visualizzato un pannello **trigger di distribuzione continua** . Per abilitare la funzionalità, fare clic sull'interruttore. Non è necessario abilitare il **trigger della richiesta pull**.
-1. Fare clic sull'elenco a discesa **Aggiungi** nella sezione **filtri del ramo di compilazione** . Scegliere l'opzione relativa al **ramo predefinito della definizione di compilazione** . Questo filtro determina l'attivazione della versione solo per una compilazione dal ramo predefinito (*Master*) del repository GitHub.
+1. Fare clic sull'elenco a discesa **Aggiungi** nella sezione **filtri del ramo di compilazione** . Scegliere l'opzione relativa al **ramo predefinito della definizione di compilazione** . Questo filtro determina l'attivazione della versione solo per una compilazione dal ramo predefinito (*Main*) del repository GitHub.
 1. Fare clic sul pulsante **Salva**. Fare clic sul pulsante **OK** nella finestra di dialogo **Salva** modale risultante.
 1. Fare clic sulla casella **ambiente 1** . A destra viene visualizzato un pannello **dell'ambiente** . Modificare il testo dell' *ambiente 1* nella casella di testo **nome ambiente** in *produzione*.
 
@@ -211,15 +211,15 @@ Sono disponibili tre passaggi distinti per il completamento. Il completamento de
     git commit -a -m "upgraded to V4"
     ```
 
-1. Eseguire il push della modifica nel ramo predefinito (*Master*) nell' *origine* remota del repository GitHub. Nel comando seguente sostituire il segnaposto `{BRANCH}` con il ramo predefinito (use `master` ):
+1. Eseguire il push della modifica nel ramo predefinito (*Main*) nell' *origine* remota del repository GitHub. Nel comando seguente sostituire il segnaposto `{BRANCH}` con il ramo predefinito (use `main` ):
 
     ```console
     git push origin {BRANCH}
     ```
 
-    Il commit viene visualizzato nel ramo predefinito (*Master*) del repository GitHub:
+    Il commit viene visualizzato nel ramo predefinito del repository GitHub (*Main*):
 
-    ![Commit di GitHub nel ramo predefinito (Master)](media/cicd/github-commit.png)
+    ![Commit di GitHub nel ramo predefinito (Main)](media/cicd/github-commit.png)
 
     La compilazione viene attivata perché l'integrazione continua è abilitata nella scheda **trigger** della definizione di compilazione:
 

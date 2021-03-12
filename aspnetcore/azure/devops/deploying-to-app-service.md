@@ -18,12 +18,12 @@ no-loc:
 - Razor
 - SignalR
 uid: azure/devops/deploy-to-app-service
-ms.openlocfilehash: f1c7acba0b7fb7dc07da576b188e580328ff4b89
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.openlocfilehash: 6d82611eb2176126652d0d6c8db3779cde70dab5
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "96901158"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102586241"
 ---
 # <a name="deploy-an-app-to-app-service"></a>Distribuire un'app nel servizio app
 
@@ -141,10 +141,10 @@ Per distribuire l'app, è necessario creare un' [app Web](/azure/app-service/app
     git remote add azure-prod GIT_DEPLOYMENT_URL
     ```
 
-    b. Eseguire il push del ramo predefinito locale (*Master*) al ramo predefinito (*Master*) di *Azure-prod* remote.
+    b. Eseguire il push del ramo predefinito locale (*Main*) al ramo predefinito (*Main*) di *Azure-prod* remote.
 
     ```console
-    git push azure-prod master
+    git push azure-prod main
     ```
 
     Verranno richieste le credenziali di distribuzione create in precedenza. Osservare l'output nella shell dei comandi. Azure compila l'app ASP.NET Core in modalità remota.
@@ -214,10 +214,10 @@ Gli slot di distribuzione supportano la gestione temporanea delle modifiche senz
     git remote add azure-staging <Git_staging_deployment_URL>
     ```
 
-    b. Eseguire il push del ramo predefinito locale (*Master*) nel ramo predefinito (*Master*) remoto di *gestione temporanea di Azure* .
+    b. Eseguire il push del ramo predefinito locale (*Main*) al ramo predefinito (*Main*) del ramo remoto di *gestione temporanea di Azure* .
 
     ```console
-    git push azure-staging master
+    git push azure-staging main
     ```
 
     Attendere mentre Azure compila e distribuisce l'app.
@@ -236,7 +236,7 @@ Gli slot di distribuzione supportano la gestione temporanea delle modifiche senz
 
     ![Confronto tra le finestre del browser dopo lo scambio](./media/deploying-to-app-service/swapped.png)
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 In questa sezione sono state completate le attività seguenti:
 

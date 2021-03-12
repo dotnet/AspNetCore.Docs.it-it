@@ -18,12 +18,12 @@ no-loc:
 - Razor
 - SignalR
 uid: security/anti-request-forgery
-ms.openlocfilehash: 3bb3c059eafa8e948fe2e719207927c009902e59
-ms.sourcegitcommit: 83524f739dd25fbfa95ee34e95342afb383b49fe
+ms.openlocfilehash: 5d6f2915dd9b27142ac7d8ac55e68c6a26e41f81
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99057447"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102585786"
 ---
 # <a name="prevent-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>Impedisci gli attacchi di richiesta intersito falsa (XSRF/CSRF) in ASP.NET Core
 
@@ -85,7 +85,7 @@ Tuttavia, le vulnerabilità di CSRF sono fondamentalmente un problema con l'app 
 
 Cookiel'autenticazione basata su è una forma comune di autenticazione. I sistemi di autenticazione basata su token hanno una maggiore popolarità, soprattutto per le applicazioni a pagina singola (Spa).
 
-### <a name="no-loccookie-based-authentication"></a>Cookieautenticazione basata su
+### <a name="cookie-based-authentication"></a>Cookieautenticazione basata su
 
 Quando un utente esegue l'autenticazione usando il nome utente e la password, viene emesso un token contenente un ticket di autenticazione che può essere usato per l'autenticazione e l'autorizzazione. Il token viene archiviato come oggetto cookie che accompagna ogni richiesta eseguita dal client. La generazione e cookie la convalida di questo oggetto viene eseguita dal Cookie middleware di autenticazione. Il [middleware](xref:fundamentals/middleware/index) serializza un'entità utente in un oggetto crittografato cookie . Nelle richieste successive il middleware convalida l'oggetto cookie , ricrea l'entità e assegna l'entità alla proprietà [User](/dotnet/api/microsoft.aspnetcore.http.httpcontext.user) di [HttpContext](/dotnet/api/microsoft.aspnetcore.http.httpcontext).
 
@@ -487,9 +487,9 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/anti-request-forgery/sample/AngularSample) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/security/anti-request-forgery/sample/AngularSample) ([procedura per il download](xref:index#how-to-download-a-sample))
 
-## <a name="windows-authentication-and-antiforgery-no-loccookies"></a>Autenticazione di Windows e antifalsificazione cookie
+## <a name="windows-authentication-and-antiforgery-cookies"></a>Autenticazione di Windows e antifalsificazione cookie
 
 Quando si usa l'autenticazione di Windows, gli endpoint dell'applicazione devono essere protetti dagli attacchi CSRF nello stesso modo in cui vengono eseguiti per cookie i.  Il browser invia in modo implicito il contesto di autenticazione al server, pertanto gli endpoint devono essere protetti dagli attacchi CSRF.
 

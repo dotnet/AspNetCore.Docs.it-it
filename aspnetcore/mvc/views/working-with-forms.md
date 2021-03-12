@@ -18,12 +18,12 @@ no-loc:
 - Razor
 - SignalR
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: a568ad481eb09587e2ddce8e84d0ac3eff01e990
-ms.sourcegitcommit: ca34c1ac578e7d3daa0febf1810ba5fc74f60bbf
+ms.openlocfilehash: 51e5f2f74493e7f4c18273c8589ed0424a1f2cac
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93060898"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102585981"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>Helper tag nei moduli in ASP.NET Core
 
@@ -68,7 +68,7 @@ L'attributo `asp-route` degli helper tag può anche generare un markup per l'att
 
 [!code-cshtml[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterRoute.cshtml)]
 
-Molte delle visualizzazioni nella cartella *Views/Account* (generata quando si crea una nuova app Web con *account utente singoli* ) contengono l'attributo [asp-route-returnurl](xref:mvc/views/working-with-forms):
+Molte delle visualizzazioni nella cartella *Views/Account* (generata quando si crea una nuova app Web con *account utente singoli*) contengono l'attributo [asp-route-returnurl](xref:mvc/views/working-with-forms):
 
 ```cshtml
 <form asp-controller="Account" asp-action="Login"
@@ -93,7 +93,7 @@ Attributi di [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-
 |[asp-page](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page)|Nome della Razor pagina.|
 |[asp-page-handler](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page-handler)|Nome del gestore di Razor pagina.|
 |[asp-route](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route)|Nome della route.|
-|[asp-route-{value}](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route-value)|Singolo valore di route URL. Ad esempio `asp-route-id="1234"`.|
+|[asp-route-{value}](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route-value)|Singolo valore di route URL. Ad esempio: `asp-route-id="1234"`.|
 |[asp-all-route-data](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-all-route-data)|Tutti i valori di route.|
 |[asp-fragment](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-fragment)|Frammento di URL.|
 
@@ -191,7 +191,7 @@ L'helper tag Input:
 
 * Genera attributi di convalida [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) da attributi di [annotazione dei dati](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) applicati alla proprietà del modello
 
-* Sovrappone una funzionalità di helper HTML con `Html.TextBoxFor` e `Html.EditorFor`. Per i dettagli, vedere la sezione **Alternative helper HTML per l'helper tag Input** .
+* Sovrappone una funzionalità di helper HTML con `Html.TextBoxFor` e `Html.EditorFor`. Per i dettagli, vedere la sezione **Alternative helper HTML per l'helper tag Input**.
 
 * Consente una tipizzazione forte. Se il nome di proprietà viene modificato e non si aggiorna l'helper tag, si ottiene un errore simile al seguente:
 
@@ -331,7 +331,7 @@ Di seguito Razor viene illustrato come accedere a un `Color` elemento specifico:
 
 [!code-cshtml[](working-with-forms/sample/final/Views/Demo/EditColor.cshtml)]
 
-Modello *Views/Shared/EditorTemplates/String.cshtml* :
+Modello *Views/Shared/EditorTemplates/String.cshtml*:
 
 [!code-cshtml[](working-with-forms/sample/final/Views/Shared/EditorTemplates/String.cshtml)]
 
@@ -343,7 +343,7 @@ Di seguito Razor viene illustrato come eseguire l'iterazione di una raccolta:
 
 [!code-cshtml[](working-with-forms/sample/final/Views/Demo/Edit.cshtml)]
 
-Modello *Views/Shared/EditorTemplates/ToDoItem.cshtml* :
+Modello *Views/Shared/EditorTemplates/ToDoItem.cshtml*:
 
 [!code-cshtml[](working-with-forms/sample/final/Views/Shared/EditorTemplates/ToDoItem.cshtml)]
 
@@ -466,7 +466,7 @@ Se si verifica un errore di convalida sul lato server, ad esempio quando la conv
 |--- |--- |
 |ValidationSummary.All|Livello di modello e proprietà|
 |ValidationSummary.ModelOnly|Modello|
-|ValidationSummary.None|Nessuno|
+|ValidationSummary.None|nessuno|
 
 ### <a name="sample"></a>Esempio
 
@@ -647,7 +647,7 @@ Se si usa l'opzione "not specified" in più pagine, è possibile creare un model
 
 [!code-cshtml[](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexEmptyTemplate.cshtml?highlight=5)]
 
-Modello *Views/Shared/EditorTemplates/CountryViewModel.cshtml* :
+Modello *Views/Shared/EditorTemplates/CountryViewModel.cshtml*:
 
 [!code-cshtml[](working-with-forms/sample/final/Views/Shared/EditorTemplates/CountryViewModel.cshtml)]
 
@@ -682,4 +682,4 @@ L'elemento `<option>` corretto viene selezionato (con l'attributo `selected="sel
 * <xref:mvc/models/model-binding>
 * <xref:mvc/models/validation>
 * [Interfaccia IAttributeAdapter](/dotnet/api/Microsoft.AspNetCore.Mvc.DataAnnotations.IAttributeAdapter)
-* [Frammenti di codice per questo documento](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/working-with-forms/sample/final)
+* [Frammenti di codice per questo documento](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/mvc/views/working-with-forms/sample/final)

@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: host-and-deploy/iis/advanced
-ms.openlocfilehash: 9f14929a7d298d6f4d66abcc88665db34fc072bf
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.openlocfilehash: de3abb7b5f89e3b84da38a8eabb183f9551cc1f9
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "93058612"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102588919"
 ---
 # <a name="advanced-configuration-of-the-aspnet-core-module-and-iis"></a>Configurazione avanzata del modulo ASP.NET Core e di IIS
 
@@ -89,7 +89,7 @@ Per configurare la protezione dati in IIS in modo da rendere permanente il grupp
 
   Le chiavi di protezione dei dati usate dalle app ASP.NET Core vengono archiviate nel registro di sistema esterno alle app. Per salvare in modo permanente le chiavi per una determinata app, creare le chiavi del registro di sistema per il pool di app.
 
-  Per le installazioni IIS autonome non web farm è possibile usare lo [script PowerShell Data Protection Provision-AutoGenKeys.ps1 (Provisioning di protezione dati-AutoGenKeys.ps1)](https://github.com/dotnet/AspNetCore/blob/master/src/DataProtection/Provision-AutoGenKeys.ps1) per ogni pool di app usato con un'app ASP.NET Core. Questo script crea una chiave del registro di sistema nel registro di sistema HKLM accessibile solo all'account del processo di lavoro del pool di applicazioni dell'app. Le chiavi vengono crittografate a riposo tramite DPAPI con una chiave a livello del computer.
+  Per le installazioni IIS autonome non web farm è possibile usare lo [script PowerShell Data Protection Provision-AutoGenKeys.ps1 (Provisioning di protezione dati-AutoGenKeys.ps1)](https://github.com/dotnet/AspNetCore/blob/main/src/DataProtection/Provision-AutoGenKeys.ps1) per ogni pool di app usato con un'app ASP.NET Core. Questo script crea una chiave del registro di sistema nel registro di sistema HKLM accessibile solo all'account del processo di lavoro del pool di applicazioni dell'app. Le chiavi vengono crittografate a riposo tramite DPAPI con una chiave a livello del computer.
 
   In Web farm scenari, un'app può essere configurata in modo da usare un percorso UNC per archiviare il relativo anello chiave di protezione dati. Per impostazione predefinita, le chiavi non sono crittografate. Assicurarsi che le autorizzazioni per i file per la condivisione di rete siano limitate all'account di Windows con cui viene eseguita l'app. È possibile usare un certificato X509 per la protezione delle chiavi inattive. Si consideri un meccanismo per consentire agli utenti di caricare i certificati. Posizionare i certificati nell'archivio certificati attendibili dell'utente e assicurarsi che siano disponibili in tutti i computer in cui viene eseguita l'app dell'utente. Per altre informazioni, vedere <xref:security/data-protection/configuration/overview>.
 
@@ -100,7 +100,7 @@ Per configurare la protezione dati in IIS in modo da rendere permanente il grupp
   È necessario abilitare anche l' [ `setProfileEnvironment` attributo](/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration) del pool di app. Il valore predefinito di `setProfileEnvironment` è `true`. In alcuni scenari (ad esempio, per il sistema operativo Windows), `setProfileEnvironment` è impostato su `false`. Se le chiavi non vengono archiviate nella directory del profilo utente come previsto:
 
   1. Passa alla cartella `%windir%/system32/inetsrv/config`.
-  1. Aprire il file `applicationHost.config` .
+  1. Aprire il file `applicationHost.config`.
   1. Individuare l'elemento `<system.applicationHost><applicationPools><applicationPoolDefaults><processModel>`.
   1. Verificare che l'attributo `setProfileEnvironment` non sia presente, condizione che corrisponde all'impostazione predefinita `true`, o impostare in modo esplicito il valore dell'attributo su `true`.
 
@@ -198,7 +198,7 @@ L'isolamento dei pool di app è determinato dal modello di hosting:
 
 Nella finestra di dialogo **Aggiungi sito Web** è selezionato per impostazione predefinita un singolo pool di app per ogni app. Quando si specifica un valore in **Nome del sito**, il testo viene automaticamente trasferito alla casella di testo **Pool di applicazioni**. Quando si aggiunge il sito viene creato un nuovo pool di applicazioni con il nome del sito.
 
-## <a name="application-pool-no-locidentity"></a>Pool di applicazioni Identity
+## <a name="application-pool-identity"></a>Pool di applicazioni Identity
 
 Un account di identità del pool di app consente di eseguire un'app in un account univoco, senza dover creare e gestire domini o account locali. In IIS 8.0 o versioni successive il processo di lavoro amministrazione IIS (WAS) crea un account virtuale con il nome del nuovo pool di applicazioni ed esegue i processi di lavoro del pool di applicazioni inclusi nell'account per impostazione predefinita. Nella console di gestione IIS in **Impostazioni avanzate** per il pool di applicazioni, verificare che **Identity** sia impostato su Usa `ApplicationPoolIdentity` :
 

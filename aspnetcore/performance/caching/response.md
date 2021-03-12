@@ -18,18 +18,18 @@ no-loc:
 - Razor
 - SignalR
 uid: performance/caching/response
-ms.openlocfilehash: 2864de5b9931ed255569cb087c67c71004c4df92
-ms.sourcegitcommit: ca34c1ac578e7d3daa0febf1810ba5fc74f60bbf
+ms.openlocfilehash: 539ddb118279adb3a53394cdb0c2e5169092ebc0
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93059013"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102589231"
 ---
 # <a name="response-caching-in-aspnet-core"></a>Memorizzazione nella cache delle risposte in ASP.NET Core
 
 Di [John Luo](https://github.com/JunTaoLuo), [Rick Anderson](https://twitter.com/RickAndMSFT)e [Steve Smith](https://ardalis.com/)
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/response/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/performance/caching/response/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 La memorizzazione nella cache delle risposte riduce il numero di richieste effettuate da un client o da un proxy a un server Web. La memorizzazione nella cache delle risposte riduce anche la quantità di lavoro eseguita dal server Web per generare una risposta. La memorizzazione nella cache delle risposte è controllata dalle intestazioni che specificano come si desidera che client, proxy e middleware memorizzino le risposte.
 
@@ -45,11 +45,11 @@ La [specifica di Caching HTTP 1,1](https://tools.ietf.org/html/rfc7234) descrive
 
 | Direttiva                                                       | Azione |
 | --------------------------------------------------------------- | ------ |
-| [pubblico](https://tools.ietf.org/html/rfc7234#section-5.2.2.5)   | Una cache può archiviare la risposta. |
+| [public](https://tools.ietf.org/html/rfc7234#section-5.2.2.5)   | Una cache può archiviare la risposta. |
 | [privata](https://tools.ietf.org/html/rfc7234#section-5.2.2.6)  | La risposta non deve essere archiviata da una cache condivisa. Una cache privata può archiviare e riutilizzare la risposta. |
 | [validità massima](https://tools.ietf.org/html/rfc7234#section-5.2.1.1)  | Il client non accetta una risposta la cui età è superiore al numero di secondi specificato. Esempi: `max-age=60` (60 secondi), `max-age=2592000` (1 mese) |
-| [no-cache](https://tools.ietf.org/html/rfc7234#section-5.2.1.4) | **Sulle richieste** : una cache non deve usare una risposta archiviata per soddisfare la richiesta. Il server di origine rigenera la risposta per il client e il middleware aggiorna la risposta archiviata nella cache.<br><br>**In** risposta: non è necessario usare la risposta per una richiesta successiva senza convalida nel server di origine. |
-| [Nessun archivio](https://tools.ietf.org/html/rfc7234#section-5.2.1.5) | **Sulle richieste** : una cache non deve archiviare la richiesta.<br><br>**Nelle risposte** : una cache non deve archiviare alcuna parte della risposta. |
+| [no-cache](https://tools.ietf.org/html/rfc7234#section-5.2.1.4) | **Sulle richieste**: una cache non deve usare una risposta archiviata per soddisfare la richiesta. Il server di origine rigenera la risposta per il client e il middleware aggiorna la risposta archiviata nella cache.<br><br>**In** risposta: non è necessario usare la risposta per una richiesta successiva senza convalida nel server di origine. |
+| [Nessun archivio](https://tools.ietf.org/html/rfc7234#section-5.2.1.5) | **Sulle richieste**: una cache non deve archiviare la richiesta.<br><br>**Nelle risposte**: una cache non deve archiviare alcuna parte della risposta. |
 
 Nella tabella seguente sono illustrate le altre intestazioni della cache che svolgono un ruolo nella memorizzazione nella cache.
 
@@ -72,7 +72,7 @@ Il comportamento di memorizzazione nella cache non è disponibile per gli svilup
 
 ### <a name="in-memory-caching"></a>Memorizzazione nella cache in memoria
 
-La memorizzazione nella cache in memoria usa la memoria del server per archiviare i dati memorizzati nella cache. Questo tipo di memorizzazione nella cache è adatto per un singolo server o più server che usano *sessioni permanenti* . Sessioni permanenti significa che le richieste provenienti da un client vengono sempre indirizzate allo stesso server per l'elaborazione.
+La memorizzazione nella cache in memoria usa la memoria del server per archiviare i dati memorizzati nella cache. Questo tipo di memorizzazione nella cache è adatto per un singolo server o più server che usano *sessioni permanenti*. Sessioni permanenti significa che le richieste provenienti da un client vengono sempre indirizzate allo stesso server per l'elaborazione.
 
 Per altre informazioni, vedere <xref:performance/caching/memory>.
 

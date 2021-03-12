@@ -18,12 +18,12 @@ no-loc:
 - Razor
 - SignalR
 uid: index
-ms.openlocfilehash: 4301e0d59364573767ab4cae25a4818ff84b9abc
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.openlocfilehash: 3e41336d084e25319f8b1ab4c4ab3175b758d23d
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "93052227"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102588802"
 ---
 # <a name="introduction-to-aspnet-core"></a>Introduzione a ASP.NET Core
 
@@ -198,8 +198,8 @@ Per una guida di riferimento alla migrazione delle app ASP.NET ai ASP.NET Core, 
 
 Molti articoli ed esercitazioni includono collegamenti al codice di esempio.
 
-1. [Scaricare il file ZIP del repository ASP.NET](https://codeload.github.com/dotnet/AspNetCore.Docs/zip/master).
-1. Decomprimere il file *Docs-master.zip*.
+1. [Scaricare il file ZIP del repository ASP.NET](https://codeload.github.com/dotnet/AspNetCore.Docs/zip/main).
+1. Decomprimere il file di *Docs-main.zip* .
 1. Usare l'URL nel collegamento di esempio per passare alla directory di esempio.
 
 ### <a name="preprocessor-directives-in-sample-code"></a>Direttive per il preprocessore nel codice di esempio
@@ -244,7 +244,7 @@ Il file markdown dell'argomento fa riferimento al frammento di codice C# precede
 
 È possibile ignorare o rimuovere in modo sicuro le `#region` `#endregion` direttive e che racchiudono il codice. Non modificare il codice all'interno di queste direttive se si prevede di eseguire gli scenari di esempio descritti nell'argomento. È possibile modificare il codice durante la sperimentazione con altri scenari.
 
-Per altre informazioni, vedere [Contribuire alla documentazione ASP.NET: Frammenti di codice](https://github.com/dotnet/AspNetCore.Docs/blob/master/CONTRIBUTING.md#code-snippets).
+Per altre informazioni, vedere [Contribuire alla documentazione ASP.NET: Frammenti di codice](https://github.com/dotnet/AspNetCore.Docs/blob/main/CONTRIBUTING.md#code-snippets).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

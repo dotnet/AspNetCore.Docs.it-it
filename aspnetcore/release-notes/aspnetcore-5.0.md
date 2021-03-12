@@ -18,18 +18,18 @@ no-loc:
 - SignalR
 - Kestrel
 uid: aspnetcore-5.0
-ms.openlocfilehash: 5caa412773bf9c8e3bed5ebc529d48b886de6956
-ms.sourcegitcommit: 063a06b644d3ade3c15ce00e72a758ec1187dd06
+ms.openlocfilehash: 64e068194744d6c5495d8ecaf31076c7a1c1f349
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253072"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102585799"
 ---
 # <a name="whats-new-in-aspnet-core-50"></a>Novità di ASP.NET Core 5,0
 
 In questo articolo vengono evidenziate le modifiche più significative in ASP.NET Core 5,0 con i collegamenti alla documentazione pertinente.
 
-## <a name="aspnet-core-mvc-and-no-locrazor-improvements"></a>ASP.NET Core MVC e Razor miglioramenti
+## <a name="aspnet-core-mvc-and-razor-improvements"></a>ASP.NET Core MVC e Razor miglioramenti
 
 ### <a name="model-binding-datetime-as-utc"></a>Associazione di modelli DateTime come ora UTC
 
@@ -154,7 +154,7 @@ Migliorare le prestazioni percepite del rendering dei componenti utilizzando il 
 
 Blazor gli eventi supportano ora l' `ontoggle` evento DOM. Per altre informazioni, vedere <xref:blazor/components/event-handling#event-argument-types>.
 
-### <a name="set-ui-focus-in-no-locblazor-apps"></a>Impostare lo stato attivo dell'interfaccia utente nelle Blazor app
+### <a name="set-ui-focus-in-blazor-apps"></a>Impostare lo stato attivo dell'interfaccia utente nelle Blazor app
 
 Usare il `FocusAsync` Metodo convenience sui riferimenti a elementi per impostare lo stato attivo dell'interfaccia utente su tale elemento. Per altre informazioni, vedere <xref:blazor/components/event-handling#focus-an-element>.
 
@@ -188,15 +188,15 @@ I parametri di route catch-all, che acquisiscono percorsi tra più limiti di car
 
 Il debug Blazor WebAssembly delle app è stato migliorato in ASP.NET Core 5,0. Inoltre, il debug è ora supportato in Visual Studio per Mac. Per altre informazioni, vedere <xref:blazor/debug>.
 
-### <a name="microsoft-no-locidentity-v20-and-msal-v20"></a>Microsoft Identity v 2.0 e MSAL v 2.0
+### <a name="microsoft-identity-v20-and-msal-v20"></a>Microsoft Identity v 2.0 e MSAL v 2.0
 
 Blazor la protezione ora usa Microsoft Identity v 2.0 ( [`Microsoft.Identity.Web`](https://www.nuget.org/packages/Microsoft.Identity.Web) e [`Microsoft.Identity.Web.UI`](https://www.nuget.org/packages/Microsoft.Identity.Web.UI) ) e MSAL v 2.0. Per ulteriori informazioni, vedere gli argomenti relativi alla [ Blazor sicurezza e al Identity nodo](xref:blazor/security/index).
 
-### <a name="protected-browser-storage-for-no-locblazor-server"></a>Archivio browser protetto per Blazor Server
+### <a name="protected-browser-storage-for-blazor-server"></a>Archivio browser protetto per Blazor Server
 
 Blazor Server le app possono ora usare il supporto incorporato per l'archiviazione dello stato dell'app nel browser protetto da manomissioni usando la protezione dei dati ASP.NET Core. I dati possono essere archiviati in un archivio del browser locale o in una sessione di archiviazione. Per altre informazioni, vedere <xref:blazor/state-management>.
 
-### <a name="no-locblazor-webassembly-prerendering"></a>Blazor WebAssembly tempistiche
+### <a name="blazor-webassembly-prerendering"></a>Blazor WebAssembly tempistiche
 
 L'integrazione dei componenti è stata migliorata tra i modelli di hosting e Blazor WebAssembly le app possono ora eseguire il prerendering dell'output nel server. <!-- UNCOMMENT AFTER https://github.com/dotnet/AspNetCore.Docs/pull/19887 MERGES: For more information, see <xref:blazor/components/integrate-components-into-razor-pages-and-mvc-apps> and <xref:mvc/views/tag-helpers/builtin-th/component-tag-helper>. -->
 
@@ -224,19 +224,19 @@ Per ulteriori informazioni su gRPC, vedere <xref:grpc/index> .
 
 ## SignalR
 
-### <a name="no-locsignalr-hub-filters"></a>SignalR Filtri Hub
+### <a name="signalr-hub-filters"></a>SignalR Filtri Hub
 
 SignalR I filtri Hub, detti pipeline dell'hub in ASP.NET SignalR , sono una funzionalità che consente l'esecuzione del codice prima e dopo la chiamata dei metodi dell'hub. L'esecuzione di codice prima e dopo la chiamata dei metodi dell'hub è simile al modo in cui middleware è in grado di eseguire il codice prima e dopo una richiesta HTTP. Gli utilizzi comuni includono la registrazione, la gestione degli errori e la convalida degli argomenti.
 
 Per altre informazioni, vedere [use Hub filters in SignalR ASP.NET Core ](xref:signalr/hub-filters).
 
-### <a name="no-locsignalr-parallel-hub-invocations"></a>SignalR chiamate dell'hub parallelo
+### <a name="signalr-parallel-hub-invocations"></a>SignalR chiamate dell'hub parallelo
 
 ASP.NET Core SignalR è ora in grado di gestire le chiamate dell'hub parallelo. Il comportamento predefinito può essere modificato per consentire ai client di richiamare più di un metodo Hub alla volta:
 
 [!code-csharp[](~/release-notes/sample/StartupSignalRhubs.cs?name=snippet)]
 
-### <a name="added-messagepack-support-in-no-locsignalr-java-client"></a>Aggiunto il supporto di MessagePack in SignalR Java client
+### <a name="added-messagepack-support-in-signalr-java-client"></a>Aggiunto il supporto di MessagePack in SignalR Java client
 
 Un nuovo pacchetto, [com. Microsoft. SignalR. MessagePack](https://mvnrepository.com/artifact/com.microsoft.signalr.messagepack), aggiunge il supporto MessagePack al SignalR client Java. Per usare il protocollo dell'hub MessagePack, aggiungere `.withHubProtocol(new MessagePackHubProtocol())` al generatore di connessioni:
 
@@ -278,7 +278,7 @@ See [Update SignalR code](xref:migration/31-to-50#signalr) for migration instruc
         });
   ```
 
-### <a name="no-lockestrel-endpoint-specific-options-via-configuration"></a>Kestrel opzioni specifiche dell'endpoint tramite configurazione
+### <a name="kestrel-endpoint-specific-options-via-configuration"></a>Kestrel opzioni specifiche dell'endpoint tramite configurazione
 
 È stato aggiunto il supporto per la configurazione delle Kestrel Opzioni specifiche dell'endpoint tramite la [configurazione](xref:fundamentals/configuration/index). Le configurazioni specifiche dell'endpoint includono:
 
@@ -359,7 +359,7 @@ Prima di .NET 5,0, la compilazione e la pubblicazione di un *Dockerfile* per un'
 
 ## <a name="authentication-and-authorization"></a>Autenticazione e autorizzazione
 
-### <a name="azure-active-directory-authentication-with-microsoftno-locidentityweb"></a>Azure Active Directory l'autenticazione con Microsoft. Identity . Web
+### <a name="azure-active-directory-authentication-with-microsoftidentityweb"></a>Azure Active Directory l'autenticazione con Microsoft. Identity . Web
 
 I modelli di progetto ASP.NET Core ora si integrano con <xref:Microsoft.Identity.Web?displayProperty=fullName> per gestire l'autenticazione con [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) (Azure ad). [Microsoft. Identity . Il pacchetto Web](https://www.nuget.org/packages/Microsoft.Identity.Web/) fornisce:
 
@@ -374,7 +374,7 @@ Il `AllowAnonymous` metodo di estensione consente l'accesso anonimo a un endpoin
 
 ### <a name="custom-handling-of-authorization-failures"></a>Gestione personalizzata degli errori di autorizzazione
 
-La gestione personalizzata degli errori di autorizzazione è ora più semplice con la nuova interfaccia [IAuthorizationMiddlewareResultHandler](https://github.com/dotnet/aspnetcore/blob/v5.0.0-rc.1.20451.17/src/Security/Authorization/Policy/src/IAuthorizationMiddlewareResultHandler.cs) richiamata dal [middleware](xref:fundamentals/middleware/index)di [autorizzazione](xref:Microsoft.AspNetCore.Builder.AuthorizationAppBuilderExtensions.UseAuthorization%2A) . L'implementazione predefinita rimane invariata, ma un gestore personalizzato può essere registrato in [Dependency Injection, che consente risposte HTTP personalizzate a seconda del motivo per cui l'autorizzazione non è riuscita. Vedere [questo esempio](https://github.com/dotnet/aspnetcore/blob/master/src/Security/samples/CustomAuthorizationFailureResponse/Authorization/SampleAuthorizationMiddlewareResultHandler.cs) che illustra l'uso di `IAuthorizationMiddlewareResultHandler` .
+La gestione personalizzata degli errori di autorizzazione è ora più semplice con la nuova interfaccia [IAuthorizationMiddlewareResultHandler](https://github.com/dotnet/aspnetcore/blob/v5.0.0-rc.1.20451.17/src/Security/Authorization/Policy/src/IAuthorizationMiddlewareResultHandler.cs) richiamata dal [middleware](xref:fundamentals/middleware/index)di [autorizzazione](xref:Microsoft.AspNetCore.Builder.AuthorizationAppBuilderExtensions.UseAuthorization%2A) . L'implementazione predefinita rimane invariata, ma un gestore personalizzato può essere registrato in [Dependency Injection, che consente risposte HTTP personalizzate a seconda del motivo per cui l'autorizzazione non è riuscita. Vedere [questo esempio](https://github.com/dotnet/aspnetcore/blob/main/src/Security/samples/CustomAuthorizationFailureResponse/Authorization/SampleAuthorizationMiddlewareResultHandler.cs) che illustra l'uso di `IAuthorizationMiddlewareResultHandler` .
 
 ### <a name="authorization-when-using-endpoint-routing"></a>Autorizzazione quando si usa il routing degli endpoint
 
@@ -390,7 +390,7 @@ Vedere [autenticazione Kerberos e controllo degli accessi in base al ruolo (RBAC
 
 I dati JSON possono essere letti e scritti da un oggetto `HttpRequest` e `HttpResponse` usando i <xref:System.Net.Http.Json.HttpContentJsonExtensions.ReadFromJsonAsync%2A> nuovi `WriteAsJsonAsync` metodi di estensione e. Questi metodi di estensione usano il [System.Text.Jssul](xref:System.Text.Json) serializzatore per gestire i dati JSON. Il nuovo `HasJsonContentType` metodo di estensione può anche controllare se una richiesta ha un tipo di contenuto JSON.
 
-I metodi di estensione JSON possono essere combinati con il [routing dell'endpoint](xref:fundamentals/routing) per creare API JSON in uno stile di programmazione chiamato ***route to Code** _. Si tratta di una nuova opzione per gli sviluppatori che desiderano creare API JSON di base in modo semplice. Ad esempio, un'app Web che dispone solo di un numero limitato di endpoint può scegliere di usare il routing al codice anziché le funzionalità complete di ASP.NET Core MVC:
+I metodi di estensione JSON possono essere combinati con il [routing degli endpoint](xref:fundamentals/routing) per creare API JSON in uno stile di programmazione che chiamiamo ***route al codice***. Si tratta di una nuova opzione per gli sviluppatori che desiderano creare API JSON di base in modo semplice. Ad esempio, un'app Web che dispone solo di un numero limitato di endpoint può scegliere di usare il routing al codice anziché le funzionalità complete di ASP.NET Core MVC:
 
 ```csharp
 endpoints.MapGet("/weather/{city:alpha}", async context =>
@@ -450,7 +450,7 @@ public class Program
 
 In .NET 5 l'esecuzione di [DotNet Watch](xref:tutorials/dotnet-watch) in un progetto di ASP.NET Core avvia il browser predefinito e aggiorna automaticamente il browser in base alle modifiche apportate al codice. Ciò significa che è possibile:
 
-_ Aprire un progetto ASP.NET Core in un editor di testo.
+* Aprire un progetto ASP.NET Core in un editor di testo.
 * Eseguire `dotnet watch`.
 * Concentrarsi sulle modifiche al codice mentre gli strumenti gestiscono la ricompilazione, il riavvio e il ricaricamento dell'app.
 

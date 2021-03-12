@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: fundamentals/websockets
-ms.openlocfilehash: 2864d98c1e3cff4474ce38d05c47f7cd0e8b3cc5
-ms.sourcegitcommit: 1436bd4d70937d6ec3140da56d96caab33c4320b
+ms.openlocfilehash: 1ed586745ba4d678272547785c6ffa77aa841392
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2021
-ms.locfileid: "102395240"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102588997"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>Supporto di WebSocket in ASP.NET Core
 
@@ -32,7 +32,7 @@ Di [Tom Dykstra](https://github.com/tdykstra) e [Andrew Stanton-Nurse](https://g
 
 L'articolo contiene l'introduzione all'uso di oggetti WebSocket in ASP.NET Core. [WebSocket](https://wikipedia.org/wiki/WebSocket) ([RFC 6455](https://tools.ietf.org/html/rfc6455)) è un protocollo che consente canali di comunicazione persistente bidirezionale su connessioni TCP. Viene usato nelle app che sfruttano comunicazioni veloci e in tempo reale, ad esempio le app di chat, i dashboard e le app di gioco.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/websockets/samples) ([procedura per il download](xref:index#how-to-download-a-sample)). [Modalità di esecuzione](#sample-app).
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/fundamentals/websockets/samples) ([procedura per il download](xref:index#how-to-download-a-sample)). [Modalità di esecuzione](#sample-app).
 
 ## SignalR
 
@@ -189,7 +189,7 @@ Se si usa il supporto WebSocket in [Socket.io](https://socket.io/) in [Node.js](
 
 ## <a name="sample-app"></a>App di esempio
 
-L'[app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/websockets/samples) inclusa in questo articolo è un'app echo. Dispone di una pagina Web che esegue le connessioni WebSocket e il server invia nuovamente tutti i messaggi ricevuti al client. L'app di esempio non è configurata per l'esecuzione da Visual Studio con IIS Express, quindi eseguire l'app in una shell dei comandi con [`dotnet run`](/dotnet/core/tools/dotnet-run) e spostarsi in un browser a `http://localhost:5000` . La pagina Web Mostra lo stato della connessione:
+L'[app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/fundamentals/websockets/samples) inclusa in questo articolo è un'app echo. Dispone di una pagina Web che esegue le connessioni WebSocket e il server invia nuovamente tutti i messaggi ricevuti al client. L'app di esempio non è configurata per l'esecuzione da Visual Studio con IIS Express, quindi eseguire l'app in una shell dei comandi con [`dotnet run`](/dotnet/core/tools/dotnet-run) e spostarsi in un browser a `http://localhost:5000` . La pagina Web Mostra lo stato della connessione:
 
 ![Stato iniziale della pagina Web prima della connessione a WebSocket](websockets/_static/start.png)
 

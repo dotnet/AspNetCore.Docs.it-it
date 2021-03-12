@@ -17,12 +17,12 @@ no-loc:
 - Razor
 - SignalR
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 91148c67d5dc0bf97e2f926f50dcff5dd0708f4b
-ms.sourcegitcommit: ca34c1ac578e7d3daa0febf1810ba5fc74f60bbf
+ms.openlocfilehash: f71ae5e619b875c03401fa78320582c406875401
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93052318"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102586111"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Account confirmation and password recovery in ASP.NET Core (Conferma dell'account e recupero della password in ASP.NET Core)
 
@@ -57,7 +57,7 @@ Eseguire l'app, selezionare il collegamento **Register** e registrare un utente.
 * Selezionare il `Click here to confirm your account` collegamento.
 * Selezionare il collegamento di **accesso** e accedere con le stesse credenziali.
 * Selezionare il `Hello YourEmail@provider.com!` collegamento per reindirizzare l'utente alla `/Identity/Account/Manage/PersonalData` pagina.
-* Selezionare la scheda **Personal Data (dati personali** ) a sinistra e quindi fare clic su **Delete (Elimina** ).
+* Selezionare la scheda **Personal Data (dati personali** ) a sinistra e quindi fare clic su **Delete (Elimina**).
 
 ### <a name="configure-an-email-provider"></a>Configurare un provider di posta elettronica
 
@@ -65,7 +65,7 @@ In questa esercitazione viene usato [SendGrid](https://sendgrid.com) per inviare
 
 L'account SendGrid può richiedere l' [aggiunta di un mittente](https://sendgrid.com/docs/ui/sending-email/senders/).
 
-Creare una classe per recuperare la chiave di posta elettronica sicura. Per questo esempio, creare *Servizi/AuthMessageSenderOptions. cs* :
+Creare una classe per recuperare la chiave di posta elettronica sicura. Per questo esempio, creare *Servizi/AuthMessageSenderOptions. cs*:
 
 [!code-csharp[](accconfirm/sample/WebPWrecover30/Services/AuthMessageSenderOptions.cs?name=snippet1)]
 
@@ -139,7 +139,7 @@ Aggiungere il codice seguente al `ConfigureServices` metodo nel file *Startup.cs
 Seguire le istruzioni per [impalcature Identity ](xref:security/authentication/scaffold-identity) e impalcature `RegisterConfirmation` .
 
 <!-- .NET 5 fixes this, see
-https://github.com/dotnet/aspnetcore/blob/master/src/Identity/UI/src/Areas/Identity/Pages/V4/Account/RegisterConfirmation.cshtml.cs#L74-L77
+https://github.com/dotnet/aspnetcore/blob/main/src/Identity/UI/src/Areas/Identity/Pages/V4/Account/RegisterConfirmation.cshtml.cs#L74-L77
 -->
 
 [!INCLUDE[](~/includes/disableVer.md)]
@@ -156,7 +156,7 @@ Eseguire l'app Web e testare la conferma dell'account e il flusso di recupero de
 
 ### <a name="test-password-reset"></a>Testare la reimpostazione della password
 
-* Se è stato eseguito l'accesso, selezionare **Disconnetti** .
+* Se è stato eseguito l'accesso, selezionare **Disconnetti**.
 * Selezionare il collegamento **Accedi** e selezionare il collegamento **password dimenticata?** .
 * Immettere il messaggio di posta elettronica usato per registrare l'account.
 * Viene inviato un messaggio di posta elettronica con un collegamento per reimpostare la password. Controllare la posta elettronica e fare clic sul collegamento per reimpostare la password. Dopo che la password è stata reimpostata, è possibile accedere con l'indirizzo di posta elettronica e la nuova password.
@@ -241,7 +241,7 @@ L'abilitazione della conferma dell'account in un sito con utenti blocca tutti gl
 
 [.NET Core 2,2 SDK o versione successiva](https://dotnet.microsoft.com/download/dotnet-core)
 
-## <a name="create-a-web--app-and-scaffold-no-locidentity"></a>Creare un'app Web e un patibolo Identity
+## <a name="create-a-web--app-and-scaffold-identity"></a>Creare un'app Web e un patibolo Identity
 
 Eseguire i comandi seguenti per creare un'app Web con l'autenticazione di.
 
@@ -267,7 +267,7 @@ Eseguire l'app, selezionare il collegamento **Register** e registrare un utente.
 
 Si noti che il `EmailConfirmed` campo della tabella è `False` .
 
-Potrebbe essere necessario usare nuovamente questo messaggio di posta elettronica nel passaggio successivo quando l'app invia un messaggio di posta elettronica di conferma. Fare clic con il pulsante destro del mouse sulla riga e scegliere **Elimina** . L'eliminazione dell'alias di posta elettronica rende più semplice nei passaggi seguenti.
+Potrebbe essere necessario usare nuovamente questo messaggio di posta elettronica nel passaggio successivo quando l'app invia un messaggio di posta elettronica di conferma. Fare clic con il pulsante destro del mouse sulla riga e scegliere **Elimina**. L'eliminazione dell'alias di posta elettronica rende più semplice nei passaggi seguenti.
 
 <a name="prevent-login-at-registration"></a>
 
@@ -287,7 +287,7 @@ Aggiornamento `Startup.ConfigureServices`  per richiedere un messaggio di posta 
 
 In questa esercitazione viene usato [SendGrid](https://sendgrid.com) per inviare messaggi di posta elettronica. Per inviare messaggi di posta elettronica sono necessari un account e una chiave di SendGrid. È possibile usare altri provider di posta elettronica. ASP.NET Core 2. x include `System.Net.Mail` , che consente di inviare messaggi di posta elettronica dall'app. È consigliabile usare SendGrid o un altro servizio di posta elettronica per inviare messaggi di posta elettronica. SMTP è difficile da proteggere e configurare correttamente.
 
-Creare una classe per recuperare la chiave di posta elettronica sicura. Per questo esempio, creare *Servizi/AuthMessageSenderOptions. cs* :
+Creare una classe per recuperare la chiave di posta elettronica sicura. Per questo esempio, creare *Servizi/AuthMessageSenderOptions. cs*:
 
 [!code-csharp[](accconfirm/sample/WebPWrecover22/Services/AuthMessageSenderOptions.cs?name=snippet1)]
 
@@ -356,7 +356,7 @@ Aggiungere il codice seguente al `ConfigureServices` metodo nel file *Startup.cs
 
 ## <a name="enable-account-confirmation-and-password-recovery"></a>Abilitare la conferma dell'account e il recupero della password
 
-Il modello include il codice per la conferma dell'account e il recupero della password. Trovare il `OnPostAsync` metodo in *aree/ Identity /pages/account/Register.cshtml.cs* .
+Il modello include il codice per la conferma dell'account e il recupero della password. Trovare il `OnPostAsync` metodo in *aree/ Identity /pages/account/Register.cshtml.cs*.
 
 Impedire l'accesso automatico degli utenti appena registrati impostando come commento la riga seguente:
 
@@ -386,7 +386,7 @@ La pagina Gestisci viene visualizzata con la scheda **profilo** selezionata. Vie
 
 ### <a name="test-password-reset"></a>Testare la reimpostazione della password
 
-* Se è stato eseguito l'accesso, selezionare **Disconnetti** .
+* Se è stato eseguito l'accesso, selezionare **Disconnetti**.
 * Selezionare il collegamento **Accedi** e selezionare il collegamento **password dimenticata?** .
 * Immettere il messaggio di posta elettronica usato per registrare l'account.
 * Viene inviato un messaggio di posta elettronica con un collegamento per reimpostare la password. Controllare la posta elettronica e fare clic sul collegamento per reimpostare la password. Dopo che la password è stata reimpostata, è possibile accedere con l'indirizzo di posta elettronica e la nuova password.

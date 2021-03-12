@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: performance/response-compression
-ms.openlocfilehash: 9327c98c22a4d42d31ea8ba1eb8337153040b5b5
-ms.sourcegitcommit: ca34c1ac578e7d3daa0febf1810ba5fc74f60bbf
+ms.openlocfilehash: 239f9e84d068bfd75c84ccf16f0e74cdbbbebfb2
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93056972"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102586319"
 ---
 # <a name="response-compression-in-aspnet-core"></a>Compressione della risposta in ASP.NET Core
 
@@ -32,7 +32,7 @@ ms.locfileid: "93056972"
 
 La larghezza di banda di rete è una risorsa limitata. La riduzione delle dimensioni della risposta in genere aumenta la velocità di risposta di un'app, spesso in modo significativo. Un modo per ridurre le dimensioni del payload consiste nel comprimere le risposte di un'app.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/performance/response-compression/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-response-compression-middleware"></a>Quando usare il middleware di compressione della risposta
 
@@ -83,7 +83,7 @@ Le intestazioni necessarie per la richiesta, l'invio, la memorizzazione nella ca
 | `Content-Type`     | Specifica il tipo MIME del contenuto. Ogni risposta deve specificarne il `Content-Type` . Il middleware controlla questo valore per determinare se la risposta deve essere compressa. Il middleware specifica un set di [tipi MIME predefiniti](#mime-types) che può codificare, ma è possibile sostituire o aggiungere tipi MIME. |
 | `Vary`             | Quando viene inviato dal server con un valore di `Accept-Encoding` ai client e ai proxy, l' `Vary` intestazione indica al client o al proxy che deve memorizzare nella cache (variare) le risposte in base al valore dell' `Accept-Encoding` intestazione della richiesta. Il risultato della restituzione di contenuto con l' `Vary: Accept-Encoding` intestazione è che le risposte compresse e non compresse vengono memorizzate nella cache separatamente. |
 
-Esplorare le funzionalità del middleware di compressione della risposta con l' [app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples). Nell'esempio vengono illustrate le operazioni seguenti:
+Esplorare le funzionalità del middleware di compressione della risposta con l' [app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/performance/response-compression/samples). Nell'esempio vengono illustrate le operazioni seguenti:
 
 * La compressione delle risposte delle app usando gzip e i provider di compressione personalizzati.
 * Come aggiungere un tipo MIME all'elenco predefinito di tipi MIME per la compressione.
@@ -114,7 +114,7 @@ public class Startup
 Note:
 
 * `app.UseResponseCompression` deve essere chiamato prima di qualsiasi middleware che comprime le risposte. Per altre informazioni, vedere <xref:fundamentals/middleware/index#middleware-order>.
-* Per impostare l'intestazione della [Fiddler](https://www.telerik.com/fiddler)richiesta e [Firebug](https://getfirebug.com/)studiare le intestazioni, le dimensioni e il corpo della risposta, usare uno strumento, ad esempio Fiddler, Firebug o [postazione](https://www.getpostman.com/) `Accept-Encoding` .
+* Per impostare l'intestazione della [](https://www.telerik.com/fiddler)richiesta e [](https://getfirebug.com/)studiare le intestazioni, le dimensioni e il corpo della risposta, usare uno strumento, ad esempio Fiddler, Firebug o [postazione](https://www.getpostman.com/) `Accept-Encoding` .
 
 Inviare una richiesta all'app di esempio senza l' `Accept-Encoding` intestazione e osservare che la risposta non è compressa. Le `Content-Encoding` `Vary` intestazioni e non sono presenti nella risposta.
 
@@ -124,7 +124,7 @@ Inviare una richiesta all'app di esempio con l' `Accept-Encoding: br` intestazio
 
 ![Finestra Fiddler che mostra il risultato di una richiesta con l'intestazione Accept-Encoding e il valore br. Le intestazioni Vary e Content-Encoding vengono aggiunte alla risposta. La risposta è compressa.](response-compression/_static/request-compressed-br.png)
 
-## <a name="providers"></a>Providers
+## <a name="providers"></a>Provider
 
 ### <a name="brotli-compression-provider"></a>Provider di compressione Brotli
 
@@ -234,7 +234,7 @@ Il middleware specifica un set predefinito di tipi MIME per la compressione:
 * `text/plain`
 * `text/xml`
 
-Sostituire o aggiungere tipi MIME con le opzioni del middleware di compressione della risposta. Si noti che i tipi MIME con caratteri jolly, ad esempio, `text/*` non sono supportati. L'app di esempio aggiunge un tipo MIME per `image/svg+xml` e comprime e serve l'immagine del banner ASP.NET Core ( *banner. svg* ).
+Sostituire o aggiungere tipi MIME con le opzioni del middleware di compressione della risposta. Si noti che i tipi MIME con caratteri jolly, ad esempio, `text/*` non sono supportati. L'app di esempio aggiunge un tipo MIME per `image/svg+xml` e comprime e serve l'immagine del banner ASP.NET Core (*banner. svg*).
 
 [!code-csharp[](response-compression/samples/3.x/SampleApp/Startup.cs?name=snippet1&highlight=8-10)]
 
@@ -254,7 +254,7 @@ Quando una richiesta viene sottoposta a proxy da nginx, l' `Accept-Encoding` int
 
 Se si dispone di un modulo di compressione dinamica IIS attivo configurato a livello di server che si desidera disabilitare per un'app, disabilitare il modulo con un'aggiunta al file *web.config* . Per altre informazioni, vedere [Disabling IIS modules](xref:host-and-deploy/iis/modules#disabling-iis-modules) (Disabilitazione di moduli IIS).
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Usare uno strumento come [Fiddler](https://www.telerik.com/fiddler), [Firebug](https://getfirebug.com/)o [postazione](https://www.getpostman.com/), che consente di impostare l'intestazione della `Accept-Encoding` richiesta e studiare le intestazioni, le dimensioni e il corpo della risposta. Per impostazione predefinita, il middleware della compressione della risposta comprime le risposte che soddisfano le condizioni seguenti:
 
@@ -278,7 +278,7 @@ Usare uno strumento come [Fiddler](https://www.telerik.com/fiddler), [Firebug](h
 
 La larghezza di banda di rete è una risorsa limitata. La riduzione delle dimensioni della risposta in genere aumenta la velocità di risposta di un'app, spesso in modo significativo. Un modo per ridurre le dimensioni del payload consiste nel comprimere le risposte di un'app.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/performance/response-compression/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-response-compression-middleware"></a>Quando usare il middleware di compressione della risposta
 
@@ -329,7 +329,7 @@ Le intestazioni necessarie per la richiesta, l'invio, la memorizzazione nella ca
 | `Content-Type`     | Specifica il tipo MIME del contenuto. Ogni risposta deve specificarne il `Content-Type` . Il middleware controlla questo valore per determinare se la risposta deve essere compressa. Il middleware specifica un set di [tipi MIME predefiniti](#mime-types) che può codificare, ma è possibile sostituire o aggiungere tipi MIME. |
 | `Vary`             | Quando viene inviato dal server con un valore di `Accept-Encoding` ai client e ai proxy, l' `Vary` intestazione indica al client o al proxy che deve memorizzare nella cache (variare) le risposte in base al valore dell' `Accept-Encoding` intestazione della richiesta. Il risultato della restituzione di contenuto con l' `Vary: Accept-Encoding` intestazione è che le risposte compresse e non compresse vengono memorizzate nella cache separatamente. |
 
-Esplorare le funzionalità del middleware di compressione della risposta con l' [app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples). Nell'esempio vengono illustrate le operazioni seguenti:
+Esplorare le funzionalità del middleware di compressione della risposta con l' [app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/performance/response-compression/samples). Nell'esempio vengono illustrate le operazioni seguenti:
 
 * La compressione delle risposte delle app usando gzip e i provider di compressione personalizzati.
 * Come aggiungere un tipo MIME all'elenco predefinito di tipi MIME per la compressione.
@@ -360,7 +360,7 @@ public class Startup
 Note:
 
 * `app.UseResponseCompression` deve essere chiamato prima di qualsiasi middleware che comprime le risposte. Per altre informazioni, vedere <xref:fundamentals/middleware/index#middleware-order>.
-* Per impostare l'intestazione della [Fiddler](https://www.telerik.com/fiddler)richiesta e [Firebug](https://getfirebug.com/)studiare le intestazioni, le dimensioni e il corpo della risposta, usare uno strumento, ad esempio Fiddler, Firebug o [postazione](https://www.getpostman.com/) `Accept-Encoding` .
+* Per impostare l'intestazione della [](https://www.telerik.com/fiddler)richiesta e [](https://getfirebug.com/)studiare le intestazioni, le dimensioni e il corpo della risposta, usare uno strumento, ad esempio Fiddler, Firebug o [postazione](https://www.getpostman.com/) `Accept-Encoding` .
 
 Inviare una richiesta all'app di esempio senza l' `Accept-Encoding` intestazione e osservare che la risposta non è compressa. Le `Content-Encoding` `Vary` intestazioni e non sono presenti nella risposta.
 
@@ -370,7 +370,7 @@ Inviare una richiesta all'app di esempio con l' `Accept-Encoding: br` intestazio
 
 ![Finestra Fiddler che mostra il risultato di una richiesta con l'intestazione Accept-Encoding e il valore br. Le intestazioni Vary e Content-Encoding vengono aggiunte alla risposta. La risposta è compressa.](response-compression/_static/request-compressed-br.png)
 
-## <a name="providers"></a>Providers
+## <a name="providers"></a>Provider
 
 ### <a name="brotli-compression-provider"></a>Provider di compressione Brotli
 
@@ -479,7 +479,7 @@ Il middleware specifica un set predefinito di tipi MIME per la compressione:
 * `text/plain`
 * `text/xml`
 
-Sostituire o aggiungere tipi MIME con le opzioni del middleware di compressione della risposta. Si noti che i tipi MIME con caratteri jolly, ad esempio, `text/*` non sono supportati. L'app di esempio aggiunge un tipo MIME per `image/svg+xml` e comprime e serve l'immagine del banner ASP.NET Core ( *banner. svg* ).
+Sostituire o aggiungere tipi MIME con le opzioni del middleware di compressione della risposta. Si noti che i tipi MIME con caratteri jolly, ad esempio, `text/*` non sono supportati. L'app di esempio aggiunge un tipo MIME per `image/svg+xml` e comprime e serve l'immagine del banner ASP.NET Core (*banner. svg*).
 
 [!code-csharp[](response-compression/samples/2.x/SampleApp/Startup.cs?name=snippet1&highlight=8-10)]
 
@@ -499,7 +499,7 @@ Quando una richiesta viene sottoposta a proxy da nginx, l' `Accept-Encoding` int
 
 Se si dispone di un modulo di compressione dinamica IIS attivo configurato a livello di server che si desidera disabilitare per un'app, disabilitare il modulo con un'aggiunta al file *web.config* . Per altre informazioni, vedere [Disabling IIS modules](xref:host-and-deploy/iis/modules#disabling-iis-modules) (Disabilitazione di moduli IIS).
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Usare uno strumento come [Fiddler](https://www.telerik.com/fiddler), [Firebug](https://getfirebug.com/)o [postazione](https://www.getpostman.com/), che consente di impostare l'intestazione della `Accept-Encoding` richiesta e studiare le intestazioni, le dimensioni e il corpo della risposta. Per impostazione predefinita, il middleware della compressione della risposta comprime le risposte che soddisfano le condizioni seguenti:
 
@@ -523,7 +523,7 @@ Usare uno strumento come [Fiddler](https://www.telerik.com/fiddler), [Firebug](h
 
 La larghezza di banda di rete è una risorsa limitata. La riduzione delle dimensioni della risposta in genere aumenta la velocità di risposta di un'app, spesso in modo significativo. Un modo per ridurre le dimensioni del payload consiste nel comprimere le risposte di un'app.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/performance/response-compression/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-response-compression-middleware"></a>Quando usare il middleware di compressione della risposta
 
@@ -574,7 +574,7 @@ Le intestazioni necessarie per la richiesta, l'invio, la memorizzazione nella ca
 | `Content-Type`     | Specifica il tipo MIME del contenuto. Ogni risposta deve specificarne il `Content-Type` . Il middleware controlla questo valore per determinare se la risposta deve essere compressa. Il middleware specifica un set di [tipi MIME predefiniti](#mime-types) che può codificare, ma è possibile sostituire o aggiungere tipi MIME. |
 | `Vary`             | Quando viene inviato dal server con un valore di `Accept-Encoding` ai client e ai proxy, l' `Vary` intestazione indica al client o al proxy che deve memorizzare nella cache (variare) le risposte in base al valore dell' `Accept-Encoding` intestazione della richiesta. Il risultato della restituzione di contenuto con l' `Vary: Accept-Encoding` intestazione è che le risposte compresse e non compresse vengono memorizzate nella cache separatamente. |
 
-Esplorare le funzionalità del middleware di compressione della risposta con l' [app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples). Nell'esempio vengono illustrate le operazioni seguenti:
+Esplorare le funzionalità del middleware di compressione della risposta con l' [app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/performance/response-compression/samples). Nell'esempio vengono illustrate le operazioni seguenti:
 
 * La compressione delle risposte delle app usando gzip e i provider di compressione personalizzati.
 * Come aggiungere un tipo MIME all'elenco predefinito di tipi MIME per la compressione.
@@ -605,7 +605,7 @@ public class Startup
 Note:
 
 * `app.UseResponseCompression` deve essere chiamato prima di qualsiasi middleware che comprime le risposte. Per altre informazioni, vedere <xref:fundamentals/middleware/index#middleware-order>.
-* Per impostare l'intestazione della [Fiddler](https://www.telerik.com/fiddler)richiesta e [Firebug](https://getfirebug.com/)studiare le intestazioni, le dimensioni e il corpo della risposta, usare uno strumento, ad esempio Fiddler, Firebug o [postazione](https://www.getpostman.com/) `Accept-Encoding` .
+* Per impostare l'intestazione della [](https://www.telerik.com/fiddler)richiesta e [](https://getfirebug.com/)studiare le intestazioni, le dimensioni e il corpo della risposta, usare uno strumento, ad esempio Fiddler, Firebug o [postazione](https://www.getpostman.com/) `Accept-Encoding` .
 
 Inviare una richiesta all'app di esempio senza l' `Accept-Encoding` intestazione e osservare che la risposta non è compressa. Le `Content-Encoding` `Vary` intestazioni e non sono presenti nella risposta.
 
@@ -615,7 +615,7 @@ Inviare una richiesta all'app di esempio con l' `Accept-Encoding: gzip` intestaz
 
 ![Finestra Fiddler che mostra il risultato di una richiesta con l'intestazione Accept-Encoding e il valore gzip. Le intestazioni Vary e Content-Encoding vengono aggiunte alla risposta. La risposta è compressa.](response-compression/_static/request-compressed.png)
 
-## <a name="providers"></a>Providers
+## <a name="providers"></a>Provider
 
 ### <a name="gzip-compression-provider"></a>Provider di compressione gzip
 
@@ -684,7 +684,7 @@ Il middleware specifica un set predefinito di tipi MIME per la compressione:
 * `text/plain`
 * `text/xml`
 
-Sostituire o aggiungere tipi MIME con le opzioni del middleware di compressione della risposta. Si noti che i tipi MIME con caratteri jolly, ad esempio, `text/*` non sono supportati. L'app di esempio aggiunge un tipo MIME per `image/svg+xml` e comprime e serve l'immagine del banner ASP.NET Core ( *banner. svg* ).
+Sostituire o aggiungere tipi MIME con le opzioni del middleware di compressione della risposta. Si noti che i tipi MIME con caratteri jolly, ad esempio, `text/*` non sono supportati. L'app di esempio aggiunge un tipo MIME per `image/svg+xml` e comprime e serve l'immagine del banner ASP.NET Core (*banner. svg*).
 
 [!code-csharp[](response-compression/samples/2.x/SampleApp/Startup.cs?name=snippet1&highlight=8-10)]
 
@@ -704,7 +704,7 @@ Quando una richiesta viene sottoposta a proxy da nginx, l' `Accept-Encoding` int
 
 Se si dispone di un modulo di compressione dinamica IIS attivo configurato a livello di server che si desidera disabilitare per un'app, disabilitare il modulo con un'aggiunta al file *web.config* . Per altre informazioni, vedere [Disabling IIS modules](xref:host-and-deploy/iis/modules#disabling-iis-modules) (Disabilitazione di moduli IIS).
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Usare uno strumento come [Fiddler](https://www.telerik.com/fiddler), [Firebug](https://getfirebug.com/)o [postazione](https://www.getpostman.com/), che consente di impostare l'intestazione della `Accept-Encoding` richiesta e studiare le intestazioni, le dimensioni e il corpo della risposta. Per impostazione predefinita, il middleware della compressione della risposta comprime le risposte che soddisfano le condizioni seguenti:
 

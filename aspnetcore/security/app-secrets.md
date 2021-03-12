@@ -18,12 +18,12 @@ no-loc:
 - Razor
 - SignalR
 uid: security/app-secrets
-ms.openlocfilehash: 63032895ce45ad096612a8c39a2709628c12790f
-ms.sourcegitcommit: 6299f08aed5b7f0496001d093aae617559d73240
+ms.openlocfilehash: b309b834bc7156b901447c8697e6d2b0156a30f1
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97486200"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102585812"
 ---
 # <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>Archiviazione sicura dei segreti delle app in fase di sviluppo in ASP.NET Core
 
@@ -31,7 +31,7 @@ ms.locfileid: "97486200"
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT), [Kirk Larkin](https://twitter.com/serpent5), [Daniel Roth](https://github.com/danroth27)e [Scott Addie](https://github.com/scottaddie)
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/app-secrets/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/security/app-secrets/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 Questo documento illustra come gestire i dati sensibili per un'app ASP.NET Core in un computer di sviluppo. Non archiviare mai le password o altri dati sensibili nel codice sorgente. I segreti di produzione non devono essere usati per lo sviluppo o il test. I segreti non devono essere distribuiti con l'app. Al contrario, i segreti di produzione devono essere accessibili tramite un mezzo controllato, come le variabili di ambiente o Azure Key Vault. È possibile memorizzare e proteggere i segreti relativi al test e alla produzione di Azure usando il [provider di configurazione di Azure Key Vault](xref:security/key-vault-configuration).
 
@@ -227,7 +227,7 @@ Eseguire il comando seguente dalla directory in cui è presente il file di proge
 dotnet user-secrets list
 ```
 
-Viene visualizzato l'output seguente:
+Compare l'output seguente:
 
 ```console
 Movies:ConnectionString = Server=(localdb)\mssqllocaldb;Database=Movie-1;Trusted_Connection=True;MultipleActiveResultSets=true
@@ -296,7 +296,7 @@ No secrets configured for this application.
 
 Di [Rick Anderson](https://twitter.com/RickAndMSFT), [Daniel Roth](https://github.com/danroth27)e [Scott Addie](https://github.com/scottaddie)
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/security/app-secrets/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/security/app-secrets/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 Questo documento illustra come gestire i dati sensibili per un'app ASP.NET Core in un computer di sviluppo. Non archiviare mai le password o altri dati sensibili nel codice sorgente. I segreti di produzione non devono essere usati per lo sviluppo o il test. I segreti non devono essere distribuiti con l'app. Al contrario, i segreti di produzione devono essere accessibili tramite un mezzo controllato, come le variabili di ambiente o Azure Key Vault. È possibile memorizzare e proteggere i segreti relativi al test e alla produzione di Azure usando il [provider di configurazione di Azure Key Vault](xref:security/key-vault-configuration).
 
@@ -472,7 +472,7 @@ Eseguire il comando seguente dalla directory in cui è presente il file di proge
 dotnet user-secrets list
 ```
 
-Viene visualizzato l'output seguente:
+Compare l'output seguente:
 
 ```console
 Movies:ConnectionString = Server=(localdb)\mssqllocaldb;Database=Movie-1;Trusted_Connection=True;MultipleActiveResultSets=true

@@ -18,12 +18,12 @@ no-loc:
 - Razor
 - SignalR
 uid: client-side/libman/libman-vs
-ms.openlocfilehash: 1c97f5d7fbf64c5043e6d2277091b9a477833bf1
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.openlocfilehash: ae2bc34edaea2df6f329e47b00c7c02cc59d03bd
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "93054710"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102589270"
 ---
 # <a name="use-libman-with-aspnet-core-in-visual-studio"></a>Usare LibMan con ASP.NET Core in Visual Studio
 
@@ -36,7 +36,7 @@ Visual Studio include il supporto incorporato per [LibMan](xref:client-side/libm
 * Finestra di dialogo Cerca per la ricerca di librerie e l'aggiunta di file a un progetto.
 * Modifica del supporto per *libman.jsnel* &mdash; file manifesto LibMan.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/client-side/libman/samples/) [(procedura per il download)](xref:index#how-to-download-a-sample)
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/client-side/libman/samples/) [(procedura per il download)](xref:index#how-to-download-a-sample)
 
 ## <a name="prerequisites"></a>Prerequisiti
 

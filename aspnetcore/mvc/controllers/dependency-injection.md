@@ -17,12 +17,12 @@ no-loc:
 - Razor
 - SignalR
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: 1282cd984584be423fba755e64e5d2f1afd2af89
-ms.sourcegitcommit: ca34c1ac578e7d3daa0febf1810ba5fc74f60bbf
+ms.openlocfilehash: f3654e008733c57b4cd4cd34a52b747af2258be1
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93060612"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102589075"
 ---
 # <a name="dependency-injection-into-controllers-in-aspnet-core"></a>Inserimento di dipendenze in controller in ASP.NET Core
 
@@ -32,7 +32,7 @@ Di [Shadi Namrouti](https://github.com/shadinamrouti), [Rick Anderson](https://t
 
 I controller ASP.NET Core MVC richiedono le proprie dipendenze in modo esplicito tramite costruttori. ASP.NET Core include il supporto predefinito per l'[inserimento di dipendenze](xref:fundamentals/dependency-injection). L'inserimento delle dipendenze rende più facile testare e gestire le app.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/dependency-injection/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/mvc/controllers/dependency-injection/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="constructor-injection"></a>Inserimento di costruttori
 
@@ -96,7 +96,7 @@ Di [Shadi Namrouti](https://github.com/shadinamrouti), [Rick Anderson](https://t
 
 I controller ASP.NET Core MVC richiedono le proprie dipendenze in modo esplicito tramite costruttori. ASP.NET Core include il supporto predefinito per l'[inserimento di dipendenze](xref:fundamentals/dependency-injection). L'inserimento delle dipendenze rende più facile testare e gestire le app.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/dependency-injection/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/mvc/controllers/dependency-injection/sample) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="constructor-injection"></a>Inserimento di costruttori
 

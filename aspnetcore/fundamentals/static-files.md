@@ -16,12 +16,12 @@ no-loc:
 - Razor
 - SignalR
 uid: fundamentals/static-files
-ms.openlocfilehash: fad569ab06735600299d8051a258651e329db8ce
-ms.sourcegitcommit: 04ad9cd26fcaa8bd11e261d3661f375f5f343cdc
+ms.openlocfilehash: 807cffb2f9b3bf89ff06c62e76d51d4040b8d91a
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100107181"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102589010"
 ---
 # <a name="static-files-in-aspnet-core"></a>File statici in ASP.NET Core
 
@@ -31,7 +31,7 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT) e [Kirk Larkin](https://twit
 
 I file statici, ad esempio HTML, CSS, immagini e JavaScript, sono asset che un'app ASP.NET Core serve direttamente ai client per impostazione predefinita.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/static-files/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/fundamentals/static-files/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="serve-static-files"></a>Usare i file statici
 
@@ -123,7 +123,7 @@ Per gestire i file statici in base all'autorizzazione:
 
   <xref:Microsoft.AspNetCore.Authorization.AuthorizationPolicyBuilder.RequireAuthenticatedUser%2A> aggiunge <xref:Microsoft.AspNetCore.Authorization.Infrastructure.DenyAnonymousAuthorizationRequirement> all'istanza corrente che impone che l'utente corrente sia autenticato.
 
-  Gli asset statici in `wwwroot` sono accessibili pubblicamente, perché il middleware del file statico predefinito ( `app.UseStaticFiles();` ) viene chiamato prima `UseAuthentication` . Per gli asset statici nella cartella *MyStaticFiles* è richiesta l'autenticazione. Il [codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/static-files/samples) illustra questa operazione.
+  Gli asset statici in `wwwroot` sono accessibili pubblicamente, perché il middleware del file statico predefinito ( `app.UseStaticFiles();` ) viene chiamato prima `UseAuthentication` . Per gli asset statici nella cartella *MyStaticFiles* è richiesta l'autenticazione. Il [codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/fundamentals/static-files/samples) illustra questa operazione.
 
 Un approccio alternativo per gestire i file in base all'autorizzazione è:
 
@@ -289,7 +289,7 @@ Di [Rick Anderson](https://twitter.com/RickAndMSFT) e [Steve Smith](https://twit
 
 I file statici, ad esempio HTML, CSS, immagini e JavaScript, sono asset che un'app ASP.NET Core rende direttamente disponibili nei client. Per abilitare l'uso di questi file, sono necessarie alcune configurazioni.
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/static-files/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/fundamentals/static-files/samples) ([procedura per il download](xref:index#how-to-download-a-sample))
 
 ## <a name="serve-static-files"></a>Usare i file statici
 

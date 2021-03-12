@@ -19,26 +19,26 @@ no-loc:
 - Razor
 - SignalR
 uid: tutorials/razor-pages/search
-ms.openlocfilehash: d852766c9706941a1a5f4f3af2c9293ffc4e6a26
-ms.sourcegitcommit: 3593c4efa707edeaaceffbfa544f99f41fc62535
+ms.openlocfilehash: 0ffe4ed251eed551b2799c1a66424ba31137dc18
+ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97486213"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102589517"
 ---
-# <a name="part-6-add-search-to-aspnet-core-no-locrazor-pages"></a>Parte 6, aggiungere la ricerca a Razor pagine ASP.NET Core
+# <a name="part-6-add-search-to-aspnet-core-razor-pages"></a>Parte 6, aggiungere la ricerca a Razor pagine ASP.NET Core
 
 Autore: [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ::: moniker range=">= aspnetcore-5.0"
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie50) ([procedura per il download](xref:index#how-to-download-a-sample)).
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie50) ([procedura per il download](xref:index#how-to-download-a-sample)).
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-5.0 >= aspnetcore-3.0"
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30) ([procedura per il download](xref:index#how-to-download-a-sample)).
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30) ([procedura per il download](xref:index#how-to-download-a-sample)).
 
 ::: moniker-end
 
@@ -71,7 +71,7 @@ var movies = from m in _context.Movie
              select m;
 ```
 
-La query è ***definita** _ a questo punto, ma _*_non_*_ è stata eseguita sul database.
+A questo punto, la query è ***definita** solo con _ _ *_not_** eseguito sul database.
 
 Se la proprietà `SearchString` non è null o vuota, la query dei film viene modificata per filtrare gli elementi in base alla stringa di ricerca:
 
@@ -96,11 +96,11 @@ Il vincolo di route precedente consente la ricerca del titolo come dati della ro
 
 ![::: NO-LOC (index)::: View con la parola Ghost aggiunta all'URL e un elenco di film restituito di due film, Ghostbusters e Ghostbusters 2](search/_static/g2.png)
 
-Il runtime di ASP.NET Core usa l'[associazione di modelli](xref:mvc/models/model-binding) per impostare il valore della proprietà `SearchString` dalla stringa di query (`?searchString=Ghost`) o dai dati della route (`https://localhost:5001/Movies/Ghost`). L'associazione di modelli _*_non_*_ distingue tra maiuscole e minuscole
+Il runtime di ASP.NET Core usa l'[associazione di modelli](xref:mvc/models/model-binding) per impostare il valore della proprietà `SearchString` dalla stringa di query (`?searchString=Ghost`) o dai dati della route (`https://localhost:5001/Movies/Ghost`). L'associazione di modelli ***non*** distingue tra maiuscole e minuscole
 
 Tuttavia, non è previsto che gli utenti modifichino l'URL per cercare un film. In questo passaggio viene aggiunta l'interfaccia utente per filtrare i film. Rimuovere il vincolo di route `"{searchString?}"`, se è stato aggiunto.
 
-Aprire il file _Pages/Movies/ Index . cshtml * e aggiungere il markup evidenziato nel codice seguente:
+Aprire il file *pages/Movies/ Index . cshtml* e aggiungere il markup evidenziato nel codice seguente:
 
 [!code-cshtml[](razor-pages-start/sample/RazorPagesMovie30/SnapShots/Index2.cshtml?highlight=14-19&range=1-22)]
 
@@ -127,7 +127,7 @@ L'elenco `SelectList` di generi viene creato selezionando generi distinti.
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Pages/Movies/Index.cshtml.cs?name=snippet_SelectList)]
 
-### <a name="add-search-by-genre-to-the-no-locrazor-page"></a>Aggiungi la ricerca per genere alla Razor pagina
+### <a name="add-search-by-genre-to-the-razor-page"></a>Aggiungi la ricerca per genere alla Razor pagina
 
 1. Aggiornare il *Index cshtml* [ `<form>` elemento] ( https://developer.mozilla.org/docs/Web/HTML/Element/form) come evidenziato nel markup seguente:
 
@@ -145,7 +145,7 @@ L'elenco `SelectList` di generi viene creato selezionando generi distinti.
 
 ::: moniker range="< aspnetcore-3.0"
 
-[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start) ([procedura per il download](xref:index#how-to-download-a-sample)).
+[Visualizzare o scaricare il codice di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/tutorials/razor-pages/razor-pages-start) ([procedura per il download](xref:index#how-to-download-a-sample)).
 
 Nelle sezioni seguenti viene aggiunta la funzionalità di ricerca di film in base al *genere* oppure al *nome*.
 
@@ -196,11 +196,11 @@ Il vincolo di route precedente consente la ricerca del titolo come dati della ro
 
 ![::: NO-LOC (index)::: View con la parola Ghost aggiunta all'URL e un elenco di film restituito di due film, Ghostbusters e Ghostbusters 2](search/_static/g2.png)
 
-Il runtime di ASP.NET Core usa l'[associazione di modelli](xref:mvc/models/model-binding) per impostare il valore della proprietà `SearchString` dalla stringa di query (`?searchString=Ghost`) o dai dati della route (`https://localhost:5001/Movies/Ghost`). L'associazione di modelli è **_not_* _ maiuscole/minuscole.
+Il runtime di ASP.NET Core usa l'[associazione di modelli](xref:mvc/models/model-binding) per impostare il valore della proprietà `SearchString` dalla stringa di query (`?searchString=Ghost`) o dai dati della route (`https://localhost:5001/Movies/Ghost`). L'associazione di modelli ***non*** distingue tra maiuscole e minuscole
 
 Tuttavia, non è previsto che gli utenti modifichino l'URL per cercare un film. In questo passaggio viene aggiunta l'interfaccia utente per filtrare i film. Rimuovere il vincolo di route `"{searchString?}"`, se è stato aggiunto.
 
-Aprire il file _Pages/Movies/ Index . cshtml * e aggiungere il `<form>` markup evidenziato nel codice seguente:
+Aprire il file *pages/Movies/ Index . cshtml* e aggiungere il `<form>` markup evidenziato nel codice seguente:
 
 [!code-cshtml[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Index2.cshtml?highlight=14-19&range=1-22)]
 
@@ -227,7 +227,7 @@ L'elenco `SelectList` di generi viene creato selezionando generi distinti.
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Index.cshtml.cs?name=snippet_SelectList)]
 
-### <a name="add-search-by-genre-to-the-no-locrazor-page"></a>Aggiungi la ricerca per genere alla Razor pagina
+### <a name="add-search-by-genre-to-the-razor-page"></a>Aggiungi la ricerca per genere alla Razor pagina
 
 Aggiornare il *Index cshtml* [ `<form>` elemento] ( https://developer.mozilla.org/docs/Web/HTML/Element/form) come evidenziato nel markup seguente:
 
