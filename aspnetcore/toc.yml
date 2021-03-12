@@ -723,9 +723,9 @@
       displayName: 'signalr, specs'
       items:
         - name: Protocollo dell'hub
-          href: 'https://github.com/aspnet/AspNetCore/blob/master/src/SignalR/docs/specs/HubProtocol.md'
+          href: 'https://github.com/aspnet/AspNetCore/blob/main/src/SignalR/docs/specs/HubProtocol.md'
         - name: Protocolli di trasporto
-          href: 'https://github.com/aspnet/AspNetCore/blob/master/src/SignalR/docs/specs/TransportProtocols.md'
+          href: 'https://github.com/aspnet/AspNetCore/blob/main/src/SignalR/docs/specs/TransportProtocols.md'
 - name: App RPC
   items:
     - name: Introduzione ai servizi gRPC
@@ -752,6 +752,8 @@
           uid: grpc/clientfactory
         - name: Scadenze e annullamento
           uid: grpc/deadlines-cancellation
+        - name: Gestione degli errori temporanei
+          uid: grpc/retries
     - name: Servizi gRPC con ASP.NET Core
       uid: grpc/aspnetcore
     - name: Piattaforme supportate
@@ -1028,7 +1030,7 @@
           href: /visualstudio/containers/vs-azure-tools-docker-hosting-web-apps-in-docker
         - name: Immagini Docker di esempio
           displayName: 'deploy, publish, docker'
-          href: 'https://github.com/dotnet/dotnet-docker/blob/master/samples/aspnetapp/README.md'
+          href: 'https://github.com/dotnet/dotnet-docker/blob/main/samples/aspnetapp/README.md'
     - name: Configurazione di proxy e bilanciamento del carico
       displayName: 'deploy, publish'
       uid: host-and-deploy/proxy-load-balancer
@@ -1418,4 +1420,4 @@
 - name: Informazioni di riferimento sulle API
   href: /dotnet/api/?view=aspnetcore-2.2
 - name: Collaborazione
-  href: 'https://github.com/dotnet/AspNetCore.Docs/blob/master/CONTRIBUTING.md'
+  href: 'https://github.com/dotnet/AspNetCore.Docs/blob/main/CONTRIBUTING.md'
