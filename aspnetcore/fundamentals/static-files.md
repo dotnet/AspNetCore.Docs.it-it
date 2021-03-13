@@ -16,12 +16,12 @@ no-loc:
 - Razor
 - SignalR
 uid: fundamentals/static-files
-ms.openlocfilehash: 807cffb2f9b3bf89ff06c62e76d51d4040b8d91a
-ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
+ms.openlocfilehash: fb5ef59a74a768a1c202b49872b8a10327c96ff8
+ms.sourcegitcommit: 07e7ee573fe4e12be93249a385db745d714ff6ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102589010"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103413457"
 ---
 # <a name="static-files-in-aspnet-core"></a>File statici in ASP.NET Core
 
@@ -151,7 +151,7 @@ Il codice precedente consente l'esplorazione directory della cartella *wwwroot/i
 
 ## <a name="serve-default-documents"></a>Gestire i documenti predefiniti
 
-L'impostazione di una pagina predefinita fornisce ai visitatori un punto di partenza per un sito. Per gestire una pagina predefinita da `wwwroot` senza un URI completo, chiamare il <xref:Owin.DefaultFilesExtensions.UseDefaultFiles%2A> Metodo:
+L'impostazione di una pagina predefinita fornisce ai visitatori un punto di partenza per un sito. Per gestire una pagina predefinita da `wwwroot` senza un URI completo, chiamare il <xref:Microsoft.AspNetCore.Builder.DefaultFilesExtensions.UseDefaultFiles%2A> Metodo:
 
 [!code-csharp[](~/fundamentals/static-files/samples/3.x/StaticFilesSample/StartupEmpty.cs?name=snippet_Configure&highlight=15)]
 

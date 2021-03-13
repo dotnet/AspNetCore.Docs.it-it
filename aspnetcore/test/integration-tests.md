@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: test/integration-tests
-ms.openlocfilehash: 47d204a0cde258fda8c9c9b78043046e719d8f18
-ms.sourcegitcommit: 54fe1ae5e7d068e27376d562183ef9ddc7afc432
+ms.openlocfilehash: 50c3f04c4add9d3dec032b5f2e95ce503466693e
+ms.sourcegitcommit: 07e7ee573fe4e12be93249a385db745d714ff6ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102588035"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103413379"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Test di integrazione in ASP.NET Core
 
@@ -347,7 +347,7 @@ Il `WebApplicationFactory` Costruttore deduce il percorso [radice del contenuto]
 
 ## <a name="disable-shadow-copying"></a>Disabilitare la copia shadow
 
-La copia shadow comporta l'esecuzione dei test in una directory diversa rispetto alla directory di output. Per il corretto funzionamento dei test, è necessario disabilitare la copia shadow. L' [app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/test/integration-tests/samples) USA xUnit e Disabilita la copia shadow per xUnit includendo un *xunit.runner.jsnel* file con l'impostazione di configurazione corretta. Per altre informazioni, vedere [configurazione di xUnit con JSON](https://xunit.github.io/docs/configuring-with-json.html).
+La copia shadow comporta l'esecuzione dei test in una directory diversa rispetto alla directory di output. Per il corretto funzionamento dei test, è necessario disabilitare la copia shadow. L' [app di esempio](https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/test/integration-tests/samples) USA xUnit e Disabilita la copia shadow per xUnit includendo un *xunit.runner.jsnel* file con l'impostazione di configurazione corretta. Per ulteriori informazioni, vedere la [documentazione di xUnit](https://xunit.net/docs/configuration-files).
 
 Aggiungere il *xunit.runner.jsnel* file alla radice del progetto di test con il contenuto seguente:
 

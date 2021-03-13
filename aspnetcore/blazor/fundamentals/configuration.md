@@ -19,12 +19,12 @@ no-loc:
 - Razor
 - SignalR
 uid: blazor/fundamentals/configuration
-ms.openlocfilehash: 48d78f40e9254bac182ffbc534550157664bcc5b
-ms.sourcegitcommit: 04ad9cd26fcaa8bd11e261d3661f375f5f343cdc
+ms.openlocfilehash: fd2a9784e92b132d679b2065b37cb37b7dd89cde
+ms.sourcegitcommit: 07e7ee573fe4e12be93249a385db745d714ff6ae
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100106934"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103413405"
 ---
 # <a name="aspnet-core-blazor-configuration"></a>Configurazione di ASP.NET Core Blazor
 
@@ -199,7 +199,15 @@ builder.Services.AddOidcAuthentication(options =>
 
 ## <a name="logging-configuration"></a>Configurazione della registrazione
 
-Aggiungere un riferimento al pacchetto per [`Microsoft.Extensions.Logging.Configuration`](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Configuration) al file di progetto dell'app. Nel file di impostazioni dell'app fornire la configurazione di registrazione. La configurazione di registrazione viene caricata in `Program.Main` .
+Aggiungere un riferimento al pacchetto per [`Microsoft.Extensions.Logging.Configuration`](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Configuration) al file di progetto dell'app:
+
+```xml
+<PackageReference Include="Microsoft.Extensions.Logging.Configuration" Version="{VERION}" />
+```
+
+Nell'esempio precedente, il `{VERSION}` segnaposto è la versione del pacchetto. Le versioni del pacchetto si trovano in [NuGet.org](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Configuration).
+
+Nel file di impostazioni dell'app fornire la configurazione di registrazione. La configurazione di registrazione viene caricata in `Program.Main` .
 
 `wwwroot/appsettings.json`:
 
